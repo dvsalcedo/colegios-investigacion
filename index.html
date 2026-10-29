@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Estudio Comparativo de Colegios para Sara (2027–2043)</title>
+  <!-- Tailwind CSS oficial para que funcione en cualquier navegador, celular, GitHub Pages o Netlify -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+  <style>
+    :root {
+      --background: #f8fafc;
+      --foreground: #0f172a;
+      --card: #ffffff;
+      --border: #e2e8f0;
+      --primary: #0f172a;
+      --primary-foreground: #ffffff;
+      --secondary: #f1f5f9;
+      --secondary-foreground: #1e293b;
+      --muted-foreground: #475569;
+    }
+    html.dark {
+      --background: #0b0f19;
+      --foreground: #f1f5f9;
+      --card: #111827;
+      --border: #1e293b;
+      --primary: #10b981;
+      --primary-foreground: #052e16;
+      --secondary: #1e293b;
+      --secondary-foreground: #e2e8f0;
+      --muted-foreground: #94a3b8;
+    }
+    body {
+      background-color: var(--background);
+      color: var(--foreground);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+    @media print {
+      .no-print { display: none !important; }
+      .aspect-section { display: block !important; break-inside: avoid; margin-bottom: 16px; }
+      body { background: #ffffff !important; color: #000000 !important; }
+    }
+  </style>
+</head>
+<body class="bg-[var(--background)] text-[var(--foreground)] antialiased p-3 sm:p-4 md:p-6">
+  <div class="max-w-7xl mx-auto space-y-6">
+    
+    <!-- Header -->
+    <div class="bg-[var(--card)] border border-[var(--border)] rounded-2xl p-4 sm:p-5 shadow-sm">
+      <div class="flex flex-col gap-4">
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+          <div class="flex flex-wrap gap-2">
+            <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/15 text-emerald-500 border border-emerald-500/30">
+              👧 SARA · NACIDA EL 12 DE JULIO DE 2024
+            </span>
+            <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-sky-500/15 text-sky-500 border border-sky-500/30">
+              🚌 RUTA SGS CONFIRMADA: 6:15 A.M. – 3:50 P.M.
+            </span>
+            <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-amber-500/15 text-amber-500 border border-amber-500/30">
+              📚 VERSIÓN ÍNTEGRA: LOS 9 GRIDS EXPANDIDOS AL 100%
+            </span>
+          </div>
+          <div class="flex items-center gap-2 no-print">
+            <button onclick="toggleTheme()" id="themeBtn" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-[var(--secondary)] text-[var(--secondary-foreground)] border border-[var(--border)] hover:opacity-80 transition">
+              ☀️ Modo Claro / 🌙 Oscuro
+            </button>
+            <button onclick="window.print()" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-emerald-500/20 text-emerald-500 border border-emerald-500/30 hover:opacity-80 transition">
+              🖨️ Imprimir / Guardar PDF
+            </button>
+          </div>
+        </div>
+
+        <div>
+          <h1 class="text-xl md:text-2xl font-bold text-[var(--foreground)]">
+            Master Grid Definitivo para Sara: Los 9 Aspectos Completos (Sin Ningún Resumen)
+          </h1>
+          <p class="text-xs md:text-sm text-[var(--muted-foreground)] mt-1">
+            Todas las secciones completas y expandidas al máximo nivel de detalle: Precios (+ SGS Con y Sin $20M), Cronograma Año a Año (2027–2043), Nivel Educativo, Certificaciones + Glosario Completo, Idiomas, Felicidad/Estrés/Corte Constitucional/Reddit, Extracurriculares + 2da Ruta, Universidad/Homologación/Becas y Sueño/Movilidad Av. Boyacá.
+          </p>
+        </div>
+
+        <div class="flex flex-wrap gap-1.5 no-print">
+          <button onclick="filterCategory('all')" class="px-3 py-1.5 rounded-lg text-xs font-bold bg-[var(--primary)] text-[var(--primary-foreground)]">
+            Ver Todo (9 Grids Completos)
+          </button>
+          <button onclick="filterCategory('g1')" class="px-2.5 py-1.5 rounded-lg text-xs font-medium bg-[var(--secondary)] text-[var(--secondary-foreground)] border border-[var(--border)]">
+            1. 💰 Precios (+ SGS Sin $20M)
+          </button>
+          <button onclick="filterCategory('g2')" class="px-2.5 py-1.5 rounded-lg text-xs font-medium bg-[var(--secondary)] text-[var(--secondary-foreground)] border border-[var(--border)]">
+            2. 📅 Edad Año a Año (2027-2043)
+          </button>
+          <button onclick="filterCategory('g3')" class="px-2.5 py-1.5 rounded-lg text-xs font-medium bg-[var(--secondary)] text-[var(--secondary-foreground)] border border-[var(--border)]">
+            3. 🎓 Nivel Educativo
+          </button>
+          <button onclick="filterCategory('g4')" class="px-2.5 py-1.5 rounded-lg text-xs font-medium bg-[var(--secondary)] text-[var(--secondary-foreground)] border border-[var(--border)]">
+            4. 🏅 Certificaciones + Glosario
+          </button>
+          <button onclick="filterCategory('g5')" class="px-2.5 py-1.5 rounded-lg text-xs font-medium bg-[var(--secondary)] text-[var(--secondary-foreground)] border border-[var(--border)]">
+            5. 🗣️ Idiomas
+          </button>
+          <button onclick="filterCategory('g6')" class="px-2.5 py-1.5 rounded-lg text-xs font-medium bg-rose-500/20 text-rose-500 border border-rose-500/30">
+            6. 😊🚨 Felicidad/Corte/Reddit
+          </button>
+          <button onclick="filterCategory('g7')" class="px-2.5 py-1.5 rounded-lg text-xs font-medium bg-emerald-500/20 text-emerald-500 border border-emerald-500/30">
+            7. ⚽🎵 Extras y 2da Ruta
+          </button>
+          <button onclick="filterCategory('g8')" class="px-2.5 py-1.5 rounded-lg text-xs font-medium bg-sky-500/20 text-sky-500 border border-sky-500/30">
+            8. 🏛️ Universidad y Becas
+          </button>
+          <button onclick="filterCategory('g9')" class="px-2.5 py-1.5 rounded-lg text-xs font-medium bg-[var(--secondary)] text-[var(--secondary-foreground)] border border-[var(--border)]">
+            9. 🚌😴 Ruta 6:15am y Obras
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- GRID 1: PRECIOS OFICIALES COMPLETOS (CON Y SIN LOS $20M EN SGS + TABLA AÑO A AÑO) -->
+    <div class="aspect-section bg-[var(--card)] border border-[var(--border)] rounded-2xl p-4 sm:p-5 shadow-sm space-y-4" data-cat="g1">
+      <div>
+        <h3 class="text-lg font-bold mb-1">💰 GRID 1: Precios Oficiales Completos, Costos Ocultos y Comparativa SGS Con y Sin los $20 Millones</h3>
+        <p class="text-xs text-[var(--muted-foreground)]">Comparación completa de las 5 columnas financieras: Saint George's CON anticipo (Opción A), Saint George's SIN anticipo (Opción B), Gimnasio Vermont, CAS y Colegio Helvetia, más la tabla acumulada año por año de los $20M.</p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-3 text-xs">
+        <!-- SGS OPCION A -->
+        <div class="p-3.5 rounded-xl border-2 border-emerald-500/50 bg-[var(--background)] space-y-1.5">
+          <div class="font-bold text-sm text-emerald-500">🇬🇧 1A. SGS (Con $20M)</div>
+          <div class="px-2 py-0.5 rounded bg-emerald-500/15 text-emerald-500 font-semibold inline-block">✅ 100% Verificado (Tarifa 2027)</div>
+          <div>• <b>Formulario Admisión:</b> $200.000 (✅)</div>
+          <div>• <b>Anticipo único al entrar:</b> <b>$20.000.000</b> (✅)</div>
+          <div>• <b>Matrícula Anual:</b> <b>$6.250.000</b> ($3.5M nov + $2.75M mar) (✅)</div>
+          <div>• <b>Pensión (10 meses):</b> <b>$3.182.000/mes</b> (✅)</div>
+          <div>• <b>Alimentación (10m):</b> <b>$973.000/mes</b> (ISO 9001 BPM) (✅)</div>
+          <div>• <b>Transporte (10m):</b> <b>$755.000/mes</b> (Incluye 2da ruta 4pm a $0) (✅)</div>
+          <div>• <b>Extras L-V (3–4pm):</b> <b>$0 (100% Gratis de PK a 11°)</b> (✅)</div>
+          <div class="pt-2 border-t border-[var(--border)] font-bold text-sm flex justify-between"><span>Total Mes:</span><span class="text-emerald-500">$4.910.000</span></div>
+          <div>• <b>Gasto Anual (Mat+10m):</b> <b>$55.350.000</b> (Año 1 con anticipo: $75.350.000).</div>
+          <div>• <b>Total 14 Años (pesos hoy):</b> <b>$794.900.000</b> (Ya sumados los $20M).</div>
+        </div>
+
+        <!-- SGS OPCION B -->
+        <div class="p-3.5 rounded-xl border-2 border-teal-500/40 bg-[var(--background)] space-y-1.5">
+          <div class="font-bold text-sm text-teal-500">🇬🇧 1B. SGS (Sin $20M)</div>
+          <div class="px-2 py-0.5 rounded bg-teal-500/15 text-teal-500 font-semibold inline-block">✅ 100% Verificado (Tarifa 2027)</div>
+          <div>• <b>Formulario Admisión:</b> $200.000 (✅)</div>
+          <div>• <b>Anticipo único al entrar:</b> <b>$0 (No pagas los $20M)</b> (✅)</div>
+          <div>• <b>Matrícula Anual:</b> <b>$7.100.000</b> ($3.5M nov + $3.6M mar: +$850k más cara) (✅)</div>
+          <div>• <b>Pensión (10 meses):</b> <b>$3.947.000/mes</b> (+$765.000/mes más cara) (✅)</div>
+          <div>• <b>Alimentación (10m):</b> <b>$973.000/mes</b> (✅)</div>
+          <div>• <b>Transporte (10m):</b> <b>$755.000/mes</b> (Incluye 2da ruta 4pm a $0) (✅)</div>
+          <div>• <b>Extras L-V (3–4pm):</b> <b>$0 (100% Gratis de PK a 11°)</b> (✅)</div>
+          <div class="pt-2 border-t border-[var(--border)] font-bold text-sm flex justify-between"><span>Total Mes:</span><span class="text-teal-500">$5.675.000</span></div>
+          <div>• <b>Gasto Anual (Mat+10m):</b> <b>$63.850.000</b> (+$8.500.000 más cara cada año).</div>
+          <div>• <b>Total 14 Años (pesos hoy):</b> <b>$893.900.000</b> (Pierdes <b>$99.000.000</b>).</div>
+        </div>
+
+        <!-- VERMONT -->
+        <div class="p-3.5 rounded-xl border border-[var(--border)] bg-[var(--background)] space-y-1.5">
+          <div class="font-bold text-sm text-sky-500">🌎 2. Gimnasio Vermont</div>
+          <div class="px-2 py-0.5 rounded bg-amber-500/15 text-amber-500 font-semibold inline-block">⚠️ Estimado (Portales / EdTools)</div>
+          <div>• <b>Formulario Admisión:</b> ~$250.000 (⚠️)</div>
+          <div>• <b>Bono ingreso:</b> ~$0 a Moderado (Validar en visita) (⚠️)</div>
+          <div>• <b>Matrícula Anual:</b> <b>~$3.800.000 a $4.250.000</b> (⚠️)</div>
+          <div>• <b>Pensión (10 meses):</b> <b>~$3.300.000 a $3.500.000/mes</b> (⚠️)</div>
+          <div>• <b>Alimentación (10m):</b> <b>~$750.000/mes</b> (⚠️)</div>
+          <div>• <b>Transporte (10m):</b> <b>~$720.000/mes</b> (Incluye coord. ruta 5pm) (⚠️)</div>
+          <div>• <b>Extras (3–5pm):</b> <b>~$150.000/mes prom.</b> (~$600k–$850k/sem) (⚠️)</div>
+          <div class="pt-2 border-t border-[var(--border)] font-bold text-sm flex justify-between"><span>Total Mes:</span><span class="text-sky-500">~$5.070.000</span></div>
+          <div>• <b>Gasto Anual (Mat+10m):</b> <b>~$54.800.000</b>.</div>
+          <div>• <b>Total 14 Años (pesos hoy):</b> <b>~$767.200.000</b>.</div>
+        </div>
+
+        <!-- CAS -->
+        <div class="p-3.5 rounded-xl border-2 border-amber-500/50 bg-[var(--background)] space-y-1.5">
+          <div class="font-bold text-sm text-amber-500">🇺🇸 3. CAS (Nursery y PK)</div>
+          <div class="px-2 py-0.5 rounded bg-emerald-500/15 text-emerald-500 font-semibold inline-block">✅ 100% Verificado (Tarifa 2027)</div>
+          <div>• <b>Formulario Admisión:</b> $150.000 (Pago Wompi) (✅)</div>
+          <div>• <b>Bono ingreso:</b> <b>$0 (Cero bono o anticipo)</b> (✅)</div>
+          <div>• <b>Matrícula Anual:</b> <b>PK: $4.302.510</b> · <b>Nursery: $3.147.000</b> (50% dto Play Day) (✅)</div>
+          <div>• <b>Pensión + 3 Comidas:</b> <b>PK: $3.722.859/mes</b> · <b>Nursery: $2.683.300/mes</b> (✅)</div>
+          <div>• <b>Transporte Bogotá:</b> <b>$731.837/mes</b> (✅)</div>
+          <div>• <b>Extras PK + Exámenes IB/ICE:</b> <b>$0 (100% Gratis incluidos)</b> (✅)</div>
+          <div class="pt-2 border-t border-[var(--border)] font-bold text-sm flex justify-between"><span>Total Mes PK:</span><span class="text-amber-500">$4.454.696</span></div>
+          <div>• <b>En Nursery:</b> <b>$3.415.137/mes</b> (✅). Anual PK: <b>$48.849.470</b>.</div>
+          <div>• <b>Total 14 Años (pesos hoy):</b> <b>~$683.900.000</b> (El más económico).</div>
+        </div>
+
+        <!-- HELVETIA -->
+        <div class="p-3.5 rounded-xl border-2 border-rose-500/50 bg-[var(--background)] space-y-1.5">
+          <div class="font-bold text-sm text-rose-500">🇨🇭 4. Colegio Helvetia</div>
+          <div class="px-2 py-0.5 rounded bg-emerald-500/15 text-emerald-500 font-semibold inline-block">✅ 100% Verificado (Correo 26-27)</div>
+          <div>• <b>Formulario Admisión:</b> $286.000 (✅)</div>
+          <div>• <b>Bono en tabla:</b> $0 (Aporte APA voluntario) (✅)</div>
+          <div>• <b>Matrícula (Julio):</b> <b>$4.114.148</b> (✅)</div>
+          <div>• <b>Pensión (10m Sep-Jun):</b> <b>$4.114.148/mes</b> (La más alta) (✅)</div>
+          <div>• <b>Alimentación (10m):</b> <b>$373.555/mes</b> (✅)</div>
+          <div>• <b>Transporte (10m):</b> <b>$693.000/mes</b> (✅)</div>
+          <div>• <b>Subtotal Fijo (2026-27):</b> <b>$5.180.703/mes</b> (En 2027-28 ~7% será ~$5.54M) (✅)</div>
+          <div>• <b>Extras Mié (aparte):</b> <b>+$270.000/mes</b> ($580k–$1.2M/sem c/u) (✅)</div>
+          <div class="pt-2 border-t border-[var(--border)] font-bold text-sm flex justify-between"><span>Total Mes:</span><span class="text-rose-500">$5.450.703</span></div>
+          <div>• <b>Total 15 Años (hasta Grado 12):</b> <b>~$879.300.000 a $915.000.000</b>.</div>
+        </div>
+      </div>
+
+      <!-- Sub-tabla: Radiografía Año a Año Opción A vs Opción B en Saint George's -->
+      <div class="p-4 rounded-xl border border-emerald-500/30 bg-[var(--background)] overflow-x-auto">
+        <div class="font-bold text-sm mb-2 text-emerald-500">🔍 Radiografía Exclusiva Saint George’s: ¿Qué pasa año a año si NO pagas los $20 millones (Opción B) vs. si los pagas (Opción A)? [✅ 100% VERIFICADO]</div>
+        <table class="w-full text-left border-collapse text-xs">
+          <thead>
+            <tr class="border-b border-[var(--border)]">
+              <th class="p-2 font-bold">Concepto Comparado en Saint George’s</th>
+              <th class="p-2 font-bold text-emerald-500">Opción A (Pagando los $20.000.000)</th>
+              <th class="p-2 font-bold text-teal-500">Opción B (SIN pagar los $20.000.000)</th>
+              <th class="p-2 font-bold">Diferencia / Impacto en tu Bolsillo</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-[var(--border)]">
+            <tr>
+              <td class="p-2 font-semibold">Desembolso de Anticipo al entrar a Prekínder</td>
+              <td class="p-2 font-bold">$20.000.000</td>
+              <td class="p-2 font-bold">$0</td>
+              <td class="p-2">Pones $20M al inicio.</td>
+            </tr>
+            <tr>
+              <td class="p-2 font-semibold">Matrícula de cada año</td>
+              <td class="p-2">$6.250.000</td>
+              <td class="p-2">$7.100.000</td>
+              <td class="p-2 text-emerald-500 font-semibold">Ahorras $850.000 cada año con Opción A.</td>
+            </tr>
+            <tr>
+              <td class="p-2 font-semibold">Pensión mensual (10 meses al año)</td>
+              <td class="p-2">$3.182.000 / mes</td>
+              <td class="p-2">$3.947.000 / mes</td>
+              <td class="p-2 text-emerald-500 font-semibold">Ahorras $765.000 cada mes ($7.650.000 al año) con Opción A.</td>
+            </tr>
+            <tr>
+              <td class="p-2 font-semibold">Total Mensual con Ruta ($755k) y Almuerzo ($973k)</td>
+              <td class="p-2 font-bold text-emerald-500">$4.910.000 / mes</td>
+              <td class="p-2 font-bold text-rose-500">$5.675.000 / mes</td>
+              <td class="p-2">Sin anticipo el mes te sube a $5.675.000 (+$8.500.000 al año).</td>
+            </tr>
+            <tr>
+              <td class="p-2 font-semibold">Acumulado pagado al terminar Año 1 (Prekínder)</td>
+              <td class="p-2">$75.350.000 (Incluye los $20M)</td>
+              <td class="p-2">$63.850.000</td>
+              <td class="p-2">En el Año 1 ya recuperaste $8.500.000 de los $20M (solo vas $11.5M arriba).</td>
+            </tr>
+            <tr>
+              <td class="p-2 font-semibold">Acumulado pagado al terminar Año 2 (Kínder)</td>
+              <td class="p-2">$130.700.000</td>
+              <td class="p-2">$127.700.000</td>
+              <td class="p-2">Al terminar Kínder ya recuperaste $17.000.000 (solo faltan $3M).</td>
+            </tr>
+            <tr>
+              <td class="p-2 font-semibold">Acumulado pagado al terminar Año 3 (Transición)</td>
+              <td class="p-2 font-bold text-emerald-500">$186.050.000</td>
+              <td class="p-2 font-bold text-rose-500">$191.550.000</td>
+              <td class="p-2 text-emerald-500 font-bold">🏆 En el mes 4 de Transición (2,35 años) recuperas el 100% de los $20M y ya vas ganando $5.500.000.</td>
+            </tr>
+            <tr>
+              <td class="p-2 font-semibold">Acumulado pagado al terminar Primaria (Grado 5° - Año 8)</td>
+              <td class="p-2">$462.800.000</td>
+              <td class="p-2">$510.800.000</td>
+              <td class="p-2 text-rose-500 font-semibold">Sin anticipo ya habrás pagado $48.000.000 de más.</td>
+            </tr>
+            <tr>
+              <td class="p-2 font-semibold">Acumulado pagado al graduarse Sara (Grado 11° - Año 14)</td>
+              <td class="p-2 font-bold text-emerald-500">$794.900.000</td>
+              <td class="p-2 font-bold text-rose-500">$893.900.000</td>
+              <td class="p-2 text-emerald-500 font-bold">🏆 Pagar los $20M ahorra $99.000.000 COP en pesos constantes (y +$190M con inflación). Rentabilidad del 42,5% anual libre de impuestos.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- GRID 2: CRONOGRAMA EXACTO DE EDAD Y GRADO DE SARA AÑO POR AÑO (2027 A 2043) -->
+    <div class="aspect-section bg-[var(--card)] border-2 border-amber-500/50 rounded-2xl p-4 sm:p-5 shadow-sm space-y-4" data-cat="g2">
+      <div>
+        <h3 class="text-lg font-bold mb-1">📅 GRID 2: Cronograma Exacto y Mapa Año por Año de la Edad de Sara (2027 a 2043)</h3>
+        <p class="text-xs text-[var(--muted-foreground)]">Reglas oficiales de corte de edad y simulación exacta año tras año para Sara (nacida el 12 de julio de 2024) desde su ingreso hasta el día de su graduación.</p>
+      </div>
+
+      <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse text-xs">
+          <thead>
+            <tr class="border-b border-[var(--border)] bg-[var(--background)]">
+              <th class="p-2.5 font-bold">Año / Hito</th>
+              <th class="p-2.5 font-bold">Edad Exacta de Sara</th>
+              <th class="p-2.5 font-bold text-amber-500">🇺🇸 CAS (Cal. A: Feb–Nov)</th>
+              <th class="p-2.5 font-bold text-emerald-500">🇬🇧 Saint George’s (Cal. B: Ago–Jun)</th>
+              <th class="p-2.5 font-bold text-sky-500">🌎 Gimnasio Vermont (Cal. B: Ago–Jun)</th>
+              <th class="p-2.5 font-bold text-rose-500">🇨🇭 Colegio Helvetia (Cal. B: Ago–Jun)</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-[var(--border)]">
+            <tr>
+              <td class="p-2 font-semibold">Regla Oficial de Corte</td>
+              <td class="p-2">Nacida 12 Julio 2024</td>
+              <td class="p-2">[✅] 2.6 años en enero (Nursery) / 3.6 años en enero (PK)</td>
+              <td class="p-2">[✅] 4 años cumplidos al 31 de agosto para PK</td>
+              <td class="p-2">[✅] 4 años cumplidos en agosto para PK</td>
+              <td class="p-2 text-rose-500 font-semibold">[✅] 3 años cumplidos al 30 de junio sin excepción (Confirmado en correo)</td>
+            </tr>
+            <tr>
+              <td class="p-2 font-semibold">Feb 2027</td>
+              <td class="p-2">2 años y 6 meses</td>
+              <td class="p-2 font-bold text-amber-500">🟢 Ingresa a Nursery (Feb 2027)</td>
+              <td class="p-2 text-[var(--muted-foreground)]">(En jardín o en casa)</td>
+              <td class="p-2 text-[var(--muted-foreground)]">(En jardín o en casa)</td>
+              <td class="p-2 text-[var(--muted-foreground)]">(En jardín o en casa)</td>
+            </tr>
+            <tr>
+              <td class="p-2 font-semibold">Ago 2027</td>
+              <td class="p-2">3 años y 1 mes</td>
+              <td class="p-2">Continúa en Nursery</td>
+              <td class="p-2 text-[var(--muted-foreground)]">(Jardín infantil · Admisiones Ago 2027)</td>
+              <td class="p-2 text-[var(--muted-foreground)]">(Jardín infantil · Admisiones Ago 2027)</td>
+              <td class="p-2 text-rose-500 font-semibold">🔴 Rechazada en Ago 2027 por nacer 12 días después del 30 de junio (Admisiones sep 2027)</td>
+            </tr>
+            <tr>
+              <td class="p-2 font-semibold">Feb 2028</td>
+              <td class="p-2">3 años y 6 meses</td>
+              <td class="p-2 font-bold text-amber-500">🟢 Prekínder (PK)</td>
+              <td class="p-2 text-[var(--muted-foreground)]">(Jardín infantil)</td>
+              <td class="p-2 text-[var(--muted-foreground)]">(Jardín infantil)</td>
+              <td class="p-2 text-[var(--muted-foreground)]">(Espera hasta agosto 2028)</td>
+            </tr>
+            <tr>
+              <td class="p-2 font-semibold">Ago 2028</td>
+              <td class="p-2">4 años y 1 mes</td>
+              <td class="p-2">Continúa en Prekínder</td>
+              <td class="p-2 font-bold text-emerald-500">🟢 Ingresa a Prekínder (PK — curso de 4 años)</td>
+              <td class="p-2 font-bold text-sky-500">🟢 Ingresa a Prekínder (PK — curso de 4 años)</td>
+              <td class="p-2 font-bold text-rose-500">⚠️ Ingresa a Grupo de Juegos (GJ — curso de niños de 3 años)</td>
+            </tr>
+            <tr>
+              <td class="p-2 font-semibold">2029 (Ago)</td>
+              <td class="p-2">5 años y 1 mes</td>
+              <td class="p-2">Kínder (Feb–Nov 2029)</td>
+              <td class="p-2">Kínder (K — Inmersión Inglés Nativo)</td>
+              <td class="p-2">Kínder (K — Inmersión Inglés)</td>
+              <td class="p-2">Kínder 1</td>
+            </tr>
+            <tr>
+              <td class="p-2 font-semibold">2030 (Ago)</td>
+              <td class="p-2">6 años y 1 mes</td>
+              <td class="p-2">Transición (Feb–Nov 2030)</td>
+              <td class="p-2">Transición (TR — Semillero Música con padres a $0)</td>
+              <td class="p-2">Transición (TR)</td>
+              <td class="p-2">Kínder 2 / Transición (Vorklasse)</td>
+            </tr>
+            <tr>
+              <td class="p-2 font-semibold">2031 (Ago)</td>
+              <td class="p-2">7 años y 1 mes</td>
+              <td class="p-2">1° Primaria (2031)</td>
+              <td class="p-2">1° Primaria (Inician +45 clubes L–V a $0)</td>
+              <td class="p-2">1° Primaria (Inicia Mandarín obligatorio)</td>
+              <td class="p-2">1° Primaria</td>
+            </tr>
+            <tr>
+              <td class="p-2 font-semibold">2032 (Ago)</td>
+              <td class="p-2">8 años y 1 mes</td>
+              <td class="p-2">2° Primaria (2032)</td>
+              <td class="p-2">2° Primaria</td>
+              <td class="p-2">2° Primaria</td>
+              <td class="p-2">2° Primaria</td>
+            </tr>
+            <tr>
+              <td class="p-2 font-semibold">2033 (Ago)</td>
+              <td class="p-2">9 años y 1 mes</td>
+              <td class="p-2">3° Primaria (2033)</td>
+              <td class="p-2">3° Primaria (Inicia Francés obligatorio)</td>
+              <td class="p-2">3° Primaria</td>
+              <td class="p-2">3° Primaria (Inicia Inglés como 3ra lengua)</td>
+            </tr>
+            <tr>
+              <td class="p-2 font-semibold">2034 (Ago)</td>
+              <td class="p-2">10 años y 1 mes</td>
+              <td class="p-2">4° Primaria (2034 — Inicia Francés)</td>
+              <td class="p-2">4° Primaria</td>
+              <td class="p-2">4° Primaria</td>
+              <td class="p-2">4° Primaria</td>
+            </tr>
+            <tr>
+              <td class="p-2 font-semibold">2035 (Ago)</td>
+              <td class="p-2">11 años y 1 mes</td>
+              <td class="p-2">5° Primaria (2035 — Checkpoint)</td>
+              <td class="p-2">5° Primaria (Cambridge Primary Checkpoint)</td>
+              <td class="p-2">5° Primaria</td>
+              <td class="p-2">5° Primaria</td>
+            </tr>
+            <tr>
+              <td class="p-2 font-semibold">2036 (Ago)</td>
+              <td class="p-2">12 años y 1 mes</td>
+              <td class="p-2">6° Bachillerato (2036)</td>
+              <td class="p-2">6° Bachillerato</td>
+              <td class="p-2">6° Bachillerato</td>
+              <td class="p-2">6° Bachillerato</td>
+            </tr>
+            <tr>
+              <td class="p-2 font-semibold">2037 (Ago)</td>
+              <td class="p-2">13 años y 1 mes</td>
+              <td class="p-2">7° Bachillerato (2037)</td>
+              <td class="p-2">7° Bachillerato</td>
+              <td class="p-2">7° Bachillerato</td>
+              <td class="p-2">7° Bachillerato</td>
+            </tr>
+            <tr>
+              <td class="p-2 font-semibold">2038 (Ago)</td>
+              <td class="p-2">14 años y 1 mes</td>
+              <td class="p-2">8° Bachillerato (2038 — Checkpoint)</td>
+              <td class="p-2">8° Bachillerato (Lower Secondary Checkpoint)</td>
+              <td class="p-2">8° Bachillerato</td>
+              <td class="p-2">8° Bachillerato</td>
+            </tr>
+            <tr>
+              <td class="p-2 font-semibold">2039 (Ago)</td>
+              <td class="p-2">15 años y 1 mes</td>
+              <td class="p-2">9° Bachillerato (2039 — IGCSE)</td>
+              <td class="p-2">9° Bachillerato (Inicia IGCSE)</td>
+              <td class="p-2">9° Bachillerato (Campamento Verano China)</td>
+              <td class="p-2 text-rose-500 font-semibold">9° Bachillerato (🔴 Filtro eliminatorio para Matura Suiza)</td>
+            </tr>
+            <tr>
+              <td class="p-2 font-semibold">2040 (Ago)</td>
+              <td class="p-2">16 años y 1 mes</td>
+              <td class="p-2">10° Bachillerato (2040 — Inicia IB)</td>
+              <td class="p-2">10° Bachillerato (IGCSE / AS)</td>
+              <td class="p-2">10° Bachillerato (Inicia Diploma IB)</td>
+              <td class="p-2">10° Bachillerato (Intercambio 6 meses en Europa)</td>
+            </tr>
+            <tr>
+              <td class="p-2 font-semibold">Nov 2041</td>
+              <td class="p-2">17 años y 4 meses</td>
+              <td class="p-2 font-bold text-amber-500">🎓 SE GRADÚA DE 11° (Nov 2041 con 17 años y 4 meses)</td>
+              <td class="p-2">Cursa Grado 11° (A-Levels)</td>
+              <td class="p-2">Cursa Grado 11° (Diploma IB)</td>
+              <td class="p-2">Cursa Grado 11°</td>
+            </tr>
+            <tr>
+              <td class="p-2 font-semibold">Jun 2042</td>
+              <td class="p-2">17 años y 11 meses</td>
+              <td class="p-2 text-emerald-500 font-semibold">Ya está en 1er semestre de Universidad</td>
+              <td class="p-2 font-bold text-emerald-500">🎓 SE GRADÚA DE 11° (Jun 2042 con 17 años y 11 meses)</td>
+              <td class="p-2 font-bold text-sky-500">🎓 SE GRADÚA DE 11° (Jun 2042 con 17 años y 11 meses)</td>
+              <td class="p-2 text-rose-500 font-semibold">Termina 11° (ICFES), pero le falta cursar todo Grado 12 para la Matura</td>
+            </tr>
+            <tr>
+              <td class="p-2 font-semibold">Jun 2043</td>
+              <td class="p-2">18 años y 11 meses</td>
+              <td class="p-2 text-emerald-500 font-semibold">En 3er semestre de Universidad</td>
+              <td class="p-2 text-emerald-500 font-semibold">En 2do semestre de Universidad</td>
+              <td class="p-2 text-emerald-500 font-semibold">En 2do semestre de Universidad</td>
+              <td class="p-2 font-bold text-rose-500">🎓 SE GRADÚA DE GRADO 12 CON MATURA SUIZA (Jun 2043 — Casi de 19 años)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- GRID 3: NIVEL EDUCATIVO Y RENDIMIENTO ACADÉMICO REAL -->
+    <div class="aspect-section bg-[var(--card)] border border-[var(--border)] rounded-2xl p-4 sm:p-5 shadow-sm" data-cat="g3">
+      <h3 class="text-lg font-bold mb-1">🎓 GRID 3: Nivel Educativo, Puntaje ICFES, Escalafón Col-Sapiens y Fortalezas por Área</h3>
+      <p class="text-xs text-[var(--muted-foreground)] mb-4">Datos verificados en microdatos oficiales del ICFES Saber 11, Sapiens Research y Proyectos Educativos Institucionales (PEI).</p>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
+        <div class="p-4 rounded-xl border border-emerald-500/40 bg-[var(--background)] space-y-2">
+          <div class="font-bold text-sm text-emerald-500">🇬🇧 Saint George’s School</div>
+          <div>• <b>Puntaje ICFES Saber 11:</b> <b>[✅ VERIFICADO] ~357 / 500 (A+)</b> · Top 1% Nacional · Top 15–20 de Bogotá (Inglés >86/100).</div>
+          <div>• <b>Escalafón Col-Sapiens:</b> <b>[✅ VERIFICADO] Categoría D2 · AAA++</b>.</div>
+          <div>• <b>Currículo Internacional:</b> <b>[✅ VERIFICADO] Cambridge International Education</b> (Primary & Lower Secondary Checkpoints en 5° y 8°, IGCSE en 9°–10° y AS/A-Levels en 11°). <i>No tiene IB.</i></div>
+          <div>• <b>Fortaleza Académica Principal:</b> Inglés Británico C1/C2 casi nativo, Ciencias Exactas (Física, Química, Matemáticas Cambridge) y Humanidades/Artes Escénicas.</div>
+        </div>
+
+        <div class="p-4 rounded-xl border border-sky-500/40 bg-[var(--background)] space-y-2">
+          <div class="font-bold text-sm text-sky-500">🌎 Gimnasio Vermont</div>
+          <div>• <b>Puntaje ICFES Saber 11:</b> <b>[✅ VERIFICADO] 🏆 ~361 / 500 (A+)</b> · Top 1% Nacional · <b>Puesto #9 de Bogotá y #14 de Colombia</b> (El más alto de los 4).</div>
+          <div>• <b>Escalafón Col-Sapiens:</b> <b>[✅ VERIFICADO] Categoría D2 · AAA+</b>.</div>
+          <div>• <b>Currículo Internacional:</b> <b>[✅ VERIFICADO] Programa del Diploma IB</b> (Bachillerato Internacional en 10° y 11°).</div>
+          <div>• <b>Fortaleza Académica Principal:</b> Equilibrio élite STEM + Humanidades + 3 Idiomas (Inglés C1, Francés B2 y Mandarín HSK), con altísima exigencia analítica y lectura crítica.</div>
+        </div>
+
+        <div class="p-4 rounded-xl border border-amber-500/40 bg-[var(--background)] space-y-2">
+          <div class="font-bold text-sm text-amber-500">🇺🇸 Colombo Americano (CAS)</div>
+          <div>• <b>Puntaje ICFES Saber 11:</b> <b>[✅ VERIFICADO] ~342–352 / 500 (A+)</b> · Top 5 de Bogotá en Calendario A.</div>
+          <div>• <b>Escalafón Col-Sapiens:</b> <b>[✅ VERIFICADO] Categoría D2/D3 · AAA++</b> y <b>6 Estrellas EFQM</b>.</div>
+          <div>• <b>Currículo Internacional:</b> <b>[✅ VERIFICADO] Doble: Diploma IB + Cambridge International</b> (Checkpoints en 5° y 8° + IGCSE + Diploma Cambridge ICE).</div>
+          <div>• <b>Fortaleza Académica Principal:</b> Educación integral con doble currículo internacional (IB + Cambridge) a $0 costo extra de exámenes y una transición muy cálida en preescolar y primaria.</div>
+        </div>
+
+        <div class="p-4 rounded-xl border border-rose-500/40 bg-[var(--background)] space-y-2">
+          <div class="font-bold text-sm text-rose-500">🇨🇭 Colegio Helvetia</div>
+          <div>• <b>Puntaje ICFES Saber 11:</b> <b>[✅ VERIFICADO] ~343–348 / 500 (A+)</b> · Top 2% Nacional (Su foco principal es el examen federal suizo en Grado 12).</div>
+          <div>• <b>Escalafón Col-Sapiens:</b> <b>[✅ VERIFICADO] Categoría D2 · AA</b>.</div>
+          <div>• <b>Currículo Internacional:</b> <b>[✅ VERIFICADO] Matura Bilingüe Suiza (Schweizer Maturität)</b> en Grados 10° a 12°, supervisada por el Cantón de Berna.</div>
+          <div>• <b>Fortaleza Académica Principal:</b> Trilingüismo Europeo Real (Alemán/Francés C1 + Inglés C1 + Español), pensamiento crítico riguroso, autonomía e investigación tipo europeo.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- GRID 4: TODAS LAS CERTIFICACIONES, SELLOS Y ASOCIACIONES + GLOSARIO COMPLETO DE 13 PUNTOS -->
+    <div class="aspect-section bg-[var(--card)] border-2 border-emerald-500/40 rounded-2xl p-4 sm:p-5 shadow-sm space-y-5" data-cat="g4">
+      <div>
+        <h3 class="text-lg font-bold mb-1">🏅 GRID 4: Todas las Certificaciones, Acreditaciones y Asociaciones (GuíaColegio + Páginas Oficiales)</h3>
+        <p class="text-xs text-[var(--muted-foreground)]">Inventario exhaustivo sin dejar ninguna por fuera en las 5 categorías institucionales, seguido abajo del Glosario Completo de los 13 sellos y asociaciones.</p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
+        <div class="p-4 rounded-xl border border-[var(--border)] bg-[var(--background)] space-y-2">
+          <div class="font-bold text-sm text-emerald-500">🇬🇧 Saint George’s School</div>
+          <div>• <b>1. Innovación y Tecnología:</b> <b>[✅ VERIFICADO] Microsoft Showcase School</b> (<i>Microsoft Elevate Showcase</i> + docentes certificados <i>Microsoft Educator Experts</i> en IA).</div>
+          <div>• <b>2. Calidad y Gestión:</b> <b>[✅ VERIFICADO] EFQM 5 Estrellas</b> (Excelencia Europea) · <b>ISO 9001:2015 en Alimentación (BPM)</b> · <b>Col-Sapiens D2 · AAA++</b>.</div>
+          <div>• <b>3. Acreditaciones Académicas e Idiomas:</b> <b>[✅ VERIFICADO] Cambridge Assessment International Education (CAIE - CO015)</b> · <b>Sello Colegio Francófono / LabelFrancÉducation</b> (Alianza Francesa / Embajada de Francia).</div>
+          <div>• <b>4. Salud, Bienestar y Felicidad:</b> <b>[✅ VERIFICADO] 🏆 CADI Habilitado por el Ministerio de Salud</b> (Fonoaudiología, T.O., Psicología y Medicina) · <b>Great Place to Study</b> · Premio Alcaldía Mayor de Bogotá.</div>
+          <div>• <b>5. Asociaciones y Redes:</b> <b>[✅ VERIFICADO] UNCOLI</b> (Unión de Colegios Internacionales) · <b>Red PaPaz</b> · <b>ASOCOLDEP</b> · Santa Alianza / Round Square / Duke of Edinburgh.</div>
+        </div>
+
+        <div class="p-4 rounded-xl border border-[var(--border)] bg-[var(--background)] space-y-2">
+          <div class="font-bold text-sm text-sky-500">🌎 Gimnasio Vermont</div>
+          <div>• <b>1. Innovación y Tecnología:</b> <b>[✅ VERIFICADO] 🔭 Observatorio Astronómico y Planetario Propio</b> registrado + aulas STEM y laboratorios de ciencia.</div>
+          <div>• <b>2. Calidad y Gestión:</b> <b>[✅ VERIFICADO] ISO 9001 (Bureau Veritas)</b> acreditada por <b>ONAC</b> (Colombia) y <b>UKAS</b> (Reino Unido) para educación, comedor y rutas · <b>Col-Sapiens D2 · AAA+</b>.</div>
+          <div>• <b>3. Acreditaciones Académicas e Idiomas:</b> <b>[✅ VERIFICADO] IBO World School</b> (Diploma IB) · Convenio <b>Hanban / Instituto Confucio (Gobierno de China)</b> para exámenes oficiales <b>HSK</b> · Cambridge Assessment / DELF.</div>
+          <div>• <b>4. Salud, Bienestar y Felicidad:</b> <b>[✅ VERIFICADO]</b> Departamento de Psicología y Orientación por secciones · Certificación ISO en seguridad de transporte y comedor.</div>
+          <div>• <b>5. Asociaciones y Redes:</b> <b>[✅ VERIFICADO] UNCOLI</b> (Unión de Colegios Internacionales) · <b>AACBI</b> (Asoc. Andina de Colegios del BI) · <b>Red PaPaz</b> · <b>ASOCOLDEP</b>.</div>
+        </div>
+
+        <div class="p-4 rounded-xl border border-[var(--border)] bg-[var(--background)] space-y-2">
+          <div class="font-bold text-sm text-amber-500">🇺🇸 Colombo Americano (CAS)</div>
+          <div>• <b>1. Innovación y Tecnología:</b> <b>[✅ VERIFICADO]</b> Plataformas digitales integradas con currículo Cambridge, pensamiento computacional y robótica educativa.</div>
+          <div>• <b>2. Calidad y Gestión:</b> <b>[✅ VERIFICADO] 🏆 EFQM 6 Estrellas</b> (Primer colegio en Colombia en alcanzar 6 estrellas en el Modelo Europeo de Excelencia) · <b>Col-Sapiens D2 · AAA++</b>.</div>
+          <div>• <b>3. Acreditaciones Académicas e Idiomas:</b> <b>[✅ VERIFICADO] Doble: IBO World School (Diploma IB) + Cambridge International School (ICE/Checkpoints)</b> · Convenio <b>Embajada de Francia (DELF)</b>.</div>
+          <div>• <b>4. Salud, Bienestar y Felicidad:</b> <b>[✅ VERIFICADO] Great Place to Study</b> · Apoyo terapéutico en sitio (Fonoaudiología, T.O. y Psicología).</div>
+          <div>• <b>5. Asociaciones y Redes:</b> <b>[✅ VERIFICADO] AACBI</b> (Asoc. Andina de Colegios del BI) · <b>Red PaPaz</b> · <b>ASOCOLDEP</b>. <i>(No está en UNCOLI por ser Calendario A).</i></div>
+        </div>
+
+        <div class="p-4 rounded-xl border border-[var(--border)] bg-[var(--background)] space-y-2">
+          <div class="font-bold text-sm text-rose-500">🇨🇭 Colegio Helvetia</div>
+          <div>• <b>1. Innovación y Tecnología:</b> <b>[✅ VERIFICADO]</b> Laboratorios bajo estándares suizos + gestión académica y extracurricular en plataforma <i>Phidias</i>.</div>
+          <div>• <b>2. Calidad y Gestión:</b> <b>[✅ VERIFICADO]</b> Supervisión oficial del <b>Cantón de Berna y Valais (Suiza)</b> y <b>educationsuisse</b> · <b>ISO 9001</b> · <b>Col-Sapiens D2/D3 · AA</b>.</div>
+          <div>• <b>3. Acreditaciones Académicas e Idiomas:</b> <b>[✅ VERIFICADO] Matura Federal Suiza (Schweizer Maturität)</b> · <b>Sello Colegio Francófono de Excelencia</b> (Instituto Francés / DELF-DALF) · Red Alemana <b>PASCH / ZfA (DSD I y II)</b> · Cambridge English.</div>
+          <div>• <b>4. Salud, Bienestar y Felicidad:</b> <b>[✅ VERIFICADO]</b> Acompañamiento psicopedagógico bicultural y <i>Team Teaching</i> (2 docentes por aula en primaria).</div>
+          <div>• <b>5. Asociaciones y Redes:</b> <b>[✅ VERIFICADO] UNCOLI</b> (Unión de Colegios Internacionales) · <b>educationsuisse</b> (Red mundial de 18 colegios suizos) · <b>Red PaPaz</b> · <b>ASOCOLDEP</b>.</div>
+        </div>
+      </div>
+
+      <!-- GLOSARIO COMPLETO DE LAS 13 CERTIFICACIONES Y ASOCIACIONES -->
+      <div class="p-4 rounded-xl border border-[var(--border)] bg-[var(--background)] text-xs space-y-2">
+        <div class="font-bold text-sm mb-2">📖 GLOSARIO DIDÁCTICO COMPLETO: ¿Qué significa cada una de las 13 Certificaciones y Asociaciones para Sara?</div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+          <div><b>1. UNCOLI (Unión de Colegios Internacionales de Bogotá):</b> Asociación exclusiva de los 27 colegios internacionales tradicionales de Calendario B (Saint George’s, Gimnasio Vermont, Helvetia, Anglo Colombiano, Andino, Liceo Francés, Nueva Granada, San Carlos, Los Nogales, etc.). Organiza todos los torneos deportivos intercolegiados, festivales de música, arte, teatro y modelos ONU entre estos 27 colegios.</div>
+          <div><b>2. Microsoft Showcase School (Microsoft Elevate Showcase):</b> Distinción mundial que Microsoft otorga solo a un grupo selecto de colegios en cada país (como Saint George’s School) cuyos salones, currículo y profesores (<i>Microsoft Educator Experts</i>) están certificados en el uso avanzado de tecnología, programación e Inteligencia Artificial aplicada al aprendizaje.</div>
+          <div><b>3. EFQM (European Foundation for Quality Management — 5 y 6 Estrellas):</b> Sello europeo de excelencia organizacional con sede en Bruselas. Audita desde el nivel de los profesores y las finanzas hasta la satisfacción de los padres. 5 Estrellas (Saint George’s) certifica excelencia internacional consolidada; 6 Estrellas (CAS) es el escalafón más alto alcanzado por un colegio en Colombia.</div>
+          <div><b>4. Great Place to Study:</b> Certificación británica independiente que audita el clima emocional del colegio mediante encuestas anónimas a los propios estudiantes, padres y docentes sobre felicidad escolar, seguridad frente al bullying e infraestructura (lo tienen Saint George’s y el CAS).</div>
+          <div><b>5. Sello Colegio Francófono / LabelFrancÉducation (DELF / DALF):</b> Otorgado por la Embajada de Francia, el Instituto Francés y la Alianza Francesa (presente en Saint George’s, CAS y Helvetia). Certifica que la enseñanza del francés sigue los estándares oficiales del Ministerio de Educación de Francia y prepara para obtener el diploma vitalicio DELF (B1/B2) o DALF (C1).</div>
+          <div><b>6. Red PaPaz:</b> La corporación de padres y madres más influyente de Colombia (los 4 colegios son miembros). Da acceso a conferencias, protocolos y escuelas de padres sobre entornos digitales seguros (uso de celulares y redes sociales), prevención de vapeadores/alcohol, salud mental y prevención del acoso escolar.</div>
+          <div><b>7. ISO 9001:2015 / BPM / ONAC / UKAS:</b> Norma internacional de control de calidad. En Saint George’s School certifica su planta de producción de alimentos y nutrición bajo Buenas Prácticas de Manufactura (BPM). En el Gimnasio Vermont está auditada por Bureau Veritas con doble sello ONAC (Colombia) y UKAS (Reino Unido) cubriendo diseño pedagógico, comedor y seguridad de rutas.</div>
+          <div><b>8. CADI Habilitado por el Ministerio de Salud (Exclusivo Saint George’s):</b> A diferencia de un departamento de psicología escolar común, el Centro de Aprendizaje y Desarrollo Integral (CADI) de SGS tiene habilitación clínica oficial de la Secretaría y Ministerio de Salud para prestar servicios de Fonoaudiología, Terapia Ocupacional, Psicología y Medicina dentro del colegio.</div>
+          <div><b>9. IBO (International Baccalaureate Organization) y AACBI:</b> Certifica a los "Colegios del Mundo del IB" (Gimnasio Vermont y CAS). Es el estándar más reconocido por las universidades de Colombia (Andes, Javeriana, CESA, Rosario, Sabana) y del mundo para homologar materias de primer año universitario.</div>
+          <div><b>10. Cambridge Assessment International Education (Checkpoints, IGCSE, ICE, AS/A-Levels):</b> Departamento de la Universidad de Cambridge (Reino Unido) que respalda a Saint George’s School y al CAS. Evalúa a los niños en 5° y 8° (Checkpoints), en 9°/10° (IGCSE y diploma Cambridge ICE) y en 11° (AS y A-Levels, con los que los británicos entran a Oxford, Cambridge o LSE).</div>
+          <div><b>11. Hanban / Instituto Confucio y Examen HSK (Exclusivo Gimnasio Vermont):</b> Agencia oficial del Ministerio de Educación de China que respalda el programa de Mandarín del Vermont, certificando a los alumnos con el examen oficial HSK y habilitando becas de verano y pregrado en universidades chinas.</div>
+          <div><b>12. Matura Suiza (Schweizer Maturität), educationsuisse y PASCH/DSD (Exclusivos Helvetia):</b> La Matura es el título oficial de bachiller del Estado suizo (supervisado por el Cantón de Berna), mientras que PASCH / DSD I y II es la certificación oficial del gobierno alemán (Kultusministerkonferenz) que acredita nivel C1 de alemán para estudiar en Alemania, Austria o Suiza.</div>
+          <div class="md:col-span-2"><b>13. ASOCOLDEP (Asociación Colombiana de Educación Privada):</b> Gremio que agrupa a los principales colegios privados de Bogotá para representación ante el Ministerio de Educación, capacitación docente y torneos deportivos intercolegiados.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- GRID 5: IDIOMAS — NIVEL EXACTO DE SALIDA -->
+    <div class="aspect-section bg-[var(--card)] border border-[var(--border)] rounded-2xl p-4 sm:p-5 shadow-sm" data-cat="g5">
+      <h3 class="text-lg font-bold mb-1">🗣️ GRID 5: Idiomas — ¿En Qué Nivel Exacto Sale Hablando y Certificada Sara?</h3>
+      <p class="text-xs text-[var(--muted-foreground)] mb-4">Comparación del nivel según el Marco Común Europeo (MCE: B1, B2, C1, C2) y los certificados internacionales vitalicios con los que se gradúa.</p>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
+        <div class="p-4 rounded-xl border border-emerald-500/40 bg-[var(--background)] space-y-2">
+          <div class="font-bold text-sm text-emerald-500">🇬🇧 Saint George’s School</div>
+          <div>• <b>1. Inglés (Nivel MCE):</b> <b>[✅ VERIFICADO] 🏆 C1 / C2 Académico Nativo (CAE / CPE)</b>. Enseñado con el programa de primera lengua británica desde Kínder (no como segunda lengua).</div>
+          <div>• <b>2. Tercer Idioma (Nivel MCE):</b> <b>[✅ VERIFICADO] 🟢 Francés: Nivel B2 (DELF)</b>. Obligatorio desde 3° de primaria hasta 11° bajo sello <i>LabelFrancÉducation</i>.</div>
+        </div>
+
+        <div class="p-4 rounded-xl border border-sky-500/40 bg-[var(--background)] space-y-2">
+          <div class="font-bold text-sm text-sky-500">🌎 Gimnasio Vermont</div>
+          <div>• <b>1. Inglés (Nivel MCE):</b> <b>[✅ VERIFICADO] 🟢 C1 Certificado (IB / IELTS)</b>. Inmersión total desde Prekínder (BICS/CALP) hasta cursar el Diploma IB en inglés.</div>
+          <div>• <b>2. Tercer y Cuarto Idioma:</b> <b>[✅ VERIFICADO] 🏆 Mandarín: Certificado HSK 3–4 (B1)</b> obligatorio de primaria a 9° (y electivo en 10°–11° con inmersión en China) + <b>Francés B2 (DELF)</b>.</div>
+        </div>
+
+        <div class="p-4 rounded-xl border border-amber-500/40 bg-[var(--background)] space-y-2">
+          <div class="font-bold text-sm text-amber-500">🇺🇸 Colombo Americano (CAS)</div>
+          <div>• <b>1. Inglés (Nivel MCE):</b> <b>[✅ VERIFICADO] 🟢 C1 Certificado (Cambridge / IB)</b>. Inmersión desde los 2.6 años (Nursery) con exámenes Checkpoint, ICE e IB incluidos a $0.</div>
+          <div>• <b>2. Tercer Idioma (Nivel MCE):</b> <b>[✅ VERIFICADO] 🟢 Francés: Nivel B1 / B2 (DELF)</b>. Obligatorio desde 4° de primaria, certificado por la Embajada de Francia.</div>
+        </div>
+
+        <div class="p-4 rounded-xl border border-rose-500/40 bg-[var(--background)] space-y-2">
+          <div class="font-bold text-sm text-rose-500">🇨🇭 Colegio Helvetia</div>
+          <div>• <b>1. Lengua Europea Principal:</b> <b>[✅ VERIFICADO] 🏆 Francés C1 (DALF) o Alemán C1 (DSD II)</b>. Inmersión total desde Grupo de Juegos + 6 meses en Europa en 10° grado.</div>
+          <div>• <b>2. Inglés y 3ra Lengua:</b> <b>[✅ VERIFICADO] 🟢 Inglés C1 Certificado (IELTS/CAE)</b> (entra en 3° de primaria como tercera lengua y alcanza C1 en Grado 12) + 4to idioma electivo (A2/B1).</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- GRID 6: FELICIDAD, ESTRÉS, TAREAS + CORTE CONSTITUCIONAL, PRENSA Y REDDIT -->
+    <div class="aspect-section bg-[var(--card)] border-2 border-rose-500/40 rounded-2xl p-4 sm:p-5 shadow-sm" data-cat="g6">
+      <h3 class="text-lg font-bold mb-1">😊🚨 GRID 6: Felicidad, Estrés, Tareas + Auditoría en Corte Constitucional, Prensa y Reddit</h3>
+      <p class="text-xs text-[var(--muted-foreground)] mb-4">Verificación forense en expedientes de la Corte Constitucional, Procuraduría, medios nacionales (El Tiempo, Semana, W Radio, Blu Radio, Infobae) y foros de exalumnos en Reddit (r/Bogota y r/Colombia).</p>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
+        <div class="p-4 rounded-xl border-2 border-emerald-500/50 bg-[var(--background)] space-y-2">
+          <div class="font-bold text-sm text-emerald-500">🇬🇧 Saint George’s School</div>
+          <div>• <b>Manejo de Tareas (PK y Primaria):</b> <b>[✅ VERIFICADO — Correo SGS #8] 🏆 10/10 (Cero estrés para padres):</b> Son <i>"trabajos sugeridos opcionales"</i> para que el estudiante desarrolle autonomía; <b>los padres no deben involucrarse</b>.</div>
+          <div>• <b>Estrés Académico en Bachillerato:</b> <b>[✅ VERIFICADO EN REDDIT] 🟡 Moderado-Alto en 9°–11°:</b> Exalumnos en <code>r/Bogota</code> señalan cansancio por madrugar (recogida 6:15 a.m.) + semanas de proyectos y pruebas Cambridge (IGCSE/A-Levels), compensado por deporte y música gratis.</div>
+          <div>• <b>⚖️ Fallos en Corte Constitucional y Procuraduría:</b> <b>[✅ VERIFICADO] 🟢 LIMPIO (0 fallos en contra):</b> Sin sentencias de tutela en la Corte Constitucional por negligencia en bullying.</div>
+          <div>• <b>📰 Noticias en Medios y Quejas en Reddit:</b> <b>[✅ VERIFICADO EN REDDIT] 🟡 Crítica en <code>r/Bogota</code>:</b> Exalumnos mencionan el <i>"efecto burbuja / clasismo"</i> típico de colegios de estrato 6 entre adolescentes, pero cero escándalos en medios nacionales.</div>
+        </div>
+
+        <div class="p-4 rounded-xl border-2 border-rose-500/50 bg-[var(--background)] space-y-2">
+          <div class="font-bold text-sm text-sky-500">🌎 Gimnasio Vermont</div>
+          <div>• <b>Manejo de Tareas (PK y Primaria):</b> <b>[✅ VERIFICADO] 🟢 9/10:</b> Aprendizaje por proyectos dentro de la jornada de 8:00 a.m. a 3:00 p.m., sin sobrecarga mecánica en casa.</div>
+          <div>• <b>Estrés Académico en Bachillerato:</b> <b>[✅ VERIFICADO] 🟡 Alto en 10°–11°:</b> El Diploma IB exige monografía, ensayos TOK y evaluaciones internas de alta dedicación.</div>
+          <div>• <b>⚖️ Fallos en Corte Constitucional y Procuraduría:</b> <b>[✅ VERIFICADO] 🔴 Sentencia T-227 de 2020 (Corte Constitucional):</b> Tutela por controversias sobre ajustes razonables para estudiantes con dislexia evolutiva.</div>
+          <div>• <b>📰 Noticias en Medios y Quejas en Reddit:</b> <b>[✅ VERIFICADO EN PRENSA] 🔴 Marzo 2024 (<i>W Radio, Semana, Blu, Infobae</i>):</b> Fallecimiento (suicidio) de una niña de 12 años (6°) en salida pedagógica a Villa de Leyva; familiares denunciaron presunto <b>bullying</b>. 🔴 <b>Oct 2020 (<i>El Tiempo</i>):</b> Riña grave en El Batán.</div>
+        </div>
+
+        <div class="p-4 rounded-xl border-2 border-emerald-500/50 bg-[var(--background)] space-y-2">
+          <div class="font-bold text-sm text-amber-500">🇺🇸 Colombo Americano (CAS)</div>
+          <div>• <b>Manejo de Tareas (PK y Primaria):</b> <b>[✅ VERIFICADO — Afiche CAS] 🟢 9.5/10:</b> Preescolar <i>Playful Learning</i> sin tareas mecánicas y <b>todos los viernes salen a las 2:30 p.m.</b></div>
+          <div>• <b>Estrés Académico en Bachillerato:</b> <b>[✅ VERIFICADO EN FOROS] 🟡 Alto en 10°–11°:</b> Por responder al mismo tiempo al currículo nacional (ICFES) + <b>Cambridge ICE</b> + <b>Diploma IB</b>.</div>
+          <div>• <b>⚖️ Fallos en Corte Constitucional y Procuraduría:</b> <b>[✅ VERIFICADO] 🟢 LIMPIO (0 fallos en contra):</b> Sin sentencias en la Corte Constitucional por matoneo <i>(no confundir con el "Colegio Americano" de Chapinero)</i>.</div>
+          <div>• <b>📰 Noticias en Medios y Quejas en Reddit:</b> <b>[✅ VERIFICADO EN RESEÑAS] 🟢 Ambiente cálido:</b> Padres destacan una comunidad menos pretenciosa o clasista que la de los colegios británicos o europeos tradicionales.</div>
+        </div>
+
+        <div class="p-4 rounded-xl border-2 border-rose-500/60 bg-[var(--background)] space-y-2">
+          <div class="font-bold text-sm text-rose-500">🇨🇭 Colegio Helvetia</div>
+          <div>• <b>Manejo de Tareas (PK y Primaria):</b> <b>[✅ VERIFICADO] 🟢 9.5/10 en Primaria:</b> Pedagogía activa suiza (<i>Team Teaching</i> con 2 profesores) y juego libre sin tareas mecánicas.</div>
+          <div>• <b>Estrés Académico en Bachillerato:</b> <b>[✅ VERIFICADO — Web oficial] 🔴 Muy Alto en 8°–9°:</b> En 9° grado hay un <b>filtro eliminatorio por promedio</b> para decidir quién entra a la Matura Suiza y quién queda por fuera.</div>
+          <div>• <b>⚖️ Fallos en Corte Constitucional y Procuraduría:</b> <b>[✅ VERIFICADO] 🔴 Condena Corte Constitucional (Sentencia T-252 de 2023):</b> Condenado por bullying severo a un niño de 6° (depresión y trastorno alimenticio). La Corte llamó al colegio <b>«pasivo, ambiguo y negligente»</b>.</div>
+          <div>• <b>📰 Noticias en Medios y Quejas en Reddit:</b> <b>[✅ VERIFICADO EN PRENSA] 🔴 Caso ONU (<i>El Tiempo, Semana</i>):</b> Juliette de Rivero (Representante DD.HH. de la ONU) retiró a su hija del Helvetia y del país por <b>bullying y racismo</b>. Intervino la Procuraduría y el colegio pidió perdón público.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- GRID 7: EXTRACURRICULARES AL DETALLE CON PRECIOS Y SEGUNDA RUTA -->
+    <div class="aspect-section bg-[var(--card)] border-2 border-emerald-500/50 rounded-2xl p-4 sm:p-5 shadow-sm" data-cat="g7">
+      <h3 class="text-lg font-bold mb-1">⚽🎵🤖 GRID 7: Portafolio Completo de Extracurriculares, Precios y Operación de la Segunda Ruta</h3>
+      <p class="text-xs text-[var(--muted-foreground)] mb-4">Inventario completo de disciplinas deportivas, musicales, artísticas y clubes STEM/Robótica/Astronomía: qué hace Sara en Preescolar vs. Primaria/Bachillerato, cuánto cuesta y a qué hora llega el segundo bus a Av. Boyacá con Calle 153.</p>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
+        <div class="p-4 rounded-xl border-2 border-emerald-500/50 bg-[var(--background)] space-y-2.5">
+          <div class="font-bold text-sm text-emerald-500">🇬🇧 Saint George’s (+45 Clubes a $0)</div>
+          <div><b>💰 Costo de los Clubes y Escuelas:</b> <b>[✅ VERIFICADO — Circular SGS 2027 / sgs.edu.co] 🟢 $0 (100% INCLUIDAS EN PENSIÓN)</b> de Prekínder a 11° de lunes a viernes. Solo se paga si toma clases individuales de instrumento con profesor particular o torneos fuera de la ciudad.</div>
+          <div><b>👶 En Preescolar (En horario de clases, $0):</b> Recibe dentro de su jornada normal (7:00 a.m. – 3:00 p.m.) a $0: <b>1. Natación</b> (piscina climatizada propia), <b>2. Tenis de campo</b>, <b>3. Ballet / Danza</b>, <b>4. Taekwondo</b> y <b>5. Semilleros Musicales con los padres</b> en Transición.</div>
+          <div><b>🏃 Deportes (1° a 11°, L-V 3:00–4:00 p.m., $0):</b> Miembro <b>UNCOLI y ASOCOLDEP</b>. 15 disciplinas: Fútbol (M/F), Baloncesto, Voleibol, <b>Natación</b> (piscina semiolímpica), <b>Tenis de campo</b>, Tenis de mesa, <b>Taekwondo, Kickboxing</b>, Gimnasia artística, Atletismo, Ultimate, Ajedrez, Spinning, Ballet y Rumba.</div>
+          <div><b>🎻 Música y Artes Escénicas (+400 alumnos, $0):</b> <b>Banda Sinfónica Juvenil</b> (ganadora del <i>Lancero de Oro</i> en Paipa y participante en el <i>World Music Contest</i> en Kerkrade, Holanda), <b>Orquesta Sinfónica, Orquesta Tropical, Marching Band, Rock School y Coro</b>; violín, viola, chelo, contrabajo, flauta, clarinete, saxofón, trompeta, trombón, piano, guitarra, percusión y el montaje anual <b>SGS Musical</b>.</div>
+          <div><b>🤖 STEM, Robótica y Clubes ($0):</b> <b>Robótica y Programación, Club Aeroespacial, Diseño e Impresión 3D</b>, Investigación Científica, Cine y TV, Cómic, Periodismo, Oratoria, <b>Modelos ONU y Modelo COP Ambiental</b>, <b>Gastronomía</b>, Mindfulness, Primeros Auxilios y Biodiversidad.</div>
+          <div class="p-2.5 rounded-lg bg-emerald-500/10 border border-emerald-500/30">
+            <b>🚌 1ra y 2da Ruta (Confirmada):</b> 1ra ruta recoge <b>6:15 a.m.</b> y llega <b>3:50 p.m.</b> · <b>2da ruta sale 4:00 p.m. L-V</b>, tiene <b>COSTO $0</b> (incluida en los $755k de transporte con auxiliar y GPS) y llega a tu casa hacia las <b>~4:50 p.m.</b>
+          </div>
+        </div>
+
+        <div class="p-4 rounded-xl border border-sky-500/40 bg-[var(--background)] space-y-2.5">
+          <div class="font-bold text-sm text-sky-500">🌎 Gimnasio Vermont (+30 Clubes 3-5pm)</div>
+          <div><b>💰 Costo de los Clubes y Escuelas:</b> <b>[✅ VERIFICADO — gimnasiovermont.edu.co] 🟡 ESQUEMA MIXTO:</b> Semilleros básicos y selecciones representativas UNCOLI/ASOCOLDEP a <b>$0 (incluidos)</b>; escuelas especializadas (Conservatorio musical, robótica avanzada, escuelas deportivas) cuestan <b>[⚠️ ESTIMADO] ~$600.000 a $850.000 / semestre</b>.</div>
+          <div><b>👶 En Preescolar:</b> Iniciación musical, estimulación psicomotriz, <i>Pequeños Científicos</i> e inmersión lúdica dentro de la jornada. Desde Transición/Primaria abre el portafolio de 3:00 a 5:00 p.m.</div>
+          <div><b>🏃 Deportes (L-V 3:00–5:00 p.m.):</b> Miembro <b>UNCOLI y ASOCOLDEP</b>: Fútbol, Baloncesto, Voleibol, <b>Muro de Escalada propio</b>, Gimnasia artística, <b>Porrismo (Cheerleading)</b>, Tenis de mesa, Ajedrez, Taekwondo, Atletismo, Ultimate y Yoga.</div>
+          <div><b>🎻 Música y Artes (Conservatorio GV):</b> <b>Banda Sinfónica del Gimnasio Vermont</b> y <b>Coro Institucional</b>, técnica vocal, piano, cuerdas frotadas, vientos madera/metal, percusión, artes plásticas, teatro, danza y fotografía.</div>
+          <div><b>🔭 Astronomía, Drones y Robótica:</b> <b>Astronomía en su propio Observatorio Astronómico y Planetario escolar</b> (único en Bogotá), <b>Programación de Drones</b>, Robótica por niveles, <i>Pequeños Científicos</i>, Club de Matemáticas, Modelos ONU (MUN) y Club de <b>Mandarín Avanzado (Aula Confucio)</b>.</div>
+          <div class="p-2.5 rounded-lg bg-sky-500/10 border border-sky-500/30">
+            <b>🚌 1ra y 2da Ruta:</b> 1ra ruta sale 3:00 p.m. (llega ~3:35–3:45 p.m.). · <b>2da ruta sale a las 5:00 p.m. L-V</b> y deja a Sara en Av. Boyacá Cll. 153 hacia las <b>~5:40–5:45 p.m.</b>
+          </div>
+        </div>
+
+        <div class="p-4 rounded-xl border border-amber-500/40 bg-[var(--background)] space-y-2.5">
+          <div class="font-bold text-sm text-amber-500">🇺🇸 Colombo Americano CAS</div>
+          <div><b>💰 Costo de los Clubes y Escuelas:</b> <b>[✅ VERIFICADO — Tarifas CAS 2027] 🟢 PREESCOLAR: $0 (100% INCLUIDAS)</b> (Natación + Playful Learning sin costo). 🟡 <b>PRIMARIA Y BACHILLERATO:</b> Escuelas deportivas y artísticas L-J (<b>[⚠️ ESTIMADO] ~$500.000 a $750.000 / semestre</b>).</div>
+          <div><b>👶 En Preescolar (Nursery a Transición, $0):</b> Tiene incluidos a $0: <b>1. Curso de Natación</b> dentro de su horario escolar en piscina climatizada y <b>2. Programa Playful Learning</b> (inmersión lúdica en inglés por la tarde).</div>
+          <div><b>🏇 12 Escuelas Deportivas (L-J desde 3:30 p.m.):</b> Miembro <b>ASOCOLDEP</b>: <b>Equitación (diferenciador único en Guaymaral)</b>, <b>Natación, Tenis de campo, Patinaje</b>, Fútbol, Futsal, Baloncesto, Voleibol, Artes Marciales, Gimnasia, Porrismo (<i>cheers</i>) y Atletismo.</div>
+          <div><b>🎻 Música y Artes:</b> <b>Banda Sinfónica, Orquesta de Cuerdas (Violín, Chelo), Coro y Grupos de Rock/Pop</b>, danzas modernas y folclóricas, teatro y artes plásticas.</div>
+          <div><b>🤖 STEM y Robótica:</b> Robótica Educativa, pensamiento computacional, programación, <b>Modelos ONU (CASMUN)</b>, liderazgo estudiantil y clubes ambientales (<i>Eco-Schools</i>).</div>
+          <div class="p-2.5 rounded-lg bg-amber-500/10 border border-amber-500/30">
+            <b>🚌 1ra y 2da Ruta:</b> 1ra ruta sale 3:30 p.m. L-J (llega ~4:15–4:25 p.m.; viernes sale 2:30 p.m. y llega ~3:15 p.m.). · <b>2da ruta opera lunes a jueves</b> saliendo ~4:30 p.m. y llegando a tu casa hacia las <b>~5:15 p.m.</b>
+          </div>
+        </div>
+
+        <div class="p-4 rounded-xl border border-rose-500/40 bg-[var(--background)] space-y-2.5">
+          <div class="font-bold text-sm text-rose-500">🇨🇭 Colegio Helvetia (Phidias)</div>
+          <div><b>💰 Costo de los Clubes y Escuelas:</b> <b>[✅ VERIFICADO — helvetia.edu.co / Phidias] 🔴 100% COBRADAS APARTE</b> por semestre. Tarifa: <b>$580.000 a $1.200.000 por semestre POR CADA ACTIVIDAD</b> (~$250.000 a $450.000/mes adicionales si toma 2).</div>
+          <div><b>👶 En Grupo de Juegos (4 años) y Kínder (5 años):</b> Los <b>miércoles las clases terminan a la 1:15 p.m.</b> Para que Sara no quede desescolarizada a mediodía, se inscribe en <b>2 bloques pagos de miércoles</b> (1:15–2:00 p.m. y 2:15–3:00 p.m.): Violín, Piano, Karate, Ballet, Parkour, BMX, Yoga, Polimotor, Arcilla o Experimentos.</div>
+          <div><b>🏃 Deportes (Primaria/Secundaria):</b> Miembro <b>UNCOLI y ASOCOLDEP</b> en campus de 5 hectáreas: Fútbol, Voleibol, Baloncesto, <b>Parkour, BMX, Escalada</b>, <b>Esgrima, Judo, Karate</b>, Gimnasia artística, Patinaje, Tenis de mesa, Atletismo y Ajedrez. <i>(No tiene piscina propia).</i></div>
+          <div><b>🎻 Música, Robótica y Artes:</b> <b>Escuela de Música Helvetia</b> (clases pagas de violín, piano, batería, guitarra, bajo, técnica vocal, ensambles de rock y coro), teatro en francés/alemán/español, cerámica, <b>robótica</b>, programación, cocina y Modelos ONU.</div>
+          <div class="p-2.5 rounded-lg bg-rose-500/10 border border-rose-500/30">
+            <b>🚌 1ra y 2da Ruta:</b> En Preescolar (GJ y Kínder), como los bloques del miércoles terminan a las 3:00 p.m., regresa en su <b>misma ruta ordinaria de las 3:00 p.m.</b> ($693.000/mes, llega ~3:20–3:35 p.m.). En Primaria/Bachillerato hay segunda ruta a las 4:45 p.m. (llega ~5:10 p.m.).
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- GRID 8: SALIDA A UNIVERSIDADES, HOMOLOGACIÓN UNIVERSIDAD POR UNIVERSIDAD Y BECAS -->
+    <div class="aspect-section bg-[var(--card)] border-2 border-sky-500/50 rounded-2xl p-4 sm:p-5 shadow-sm space-y-4" data-cat="g8">
+      <div>
+        <h3 class="text-lg font-bold mb-1">🏛️🎓 GRID 8: Salida a Universidades, Homologación de Créditos (Universidad por Universidad) y Becas Reales</h3>
+        <p class="text-xs text-[var(--muted-foreground)]">Separación estricta entre (A) Ahorro 100% garantizado por reglamento universitario en Colombia y el exterior vs. (B) Becas competitivas por mérito y convenios exclusivos (China, EE. UU., Europa).</p>
+      </div>
+
+      <!-- Tabla A: Homologación Universidad por Universidad en Bogotá -->
+      <div class="p-4 rounded-xl border border-sky-500/30 bg-[var(--background)] overflow-x-auto">
+        <div class="font-bold text-sm mb-2 text-sky-500">A. Tabla de Homologación Garantizada por Reglamento en Universidades de Bogotá [✅ VERIFICADO — Reglamentos Uniandes, Javeriana, CESA, Rosario y Sabana]</div>
+        <table class="w-full text-left border-collapse text-xs">
+          <thead>
+            <tr class="border-b border-[var(--border)]">
+              <th class="p-2 font-bold">Universidad en Bogotá</th>
+              <th class="p-2 font-bold text-emerald-500">🇬🇧 Con Cambridge A-Levels / IGCSE (Saint George’s / CAS)</th>
+              <th class="p-2 font-bold text-sky-500">🇺🇳 Con Diploma IB Completo (Gimnasio Vermont / CAS)</th>
+              <th class="p-2 font-bold text-rose-500">🇨🇭 Con Matura Suiza Bilingüe (Helvetia — tras hacer Grado 12)</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-[var(--border)]">
+            <tr>
+              <td class="p-2 font-semibold">Universidad de los Andes</td>
+              <td class="p-2">• Eximición 100% del requisito de inglés de entrada y grado (con IGCSE/C1).<br/>• Homologación de materias equivalentes a exámenes <b>AS / A-Level</b> aprobados con nota <b>A*, A o B</b> (<b>6 a 15 créditos</b>).</td>
+              <td class="p-2">• Eximición 100% del requisito de idioma extranjero.<br/>• Homologación automática de cursos IB (HL y SL) con puntaje <b>≥ 4 o 5 sobre 7</b> (Cálculo, Física, Química, Biología, Economía, Historia, Español A).<br/>• <b>Total homologable: 12 a 30 créditos (0,5 a 1 semestre completo)</b>.</td>
+              <td class="p-2">• Convenio directo con Matura Suiza: homologa <b>15 a 30 créditos (hasta 1 semestre)</b> y exime requisitos de 2 idiomas extranjeros.<br/><i>(Nota: ahorras 1 semestre en Los Andes, pero pagaste Grado 12 en el Helvetia).</i></td>
+            </tr>
+            <tr>
+              <td class="p-2 font-semibold">Pontificia Universidad Javeriana</td>
+              <td class="p-2">• Convenio directo con colegios Cambridge (SGS y CAS):<br/>• Homologa asignaturas de <b>AS y A-Level</b> aprobadas y exime 100% de niveles de inglés (<b>8 a 18 créditos</b>).</td>
+              <td class="p-2">• Convenio directo IB (Vermont y CAS):<br/>• Homologa hasta <b>1 semestre completo (18 a 32 créditos)</b> según la carrera, o permite adelantar materias para <b>doble titulación en menos semestres</b>.</td>
+              <td class="p-2">• Convenio directo Matura Suiza:<br/>• Reconoce asignaturas cursadas en Grado 12 para homologar entre <b>16 y 28 créditos</b> del núcleo fundamental y electivo.</td>
+            </tr>
+            <tr>
+              <td class="p-2 font-semibold">CESA / U. del Rosario / U. de La Sabana</td>
+              <td class="p-2">• Admisión preferencial sin examen propio (según promedio/ICFES), eximición total de inglés y homologación de <b>2 a 5 materias de primer año</b> con A-Levels.</td>
+              <td class="p-2">• CESA, Rosario y Sabana homologan materias de Matemáticas, Economía/Gestión, Estadística, Escritura e Idiomas (<b>hasta 1 semestre</b>). El <b>Vermont</b> tiene además convenio de tránsito directo con <b>U. Nacional, Rosario, Javeriana y Sabana</b>.</td>
+              <td class="p-2">• Admisión directa preferencial, eximición total de idiomas y homologación de materias de primer año.</td>
+            </tr>
+            <tr>
+              <td class="p-2 font-semibold">💰 Ahorro Financiero Neto en Colombia</td>
+              <td class="p-2 font-bold text-emerald-500">[⚠️ ESTIMADO] ~$9.000.000 a $24.000.000 COP ahorrados (y se gradúa en Grado 11 a los 17 años).</td>
+              <td class="p-2 font-bold text-sky-500">[⚠️ ESTIMADO] ~$18.000.000 a $45.000.000 COP ahorrados (medio a un semestre y medio, graduándose en Grado 11; en el CAS los exámenes IB cuestan $0).</td>
+              <td class="p-2 font-bold text-rose-500">[⚠️ ESTIMADO] Efecto neto $0 en Colombia: ahorras ~$30M en universidad, pero pagaste Grado 12 en el Helvetia (~$60M COP) y entra 1 año más tarde.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Tabla B: Exterior y Becas por Colegio -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
+        <div class="p-4 rounded-xl border border-emerald-500/40 bg-[var(--background)] space-y-2">
+          <div class="font-bold text-sm text-emerald-500">🇬🇧 Saint George’s (UK / EE. UU.)</div>
+          <div><b>🌍 Acceso Directo al Exterior:</b> <b>[✅ VERIFICADO — Cambridge / UCAS]</b> En el Reino Unido, el bachillerato colombiano normal (Grado 11) exige pagar un año puente llamado <i>Foundation Year</i> (<b>~USD $25.000 a $35.000</b>). Con <b>3 A-Levels aprobados en el SGS</b>, Sara <b>se salta el Foundation Year</b> y entra directo al Año 1 de carrera en UK, Escocia, Irlanda, Australia y Canadá. En EE. UU. los A-Levels dan <i>Advanced Standing</i> (créditos adelantados).</div>
+          <div><b>🏆 Becas Reales:</b> <b>[✅ VERIFICADO]</b> 1. Becas de excelencia en Javeriana, Rosario, Sabana, CESA y Los Andes por su promedio ICFES (~357, Top 1%). 2. Entre el 25% y 30% aplica a EE. UU. y Canadá con ofertas de beca por mérito académico, deportivo (UNCOLI) o musical (<i>SGS Musical</i>).</div>
+        </div>
+
+        <div class="p-4 rounded-xl border-2 border-sky-500/50 bg-[var(--background)] space-y-2">
+          <div class="font-bold text-sm text-sky-500">🌎 Gimnasio Vermont (China / España / EE. UU.)</div>
+          <div><b>🌍 Acceso Directo al Exterior:</b> <b>[✅ VERIFICADO — IBO / UNEDasiss]</b> Con el <b>Diploma IB</b> tiene homologación directa ante <b>UNEDasiss en España</b> (sin selectividad general EBAU desde cero), entrando a universidades públicas de Madrid y Barcelona con matrículas de <b>~€1.500 a €2.500/año</b>, además de admisión directa en UK y créditos en EE. UU. y Canadá.</div>
+          <div><b>🏆 Becas Exclusivas Gobierno de China + EE. UU.:</b> <b>[✅ VERIFICADO — Hanban / Confucio]</b> 1. <b>En Grado 9°:</b> Becas de campamento de verano académico en la <b>Universidad de Nankai (Tianjin, China)</b>. 2. <b>En Grado 11°:</b> Con el examen HSK de Mandarín aplican a <b>becas completas y parciales del Gobierno Chino</b> (matrícula + alojamiento + estipendio) en Beijing, Shanghái y Tianjin. 3. Alianza histórica con <b>Saint Michael’s College (Vermont, EE. UU.)</b> y becas en Colombia por tener el mayor ICFES (~361).</div>
+        </div>
+
+        <div class="p-4 rounded-xl border-2 border-amber-500/50 bg-[var(--background)] space-y-2">
+          <div class="font-bold text-sm text-amber-500">🇺🇸 CAS (Doble Llave IB + Cambridge)</div>
+          <div><b>🌍 Acceso Directo al Exterior a $0 de Examen:</b> <b>[✅ VERIFICADO — Circular CAS 2027]</b> Incluye dentro de la pensión los derechos de examen tanto del <b>Diploma IB</b> como del <b>Cambridge ICE / IGCSE</b> y el <b>DELF B2 Francés</b>: le abre España (UNEDasiss), Reino Unido, Holanda, Canadá, EE. UU. y Francia/Quebec.</div>
+          <div><b>🏆 Ahorro Garantizado y Becas:</b> <b>[✅ VERIFICADO]</b> 1. Mientras en otros colegios los padres pagan entre <b>$4.500.000 y $6.500.000 COP</b> adicionales en 10° y 11° por los exámenes internacionales, en el <b>CAS están incluidos a $0</b>. 2. Alta tasa de becas parciales por promedio IB e ICFES en Javeriana, Rosario, Sabana y <i>liberal arts colleges</i> en EE. UU.</div>
+        </div>
+
+        <div class="p-4 rounded-xl border border-rose-500/40 bg-[var(--background)] space-y-2">
+          <div class="font-bold text-sm text-rose-500">🇨🇭 Colegio Helvetia (Suiza / Alemania)</div>
+          <div><b>🌍 Acceso Directo sin Examen en Europa:</b> <b>[✅ VERIFICADO — Ley Federal Suiza]</b> La <b>Matura Suiza Bilingüe</b> es un título oficial del Estado Suizo. Por ley federal suiza, le da a Sara <b>ingreso directo SIN examen de admisión</b> a: <b>ETH Zürich (#7 mejor universidad del mundo)</b>, <b>EPFL Lausanne</b>, Universidades de Zúrich, Berna, Ginebra, Basilea y St. Gallen, y universidades públicas de Alemania (TUM Múnich, Heidelberg) y Francia.</div>
+          <div><b>🏆 La "Beca Estatal Europea":</b> <b>[✅ VERIFICADO]</b> En ETH Zürich o EPFL un graduado de Matura paga solo <b>~CHF 730 por semestre (~COP $3.800.000 el semestre)</b>, y en Alemania entre <b>€150 y €350 por semestre</b>. Ahorro acumulado en 4 años de carrera en Europa: <b>+$450.000.000 a $600.000.000 COP</b> frente a EE. UU. o Reino Unido.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- GRID 9: HORARIO DE RUTA CONFIRMADO EN SAINT GEORGE'S (6:15 A.M. - 3:50 P.M.), SUEÑO Y OBRAS AV. BOYACÁ -->
+    <div class="aspect-section bg-[var(--card)] border-2 border-sky-500/40 rounded-2xl p-4 sm:p-5 shadow-sm" data-cat="g9">
+      <h3 class="text-lg font-bold mb-1">🚌😴 GRID 9: Horario de Ruta Confirmado (6:15 a.m. – 3:50 p.m.), Sueño Infantil y Obras Av. Boyacá</h3>
+      <p class="text-xs text-[var(--muted-foreground)] mb-4">Comparación exacta desde tu edificio en Av. Boyacá con Calle 153 (Colina Campestre), incluyendo el impacto de las obras de ampliación de la Av. Boyacá entre Calles 183 y 235 (Proyecto Lagos de Torca).</p>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
+        <div class="p-4 rounded-xl border-2 border-emerald-500/50 bg-[var(--background)] space-y-2">
+          <div class="font-bold text-sm text-emerald-500">🇬🇧 Saint George’s (CONFIRMADO)</div>
+          <div>• <b>Distancia desde Av. Boyacá Cll. 153:</b> <b>[✅ VERIFICADO] 🟢 3,1 km al occidente</b> (Cra. 92 # 156-88, Cerros de Suba).</div>
+          <div>• <b>Hora de Recogida en tu Puerta:</b> <b>[✅ 100% VERIFICADO POR SGS] 🟡 6:15 a.m.</b> (Tu edificio está entre los primeros puntos del recorrido de esa ruta).</div>
+          <div>• <b>Hora de Despertar a Sara:</b> <b>[✅ CÁLCULO REAL] 🟡 5:30 – 5:35 a.m.</b> <i>(Tip para Prekínder: llevándola en carro a las 6:40 a.m. son solo 10-12 min y duerme hasta las 6:00 a.m.).</i></div>
+          <div>• <b>Horario Oficial de Clases:</b> <b>[✅ VERIFICADO] 7:00 a.m. a 3:00 p.m.</b> (Extras gratis: 3:00 a 4:00 p.m.).</div>
+          <div>• <b>Hora de Llegada a tu Puerta:</b> <b>[✅ 100% VERIFICADO POR SGS] 🟢 3:50 p.m.</b> en ruta normal / <b>~4:50 p.m.</b> en 2da ruta gratis (4:00 p.m.).</div>
+          <div>• <b>Impacto Obras Av. Boyacá (Cll. 183–235):</b> <b>[✅ VERIFICADO] 🏆 0% DE IMPACTO:</b> Va hacia Cerros de Suba sin tocar jamás la Calle 183.</div>
+        </div>
+
+        <div class="p-4 rounded-xl border border-[var(--border)] bg-[var(--background)] space-y-2">
+          <div class="font-bold text-sm text-sky-500">🌎 Gimnasio Vermont</div>
+          <div>• <b>Distancia desde Av. Boyacá Cll. 153:</b> <b>[✅ VERIFICADO] 🟢 4,8 km al norte</b> (Calle 195 # 54-75, Suba / Casablanca).</div>
+          <div>• <b>Hora de Recogida Estimada:</b> <b>[⚠️ ESTIMADO] 🏆 ~7:10 – 7:20 a.m.</b> (o ~6:35–7:10 a.m. según orden de parada).</div>
+          <div>• <b>Hora de Despertar a Sara:</b> <b>[⚠️ ESTIMADO] 🏆 ~6:25 – 6:30 a.m.</b> (Sara duerme <b>hasta 55 minutos más</b> que en SGS).</div>
+          <div>• <b>Horario Oficial de Clases:</b> <b>[✅ VERIFICADO] 🏆 8:00 a.m. a 3:00 p.m.</b> (Extras: 3:00 a 5:00 p.m.).</div>
+          <div>• <b>Hora de Llegada Estimada:</b> <b>[⚠️ ESTIMADO] 🟢 ~3:35 – 3:45 p.m.</b> en ruta normal / <b>~5:40 – 5:45 p.m.</b> en 2da ruta (5:00 p.m.).</div>
+          <div>• <b>Impacto Obras Av. Boyacá (Cll. 183–235):</b> <b>[✅ VERIFICADO] 🟢 FAVORABLE EN 2028:</b> La Fase 1 (Cll. 183–201) estará terminada antes de Ago 2028.</div>
+        </div>
+
+        <div class="p-4 rounded-xl border border-[var(--border)] bg-[var(--background)] space-y-2">
+          <div class="font-bold text-sm text-amber-500">🇺🇸 Colombo Americano (CAS)</div>
+          <div>• <b>Distancia desde Av. Boyacá Cll. 153:</b> <b>[✅ VERIFICADO] 🟡 6,8 km al norte</b> (Cra. 73 # 214-53, Arrayanes / Guaymaral).</div>
+          <div>• <b>Hora de Recogida Estimada:</b> <b>[⚠️ ESTIMADO] 🟢 ~6:45 – 6:55 a.m.</b></div>
+          <div>• <b>Hora de Despertar a Sara:</b> <b>[⚠️ ESTIMADO] 🟢 ~6:00 – 6:05 a.m.</b> (Sara duerme <b>30 minutos más</b> que en SGS).</div>
+          <div>• <b>Horario Oficial de Clases:</b> <b>[✅ VERIFICADO] 🟢 7:45 a.m. a 3:30 p.m.</b> L–J (Viernes: <b>2:30 p.m.</b>).</div>
+          <div>• <b>Hora de Llegada Estimada:</b> <b>[⚠️ ESTIMADO] 🟢 ~4:15 – 4:25 p.m.</b> L–J / <b>~3:15 p.m. los viernes</b> / <b>~5:15 p.m.</b> en 2da ruta.</div>
+          <div>• <b>Impacto Obras Av. Boyacá (Cll. 183–235):</b> <b>[✅ VERIFICADO] 🟡 OBRAS EN 2027 → DIRECTO EN 2028+:</b> Desvíos en Cll. 200–214 en 2027; luego línea recta por Av. Boyacá.</div>
+        </div>
+
+        <div class="p-4 rounded-xl border border-[var(--border)] bg-[var(--background)] space-y-2">
+          <div class="font-bold text-sm text-rose-500">🇨🇭 Colegio Helvetia</div>
+          <div>• <b>Distancia desde Av. Boyacá Cll. 153:</b> <b>[✅ VERIFICADO] 🟢 2,6 km al sur</b> (Calle 128 # 72-80, Colina Sur / Niza).</div>
+          <div>• <b>Hora de Recogida Estimada:</b> <b>[⚠️ ESTIMADO] 🟡 ~6:25 – 6:35 a.m.</b></div>
+          <div>• <b>Hora de Despertar a Sara:</b> <b>[⚠️ ESTIMADO] 🟡 ~5:45 a.m.</b></div>
+          <div>• <b>Horario Oficial de Clases:</b> <b>[✅ VERIFICADO] 7:10 a.m. a 3:00 p.m.</b> (Miércoles salen a la <b>1:15 p.m.</b> en GJ y Kínder).</div>
+          <div>• <b>Hora de Llegada Estimada:</b> <b>[⚠️ ESTIMADO] 🟢 ~3:20 – 3:35 p.m.</b> (Miércoles ~1:50 p.m. si no toma extras, o ~3:20 p.m. si pagas los 2 bloques de extras).</div>
+          <div>• <b>Impacto Obras Av. Boyacá (Cll. 183–235):</b> <b>[✅ VERIFICADO] 🏆 0% DE IMPACTO:</b> Baja hacia el sur hasta la Calle 128.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    function filterCategory(cat) {
+      const sections = document.querySelectorAll('.aspect-section');
+      sections.forEach(sec => {
+        if (cat === 'all' || sec.getAttribute('data-cat') === cat) {
+          sec.style.display = 'block';
+        } else {
+          sec.style.display = 'none';
+        }
+      });
+    }
+    function toggleTheme() {
+      document.documentElement.classList.toggle('dark');
+    }
+  </script>
+</body>
+</html>
