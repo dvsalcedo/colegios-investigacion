@@ -1606,7 +1606,7 @@
     <!-- GRID 14: ¿CUÁL ESCOGERÍAMOS PARA SARA? VEREDICTO, RANKING PONDERADO REALISTA Y JUGADA MAESTRA -->
     <div class="aspect-section bg-[var(--card)] border-2 border-emerald-500 rounded-2xl p-4 sm:p-5 shadow-md space-y-5" data-cat="g14">
       <div>
-        <h3 class="text-lg md:text-xl font-bold mb-1 text-emerald-500">🏆 GRID 14 (VEREDICTO FINAL AUDITADO Y ESCALA CRÍTICA REALISTA): ¿Cuál Escogeríamos Nosotros para Sara? Ranking Sin Notas Perfectas ("No Existe el 10/10") y Jugada Maestra</h3>
+        <h3 class="text-lg md:text-xl font-bold mb-1 text-emerald-500">🏆 GRID 14 (VEREDICTO FINAL AUDITADO Y ESCALA CRÍTICA REALISTA): ¿Cuál Escogeríamos Nosotros para Sara? Ranking Calculado con Hechos y Nivel de Certeza ("No Existe el 10/10") y Jugada Maestra</h3>
         <p class="text-xs text-[var(--muted-foreground)]">Cruzando exclusivamente los datos verificados y los matices jurídicos, académicos, de infraestructura y financieros para una niña nacida el <b>12 de julio de 2024</b> que vive en <b>Av. Boyacá con Calle 153 (Colina Campestre)</b>. <b>Principio de realismo estricto:</b> ningún colegio de Bogotá es un 10/10 en ninguna categoría (por ejemplo, <b>ninguno de los 8 colegios grandes tiene piscina propia en su campus</b>; tanto SGS como CAS usan convenios externos, SGS madruga a las 6:15 a.m. y no tiene IB, CAS está a 6,8 km cruzando obras, Anglo cuesta $900,2M+, etc.).</p>
       </div>
 
@@ -1615,16 +1615,16 @@
         <!-- #1 SAINT GEORGE'S -->
         <div class="p-4 rounded-xl border-2 border-emerald-500 bg-emerald-500/5 space-y-2.5">
           <div class="flex items-center justify-between">
-            <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-500 text-slate-950">🥇 #1 GANADOR AJUSTADO EN CAL. B</span>
-            <span class="font-bold text-emerald-500 text-sm">Puntaje Realista: 82,5 / 100</span>
+            <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-500 text-slate-950">🥇 FINALISTA EN CAL. B</span>
+            <span class="font-bold text-emerald-500 text-sm">Puntaje: <span id="g14-score-sgs">–</span> / 100</span>
           </div>
           <div class="font-bold text-base text-emerald-500">🇬🇧 Saint George’s School (Con Anticipo $20M — Opción A)</div>
-          <div><b>¿Por qué gana por estrecho margen en Calendario B y qué NO tiene?</b></div>
+          <div><b>¿Por qué es finalista en Calendario B y qué NO tiene?</b></div>
           <div>• <b>1. Certeza tarifaria y operación "todo incluido":</b> Tienes el 100% de las cifras oficiales confirmadas: <b>$4.910.000/mes</b> todo incluido (pensión $3.182M + alimentación ISO 9001 $973k + ruta $755k), más <b>+45 clubes extracurriculares de lunes a viernes (3:00–4:00 p.m.) a $0</b> y <b>segunda ruta a las 4:00 p.m. a $0</b> de Prekínder a 11°.</div>
           <div>• <b>2. Historial judicial limpio en convivencia + CADI en sitio:</b> Cero sentencias de la Corte Constitucional ni investigaciones penales por bullying (el Proceso 76-IP-2017 de la OMPI/TJCA fue un litigio marcario contra un colegio de Pereira), sumado al centro clínico <b>CADI habilitado por el Ministerio de Salud</b> dentro del campus.</div>
           <div>• <b>3. Cercanía sin obras y retorno del anticipo:</b> Queda a ~3,1 km en Cerros de Suba (<b>0% impacto de las obras de la Av. Boyacá Cll. 183–235</b>) en una Reserva Natural de 7 ha (RESNATUR). Pagar los $20M ahorra $8,5M/año (recuperándose en ~2,35 años nominales / ~2,8 años en VPN) y suma $794,9M en 14 años, con ICFES ~357 y Col-Sapiens D2·AAA++ (destacado nacional 2026–27).</div>
           <div class="p-2.5 rounded-lg bg-rose-500/10 border border-rose-500/30 space-y-1">
-            <b>⚠️ Sus 3 puntos débiles reales (por qué es 82,5 y NO 95 o 100):</b><br/>
+            <b>⚠️ Sus 3 puntos débiles reales (sus fricciones reales):</b><br/>
             • <b>1) NO tiene piscina propia en el campus:</b> al igual que el CAS, ofrece natación mediante convenio con complejo acuático externo.<br/>
             • <b>2) Madrugón severo:</b> entra a las 7:00 a.m. y la ruta pasa a las <b>6:15 a.m.</b> (toca llevarla en carro a las 6:40 a.m. en preescolar para que duerma más).<br/>
             • <b>3) No tiene Bachillerato Internacional (IB):</b> tiene Cambridge IGCSE + A-Levels, ni está en categoría D1 de Col-Sapiens (es D2).
@@ -1634,145 +1634,41 @@
         <!-- #2 CAS -->
         <div class="p-4 rounded-xl border-2 border-amber-500 bg-amber-500/5 space-y-2.5">
           <div class="flex items-center justify-between">
-            <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-amber-500 text-slate-950">🥈 #2 GANADOR EN CAL. A (A 1,2 PTS)</span>
-            <span class="font-bold text-amber-500 text-sm">Puntaje Realista: 81,3 / 100</span>
+            <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-amber-500 text-slate-950">🥈 FINALISTA EN CAL. A</span>
+            <span class="font-bold text-amber-500 text-sm">Puntaje: <span id="g14-score-cas">–</span> / 100</span>
           </div>
           <div class="font-bold text-base text-amber-500">🇺🇸 Colegio Colombo Americano — CAS (Tarifa Oficial 2027)</div>
-          <div><b>¿Por qué queda a solo 1,2 puntos del SGS (y le gana si no pagas anticipo)?</b></div>
+          <div><b>¿Por qué es finalista en Calendario A?</b></div>
           <div>• <b>1. Sincronía perfecta con la fecha de nacimiento de Sara (12-jul-2024):</b> Mientras en Calendario B Sara debe esperar hasta agosto de 2028 (4 años y 1 mes), en el CAS puede entrar en <b>febrero de 2027 con 2 años y 6 meses a Nursery ($3.415.137/mes con ruta y 3 comidas)</b> o en <b>febrero de 2028 a Prekínder ($4.454.696/mes)</b>, graduándose en <b>noviembre de 2041 a los 17 años y 4 meses</b>.</div>
           <div>• <b>2. Doble titulación internacional IB + Cambridge a $0:</b> A diferencia de SGS (que solo tiene Cambridge), el CAS incluye en la pensión tanto el <b>Diploma IB</b> como el <b>Diploma Cambridge ICE y Checkpoints (5°–8°)</b> sin cobro adicional de exámenes, más <b>Natación (en convenio) y Playful Learning a $0</b> en preescolar.</div>
-          <div>• <b>3. Cero bono de entrada y ahorro de +$122M a $227M:</b> No cobra anticipo ($0 bono). En 14 años suma <b>~$672,9M</b> (ahorras <b>~$122M frente a SGS Opción A</b> y <b>~$221M frente a SGS Sin Anticipo</b>), con sello europeo <b>EFQM 6 Estrellas</b> y Col-Sapiens D2·AAA++.</div>
+          <div>• <b>3. Cero bono de entrada y ahorro de $122M a $221M:</b> No cobra anticipo ($0 bono). En 14 años suma <b>~$672,9M</b> (ahorras <b>~$122M frente a SGS Opción A</b> y <b>~$221M frente a SGS Sin Anticipo</b>), con sello europeo <b>EFQM 6 Estrellas</b> y Col-Sapiens D2·AAA++.</div>
           <div class="p-2.5 rounded-lg bg-rose-500/10 border border-rose-500/30 space-y-1">
-            <b>⚠️ Sus 3 puntos débiles reales (por qué es 81,3 y NO 100):</b><br/>
+            <b>⚠️ Sus 3 puntos débiles reales (sus fricciones reales):</b><br/>
             • <b>1) Distancia (6,8 km) y obras:</b> queda en Arrayanes (Cra. 73 # 214-53) y en 2027–2028 cruza el frente de obras de la Av. Boyacá Norte (Cll. 183–214).<br/>
             • <b>2) NO tiene piscina propia en el campus:</b> traslada a los niños en ruta a una piscina en convenio.<br/>
-            • <b>3) ICFES (~345) ligeramente menor</b> que Vermont (~361) y SGS (~357), y lúdicas de tarde pagas desde 1°.
+            • <b>3) ICFES no confirmado en el estudio</b> (no se puede comparar con SGS ~357 o Vermont ~357–361, que son datos de terceros) y extras de primaria sin confirmar.
           </div>
         </div>
 
         <!-- #3 VERMONT / ANGLO COLOMBIANO -->
         <div class="p-4 rounded-xl border-2 border-orange-500/70 bg-orange-500/5 space-y-2.5">
           <div class="flex items-center justify-between">
-            <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-orange-400 text-slate-950">🥉 #3 EMPATE TÉCNICO (~80 / 100)</span>
-            <span class="font-bold text-orange-400 text-sm">Puntaje Realista: 79,8 – 80,2</span>
+            <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-orange-400 text-slate-950">🥉 FINALISTAS CON CONDICIONES</span>
+            <span class="font-bold text-orange-400 text-sm">Vermont <span id="g14-score-vermont">–</span> · Anglo <span id="g14-score-anglo">–</span></span>
           </div>
           <div class="font-bold text-base text-orange-400">🌎 Gimnasio Vermont (80,2) · 🏰 Anglo Colombiano (79,8)</div>
-          <div><b>¿Por qué empatan en el #3 por caminos opuestos y qué les resta?</b></div>
-          <div>• <b>1. Gimnasio Vermont (80,2/100):</b> En variables operativas y académicas puras es extraordinario: tiene el <b>ICFES #1 del grupo (~361)</b>, <b>Diploma IB + Mandarín obligatorio (HSK)</b>, campus de 8 ha con Observatorio Astronómico en Cll. 195 y es el <b>único que entra a las 8:00 a.m.</b> (Sara duerme 50 min más). <b>¿Qué lo baja a 80,2?:</b> tampoco tiene piscina propia, sus tarifas son estimadas de portales (falta circular oficial) y pesa en su contra la <b>Sentencia T-227/2020</b> (ajustes dislexia) y el fallecimiento en la salida a Villa de Leyva (mar-2024, aunque sin causalidad judicial de bullying demostrada).</div>
-          <div>• <b>2. Colegio Anglo Colombiano (79,8/100):</b> Tiene el <b>Continuum Completo de los 3 programas del IB (PYP, MYP y Diploma)</b>, acreditación <b>CIS + NEASC</b>, queda sobre el mismo eje de tu <b>Calle 153 (Cra. 19 # 152A-48, 0% obras)</b>, entra a las 7:30 a.m., incluye todos los útiles/libros de PK a 11° y tiene historial limpio en convivencia. <b>¿Qué lo baja a 79,8?:</b> su costo oficial de <b>$900,2M</b> y exigir en el Año 1 de Prekínder <b>$115.416.000</b> ($50,2M de anticipo cuyo VPN tarda ~7–8 años en recuperarse), además de no tener piscina propia y cobrar clubes aparte.</div>
-          <div>• <b>3. Colegio Los Nogales (76,5/100):</b> Máxima acreditación internacional (<b>AAA+++</b> y +20 cursos AP), pero descendió de <b>D2 a D3</b> en Col-Sapiens 2026–27, exige alta carga académica, cuesta ~$820M–$910M + bono (~$25M–$35M), no tiene piscina propia y tuvo desgaste judicial/mediático en 2023–2026.</div>
+          <div><b>¿Qué los hace finalistas y qué les resta?</b></div>
+          <div>• <b>1. Gimnasio Vermont:</b> En variables operativas y académicas puras es extraordinario: reporta <b>ICFES ~357–361 (dato de terceros, no oficial)</b>, <b>Diploma IB + Mandarín obligatorio (HSK)</b>, campus de 8 ha con Observatorio Astronómico en Cll. 195 y es el <b>único que entra a las 8:00 a.m.</b> (Sara duerme 50 min más). <b>¿Qué lo baja?:</b> tampoco tiene piscina propia, sus tarifas son estimadas de portales (falta circular oficial) y pesa en su contra la <b>Sentencia T-227/2020</b> (ajustes dislexia) y el fallecimiento en la salida a Villa de Leyva (mar-2024, aunque sin causalidad judicial de bullying demostrada).</div>
+          <div>• <b>2. Colegio Anglo Colombiano:</b> Tiene el <b>Continuum Completo de los 3 programas del IB (PYP, MYP y Diploma)</b>, acreditación <b>CIS + NEASC</b>, queda sobre el mismo eje de tu <b>Calle 153 (Cra. 19 # 152A-48, 0% obras)</b>, entra a las 7:30 a.m., incluye todos los útiles/libros de PK a 11° y tiene historial limpio en convivencia. <b>¿Qué lo baja?:</b> su costo oficial de <b>$900,2M</b> y exigir en el Año 1 de Prekínder <b>$115.416.000</b> ($50,2M de anticipo cuyo VPN tarda ~7–8 años en recuperarse), además de no tener piscina propia y cobrar clubes aparte.</div>
+          <div>• <b>3. Colegio Los Nogales:</b> Máxima acreditación internacional (<b>AAA+++</b> y +20 cursos AP), pero descendió de <b>D2 a D3</b> en Col-Sapiens 2026–27, exige alta carga académica, cuesta ~$820M–$910M + bono (~$25M–$35M), no tiene piscina propia y tuvo desgaste judicial/mediático en 2023–2026.</div>
         </div>
       </div>
 
-      <!-- BLOQUE 2: TABLA DE RANKING PONDERADO REALISTA DE LOS 8 COLEGIOS -->
+      <!-- BLOQUE 2: RANKING CALCULADO (mismo motor del Grid 16, pesos por defecto) -->
       <div class="p-4 rounded-xl border border-[var(--border)] bg-[var(--background)] overflow-x-auto">
-        <div class="font-bold text-sm mb-1">📊 Matriz de Calificación Crítica y Realista de los 8 Colegios para Sara (Escala Estricta 0 a 100 — Cero Puntajes Perfectos)</div>
-        <p class="text-[11px] text-[var(--muted-foreground)] mb-2">Ningún colegio obtiene el máximo en ninguna columna: todos los puntajes descuentan las fricciones reales verificadas en los Grids 1 al 13 (falta de piscina propia en los 8 colegios, horarios, obras viales, costos de oportunidad, categoría D2/D3 en Col-Sapiens y matices judiciales).</p>
-        <table class="w-full text-left border-collapse text-xs">
-          <thead>
-            <tr class="border-b border-[var(--border)]">
-              <th class="p-2 font-bold">Puesto y Colegio</th>
-              <th class="p-2 font-bold">Académico e Idiomas (Máx 20)</th>
-              <th class="p-2 font-bold">Convivencia y Apoyo (Máx 20)</th>
-              <th class="p-2 font-bold">Costo y VPN 14–15a (Máx 15)</th>
-              <th class="p-2 font-bold">Edad Ingreso / Grado (Máx 10)</th>
-              <th class="p-2 font-bold">Ruta Cll. 153 y Sueño (Máx 15)</th>
-              <th class="p-2 font-bold">Extras, Campus y Piscina (Máx 15)</th>
-              <th class="p-2 font-bold">Universidad Exterior/Col (Máx 5)</th>
-              <th class="p-2 font-bold">Nota Realista (0–100)</th>
-            </tr>
-          </thead>
-          <tbody class="divide-y divide-[var(--border)]">
-            <tr class="bg-emerald-500/10">
-              <td class="p-2 font-bold text-emerald-500">🥇 1. Saint George’s (Con $20M)</td>
-              <td class="p-2"><b>16,8/20</b> (ICFES ~357, D2·AAA++, C1/C2 + B2; <i>resta no ser D1 ni tener IB</i>)</td>
-              <td class="p-2 font-semibold text-emerald-500"><b>17,6/20</b> (Sin fallos bullying + CADI MinSalud; <i>ningún colegio es 20/20</i>)</td>
-              <td class="p-2"><b>11,9/15</b> ($794,9M oficial c/$20M y buen VPN; <i>sigue siendo costo alto</i>)</td>
-              <td class="p-2"><b>8,1/10</b> (Entra PK ago-2028 a los 4a; requiere jardín en 2027)</td>
-              <td class="p-2"><b>11,0/15</b> (3,1 km y 0% obras; <i>pero ruta 6:15 a.m. castiga sueño</i>)</td>
-              <td class="p-2 font-semibold text-emerald-500"><b>12,9/15</b> (+45 clubes y 2da ruta a $0, 7 ha; <i><b>SIN piscina propia</b>, usa convenio</i>)</td>
-              <td class="p-2"><b>4,2/5</b> (A-Levels saltan Foundation UK; <i>menos créditos locales que IB</i>)</td>
-              <td class="p-2 font-bold text-emerald-500">82,5 / 100 · 🏆 #1 CAL. B</td>
-            </tr>
-            <tr class="bg-amber-500/10">
-              <td class="p-2 font-bold text-amber-500">🥈 2. CAS (Colombo Americano)</td>
-              <td class="p-2"><b>16,6/20</b> (Doble IB + Cambridge ICE, D2·AAA++; <i>ICFES ~345 menor que Vermont/SGS</i>)</td>
-              <td class="p-2 font-semibold text-emerald-500"><b>17,0/20</b> (Sin fallos ni denuncias; <i>sin centro clínico CADI MinSalud</i>)</td>
-              <td class="p-2 font-semibold text-amber-500"><b>13,1/15</b> (~$672,9M oficial, bono $0, exámenes IB/ICE a $0)</td>
-              <td class="p-2 font-semibold text-amber-500"><b>9,0/10</b> (Nursery feb-2027 a 2,6a; se gradúa joven de 17a 4m)</td>
-              <td class="p-2"><b>10,5/15</b> (Entra 7:45 a.m.; <i>pero 6,8 km y obras Av. Boyacá en 2027</i>)</td>
-              <td class="p-2"><b>10,7/15</b> (Playful y natación en convenio $0 en PK; <i><b>SIN piscina propia</b> y extras 1°+ pagas</i>)</td>
-              <td class="p-2"><b>4,4/5</b> (Doble IB + ICE homologa 1er semestre en Colombia)</td>
-              <td class="p-2 font-bold text-amber-500">81,3 / 100 · 🏆 #1 CAL. A</td>
-            </tr>
-            <tr>
-              <td class="p-2 font-bold text-sky-500">🥉 3. Gimnasio Vermont</td>
-              <td class="p-2 font-semibold text-sky-500"><b>17,7/20</b> (ICFES #1 ~361, D2·AAA+, IB + Mandarín HSK; <i>no es D1</i>)</td>
-              <td class="p-2 text-amber-500"><b>11,6/20</b> (🔴 T-227/20 ajustes dislexia + 🟠 caso mar-2024 sin causalidad demostrada)</td>
-              <td class="p-2"><b>11,3/15</b> (~$767,2M; <i>estimado de portales sin circular oficial pública</i>)</td>
-              <td class="p-2"><b>8,1/10</b> (Entra PK ago-2028 a los 4a; sale 17a 11m)</td>
-              <td class="p-2 font-semibold text-sky-500"><b>12,6/15</b> (🏆 Entra 8:00 a.m.: duerme 50 min más; 4,8 km Cll. 195)</td>
-              <td class="p-2"><b>11,4/15</b> (8 ha, Observatorio; <i><b>SIN piscina propia</b> y lúdicas pagas</i>)</td>
-              <td class="p-2"><b>4,5/5</b> (IB + UNEDasiss España + Becas Gob. China)</td>
-              <td class="p-2 font-bold text-sky-500">80,2 / 100 · 🟡 EN OBSERVACIÓN</td>
-            </tr>
-            <tr>
-              <td class="p-2 font-bold text-orange-400">4. Anglo Colombiano (Con Anticipo)</td>
-              <td class="p-2"><b>17,1/20</b> (Continuum IB PYP/MYP/DP, CIS/NEASC, D2·AAA+; <i>ICFES ~346</i>)</td>
-              <td class="p-2 font-semibold text-emerald-500"><b>16,8/20</b> (Sin fallos de acoso + Learning Support; <i>alta presión social</i>)</td>
-              <td class="p-2 text-rose-400"><b>8,3/15</b> ($900,2M oficial + Año 1 de $115,4M con anticipo $50,2M; VPN ~7–8 años)</td>
-              <td class="p-2"><b>8,1/10</b> (Entra PK ago-2028 a los 4a; sale 17a 11m)</td>
-              <td class="p-2 font-semibold text-emerald-500"><b>12,5/15</b> (Cra 19 #152A: mismo eje Cll 153, 0% obras, entra 7:30 a.m.)</td>
-              <td class="p-2"><b>11,1/15</b> (Teatro Shakespeare, libros incluidos; <i><b>SIN piscina propia</b> y clubes pagos</i>)</td>
-              <td class="p-2"><b>4,5/5</b> (Continuum IB + CIS/NEASC homologa 1 sem en Andes/Javeriana)</td>
-              <td class="p-2 font-bold text-orange-400">79,8 / 100 · 🟢 TOP ÉLITE IB</td>
-            </tr>
-            <tr>
-              <td class="p-2 font-bold text-lime-500">5. Colegio Los Nogales</td>
-              <td class="p-2"><b>17,1/20</b> (AAA+++, +20 cursos AP, CIS/NEASC; <i>bajó de D2 a D3 en 2026–27</i>)</td>
-              <td class="p-2"><b>14,0/20</b> (Expulsión 2023-24 avalada por tutela; <i>acusación injuria 2026 en juicio</i>)</td>
-              <td class="p-2 text-rose-400"><b>8,7/15</b> (~$820M–$910M + bono ~$25M–$35M estimado portales)</td>
-              <td class="p-2"><b>8,1/10</b> (Entra ago-2028 a los 4a; sale 17a 11m)</td>
-              <td class="p-2"><b>10,6/15</b> (6,0 km Cll. 202; cruza obras Av. Boyacá Norte en 2027)</td>
-              <td class="p-2"><b>12,1/15</b> (13,8 ha, deportes UNCOLI $0, Centro Artes; <i><b>SIN piscina propia</b></i>)</td>
-              <td class="p-2 font-semibold text-lime-500"><b>4,6/5</b> (#1 histórico hacia Los Andes e Ivy League con AP)</td>
-              <td class="p-2 font-bold text-lime-500">76,5 / 100 · 🟢 ÉLITE AP</td>
-            </tr>
-            <tr>
-              <td class="p-2 font-bold text-cyan-400">6. Gimnasio Colombo Británico</td>
-              <td class="p-2"><b>16,5/20</b> (ICFES ~358,5 Top 10 Bogotá; D2·AAA; Cambridge + IB 2021)</td>
-              <td class="p-2 text-amber-500"><b>12,4/20</b> (🟠 Denuncia feb-2024 e indagaciones abiertas; sin sanción en firme)</td>
-              <td class="p-2"><b>12,0/15</b> (~$638M–$780M sin bono; <i>estimado portales sin circular oficial</i>)</td>
-              <td class="p-2"><b>8,4/10</b> (Opción Prejardín 2027 o PK 2028; sale 17a 11m)</td>
-              <td class="p-2"><b>9,0/15</b> (8,5 km Guaymaral; obras Av. Boyacá en 2027 y ruta temprana)</td>
-              <td class="p-2"><b>10,8/15</b> (GCB Arena en Guaymaral; <i><b>SIN piscina propia</b> y extras pagas</i>)</td>
-              <td class="p-2"><b>4,1/5</b> (Doble vía IGCSE + IB y becas por ICFES)</td>
-              <td class="p-2 font-bold text-cyan-400">73,8 / 100 · 🟡 EN OBSERVACIÓN</td>
-            </tr>
-            <tr>
-              <td class="p-2 font-bold text-indigo-400">7. Liceo Francés Louis Pasteur</td>
-              <td class="p-2"><b>16,5/20</b> (Baccalauréat / BFI, Francés C2 + Inglés C1, AEFE)</td>
-              <td class="p-2"><b>15,6/20</b> (Sin fallos bullying; nueva convención AEFE jun-2026 tras crisis gobernanza)</td>
-              <td class="p-2"><b>12,3/15</b> (~$775M en 15 años; bono $0; pensión oficial $3,39M)</td>
-              <td class="p-2 font-semibold text-indigo-400"><b>8,8/10</b> (Entra Sep-2027 con 3a 2m a Petite Section por año civil)</td>
-              <td class="p-2 text-rose-500"><b>6,5/15</b> (🔴 11,5 km hasta Cll 87 Cra 7: trancón norte–centro por 15 años)</td>
-              <td class="p-2"><b>9,4/15</b> (14 deportes UNCOLI; <i>campus urbano denso y <b>SIN piscina propia</b></i>)</td>
-              <td class="p-2"><b>4,4/5</b> (Acceso directo Parcoursup Francia/UE subsidiado)</td>
-              <td class="p-2 font-bold text-indigo-400">72,4 / 100 · 🔴 LEJOS DE CASA</td>
-            </tr>
-            <tr class="bg-rose-500/5">
-              <td class="p-2 font-bold text-rose-500">8. Colegio Helvetia</td>
-              <td class="p-2"><b>16,6/20</b> (Trilingüe Francés/Alemán C1 + Inglés C1 + Matura Suiza)</td>
-              <td class="p-2 font-bold text-rose-500"><b>8,0/20</b> (🔴 T-252/2023 "IABC"/contexto Procuraduría + intervención 2023)</td>
-              <td class="p-2"><b>9,0/15</b> (~$838M–$915M porque pagas 15 años hasta Grado 12 + extras aparte)</td>
-              <td class="p-2 font-bold text-rose-500"><b>3,5/10</b> (🔴 Corte 30-jun la atrasa 1 año + Grado 12: sale de ~19 años)</td>
-              <td class="p-2"><b>11,4/15</b> (2,6 km al sur, 0% obras; <i>pero todos los miércoles sale 1:15 p.m.</i>)</td>
-              <td class="p-2"><b>9,1/15</b> (Bosque Cll. 128; <i><b>SIN piscina propia</b>, extras pagas y filtro en 9°</i>)</td>
-              <td class="p-2"><b>4,4/5</b> (Entrada directa sin examen a ETH Zürich / Europa)</td>
-              <td class="p-2 font-bold text-rose-500">67,1 / 100 · 🔴 DESCARTADO PARA SARA</td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="font-bold text-sm mb-1">📊 Ranking calculado con hechos (mismo motor del Grid 16, pesos equilibrados por defecto)</div>
+        <p class="text-[11px] text-[var(--muted-foreground)] mb-2">Las notas ya no están escritas a mano: cada casilla sale de un hecho del estudio con su nivel de certeza (✅ oficial · ⚠️ tercero/estimado · ❓ sin dato = 6,5 neutral). Costo, edad de graduación y distancia usan fórmulas iguales para todos. Columnas: 🛡️ convivencia · 🎓 académico · 🇬🇧 currículo · 🌍 3.er idioma · 💰 costo · 📅 edad · 🚌 cercanía · 😴 horario · ⚽ extras · 🏊 campus · 😊 infancia · 🏛️ universidad. El detalle y la evidencia de cada nota están en el Grid 16. Diferencias de pocos puntos no son decisivas.</p>
+        <div id="g14-dynamic-table"></div>
       </div>
 
       <!-- BLOQUE 3: ¿POR QUÉ DESCARTARÍAMOS O PONDRÍAMOS CONDICIONES A LOS OTROS? + LA JUGADA MAESTRA -->
@@ -2029,11 +1925,11 @@
       <!-- BLOQUE 4: VEREDICTO FINAL DEL GRID 15 -->
       <div class="p-4 rounded-xl border-2 border-emerald-500 bg-emerald-500/10 text-xs space-y-2">
         <div class="font-bold text-sm md:text-base text-emerald-500">🥇 VEREDICTO DEFINITIVO DEL GRID 15 (Escala Realista): ¿Cuál de las Estrategias Elegiríamos Nosotros Hoy?</div>
-        <div>• <b>1. Nuestra Estrategia #1 Recomendada (84,8/100): 🏡 ESTRATEGIA 3 (Primero Jardín Infantil Campestre del Norte JCN de Feb 2027 a Jun 2028) ➔ 🇬🇧 Salto a Prekínder en Saint George’s School (o 🏰 Anglo / 🌎 Vermont) en Agosto 2028.</b><br/>
+        <div>• <b>1. Nuestra Estrategia #1 Recomendada: 🏡 ESTRATEGIA 3 (Primero Jardín Infantil Campestre del Norte JCN de Feb 2027 a Jun 2028) ➔ 🇬🇧 Salto a Prekínder en Saint George’s School (o 🏰 Anglo / 🌎 Vermont) en Agosto 2028.</b><br/>
         <i>¿Por qué gana?</i> Porque como <b>ninguno de los 8 colegios grandes tiene piscina propia en su campus</b>, el JCN le da a Sara entre los 2,6 y los 4 años un <b>jardín campestre de 6.400 m² pensado 100% para primera infancia con PISCINA PROPIA climatizada en la Calle 180</b> (a 10 min de tu casa y antes de las obras de la Cll. 183–235), aprovechas el <b>35%–50% de descuento en matrícula de Cafam/Colsubsidio</b>, con los <b>~$20 millones que te ahorras frente al CAS pagas el Anticipo de $20M del Saint George’s School</b>, y en agosto de 2028 Sara entra a los 4 años a su colegio definitivo (donde en el SGS tiene +45 clubes gratis, 2da ruta gratis y natación por convenio externo).</div>
-        <div>• <b>2. Nuestra Estrategia #2 Recomendada (83,9/100 — Si prefieres máxima comodidad a 5 minutos y máximo ahorro líquido): 🧸 ESTRATEGIA 2 (Primero Dreams Kindergarten Mazurén en Cra. 59 # 152-49) ➔ 🇬🇧 Saint George’s School (o 🏰 Anglo Colombiano) en Agosto 2028.</b><br/>
+        <div>• <b>2. Nuestra Estrategia #2 Recomendada (Si prefieres máxima comodidad a 5 minutos y máximo ahorro líquido): 🧸 ESTRATEGIA 2 (Primero Dreams Kindergarten Mazurén en Cra. 59 # 152-49) ➔ 🇬🇧 Saint George’s School (o 🏰 Anglo Colombiano) en Agosto 2028.</b><br/>
         <i>¿Cuándo gana esta?</i> Si prefieres no cruzar siquiera la Av. Boyacá mientras Sara tiene 2 y 3 años, llevarla en 5 minutos en carro por la misma Calle 152, y ahorrar <b>~$30 millones de pesos</b> en esos 15 meses para pagar el anticipo del colegio grande con total holgura.</div>
-        <div>• <b>3. Cuándo elegir la Estrategia 1 (🇺🇸 CAS Directo en Feb 2027 — 79,5/100):</b> <b>ÚNICAMENTE</b> si toman la decisión familiar de que Sara hará toda su vida escolar en <b>Calendario A en el CAS hasta graduarse en 2041</b> (aceptando que ni el CAS ni el SGS tienen piscina propia en el campus, a cambio de ahorrar +$122M en los 14 años y tener doble diploma IB + Cambridge a $0).</div>
+        <div>• <b>3. Cuándo elegir la Estrategia 1 (🇺🇸 CAS Directo en Feb 2027):</b> <b>ÚNICAMENTE</b> si toman la decisión familiar de que Sara hará toda su vida escolar en <b>Calendario A en el CAS hasta graduarse en 2041</b> (aceptando que ni el CAS ni el SGS tienen piscina propia en el campus, a cambio de ahorrar +$122M en los 14 años y tener doble diploma IB + Cambridge a $0).</div>
         <div class="pt-2 border-t border-emerald-500/30 text-[11px]">
           <b>⚠️ Nota de Auditoría sobre Nivel de Certeza en el Grid 15:</b> Mientras el costo de la <b>Estrategia 1 (CAS Nursery + Prekínder = $63.874.360)</b> proviene 100% del afiche oficial 2027 del CAS, los montos de <b>Jardín Infantil Campestre del Norte — JCN (~$40,5M–$45M)</b> y <b>Dreams Kindergarten Mazurén (~$31M–$35M)</b> son proyecciones estimadas con convenios de cajas de compensación. <b>Antes de firmar matrícula para febrero de 2027, solicita por escrito a JCN y Dreams:</b> (1) cotización oficial 2027 para niña nacida el 12-jul-2024, (2) confirmación de si permite retiro o pago semestral en junio de 2028 al pasar a Calendario B sin penalidad, y (3) confirmación escrita de las fechas exactas de corte de edad en los colegios de destino (SGS, Anglo, Nogales, Vermont) para agosto de 2028.
         </div>
@@ -2045,11 +1941,11 @@
       <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-3">
         <div>
           <div class="flex flex-wrap items-center gap-2 mb-1">
-            <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-sky-500 text-slate-950">🎛️ GRID 16 · SIMULADOR REALISTA EN VIVO (SIN 10/10)</span>
+            <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-sky-500 text-slate-950">🎛️ GRID 16 · SIMULADOR BASADO EN HECHOS (SIN 10/10)</span>
             <span id="sim-active-badge" class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/15 text-emerald-500 border border-emerald-500/30">12 Variables Activas · Peso Total: 85 pts</span>
           </div>
           <h3 class="text-lg md:text-xl font-bold text-sky-400">🎛️ GRID 16: Simulador Dinámico Realista (Cero Notas de 10/10 · Ajusta los Pesos de 0 a 10 y Edita Cualquier Nota Base en Vivo)</h3>
-          <p class="text-xs text-[var(--muted-foreground)]"><b>Calibración crítica realista:</b> Ningún colegio tiene un <b>10/10</b> en ninguna variable porque todos tienen compromisos reales (ej. <b>ninguno de los 8 colegios grandes tiene piscina propia en su campus</b> —SGS y CAS usan convenios externos—, SGS madruga a las 6:15 a.m. y no tiene IB, CAS está a 6,8 km pasando por obras, Anglo exige $115,4M el primer año, Vermont y GCB tienen alertas en observación, etc.). Mueve los pesos de <b>0 a 10</b> arriba o abre la matriz inferior para <b>editar tú mismo la nota base (0,0 a 9,9) de cualquier colegio</b>.</p>
+          <p class="text-xs text-[var(--muted-foreground)]"><b>Método basado en hechos:</b> cada nota sale de un hecho del estudio y muestra su certeza: <b>✅ oficial/verificado</b> (documentos o tus correos), <b>⚠️ tercero o estimado</b> y <b>❓ sin dato</b> (nota neutral 6,5, que ni premia ni castiga). Costo, edad de graduación y distancia usan <b>fórmulas lineales iguales para todos</b>. Nadie tiene 10/10 y ninguno de los 8 colegios tiene piscina propia. Cada resultado indica qué porcentaje de su nota está respaldado por datos verificados. Abre la matriz o la evidencia para ver el hecho detrás de cada nota y edita cualquier valor si no estás de acuerdo.</p>
         </div>
         <div class="flex flex-wrap items-center gap-2">
           <label class="flex items-center gap-2 text-xs font-semibold px-3 py-2 rounded-xl border border-emerald-500/40 bg-[var(--background)] cursor-pointer">
@@ -2125,7 +2021,7 @@
                 <th class="p-2 font-bold">Colegio</th>
                 <th class="p-2 font-bold w-48">Puntaje Realista (0–100)</th>
                 <th class="p-2 font-bold">Variables donde Destaca con tu Configuración</th>
-                <th class="p-2 font-bold">Fricciones Reales que le Restan (<8,0/10)</th>
+                <th class="p-2 font-bold">Fricciones Reales que le Restan (&lt;7,0)</th>
                 <th class="p-2 font-bold">Diferencia vs. #1</th>
               </tr>
             </thead>
@@ -2159,6 +2055,11 @@
           </div>
         </details>
 
+        <details class="p-3.5 rounded-xl border border-emerald-500/40 bg-[var(--background)] text-xs">
+          <summary class="font-bold cursor-pointer text-emerald-400">📎 Evidencia: el hecho y la certeza detrás de cada nota (por colegio)</summary>
+          <div class="mt-3" id="sim-evidence-wrapper"><!-- Renderizado por JS --></div>
+        </details>
+
       </div>
     </div>
 
@@ -2180,230 +2081,233 @@
     }
 
     // ============================================================================
-    // MOTOR DEL GRID 16: SIMULADOR DINÁMICO REALISTA (SIN NINGÚN 10/10)
+    // MOTOR DEL GRID 16: SIMULADOR BASADO EN HECHOS (cada nota tiene hecho + nivel de certeza)
+    // Certeza: ok = documento oficial / tus correos · ter = dato de terceros o estimación · nd = sin dato (nota neutral 6,5)
     // ============================================================================
+    const NEUTRAL = 6.5;
+    const CERT_ICON = { ok: '✅', ter: '⚠️', nd: '❓' };
+    const CERT_LABEL = { ok: 'Oficial / verificado', ter: 'Tercero o estimado', nd: 'Sin dato (neutral)' };
+    const clamp9 = x => Math.max(0, Math.min(9, x));
+    const r1 = x => Math.round(x * 10) / 10;
+    // Fórmulas transparentes (las mismas para todos):
+    const costScore = (c, lo, hi) => r1(clamp9(8.5 - 4 * (c - lo) / (hi - lo)));       // costo: 8,5 al más barato → 4,5 al más caro
+    const distScore = (km, obras) => r1(clamp9(8.8 - 0.5 * (km - 2.6) - (obras ? 0.6 : 0))); // −0,5 por km sobre 2,6 km; −0,6 si cruza obras Av. Boyacá Norte
+    const gradScore = g => r1(clamp9(8.8 - 2 * (g - 17.33)));                          // −2,0 por cada año más tarde que 17a 4m
+    const C = (s, c, t) => ({ s, c, t });
+    const N = (t) => C(NEUTRAL, 'nd', t || 'Sin dato verificado en el estudio: nota neutral, no premia ni castiga.');
+
     const SIM_VARIABLES = [
-      {
-        id: 'v1',
-        icon: '🛡️',
-        name: '1. Convivencia Judicial/Medios y Apoyo Clínico (CADI/PIAR)',
-        desc: 'Premia ausencia de fallos/denuncias graves y apoyo terapéutico en sitio. Tope máx 8.8/10 (ningún colegio tiene 0 conflictos cotidianos).',
-        defaultWeight: 8
-      },
-      {
-        id: 'v2',
-        icon: '🎓',
-        name: '2. Nivel Académico Puro (ICFES Saber 11 + Col-Sapiens 2026–2027)',
-        desc: 'Premia Saber 11 (~357–361) y Col-Sapiens. Tope máx 9.1/10 (ninguno de los 8 está en D1 en 2026–27; son D2 y Los Nogales bajó a D3).',
-        defaultWeight: 8
-      },
-      {
-        id: 'v3',
-        icon: '🇬🇧',
-        name: '3. Inglés C1/C2 + Solidez del Diploma Internacional (IB / A-Levels / AP / Bac)',
-        desc: 'Premia inmersión e internacionalización. Tope máx 9.1/10 (SGS tiene A-Levels pero NO tiene IB; CAS tiene IB+ICE; Anglo tiene 3 IB).',
-        defaultWeight: 8
-      },
-      {
-        id: 'v4',
-        icon: '🌍',
-        name: '4. Tercer y Cuarto Idioma (Francés C1/B2, Alemán C1 o Mandarín HSK)',
-        desc: 'Premia salir trilingüe con certificación oficial DELF/DALF, DSD II Alemán o HSK Mandarín (Grid 5). Tope máx 9.2/10.',
-        defaultWeight: 5
-      },
-      {
-        id: 'v5',
-        icon: '💰',
-        name: '5. Eficiencia Financiera (Costo Total 14–15 Años, Anticipo y VPN)',
-        desc: 'Premia menor costo acumulado, $0 bono o rápido retorno en VPN. Tope máx 8.7/10 (todos cuestan entre $673M y $986M COP).',
-        defaultWeight: 8
-      },
-      {
-        id: 'v6',
-        icon: '📅',
-        name: '6. Edad de Ingreso y Graduación para Sara (Nacida 12-Jul-2024)',
-        desc: 'Premia no perder 1 año por el corte del 30-jun y graduarse de 17a 4m a 17a 11m (en vez de casi 19 años en Helvetia). Tope máx 9.0/10.',
-        defaultWeight: 7
-      },
-      {
-        id: 'v7',
-        icon: '🚌',
-        name: '7. Cercanía a Av. Boyacá Cll. 153 y Cero Obras Av. Boyacá Norte',
-        desc: 'Premia pocos km sin cruzar las obras Cll. 183–235 ni ir a Chapinero. Tope máx 8.8/10 (todos sufren tráfico de Bogotá en hora pico).',
-        defaultWeight: 8
-      },
-      {
-        id: 'v8',
-        icon: '😴',
-        name: '8. Sueño Matutino de Sara y Horario Cómodo (Entrada / Salida)',
-        desc: 'Premia entrar 8:00 a.m. (Vermont) o 7:30–7:45 a.m. Castiga fuertemente a SGS (ruta 6:15 a.m. = 5.8/10) y miércoles 1:15 p.m. (Helvetia).',
-        defaultWeight: 7
-      },
-      {
-        id: 'v9',
-        icon: '⚽',
-        name: '9. Extracurriculares L–V y 2da Ruta Escolar Incluidas a Costo $0',
-        desc: 'Premia tener +45 clubes L–V y 2da ruta a $0 en pensión (SGS = 9.1/10) frente a colegios que cobran clubes semestrales aparte.',
-        defaultWeight: 6
-      },
-      {
-        id: 'v10',
-        icon: '🏊',
-        name: '10. Campus Campestre, Deportes y Natación (OJO: Ningún colegio tiene piscina propia)',
-        desc: 'Como NINGUNO de los 8 colegios grandes tiene piscina propia en su campus (SGS y CAS usan convenio externo), el tope máx es 8.3/10.',
-        defaultWeight: 6
-      },
-      {
-        id: 'v11',
-        icon: '😊',
-        name: '11. Infancia Feliz y Baja Carga de Tareas Mecánicas en Primaria',
-        desc: 'Premia tareas sugeridas/autónomas y Playful Learning frente a colegios con carga académica pesada o filtros en 9°. Tope máx 8.8/10.',
-        defaultWeight: 8
-      },
-      {
-        id: 'v12',
-        icon: '🏛️',
-        name: '12. Homologación Universitaria en Colombia y Pase Directo / Becas Exterior',
-        desc: 'Premia homologar semestre con IB/AP (Andes/Javeriana), saltar Foundation UK o pase directo a UE/China. Tope máx 9.1/10.',
-        defaultWeight: 6
-      }
+      { id: 'v1', icon: '🛡️', name: '1. Convivencia documentada y apoyo clínico (CADI/PIAR)',
+        desc: 'Rúbrica: sentencias, denuncias y noticias documentadas (Grids 6/11/13). Ausencia de noticias NO es prueba de ausencia de problemas: tope 8,3. Un caso documentado baja la nota; una denuncia no es sentencia.', defaultWeight: 8 },
+      { id: 'v2', icon: '🎓', name: '2. Nivel académico (ICFES Saber 11 + Col-Sapiens)',
+        desc: 'Rúbrica: Col-Sapiens verificado y ICFES de terceros. Sin dato = 6,5. Los ICFES del estudio son de terceros (⚠️) y varían por promoción.', defaultWeight: 8 },
+      { id: 'v3', icon: '🇬🇧', name: '3. Currículo internacional e inglés (IB / Cambridge / AP / Bac / Matura)',
+        desc: 'Rúbrica: programa confirmado y trayectoria. IB completo o doble titulación 8,5; Cambridge sin IB 7,5; resto según evidencia.', defaultWeight: 8 },
+      { id: 'v4', icon: '🌍', name: '4. Tercer idioma (Francés, Alemán, Mandarín)',
+        desc: 'Rúbrica: idioma de instrucción 8,5; idioma certificado 7–7,5; sin dato 6,5.', defaultWeight: 4 },
+      { id: 'v5', icon: '💰', name: '5. Costo total 14–15 años (fórmula lineal)',
+        desc: 'Fórmula: 8,5 al colegio más barato → 4,5 al más caro, según el costo acumulado del estudio. Respeta el interruptor de anticipo. No incluye valor presente.', defaultWeight: 8 },
+      { id: 'v6', icon: '📅', name: '6. Edad de ingreso y graduación (fórmula)',
+        desc: 'Fórmula: 8,8 − 2,0 por cada año más tarde que los 17a 4m del CAS (CAS 17a4m; Cal. B 17a11m; Helvetia ~19a por corte 30-jun y Grado 12).', defaultWeight: 7 },
+      { id: 'v7', icon: '🚌', name: '7. Cercanía a Av. Boyacá con Cll. 153 y obras (fórmula)',
+        desc: 'Fórmula: 8,8 − 0,5 por km sobre 2,6 km − 0,6 si cruza las obras de Av. Boyacá Norte. Distancias aproximadas (⚠️).', defaultWeight: 8 },
+      { id: 'v8', icon: '😴', name: '8. Sueño matutino y horario (ruta / entrada)',
+        desc: 'Rúbrica: hora de ruta o entrada confirmada. SGS 6:15 a.m. (confirmado en tus correos) se castiga; muchos colegios no tienen horario confirmado (❓).', defaultWeight: 7 },
+      { id: 'v9', icon: '⚽', name: '9. Extracurriculares y 2.ª ruta incluidos a $0',
+        desc: 'Rúbrica: extras confirmados a $0 suben; extras cobrados aparte bajan; sin dato = 6,5.', defaultWeight: 6 },
+      { id: 'v10', icon: '🏊', name: '10. Campus y deportes (NINGÚN colegio grande tiene piscina propia)',
+        desc: 'Rúbrica: hectáreas y deportes verificados. Ninguno de los 8 tiene piscina propia: no se premia a ninguno por eso. Campus urbano se castiga.', defaultWeight: 5 },
+      { id: 'v11', icon: '😊', name: '11. Infancia feliz y carga de tareas',
+        desc: 'Casi sin datos medidos en el estudio (❓). Por eso su peso por defecto es bajo (4) y casi todos quedan en 6,5.', defaultWeight: 4 },
+      { id: 'v12', icon: '🏛️', name: '12. Homologación universitaria y pase al exterior',
+        desc: 'Rúbrica: todos los diplomas internacionales abren puertas parecidas; diferencias pequeñas (7,3–7,5) y de terceros (⚠️).', defaultWeight: 5 }
     ];
 
     const SIM_PRESETS = {
       zero:        { v1:0, v2:0, v3:0, v4:0, v5:0, v6:0, v7:0, v8:0, v9:0, v10:0, v11:0, v12:0 },
-      recommended: { v1:8, v2:8, v3:8, v4:5, v5:8, v6:7, v7:8, v8:7, v9:6, v10:6, v11:8, v12:6 },
-      financial:   { v1:8, v2:7, v3:8, v4:4, v5:9,v6:9, v7:6, v8:7, v9:6, v10:4, v11:8, v12:8 },
-      allinclusive:{ v1:9, v2:8, v3:8, v4:5, v5:8, v6:7, v7:9, v8:5, v9:9, v10:7, v11:9, v12:6 },
-      sleep:       { v1:6, v2:9, v3:8, v4:7, v5:6, v6:7, v7:8, v8:9,v9:5, v10:7, v11:8, v12:8 },
-      academic:    { v1:8, v2:9, v3:9,v4:6, v5:3, v6:7, v7:8, v8:8, v9:5, v10:7, v11:7, v12:9 },
-      europe:      { v1:6, v2:8, v3:7, v4:9,v5:6, v6:6, v7:4, v8:5, v9:4, v10:4, v11:6, v12:9 }
+      recommended: { v1:8, v2:8, v3:8, v4:4, v5:8, v6:7, v7:8, v8:7, v9:6, v10:5, v11:4, v12:5 },
+      financial:   { v1:8, v2:7, v3:8, v4:4, v5:9, v6:9, v7:6, v8:7, v9:6, v10:4, v11:5, v12:6 },
+      allinclusive:{ v1:9, v2:8, v3:8, v4:4, v5:8, v6:7, v7:9, v8:5, v9:9, v10:6, v11:6, v12:5 },
+      sleep:       { v1:6, v2:9, v3:8, v4:5, v5:6, v6:7, v7:8, v8:9, v9:5, v10:6, v11:7, v12:6 },
+      academic:    { v1:8, v2:9, v3:9, v4:6, v5:3, v6:7, v7:8, v8:8, v9:5, v10:6, v11:5, v12:9 },
+      europe:      { v1:6, v2:8, v3:7, v4:9, v5:6, v6:6, v7:4, v8:5, v9:4, v10:4, v11:5, v12:9 }
     };
 
-    // Calificaciones base realistas auditadas (CERO 10.0/10 en toda la tabla; máximo 9.1–9.2)
-    const DEFAULT_SIM_SCHOOLS = [
-      {
-        id: 'sgs',
-        flag: '🇬🇧',
-        name: 'Saint George’s School (SGS)',
-        cal: 'Calendario B · Suba (3,1 km · Sin piscina propia)',
-        color: 'emerald',
-        costLabelCon: '$4,91M/mes · $794,9M (14a c/$20M)',
-        costLabelSin: '$5,67M/mes · $893,9M (14a s/anticipo)',
-        scoresCon: { v1:8.8, v2:8.9, v3:8.6, v4:7.8, v5:7.9, v6:8.1, v7:8.8, v8:5.8, v9:9.1, v10:7.7, v11:8.8, v12:8.3 },
-        scoresSin: { v1:8.8, v2:8.9, v3:8.6, v4:7.8, v5:6.4, v6:8.1, v7:8.8, v8:5.8, v9:9.1, v10:7.7, v11:8.8, v12:8.3 }
-      },
-      {
-        id: 'cas',
-        flag: '🇺🇸',
-        name: 'Colegio Colombo Americano (CAS)',
-        cal: 'Calendario A · Arrayanes Cll. 214 (6,8 km · Sin piscina propia)',
-        color: 'amber',
-        costLabelCon: '$3,41M–$4,45M/mes · ~$672,9M (14a, $0 bono)',
-        costLabelSin: '$3,41M–$4,45M/mes · ~$672,9M (14a, $0 bono)',
-        scoresCon: { v1:8.5, v2:8.4, v3:8.9, v4:7.5, v5:8.7, v6:9.0, v7:6.4, v8:7.9, v9:7.6, v10:6.8, v11:8.6, v12:8.8 },
-        scoresSin: { v1:8.5, v2:8.4, v3:8.9, v4:7.5, v5:8.7, v6:9.0, v7:6.4, v8:7.9, v9:7.6, v10:6.8, v11:8.6, v12:8.8 }
-      },
-      {
-        id: 'vermont',
-        flag: '🌎',
-        name: 'Gimnasio Vermont',
-        cal: 'Calendario B · Calle 195 # 54-75 (4,8 km · Sin piscina propia)',
-        color: 'sky',
-        costLabelCon: '~$5,07M/mes · ~$767,2M (Est. portales)',
-        costLabelSin: '~$5,07M/mes · ~$767,2M (Est. portales)',
-        scoresCon: { v1:5.8, v2:9.1, v3:8.7, v4:8.8, v5:7.5, v6:8.1, v7:7.6, v8:9.1, v9:7.3, v10:8.0, v11:7.8, v12:8.9 },
-        scoresSin: { v1:5.8, v2:9.1, v3:8.7, v4:8.8, v5:7.5, v6:8.1, v7:7.6, v8:9.1, v9:7.3, v10:8.0, v11:7.8, v12:8.9 }
-      },
-      {
-        id: 'anglo',
-        flag: '🏰',
-        name: 'Colegio Anglo Colombiano',
-        cal: 'Calendario B · Cra. 19 # 152A-48 (4,8 km · Sin piscina propia)',
-        color: 'orange',
-        costLabelCon: '$65,2M/año PK · $900,2M (14a c/$50,2M)',
-        costLabelSin: '$75,6M/año PK · $986,5M (14a s/anticipo)',
-        scoresCon: { v1:8.4, v2:8.5, v3:9.1, v4:7.2, v5:5.5, v6:8.1, v7:8.5, v8:8.2, v9:7.2, v10:7.6, v11:8.2, v12:9.0 },
-        scoresSin: { v1:8.4, v2:8.5, v3:9.1, v4:7.2, v5:4.2, v6:8.1, v7:8.5, v8:8.2, v9:7.2, v10:7.6, v11:8.2, v12:9.0 }
-      },
-      {
-        id: 'nogales',
-        flag: '🌳',
-        name: 'Colegio Los Nogales',
-        cal: 'Calendario B · Calle 202 # 56-50 (6,0 km · Sin piscina propia)',
-        color: 'lime',
-        costLabelCon: '~$5,6M–$6,25M/mes · ~$820M–$910M (Est.)',
-        costLabelSin: '~$5,6M–$6,25M/mes · ~$820M–$910M (Est.)',
-        scoresCon: { v1:7.0, v2:8.8, v3:9.0, v4:6.8, v5:5.8, v6:8.1, v7:7.0, v8:7.2, v9:8.0, v10:8.3, v11:7.0, v12:9.1 },
-        scoresSin: { v1:7.0, v2:8.8, v3:9.0, v4:6.8, v5:5.8, v6:8.1, v7:7.0, v8:7.2, v9:8.0, v10:8.3, v11:7.0, v12:9.1 }
-      },
-      {
-        id: 'gcb',
-        flag: '🛩️',
-        name: 'Gimnasio Colombo Británico (GCB)',
-        cal: 'Calendario B · Guaymaral (8,5 km · Sin piscina propia)',
-        color: 'cyan',
-        costLabelCon: '~$4,18M–$5,16M/mes · ~$638M–$780M (Est.)',
-        costLabelSin: '~$4,18M–$5,16M/mes · ~$638M–$780M (Est.)',
-        scoresCon: { v1:6.2, v2:8.7, v3:8.4, v4:6.5, v5:8.0, v6:8.4, v7:5.8, v8:6.2, v9:7.0, v10:7.5, v11:7.4, v12:8.2 },
-        scoresSin: { v1:6.2, v2:8.7, v3:8.4, v4:6.5, v5:8.0, v6:8.4, v7:5.8, v8:6.2, v9:7.0, v10:7.5, v11:7.4, v12:8.2 }
-      },
-      {
-        id: 'liceo',
-        flag: '🇫🇷',
-        name: 'Liceo Francés Louis Pasteur',
-        cal: 'Calendario B · Calle 87 Cra. 7 (11,5 km · Sin piscina propia)',
-        color: 'indigo',
-        costLabelCon: '~$4,85M/mes · ~$775M (15a, $0 bono)',
-        costLabelSin: '~$4,85M/mes · ~$775M (15a, $0 bono)',
-        scoresCon: { v1:7.8, v2:8.3, v3:7.6, v4:9.1, v5:8.2, v6:8.8, v7:3.8, v8:5.0, v9:6.8, v10:5.8, v11:7.5, v12:8.7 },
-        scoresSin: { v1:7.8, v2:8.3, v3:7.6, v4:9.1, v5:8.2, v6:8.8, v7:3.8, v8:5.0, v9:6.8, v10:5.8, v11:7.5, v12:8.7 }
-      },
-      {
-        id: 'helvetia',
-        flag: '🇨🇭',
-        name: 'Colegio Helvetia',
-        cal: 'Calendario B · Calle 128 # 72-80 (2,6 km · Sin piscina propia)',
-        color: 'rose',
-        costLabelCon: '$5,18M–$5,45M/mes · ~$838M–$915M (15a)',
-        costLabelSin: '$5,18M–$5,45M/mes · ~$838M–$915M (15a)',
-        scoresCon: { v1:4.0, v2:8.2, v3:7.8, v4:9.2, v5:6.0, v6:3.5, v7:8.7, v8:6.5, v9:5.0, v10:7.1, v11:6.4, v12:8.8 },
-        scoresSin: { v1:4.0, v2:8.2, v3:7.8, v4:9.2, v5:6.0, v6:3.5, v7:8.7, v8:6.5, v9:5.0, v10:7.1, v11:6.4, v12:8.8 }
-      }
+    // Datos duros por colegio (costos en millones COP; km aproximados; edad de graduación en años)
+    const SCHOOL_DEFS = [
+      { id: 'sgs', flag: '🇬🇧', name: 'Saint George’s School (SGS)', cal: 'Calendario B · Suba (~3,1 km · sin piscina propia)',
+        costCon: 794.9, costSin: 893.9, costCert: 'ok', costNote: 'Tarifas 2027 de tus correos, proyectadas a pesos constantes.',
+        km: 3.1, obras: false, kmCert: 'ter', grad: 17.92, gradCert: 'ter',
+        costLabelCon: '$4,91M/mes · $794,9M (14a c/$20M)', costLabelSin: '$5,67M/mes · $893,9M (14a s/anticipo)',
+        cells: {
+          v1: C(8.3, 'ter', 'Sin sentencias ni noticias de convivencia encontradas; el Proceso 76-IP-2017 es un litigio de marca y no tiene relación con convivencia (✅). CADI habilitado por MinSalud (⚠️ tercero). Faltan estadísticas internas del Comité de Convivencia (❓).'),
+          v2: C(8.0, 'ter', 'Col-Sapiens D2·AAA++ (destacado 2026–27) e ICFES ~357 (⚠️ terceros; ficha individual por confirmar). No es D1.'),
+          v3: C(7.5, 'ok', 'Cambridge IGCSE/A-Levels, SIN IB (confirmado en tus correos).'),
+          v4: C(7.0, 'ter', 'Francés B2 declarado; certificación sin reconfirmar.'),
+          v8: C(5.5, 'ok', 'Ruta 6:15 a.m. y regreso 3:50 p.m. (tus correos). Se mitiga llevándola en carro a las 6:40 a.m.'),
+          v9: C(8.5, 'ok', '+45 clubes L–V (3:00–4:00 p.m.) y 2.ª ruta a las 4:00 p.m. a $0 (tus correos).'),
+          v10: C(6.8, 'ter', '~6,5–7 ha campestres (RESNATUR), coliseo y canchas. SIN piscina propia: natación por convenio externo.'),
+          v11: C(6.8, 'ter', 'Política de tareas confirmada en correos; carga real y bienestar no medidos.'),
+          v12: C(7.5, 'ter', 'A-Levels: admisión preferencial y homologación de 2 a 5 materias según terceros.')
+        } },
+      { id: 'cas', flag: '🇺🇸', name: 'Colegio Colombo Americano (CAS)', cal: 'Calendario A · Arrayanes Cll. 214 (~6,8 km · sin piscina propia)',
+        costCon: 672.9, costSin: 672.9, costCert: 'ok', costNote: 'Afiche oficial y correo con tarifas 2027; $0 de bono.',
+        km: 6.8, obras: true, kmCert: 'ter', grad: 17.33, gradCert: 'ok',
+        costLabelCon: '$3,41M–$4,45M/mes · ~$672,9M (14a, $0 bono)', costLabelSin: '$3,41M–$4,45M/mes · ~$672,9M (14a, $0 bono)',
+        cells: {
+          v1: C(7.8, 'ter', 'Sin sentencias ni noticias encontradas. Sin datos internos de convivencia (❓). Equipo interdisciplinario en sitio; terapias extra con costo.'),
+          v2: C(7.2, 'ter', 'Col-Sapiens D2·AAA++ (destacado 2026–27, ✅). ICFES no confirmado en el estudio (❓).'),
+          v3: C(8.5, 'ok', 'IB + Cambridge ICE/Checkpoints sin cobro adicional de exámenes (afiche 2027).'),
+          v4: N(),
+          v8: C(6.8, 'nd', 'Hora exacta de ruta sin confirmar (❓); entrada ~7:45 a.m. según el estudio.'),
+          v9: C(6.8, 'ok', 'Natación (convenio) y Playful Learning a $0 en preescolar (afiche). Extras de primaria sin confirmar (❓).'),
+          v10: C(6.3, 'ok', 'Campus campestre con coliseo de 1.100 m² e Innovation Center. SIN piscina propia.'),
+          v11: C(7.0, 'ok', 'Playful Learning en preescolar; resto sin medir.'),
+          v12: C(7.5, 'ter', 'IB + Cambridge: homologación de ~1 semestre según terceros.')
+        } },
+      { id: 'vermont', flag: '🌎', name: 'Gimnasio Vermont', cal: 'Calendario B · Calle 195 # 54-75 (~4,8 km · sin piscina propia)',
+        costCon: 767.2, costSin: 767.2, costCert: 'ter', costNote: 'Estimado de portales; falta circular oficial 2027–28.',
+        km: 4.8, obras: false, kmCert: 'ter', grad: 17.92, gradCert: 'ter',
+        costLabelCon: '~$5,07M/mes · ~$767,2M (Est. portales)', costLabelSin: '~$5,07M/mes · ~$767,2M (Est. portales)',
+        cells: {
+          v1: C(5.8, 'ok', 'T-227/2020: continuidad de ajustes razonables por dislexia (inclusión, NO bullying). Fallecimiento en salida a Villa de Leyva (mar-2024): causalidad con bullying NO establecida judicialmente. Estado de la investigación: ❓.'),
+          v2: C(8.3, 'ter', 'ICFES ~357–361 (⚠️ terceros) y Col-Sapiens D2·AAA+ (⚠️ ficha 2026–27 sin confirmar).'),
+          v3: C(8.0, 'ok', 'Diploma IB confirmado; inglés C1/C2 declarado.'),
+          v4: C(7.5, 'ter', 'Mandarín HSK (⚠️ terceros).'),
+          v8: C(8.0, 'ter', 'Entrada 8:00 a.m. (⚠️ terceros; confirmar horario de ruta).'),
+          v9: N('Extras y costos sin confirmar (❓).'),
+          v10: C(7.0, 'ter', '~8 ha, observatorio, coliseo y muro de escalada. SIN piscina propia.'),
+          v11: N(),
+          v12: C(7.5, 'ter', 'IB + UNED España + becas Gobierno de China (⚠️ terceros).')
+        } },
+      { id: 'anglo', flag: '🏰', name: 'Colegio Anglo Colombiano', cal: 'Calendario B · Cra. 19 # 152A-48 (~4,8 km · sin piscina propia)',
+        costCon: 900.2, costSin: 986.5, costCert: 'ok', costNote: 'PDF oficial 2026–27 (con y sin anticipo de $50,2M).',
+        km: 4.8, obras: false, kmCert: 'ter', grad: 17.92, gradCert: 'ter',
+        costLabelCon: '$65,2M/año PK · $900,2M (14a c/$50,2M)', costLabelSin: '$75,6M/año PK · $986,5M (14a s/anticipo)',
+        cells: {
+          v1: C(7.8, 'ter', 'Sin sentencias ni noticias encontradas; sin datos internos (❓).'),
+          v2: N('ICFES y Col-Sapiens no confirmados en el estudio (❓).'),
+          v3: C(8.5, 'ok', 'Continuum IB completo (PYP, MYP y Diploma), fundado en 1956 (oficial).'),
+          v4: N(),
+          v8: C(7.0, 'nd', 'Entrada ~7:30 a.m. sin confirmar ruta (❓).'),
+          v9: C(6.0, 'ter', 'Libros y útiles incluidos (oficial), pero clubes semestrales no a $0.'),
+          v10: C(6.0, 'nd', 'Sin cifras verificadas de campus. SIN piscina propia.'),
+          v11: N(),
+          v12: C(7.5, 'ter', 'IB completo: homologación ~1 semestre según terceros.')
+        } },
+      { id: 'nogales', flag: '🌳', name: 'Colegio Los Nogales', cal: 'Calendario B · Calle 202 # 56-50 (~6,0 km · sin piscina propia)',
+        costCon: 865, costSin: 865, costCert: 'ter', costNote: 'Rango estimado $820M–$910M + bono ~$25–35M de portales (punto medio).',
+        km: 6.0, obras: true, kmCert: 'ter', grad: 17.92, gradCert: 'ter',
+        costLabelCon: '~$5,6M–$6,25M/mes · ~$820M–$910M (Est.)', costLabelSin: '~$5,6M–$6,25M/mes · ~$820M–$910M (Est.)',
+        cells: {
+          v1: C(6.3, 'ok', 'Tutelas respaldaron la expulsión 2023-24 por debido proceso; Fiscalía acusó (ene-2026) a directivos por presunta injuria (sin condena). Casos de acoso entre estudiantes documentados.'),
+          v2: C(7.5, 'ter', 'Col-Sapiens bajó de D2 a D3 en 2026–27 (AAA+++ se mantiene, ✅). ICFES ~352–360 (⚠️ terceros).'),
+          v3: C(8.0, 'ok', 'CIS/NEASC, AP (≥2 cursos confirmados) y Round Square.'),
+          v4: N(),
+          v8: N('Horarios de ruta sin confirmar (❓).'),
+          v9: C(6.8, 'ter', 'Deportes UNCOLI sin costo (⚠️ terceros); resto sin confirmar.'),
+          v10: C(6.5, 'ter', 'Campus campestre amplio sin cifra de hectáreas verificada. SIN piscina propia.'),
+          v11: N(),
+          v12: C(7.3, 'ter', 'AP: los créditos dependen de cada universidad.')
+        } },
+      { id: 'gcb', flag: '🛩️', name: 'Gimnasio Colombo Británico (GCB)', cal: 'Calendario B · Guaymaral (~8,5 km · sin piscina propia)',
+        costCon: 709, costSin: 709, costCert: 'ter', costNote: 'Rango estimado $638M–$780M de portales (punto medio).',
+        km: 8.5, obras: true, kmCert: 'ter', grad: 17.92, gradCert: 'ter',
+        costLabelCon: '~$4,18M–$5,16M/mes · ~$638M–$780M (Est.)', costLabelSin: '~$4,18M–$5,16M/mes · ~$638M–$780M (Est.)',
+        cells: {
+          v1: C(6.0, 'ok', 'Denuncia feb-2024 (Infobae/Semana) con indagaciones de Fiscalía y Procuraduría, sin sanción definitiva. Resultado de las indagaciones: ❓.'),
+          v2: C(8.0, 'ter', 'ICFES ~358,5 (⚠️ terceros) y Col-Sapiens D2·AAA (2025–26).'),
+          v3: C(7.8, 'ok', 'Cambridge + IB desde 2021 (trayectoria IB corta).'),
+          v4: N(),
+          v8: C(5.5, 'nd', 'Sin horarios de ruta confirmados y trayecto largo (❓).'),
+          v9: C(5.5, 'ter', 'Extras pagas (⚠️).'),
+          v10: C(6.0, 'nd', 'Sin cifras verificadas de campus. SIN piscina propia.'),
+          v11: N(),
+          v12: C(7.3, 'ter', 'Doble vía IGCSE + IB; becas por ICFES según terceros.')
+        } },
+      { id: 'liceo', flag: '🇫🇷', name: 'Liceo Francés Louis Pasteur', cal: 'Calendario B · Calle 87 Cra. 7 (~11,5 km · sin piscina propia)',
+        costCon: 775, costSin: 775, costCert: 'ter', costNote: 'Pensión oficial 2026 de Maternelle ($3,39M); proyección a 15 años estimada.',
+        km: 11.5, obras: false, kmCert: 'ter', grad: 17.92, gradCert: 'ter',
+        costLabelCon: '~$4,85M/mes · ~$775M (15a, $0 bono)', costLabelSin: '~$4,85M/mes · ~$775M (15a, $0 bono)',
+        cells: {
+          v1: C(7.3, 'ter', 'Sin fallos de convivencia encontrados. Crisis de gobernanza resuelta en parte: nueva convención AEFE (4-jun-2026) y estatutos pendientes de aprobación de la SED.'),
+          v2: N('Baccalauréat/BFI; ICFES y resultados no verificados en el estudio (❓).'),
+          v3: C(7.0, 'ter', 'Baccalauréat/BFI (sistema oficial); inglés C1 declarado (⚠️).'),
+          v4: C(8.5, 'ter', 'Francés como lengua de instrucción; DELF sin reconfirmar (⚠️).'),
+          v8: C(4.5, 'nd', 'Horarios de ruta hacia Colina Campestre sin confirmar (❓); trayecto de ~11,5 km.'),
+          v9: N('Costo de comida, ruta y talleres AES sin confirmar (❓).'),
+          v10: C(4.5, 'ok', 'Campus urbano en Chapinero (Cll. 87). SIN piscina propia.'),
+          v11: N(),
+          v12: C(7.5, 'ter', 'Baccalauréat: acceso directo a Parcoursup y universidades de Francia/UE (⚠️).')
+        } },
+      { id: 'helvetia', flag: '🇨🇭', name: 'Colegio Helvetia', cal: 'Calendario B · Calle 128 # 72-80 (~2,6 km · sin piscina propia)',
+        costCon: 876.5, costSin: 876.5, costCert: 'ter', costNote: 'Tarifas 2026–27 por correo; proyección a 15 años (hasta Grado 12), rango $838M–$915M.',
+        km: 2.6, obras: false, kmCert: 'ter', grad: 18.97, gradCert: 'ok',
+        costLabelCon: '$5,18M–$5,45M/mes · ~$838M–$915M (15a)', costLabelSin: '$5,18M–$5,45M/mes · ~$838M–$915M (15a)',
+        cells: {
+          v1: C(3.5, 'ok', 'Sentencia T-252/2023: la Corte declaró vulnerados los derechos de un niño por falta de atención diligente al acoso (el fallo anonimiza el colegio como IABC; atribución por prensa y requerimiento de la Procuraduría). Denuncia 2023 con requerimientos a ICBF y SED. Sin pronunciamiento institucional (❓).'),
+          v2: C(6.3, 'ter', 'ICFES 343–348 (⚠️ terceros).'),
+          v3: C(7.0, 'ter', 'Matura suiza; inglés C1 declarado.'),
+          v4: C(8.5, 'ter', 'Francés/Alemán C1 declarado.'),
+          v8: C(5.5, 'ok', 'Los miércoles sale 1:15 p.m. (correo); resto de horarios sin confirmar.'),
+          v9: C(4.5, 'ter', 'Extras cobradas aparte.'),
+          v10: C(6.0, 'ok', '~5 ha en Calle 128. SIN piscina propia.'),
+          v11: C(7.0, 'ter', 'Team teaching suizo en preescolar (⚠️).'),
+          v12: C(7.5, 'ter', 'Matura: entrada directa a universidades suizas (⚠️).')
+        } }
     ];
 
+    const COST_LO = 638, COST_HI = 986.5;
+
+    function buildSchool(def) {
+      const scoresCon = {}, scoresSin = {}, facts = {};
+      SIM_VARIABLES.forEach(v => {
+        if (v.id === 'v5') {
+          scoresCon.v5 = costScore(def.costCon, COST_LO, COST_HI);
+          scoresSin.v5 = costScore(def.costSin, COST_LO, COST_HI);
+          facts.v5 = { c: def.costCert, t: `Costo acumulado ≈ $${def.costCon.toFixed(1)}M${def.costSin !== def.costCon ? ` (sin anticipo $${def.costSin.toFixed(1)}M)` : ''}. ${def.costNote} Nota por fórmula lineal.` };
+        } else if (v.id === 'v6') {
+          scoresCon.v6 = scoresSin.v6 = gradScore(def.grad);
+          facts.v6 = { c: def.gradCert, t: `Se gradúa a ~${Math.floor(def.grad)}a ${Math.round((def.grad % 1) * 12)}m. Nota por fórmula.` };
+        } else if (v.id === 'v7') {
+          scoresCon.v7 = scoresSin.v7 = distScore(def.km, def.obras);
+          facts.v7 = { c: def.kmCert, t: `~${def.km} km desde Av. Boyacá con Cll. 153${def.obras ? ', cruza obras de Av. Boyacá Norte' : ', sin obras en el trayecto'} (distancia aproximada). Nota por fórmula.` };
+        } else {
+          const cell = def.cells[v.id];
+          scoresCon[v.id] = scoresSin[v.id] = cell.s;
+          facts[v.id] = { c: cell.c, t: cell.t };
+        }
+      });
+      return { id: def.id, flag: def.flag, name: def.name, cal: def.cal,
+        costLabelCon: def.costLabelCon, costLabelSin: def.costLabelSin, scoresCon, scoresSin, facts };
+    }
+
+    const DEFAULT_SIM_SCHOOLS = SCHOOL_DEFS.map(buildSchool);
     let SIM_SCHOOLS = JSON.parse(JSON.stringify(DEFAULT_SIM_SCHOOLS));
 
-    // Estrategias de 2 a 4 años (Grid 15) evaluadas en escala realista (sin 10/10)
-    const SIM_PRESCHOOLS = [
-      {
-        id: 'p_jcn',
-        icon: '🏡',
-        name: 'Estrategia 3: Jardín Campestre del Norte (JCN) ➔ Colegio Cal. B (Ago 2028)',
-        sub: 'Cll. 180 # 67-80 (2,8 km) · ÚNICO con Piscina Propia + 6.400 m² · ~$40,5M–$45M (Cafam/Colsubsidio)',
-        scores: { v1:8.6, v2:8.8, v3:8.7, v4:7.6, v5:8.1, v6:8.4, v7:8.5, v8:8.4, v9:8.2, v10:9.1, v11:8.8, v12:8.5 }
-      },
-      {
-        id: 'p_dreams',
-        icon: '🧸',
-        name: 'Estrategia 2: Dreams Kindergarten Mazurén ➔ Colegio Cal. B (Ago 2028)',
-        sub: 'Cra. 59 # 152-49 (1,3 km, 5 min) · ISO 9001 (Sin piscina) · ~$31M–$35M (Ahorra ~$30M para anticipo)',
-        scores: { v1:8.5, v2:8.2, v3:8.2, v4:7.2, v5:9.1, v6:8.4, v7:9.2, v8:9.1, v9:7.8, v10:5.5, v11:8.9, v12:8.2 }
-      },
-      {
-        id: 'p_cas',
-        icon: '🇺🇸',
-        name: 'Estrategia 1: Entrar directo a Nursery en el CAS (Feb 2027) y quedarse en Cal. A',
-        sub: 'Cra. 73 # 214-53 (6,8 km) · Sin piscina propia · $63,87M oficial hasta jun-2028 · 1 sola adaptación',
-        scores: { v1:8.5, v2:8.4, v3:8.9, v4:7.5, v5:7.6, v6:9.0, v7:6.4, v8:7.8, v9:7.8, v10:5.2, v11:8.5, v12:8.8 }
-      },
-      {
-        id: 'p_wait',
-        icon: '🇫🇷',
-        name: 'Estrategia 4: Casa hasta Ago/Sep 2027 ➔ Entrar a los 3 años a Liceo Francés o GCB',
-        sub: 'Cll. 87 Cra. 7 (11,5 km) o Guaymaral (8,5 km) · Sin piscina · ~$49M–$52,5M (10 meses)',
-        scores: { v1:7.2, v2:8.4, v3:8.0, v4:8.8, v5:7.5, v6:8.6, v7:4.8, v8:5.6, v9:6.8, v10:6.2, v11:7.4, v12:8.5 }
-      }
+    // Estrategias de 2 a 4 años: jardín "puente"; lo que no es del jardín queda neutral
+    const PRESCHOOL_DEFS = [
+      { id: 'p_jcn', icon: '🏡', name: 'Estrategia 3: Jardín Campestre del Norte (JCN) ➔ Colegio Cal. B (Ago 2028)',
+        sub: 'Cll. 180 # 67-80 (~2,8 km) · ÚNICO con piscina propia + 6.400 m² · ~$40,5M–$45M (Cafam/Colsubsidio, estimado)',
+        cost: 42.8, km: 2.8, obras: false, grad: 17.92,
+        s: { v1: NEUTRAL, v2: NEUTRAL, v3: 7.0, v4: NEUTRAL, v8: 7.0, v9: NEUTRAL, v10: 8.5, v11: NEUTRAL, v12: NEUTRAL } },
+      { id: 'p_dreams', icon: '🧸', name: 'Estrategia 2: Dreams Kindergarten Mazurén ➔ Colegio Cal. B (Ago 2028)',
+        sub: 'Cra. 59 # 152-49 (~1,3 km, 5 min) · ISO 9001 · sin piscina · ~$31M–$35M (estimado de portales)',
+        cost: 33, km: 1.3, obras: false, grad: 17.92,
+        s: { v1: NEUTRAL, v2: NEUTRAL, v3: NEUTRAL, v4: NEUTRAL, v8: 8.0, v9: NEUTRAL, v10: 4.5, v11: NEUTRAL, v12: NEUTRAL } },
+      { id: 'p_cas', icon: '🇺🇸', name: 'Estrategia 1: Entrar directo a Nursery en el CAS (Feb 2027) y quedarse en Cal. A',
+        sub: 'Cra. 73 # 214-53 (~6,8 km) · sin piscina propia · $63,87M oficial hasta jun-2028 · 1 sola adaptación',
+        cost: 63.9, km: 6.8, obras: true, grad: 17.33,
+        s: { v1: 7.8, v2: 7.2, v3: 8.5, v4: NEUTRAL, v8: 6.8, v9: 6.8, v10: 5.0, v11: 7.0, v12: 7.5 } },
+      { id: 'p_wait', icon: '🇫🇷', name: 'Estrategia 4: Casa hasta Ago/Sep 2027 ➔ Entrar a los 3 años a Liceo Francés o GCB',
+        sub: 'Cll. 87 Cra. 7 (~11,5 km) o Guaymaral (~8,5 km) · sin piscina · ~$49M–$52,5M (estimado)',
+        cost: 50.8, km: 10, obras: false, grad: 17.92,
+        s: { v1: 6.7, v2: 7.2, v3: 7.4, v4: 7.5, v8: 5.0, v9: 5.8, v10: 4.5, v11: NEUTRAL, v12: 7.4 } }
     ];
+    const SIM_PRESCHOOLS = PRESCHOOL_DEFS.map(p => ({
+      id: p.id, icon: p.icon, name: p.name, sub: p.sub,
+      scores: { ...p.s, v5: costScore(p.cost, 33, 63.9), v6: gradScore(p.grad), v7: distScore(p.km, p.obras) }
+    }));
 
     let currentWeights = { ...SIM_PRESETS.recommended };
 
@@ -2422,16 +2326,7 @@
           <div class="pt-1 space-y-1">
             <div class="flex items-center gap-2">
               <button type="button" onclick="stepWeight('${v.id}', -1)" class="w-6 h-6 rounded bg-[var(--secondary)] text-[var(--secondary-foreground)] font-bold text-xs flex items-center justify-center hover:opacity-80">−</button>
-              <input
-                type="range"
-                id="slider-${v.id}"
-                min="0"
-                max="9"
-                step="1"
-                value="${currentWeights[v.id]}"
-                oninput="onSliderInput('${v.id}', this.value)"
-                class="w-full accent-sky-500 cursor-pointer h-2 rounded-lg"
-              />
+              <input type="range" id="slider-${v.id}" min="0" max="9" step="1" value="${currentWeights[v.id]}" oninput="onSliderInput('${v.id}', this.value)" class="w-full accent-sky-500 cursor-pointer h-2 rounded-lg" />
               <button type="button" onclick="stepWeight('${v.id}', 1)" class="w-6 h-6 rounded bg-[var(--secondary)] text-[var(--secondary-foreground)] font-bold text-xs flex items-center justify-center hover:opacity-80">+</button>
             </div>
             <div class="flex justify-between text-[10px] text-[var(--muted-foreground)]">
@@ -2442,8 +2337,8 @@
           </div>
         </div>
       `).join('');
-
       renderBaseMatrix();
+      renderEvidence();
       updateSimulator();
     }
 
@@ -2488,25 +2383,32 @@
       updateSimulator();
     }
 
+    function reliabilityOf(school, weights, totalWeight) {
+      const acc = { ok: 0, ter: 0, nd: 0 };
+      SIM_VARIABLES.forEach(v => {
+        const w = weights[v.id] || 0;
+        if (w > 0) acc[school.facts[v.id].c] += w;
+      });
+      const pct = k => Math.round((acc[k] / totalWeight) * 100);
+      return { ok: pct('ok'), ter: pct('ter'), nd: pct('nd') };
+    }
+
     function updateSimulator() {
       const conAnticipo = document.getElementById('sim-anticipo-toggle')?.checked ?? true;
       let totalWeight = 0;
       let activeCount = 0;
-
       SIM_VARIABLES.forEach(v => {
         const w = currentWeights[v.id] || 0;
         totalWeight += w;
         if (w > 0) activeCount++;
       });
 
-      // Actualizar badges e indicadores de cada slider
       SIM_VARIABLES.forEach(v => {
         const w = currentWeights[v.id] || 0;
         const badge = document.getElementById('badge-' + v.id);
         const share = document.getElementById('share-' + v.id);
         const card = document.getElementById('card-' + v.id);
         const pct = totalWeight > 0 ? ((w / totalWeight) * 100).toFixed(1) : '0.0';
-
         if (badge) {
           badge.textContent = `${w} / 9`;
           badge.className = w === 0
@@ -2515,12 +2417,8 @@
               ? 'px-2 py-0.5 rounded-md font-bold text-xs shrink-0 bg-emerald-500/20 text-emerald-400 border border-emerald-500/40'
               : 'px-2 py-0.5 rounded-md font-bold text-xs shrink-0 bg-sky-500/20 text-sky-400 border border-sky-500/30';
         }
-        if (share) {
-          share.textContent = w === 0 ? 'Apagada (0%)' : `Impacto: ${pct}% del total`;
-        }
-        if (card) {
-          card.style.opacity = w === 0 ? '0.6' : '1';
-        }
+        if (share) share.textContent = w === 0 ? 'Apagada (0%)' : `Impacto: ${pct}% del total`;
+        if (card) card.style.opacity = w === 0 ? '0.6' : '1';
       });
 
       const activeBadge = document.getElementById('sim-active-badge');
@@ -2544,52 +2442,32 @@
       if (zeroState) zeroState.classList.add('hidden');
       if (resultsWrapper) resultsWrapper.classList.remove('hidden');
 
-      // Calcular puntaje ponderado para cada uno de los 8 colegios
       const rankedSchools = SIM_SCHOOLS.map(school => {
         const scores = conAnticipo ? school.scoresCon : school.scoresSin;
         let weightedSum = 0;
         const varContributions = [];
-
         SIM_VARIABLES.forEach(v => {
           const w = currentWeights[v.id] || 0;
           if (w > 0) {
             const base = scores[v.id];
             weightedSum += w * base;
-            varContributions.push({
-              id: v.id,
-              icon: v.icon,
-              shortName: v.name.replace(/^\d+\.\s*/, '').split('(')[0].trim(),
-              weight: w,
-              baseScore: base,
-              weightedImpact: w * base
-            });
+            varContributions.push({ id: v.id, icon: v.icon, shortName: v.name.replace(/^\d+\.\s*/, '').split('(')[0].trim(), weight: w, baseScore: base, cert: school.facts[v.id].c });
           }
         });
-
-        const finalScore100 = (weightedSum / totalWeight) * 10;
-        const topStrengths = [...varContributions]
-          .sort((a, b) => (b.baseScore - a.baseScore) || (b.weight - a.weight))
-          .slice(0, 3);
-        const weakSpots = [...varContributions]
-          .filter(c => c.baseScore < 8.0)
-          .sort((a, b) => a.baseScore - b.baseScore)
-          .slice(0, 3);
-
-        return {
-          ...school,
-          costLabel: conAnticipo ? school.costLabelCon : school.costLabelSin,
-          finalScore: finalScore100,
-          topStrengths,
-          weakSpots
-        };
+        const topStrengths = [...varContributions].sort((a, b) => (b.baseScore - a.baseScore) || (b.weight - a.weight)).slice(0, 3);
+        const weakSpots = [...varContributions].filter(c => c.baseScore < 7.0).sort((a, b) => a.baseScore - b.baseScore).slice(0, 3);
+        return { ...school, costLabel: conAnticipo ? school.costLabelCon : school.costLabelSin,
+          finalScore: (weightedSum / totalWeight) * 10, topStrengths, weakSpots,
+          rel: reliabilityOf(school, currentWeights, totalWeight) };
       }).sort((a, b) => b.finalScore - a.finalScore);
 
       const leaderScore = rankedSchools[0].finalScore;
+      const relBadge = r => `<span class="text-[10px] text-[var(--muted-foreground)]">Respaldo de la nota: ✅ ${r.ok}% · ⚠️ ${r.ter}% · ❓ ${r.nd}%</span>`;
+      const chip = t => `${t.icon} ${t.shortName} ${CERT_ICON[t.cert]}`;
 
-      // Renderizar Podio Top 3
       const podiumEl = document.getElementById('sim-podium-cards');
       if (podiumEl) {
-        const medals = ['🥇 #1 GANADOR CON TUS PESOS', '🥈 #2 SEGUNDO LUGAR', '🥉 #3 TERCER LUGAR'];
+        const medals = ['🥇 #1 CON TUS PESOS', '🥈 #2', '🥉 #3'];
         const borderColors = ['border-emerald-500 bg-emerald-500/10', 'border-amber-500 bg-amber-500/5', 'border-sky-500 bg-sky-500/5'];
         podiumEl.innerHTML = rankedSchools.slice(0, 3).map((s, idx) => `
           <div class="p-4 rounded-xl border-2 ${borderColors[idx]} space-y-2">
@@ -2602,15 +2480,15 @@
             <div class="w-full bg-slate-700/40 h-2.5 rounded-full overflow-hidden">
               <div class="bg-emerald-500 h-full rounded-full transition-all duration-300" style="width: ${Math.min(100, s.finalScore).toFixed(1)}%"></div>
             </div>
+            ${relBadge(s.rel)}
             <div class="pt-1 space-y-1 text-[11px]">
-              <div><b>💪 Puntos fuertes:</b> ${s.topStrengths.map(t => `${t.icon} ${t.shortName} (<b>${t.baseScore.toFixed(1)}/10</b> × peso ${t.weight})`).join(' · ')}</div>
-              ${s.weakSpots.length > 0 ? `<div class="text-amber-400"><b>⚠️ Fricciones reales (<8.0):</b> ${s.weakSpots.map(w => `${w.icon} ${w.shortName} (${w.baseScore.toFixed(1)}/10)`).join(' · ')}</div>` : '<div class="text-emerald-400"><b>✅Todas tus variables activas están entre 8.0 y 9.1/10.</b></div>'}
+              <div><b>💪 Puntos fuertes:</b> ${s.topStrengths.map(t => `${chip(t)} (<b>${t.baseScore.toFixed(1)}</b> × ${t.weight})`).join(' · ')}</div>
+              ${s.weakSpots.length > 0 ? `<div class="text-amber-400"><b>⚠️ Fricciones reales (&lt;7,0):</b> ${s.weakSpots.map(w => `${chip(w)} (${w.baseScore.toFixed(1)})`).join(' · ')}</div>` : '<div class="text-emerald-400"><b>✅ Sin variables activas por debajo de 7,0.</b></div>'}
             </div>
           </div>
         `).join('');
       }
 
-      // Renderizar Tabla Completa #1 al #8
       const tbody = document.getElementById('sim-ranking-tbody');
       if (tbody) {
         tbody.innerHTML = rankedSchools.map((s, idx) => {
@@ -2624,6 +2502,7 @@
               <td class="p-2">
                 <div class="font-bold">${s.flag} ${s.name}</div>
                 <div class="text-[10px] text-[var(--muted-foreground)]">${s.costLabel}</div>
+                ${relBadge(s.rel)}
               </td>
               <td class="p-2">
                 <div class="flex items-center gap-2">
@@ -2634,12 +2513,12 @@
                 </div>
               </td>
               <td class="p-2 text-[11px]">
-                ${s.topStrengths.map(t => `<span class="inline-block mr-1 mb-1 px-1.5 py-0.5 rounded bg-emerald-500/15 text-emerald-400">${t.icon} ${t.shortName}: <b>${t.baseScore.toFixed(1)}</b> (×${t.weight})</span>`).join('')}
+                ${s.topStrengths.map(t => `<span class="inline-block mr-1 mb-1 px-1.5 py-0.5 rounded bg-emerald-500/15 text-emerald-400">${chip(t)}: <b>${t.baseScore.toFixed(1)}</b> (×${t.weight})</span>`).join('')}
               </td>
               <td class="p-2 text-[11px]">
                 ${s.weakSpots.length > 0
-                  ? s.weakSpots.map(w => `<span class="inline-block mr-1 mb-1 px-1.5 py-0.5 rounded bg-rose-500/15 text-rose-400">${w.icon} ${w.shortName}: <b>${w.baseScore.toFixed(1)}</b> (×${w.weight})</span>`).join('')
-                  : '<span class="text-emerald-400 font-semibold">Entre 8,0 y 9,1 en variables activas</span>'}
+                  ? s.weakSpots.map(w => `<span class="inline-block mr-1 mb-1 px-1.5 py-0.5 rounded bg-rose-500/15 text-rose-400">${chip(w)}: <b>${w.baseScore.toFixed(1)}</b> (×${w.weight})</span>`).join('')
+                  : '<span class="text-emerald-400 font-semibold">Ninguna por debajo de 7,0</span>'}
               </td>
               <td class="p-2 font-semibold ${idx === 0 ? 'text-emerald-400' : 'text-[var(--muted-foreground)]'}">${diff}</td>
             </tr>
@@ -2647,21 +2526,13 @@
         }).join('');
       }
 
-      // Renderizar Ranking Dinámico de las 4 Estrategias de 2 a 4 Años
       const preschoolEl = document.getElementById('sim-preschool-cards');
       if (preschoolEl) {
         const rankedPreschools = SIM_PRESCHOOLS.map(p => {
           let sum = 0;
-          SIM_VARIABLES.forEach(v => {
-            const w = currentWeights[v.id] || 0;
-            sum += w * p.scores[v.id];
-          });
-          return {
-            ...p,
-            score: (sum / totalWeight) * 10
-          };
+          SIM_VARIABLES.forEach(v => { sum += (currentWeights[v.id] || 0) * p.scores[v.id]; });
+          return { ...p, score: (sum / totalWeight) * 10 };
         }).sort((a, b) => b.score - a.score);
-
         preschoolEl.innerHTML = rankedPreschools.map((p, idx) => `
           <div class="p-3 rounded-xl border ${idx === 0 ? 'border-2 border-emerald-500 bg-emerald-500/10' : 'border-[var(--border)] bg-[var(--card)]'} space-y-1.5">
             <div class="flex items-center justify-between">
@@ -2670,9 +2541,12 @@
             </div>
             <div class="font-bold text-xs">${p.icon} ${p.name}</div>
             <div class="text-[11px] text-[var(--muted-foreground)]">${p.sub}</div>
+            <div class="text-[10px] text-[var(--muted-foreground)]">Solo costo, distancia, piscina y horario son del jardín; el resto es neutral (6,5) o hereda del colegio de destino.</div>
           </div>
         `).join('');
       }
+
+      renderGrid14();
     }
 
     function renderBaseMatrix() {
@@ -2683,7 +2557,7 @@
         <table class="w-full text-left border-collapse text-[11px]">
           <thead>
             <tr class="border-b border-[var(--border)]">
-              <th class="p-1.5 font-bold">Variable (Ningún colegio tiene 10/10)</th>
+              <th class="p-1.5 font-bold">Variable (✅ oficial · ⚠️ tercero · ❓ sin dato)</th>
               ${SIM_SCHOOLS.map(s => `<th class="p-1.5 font-bold">${s.flag} ${s.name.split('(')[0].trim()}</th>`).join('')}
             </tr>
           </thead>
@@ -2693,23 +2567,62 @@
                 <td class="p-1.5 font-semibold">${v.icon} ${v.name}</td>
                 ${SIM_SCHOOLS.map(s => {
                   const val = (conAnticipo ? s.scoresCon[v.id] : s.scoresSin[v.id]).toFixed(1);
-                  return `<td class="p-1">
-                    <input
-                      type="number"
-                      step="0.1"
-                      min="0"
-                      max="9.9"
-                      value="${val}"
+                  return `<td class="p-1"><div class="flex items-center gap-1">
+                    <input type="number" step="0.1" min="0" max="9.9" value="${val}" title="${s.facts[v.id].t.replace(/"/g, '&quot;')}"
                       onchange="onBaseScoreEdit('${s.id}', '${v.id}', this.value)"
-                      class="w-14 px-1.5 py-0.5 rounded border border-[var(--border)] bg-[var(--card)] font-mono text-xs text-center focus:outline-none focus:border-sky-500"
-                    />
-                  </td>`;
+                      class="w-14 px-1.5 py-0.5 rounded border border-[var(--border)] bg-[var(--card)] font-mono text-xs text-center focus:outline-none focus:border-sky-500" />
+                    <span>${CERT_ICON[s.facts[v.id].c]}</span></div></td>`;
                 }).join('')}
               </tr>
             `).join('')}
           </tbody>
         </table>
       `;
+    }
+
+    function renderEvidence() {
+      const wrapper = document.getElementById('sim-evidence-wrapper');
+      if (!wrapper) return;
+      wrapper.innerHTML = DEFAULT_SIM_SCHOOLS.map(s => `
+        <details class="mb-2 p-2 rounded-lg border border-[var(--border)]">
+          <summary class="font-bold cursor-pointer">${s.flag} ${s.name}</summary>
+          <ul class="mt-2 space-y-1.5 text-[11px]">
+            ${SIM_VARIABLES.map(v => `<li><b>${v.icon} ${v.name.replace(/^\d+\.\s*/, '')} → ${s.scoresCon[v.id].toFixed(1)} ${CERT_ICON[s.facts[v.id].c]}</b><br/>${s.facts[v.id].t}</li>`).join('')}
+          </ul>
+        </details>
+      `).join('');
+    }
+
+    // Grid 14: ranking calculado con los pesos por defecto y las notas auditadas (no escritas a mano)
+    function renderGrid14() {
+      const host = document.getElementById('g14-dynamic-table');
+      const w = SIM_PRESETS.recommended;
+      const total = Object.values(w).reduce((a, b) => a + b, 0);
+      const ranked = DEFAULT_SIM_SCHOOLS.map(s => {
+        let sum = 0;
+        SIM_VARIABLES.forEach(v => { sum += w[v.id] * s.scoresCon[v.id]; });
+        return { ...s, score: (sum / total) * 10, rel: reliabilityOf(s, w, total) };
+      }).sort((a, b) => b.score - a.score);
+      ranked.forEach(s => {
+        const el = document.getElementById('g14-score-' + s.id);
+        if (el) el.textContent = s.score.toFixed(1);
+      });
+      if (!host) return;
+      host.innerHTML = `
+        <table class="w-full text-left border-collapse text-[11px]">
+          <thead><tr class="border-b border-[var(--border)]">
+            <th class="p-1.5 font-bold">#</th><th class="p-1.5 font-bold">Colegio</th><th class="p-1.5 font-bold">Nota (0–100)</th>
+            ${SIM_VARIABLES.map(v => `<th class="p-1.5 font-bold" title="${v.name}">${v.icon}</th>`).join('')}
+            <th class="p-1.5 font-bold">Respaldo</th>
+          </tr></thead>
+          <tbody class="divide-y divide-[var(--border)]">
+            ${ranked.map((s, i) => `<tr class="${i === 0 ? 'bg-emerald-500/10' : ''}">
+              <td class="p-1.5 font-bold">${i + 1}</td><td class="p-1.5 font-bold">${s.flag} ${s.name.split('(')[0].trim()}</td>
+              <td class="p-1.5 font-extrabold">${s.score.toFixed(1)}</td>
+              ${SIM_VARIABLES.map(v => `<td class="p-1.5 font-mono">${s.scoresCon[v.id].toFixed(1)}${CERT_ICON[s.facts[v.id].c]}</td>`).join('')}
+              <td class="p-1.5">✅${s.rel.ok}% ⚠️${s.rel.ter}% ❓${s.rel.nd}%</td></tr>`).join('')}
+          </tbody>
+        </table>`;
     }
 
     document.addEventListener('DOMContentLoaded', initSimulator);
