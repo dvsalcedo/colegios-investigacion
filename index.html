@@ -2272,11 +2272,11 @@
     const SIM_PRESETS = {
       zero:        { v1:0, v2:0, v3:0, v4:0, v5:0, v6:0, v7:0, v8:0, v9:0, v10:0, v11:0, v12:0 },
       recommended: { v1:8, v2:8, v3:8, v4:5, v5:8, v6:7, v7:8, v8:7, v9:6, v10:6, v11:8, v12:6 },
-      financial:   { v1:8, v2:7, v3:8, v4:4, v5:10,v6:9, v7:6, v8:7, v9:6, v10:4, v11:8, v12:8 },
+      financial:   { v1:8, v2:7, v3:8, v4:4, v5:9,v6:9, v7:6, v8:7, v9:6, v10:4, v11:8, v12:8 },
       allinclusive:{ v1:9, v2:8, v3:8, v4:5, v5:8, v6:7, v7:9, v8:5, v9:10,v10:7, v11:9, v12:6 },
-      sleep:       { v1:6, v2:9, v3:8, v4:7, v5:6, v6:7, v7:8, v8:10,v9:5, v10:7, v11:8, v12:8 },
-      academic:    { v1:8, v2:9, v3:10,v4:6, v5:3, v6:7, v7:8, v8:8, v9:5, v10:7, v11:7, v12:9 },
-      europe:      { v1:6, v2:8, v3:7, v4:10,v5:6, v6:6, v7:4, v8:5, v9:4, v10:4, v11:6, v12:10 }
+      sleep:       { v1:6, v2:9, v3:8, v4:7, v5:6, v6:7, v7:8, v8:9,v9:5, v10:7, v11:8, v12:8 },
+      academic:    { v1:8, v2:9, v3:9,v4:6, v5:3, v6:7, v7:8, v8:8, v9:5, v10:7, v11:7, v12:9 },
+      europe:      { v1:6, v2:8, v3:7, v4:9,v5:6, v6:6, v7:4, v8:5, v9:4, v10:4, v11:6, v12:9 }
     };
 
     // Calificaciones base realistas auditadas (CERO 10.0/10 en toda la tabla; máximo 9.1–9.2)
@@ -2415,7 +2415,7 @@
           <div>
             <div class="flex items-start justify-between gap-2">
               <label for="slider-${v.id}" class="font-bold text-xs cursor-pointer leading-snug">${v.icon} ${v.name}</label>
-              <span id="badge-${v.id}" class="px-2 py-0.5 rounded-md font-bold text-xs shrink-0 bg-sky-500/20 text-sky-400 border border-sky-500/30">${currentWeights[v.id]} / 10</span>
+              <span id="badge-${v.id}" class="px-2 py-0.5 rounded-md font-bold text-xs shrink-0 bg-sky-500/20 text-sky-400 border border-sky-500/30">${currentWeights[v.id]} / 9</span>
             </div>
             <p class="text-[11px] text-[var(--muted-foreground)] mt-1 leading-relaxed">${v.desc}</p>
           </div>
@@ -2426,7 +2426,7 @@
                 type="range"
                 id="slider-${v.id}"
                 min="0"
-                max="10"
+                max="9"
                 step="1"
                 value="${currentWeights[v.id]}"
                 oninput="onSliderInput('${v.id}', this.value)"
@@ -2437,7 +2437,7 @@
             <div class="flex justify-between text-[10px] text-[var(--muted-foreground)]">
               <span>0 (No aplica)</span>
               <span id="share-${v.id}" class="font-semibold text-sky-400">Peso: 0%</span>
-              <span>10 (Vital)</span>
+              <span>9 (Máximo realista)</span>
             </div>
           </div>
         </div>
@@ -2448,7 +2448,7 @@
     }
 
     function stepWeight(id, delta) {
-      const next = Math.max(0, Math.min(10, (currentWeights[id] || 0) + delta));
+      const next = Math.max(0, Math.min(9, (currentWeights[id] || 0) + delta));
       currentWeights[id] = next;
       const slider = document.getElementById('slider-' + id);
       if (slider) slider.value = next;
@@ -2508,7 +2508,7 @@
         const pct = totalWeight > 0 ? ((w / totalWeight) * 100).toFixed(1) : '0.0';
 
         if (badge) {
-          badge.textContent = `${w} / 10`;
+          badge.textContent = `${w} / 9`;
           badge.className = w === 0
             ? 'px-2 py-0.5 rounded-md font-bold text-xs shrink-0 bg-slate-500/20 text-slate-400 border border-slate-500/30'
             : w >= 8
