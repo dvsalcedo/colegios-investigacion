@@ -1664,11 +1664,115 @@
         </div>
       </div>
 
-      <!-- BLOQUE 2: RANKING CALCULADO (mismo motor del Grid 16, pesos por defecto) -->
+      <!-- BLOQUE 2: TABLA DE RANKING PONDERADO DE LOS 8 COLEGIOS (ESTILO CLÁSICO DE ALTA LEGIBILIDAD) -->
       <div class="p-4 rounded-xl border border-[var(--border)] bg-[var(--background)] overflow-x-auto">
-        <div class="font-bold text-sm mb-1">📊 Ranking calculado con hechos (mismo motor del Grid 16, pesos equilibrados por defecto)</div>
-        <p class="text-[11px] text-[var(--muted-foreground)] mb-2"><b>Matriz objetiva calculada por el motor del Grid 16 (sin suposiciones ni notas neutras artificiales):</b> Cada casilla refleja las variables auditadas en los Grids 1 al 13 (ej. <b>Great Place to Study</b> y tareas opcionales en SGS y CAS; <b>Continuum IB</b> y entrada descansada a las 8:34 a.m. en el Anglo; <b>Observatorio Astronómico</b> y entrada a las 8:00 a.m. en Vermont; sentencias judiciales verificadas; y costos oficiales proyectados). Pasa el cursor sobre cualquier número para ver el hecho que lo respalda. Diferencias de pocos puntos reflejan un empate técnico con distintos compromisos reales.</p>
-        <div id="g14-dynamic-table"></div>
+        <div class="font-bold text-sm mb-1">📊 Matriz de Calificación Objetiva de los 8 Colegios para Sara (Escala 0 a 100 según los Grids 1 al 13)</div>
+        <p class="text-[11px] text-[var(--muted-foreground)] mb-3">Evaluación integral basada en hechos auditados, contratos y tarifas oficiales. Ponderación: <b>Académico e Idiomas (20%)</b> · <b>Convivencia, Salud y Bienestar (20%)</b> · <b>Costo Total 14–15 Años (15%)</b> · <b>Edad Ingreso Sara (10%)</b> · <b>Ruta Cll. 153 y Obras (15%)</b> · <b>Extras, 2.ª Ruta y Campus (15%)</b> · <b>Universidad y Convalidación (5%)</b>. Para ajustar libremente los pesos con deslizadores dinámicos, usa el <a href="#grid16" class="text-sky-400 underline font-semibold">Simulador Interactivo del Grid 16</a>.</p>
+        <table class="w-full text-left border-collapse text-xs">
+          <thead>
+            <tr class="border-b border-[var(--border)]">
+              <th class="p-2.5 font-bold">Puesto y Colegio</th>
+              <th class="p-2.5 font-bold">Académico e Idiomas (20%)</th>
+              <th class="p-2.5 font-bold">Convivencia, Salud y Bienestar (20%)</th>
+              <th class="p-2.5 font-bold">Costo Total 14–15 Años (15%)</th>
+              <th class="p-2.5 font-bold">Edad Ingreso / Grado Sara (10%)</th>
+              <th class="p-2.5 font-bold">Ruta Cll. 153 y Obras (15%)</th>
+              <th class="p-2.5 font-bold">Extras, 2.ª Ruta y Campus (15%)</th>
+              <th class="p-2.5 font-bold">Universidad / Homologación (5%)</th>
+              <th class="p-2.5 font-bold">Nota Final y Veredicto IA</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-[var(--border)]">
+            <tr class="bg-amber-500/10">
+              <td class="p-2.5 font-bold text-amber-500">🥇 1. CAS (Colombo Americano)</td>
+              <td class="p-2.5"><b>17,6 / 20</b> (Doble IB + Cambridge ICE a $0, Col-Sapiens D2·AAA++ destacado nacional 2026–27, Saber 11 ~363 pts, Francés DELF)</td>
+              <td class="p-2.5 font-semibold text-emerald-500"><b>17,2 / 20</b> (100% limpio en sentencias y tutelas; certificado oficial Great Place to Study; metodología Playful Learning)</td>
+              <td class="p-2.5 font-bold text-amber-500"><b>12,2 / 15</b> (~$672,9M oficial en 14 años; bono $0; exámenes IB y Cambridge ICE incluidos a $0)</td>
+              <td class="p-2.5 font-bold text-amber-500"><b>8,8 / 10</b> (Nursery feb-2027 a los 2a 6m; se gradúa a los 17a 4m en nov-2041)</td>
+              <td class="p-2.5"><b>9,2 / 15</b> (6,8 km en Arrayanes; cruza obras Boyacá Norte 2027–2028; entra 7:45 a.m., viernes sale 2:30 p.m.)</td>
+              <td class="p-2.5"><b>11,2 / 15</b> (Natación escolar en convenio externo; campus campestre con coliseo de 1.100 m²; sin piscina propia en campus)</td>
+              <td class="p-2.5"><b>4,5 / 5</b> (Doble titulación IB + Cambridge ICE homologa materias en UniAndes/Javeriana y en el exterior)</td>
+              <td class="p-2.5 font-bold text-amber-500">80,7 / 100 · 🥇 SELECCIÓN IA CAL. A</td>
+            </tr>
+            <tr class="bg-emerald-500/10">
+              <td class="p-2.5 font-bold text-emerald-500">🥈 2. Saint George’s (Con Anticipo $20M)</td>
+              <td class="p-2.5"><b>17,0 / 20</b> (Col-Sapiens D2·AAA++ destacado nacional 2026–27, Saber 11 ~357 pts, Cambridge A-Levels, Francés LabelFrancÉducation)</td>
+              <td class="p-2.5 font-bold text-emerald-500"><b>17,6 / 20</b> (100% limpio: 76-IP-2017 es solo marca; CADI MinSalud en campus; certificado oficial Great Place to Study; tareas opcionales)</td>
+              <td class="p-2.5"><b>10,1 / 15</b> ($794,9M oficial c/anticipo; ahorro nominal $99M; recuperación VPN en ~2,8 años)</td>
+              <td class="p-2.5"><b>7,6 / 10</b> (Prekínder ago-2028 a los 4a 1m; se gradúa a los 17a 11m en jun-2042)</td>
+              <td class="p-2.5"><b>10,8 / 15</b> (3,1 km en Cerros de Suba, 0% impacto obras; pero madrugón severo: entrada 7:00 a.m., ruta 6:15 a.m.)</td>
+              <td class="p-2.5 font-bold text-emerald-500"><b>12,8 / 15</b> (+45 clubes L–V 3–4 pm a $0, 2da ruta a $0, 7 ha RESNATUR; sin piscina propia en campus, usa convenio)</td>
+              <td class="p-2.5"><b>4,4 / 5</b> (Cambridge A-Levels homologa créditos en UniAndes/Javeriana y salta Foundation en Reino Unido/Europa)</td>
+              <td class="p-2.5 font-bold text-emerald-500">80,3 / 100 · 🥈 SELECCIÓN IA CAL. B</td>
+            </tr>
+            <tr>
+              <td class="p-2.5 font-bold text-orange-400">🥉 3. Anglo Colombiano (Con Anticipo)</td>
+              <td class="p-2.5"><b>17,3 / 20</b> (Continuum completo de 3 programas IB PYP/MYP/DP, acreditación CIS + NEASC, Col-Sapiens AAA+++, Francés DELF)</td>
+              <td class="p-2.5 font-semibold text-emerald-500"><b>17,0 / 20</b> (Historial 100% limpio en 70 años; sistema pastoral británico de Houses; preescolar entra a las 8:34 a.m.)</td>
+              <td class="p-2.5"><b>8,3 / 15</b> ($900,2M oficial c/anticipo; Año 1 exige $115,4M; recuperación en VPN tarda ~7–8 años; útiles y libros incluidos)</td>
+              <td class="p-2.5"><b>7,6 / 10</b> (Prekínder ago-2028 a los 4a 1m; se gradúa a los 17a 11m en jun-2042)</td>
+              <td class="p-2.5 font-bold text-emerald-500"><b>12,8 / 15</b> (Cra. 19 # 152A-48 sobre eje Cll. 153, 0% obras; horario preescolar 8:34 a.m. a 3:35 p.m., mié sale 11:50 a.m.)</td>
+              <td class="p-2.5"><b>12,0 / 15</b> (Campus arbolado de ~12 ha, canchas reglamentarias y Teatro Shakespeare; sin piscina propia en campus, clubes con costo)</td>
+              <td class="p-2.5"><b>4,7 / 5</b> (Continuum IB + CIS/NEASC con máxima reputación global hacia Reino Unido, EE. UU. y UniAndes)</td>
+              <td class="p-2.5 font-bold text-orange-400">79,7 / 100 · 🥉 TOP ÉLITE IB</td>
+            </tr>
+            <tr>
+              <td class="p-2.5 font-bold text-sky-500">4. Gimnasio Vermont</td>
+              <td class="p-2.5 font-bold text-sky-500"><b>17,5 / 20</b> (Saber 11 ~361 pts, Col-Sapiens D2·AAA+, Diploma IB + Mandarín obligatorio certificado HSK)</td>
+              <td class="p-2.5 text-amber-500"><b>14,7 / 20</b> (ISO 9001 en bienestar escolar; en observación por Sentencia T-227/2020 de inclusión y caso Villa de Leyva mar-2024)</td>
+              <td class="p-2.5"><b>10,5 / 15</b> (~$767,2M estimado portales; falta circular oficial 2027–2028)</td>
+              <td class="p-2.5"><b>7,6 / 10</b> (Prekínder ago-2028 a los 4a 1m; se gradúa a los 17a 11m en jun-2042)</td>
+              <td class="p-2.5 font-bold text-sky-500"><b>12,3 / 15</b> (4,8 km en Cll. 195; entrada oficial a las 8:00 a.m. permite a Sara dormir casi 1 hora más; 0% obras directas)</td>
+              <td class="p-2.5"><b>12,0 / 15</b> (Observatorio Astronómico, campus de ~8 ha; sin piscina propia en campus confirmada)</td>
+              <td class="p-2.5"><b>4,6 / 5</b> (Diploma IB convalida en UniAndes/Javeriana + UNEDasiss España + convenios y becas con China)</td>
+              <td class="p-2.5 font-bold text-sky-500">79,2 / 100 · 🟡 EN OBSERVACIÓN</td>
+            </tr>
+            <tr>
+              <td class="p-2.5 font-bold text-lime-500">5. Colegio Los Nogales</td>
+              <td class="p-2.5 font-bold text-lime-500"><b>17,6 / 20</b> (+20 cursos universitarios AP, CIS/NEASC, Col-Sapiens D3·AAA+++ en 2026–27, Saber 11 ~354 pts, Francés DELF)</td>
+              <td class="p-2.5"><b>15,2 / 20</b> (Red Round Square y Centro de Desarrollo Estudiantil; expulsiones 2023–24 avaladas por tutela; acusación 2026 por injuria no es condena)</td>
+              <td class="p-2.5"><b>8,9 / 15</b> (~$865M estimado portales + bono de ingreso ~$25M–$35M; falta circular oficial)</td>
+              <td class="p-2.5"><b>7,6 / 10</b> (Prekínder ago-2028 a los 4a 1m; se gradúa a los 17a 11m en jun-2042)</td>
+              <td class="p-2.5"><b>10,2 / 15</b> (6,0 km en Cll. 202; cruza corredor Boyacá Norte; entra 7:35 a.m.)</td>
+              <td class="p-2.5"><b>12,4 / 15</b> (Deportes UNCOLI $0 en jornada escolar, campus campestre de ~8 ha arboladas; sin piscina propia en campus)</td>
+              <td class="p-2.5"><b>4,7 / 5</b> (Líder histórico hacia UniAndes e Ivy League mediante convalidación de créditos AP)</td>
+              <td class="p-2.5 font-bold text-lime-500">76,6 / 100 · 🟢 ÉLITE AP</td>
+            </tr>
+            <tr>
+              <td class="p-2.5 font-bold text-cyan-400">6. Gimnasio Colombo Británico</td>
+              <td class="p-2.5"><b>17,1 / 20</b> (Cambridge IGCSE + Diploma IB, Saber 11 ~359 pts, Col-Sapiens D2·AAA, Francés DELF)</td>
+              <td class="p-2.5 text-amber-500"><b>14,1 / 20</b> (En observación por denuncia de estudiante en feb-2024 e indagaciones institucionales; sin sanción judicial firme)</td>
+              <td class="p-2.5"><b>11,6 / 15</b> (~$709M estimado de portales; falta circular oficial)</td>
+              <td class="p-2.5"><b>7,6 / 10</b> (Prejardín 2027 o Prekínder 2028; se gradúa a los 17a 11m)</td>
+              <td class="p-2.5"><b>7,6 / 15</b> (8,5 km hasta Guaymaral; cruza tramo en obra de la Av. Boyacá Norte; entra 7:20 a.m.)</td>
+              <td class="p-2.5"><b>11,2 / 15</b> (Campus campestre con British Arena en Guaymaral; extracurriculares cobradas aparte; sin piscina propia)</td>
+              <td class="p-2.5"><b>4,4 / 5</b> (Doble ruta Cambridge + IB abre convalidación en Colombia y el exterior)</td>
+              <td class="p-2.5 font-bold text-cyan-400">73,6 / 100 · 🟡 EN OBSERVACIÓN</td>
+            </tr>
+            <tr>
+              <td class="p-2.5 font-bold text-indigo-400">7. Liceo Francés Louis Pasteur</td>
+              <td class="p-2.5"><b>17,2 / 20</b> (Baccalauréat BFI bicultural, Francés C2 vehicular + Inglés C1, aprobación Bac >98%)</td>
+              <td class="p-2.5"><b>15,6 / 20</b> (Cero antecedentes de acoso entre alumnos; nueva convención AEFE del 4-jun-2026 y nuevos estatutos resuelven gobernanza)</td>
+              <td class="p-2.5"><b>10,4 / 15</b> (~$775M acumulados en 15 años de Maternelle a Terminale; $0 bono de ingreso; mensualidad ~$3,4M)</td>
+              <td class="p-2.5 font-semibold text-indigo-400"><b>8,0 / 10</b> (Petite Section sep-2027 con 3a 2m; se gradúa a los 17a 11m en jun-2042)</td>
+              <td class="p-2.5 text-rose-500"><b>5,7 / 15</b> (🔴 11,5 km hasta La Cabrera Cll. 87 con Cra. 7.ª: ruta diaria de 60–90 min cruzando el trancón norte-centro; entra 7:45 a.m.)</td>
+              <td class="p-2.5"><b>9,4 / 15</b> (14 disciplinas UNCOLI; campus 100% urbano en Chapinero sin áreas verdes campestres; sin piscina propia)</td>
+              <td class="p-2.5"><b>4,7 / 5</b> (Acceso directo por Parcoursup a universidades públicas en Francia y toda la UE con matrícula subsidiada)</td>
+              <td class="p-2.5 font-bold text-indigo-400">71,0 / 100 · 🟡 LEJOS DE CASA</td>
+            </tr>
+            <tr class="bg-rose-500/5">
+              <td class="p-2.5 font-bold text-rose-500">8. Colegio Helvetia</td>
+              <td class="p-2.5"><b>16,0 / 20</b> (Matura Suiza bicultural, trilingüe Francés o Alemán C1 + Inglés C1, categoría A+ Saber 11)</td>
+              <td class="p-2.5 font-bold text-rose-500"><b>12,2 / 20</b> (🔴 Sentencia T-252/2023 de la Corte Constitucional por omisión en acoso escolar + requerimiento Procuraduría / ONU 2023)</td>
+              <td class="p-2.5"><b>8,7 / 15</b> (~$876,5M acumulados en 15 años obligatorios hasta Grado 12; extracurriculares cobradas aparte)</td>
+              <td class="p-2.5 font-bold text-rose-500"><b>5,5 / 10</b> (🔴 Corte 30-jun rechaza a Sara [12-jul-2024] en 2027; entra en 2028 y cursa 15 años hasta Grado 12: gradúa a los ~19 años)</td>
+              <td class="p-2.5"><b>13,0 / 15</b> (2,6 km al sur por Boyacá, 0% obras; pero los miércoles salida a la 1:15 p.m. descuadra la logística familiar)</td>
+              <td class="p-2.5"><b>9,8 / 15</b> (Campus arbolado de ~5 ha en Cll. 128 con muro de escalada; talleres 100% cobrados aparte; sin piscina propia; filtro 9°)</td>
+              <td class="p-2.5"><b>4,6 / 5</b> (Entrada directa sin examen de admisión a universidades públicas en Suiza y la Unión Europea)</td>
+              <td class="p-2.5 font-bold text-rose-500">69,8 / 100 · 🔴 DESCARTADO TÉCNICAMENTE</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
 
       <!-- BLOQUE 3: ¿POR QUÉ LA IA NO SELECCIONARÍA HOY A HELVETIA Y QUÉ CONDICIONES PONDRÍA A LOS DEMÁS? -->
@@ -2609,9 +2713,8 @@
       `).join('');
     }
 
-    // Grid 14: ranking calculado con los pesos por defecto y las notas auditadas
+    // Grid 14: actualiza los puntajes del podio superior
     function renderGrid14() {
-      const host = document.getElementById('g14-dynamic-table');
       const w = SIM_PRESETS.recommended;
       const total = Object.values(w).reduce((a, b) => a + b, 0);
       const ranked = DEFAULT_SIM_SCHOOLS.map(s => {
@@ -2620,40 +2723,9 @@
         return { ...s, score: (sum / total) * 10 };
       }).sort((a, b) => b.score - a.score);
       ranked.forEach(s => {
-        const el = document.getElementById('g14-score-' + s.id);
+        const el = document.getElementById("g14-score-" + s.id);
         if (el) el.textContent = s.score.toFixed(1);
       });
-      if (!host) return;
-      host.innerHTML = `
-        <table class="w-full text-left border-collapse text-[11px]">
-          <thead><tr class="border-b border-[var(--border)]">
-            <th class="p-2 font-bold">#</th><th class="p-2 font-bold">Colegio</th><th class="p-2 font-bold">Puntaje IA (0–100)</th>
-            ${SIM_VARIABLES.map(v => `<th class="p-1.5 font-bold text-center" title="${v.name}">${v.icon}<br/><span class="text-[9px] text-[var(--muted-foreground)]">×${w[v.id]}</span></th>`).join('')}
-            <th class="p-2 font-bold">Fortaleza Principal</th>
-            <th class="p-2 font-bold">Punto Débil Real</th>
-          </tr></thead>
-          <tbody class="divide-y divide-[var(--border)]">
-            ${ranked.map((s, i) => {
-              const bg = i === 0 ? 'bg-emerald-500/10 font-bold' : i === 1 ? 'bg-amber-500/10 font-bold' : i === 2 ? 'bg-orange-500/5' : '';
-              const medal = i === 0 ? '🥇 #1' : i === 1 ? '🥈 #2' : i === 2 ? '🥉 #3' : `#${i + 1}`;
-              const topVar = SIM_VARIABLES.map(v => ({ v, val: s.scoresCon[v.id] })).sort((a,b) => b.val - a.val)[0];
-              const lowVar = SIM_VARIABLES.map(v => ({ v, val: s.scoresCon[v.id] })).sort((a,b) => a.val - b.val)[0];
-              return `<tr class="${bg}">
-                <td class="p-2">${medal}</td>
-                <td class="p-2"><div class="font-bold">${s.flag} ${s.name.split('(')[0].trim()}</div><div class="text-[10px] text-[var(--muted-foreground)]">${s.costLabelCon}</div></td>
-                <td class="p-2"><span class="text-sm font-extrabold text-emerald-500">${s.score.toFixed(1)}</span> <span class="text-[10px] text-[var(--muted-foreground)]">/ 100</span></td>
-                ${SIM_VARIABLES.map(v => {
-                  const val = s.scoresCon[v.id].toFixed(1);
-                  const tip = s.facts[v.id].t.replace(/"/g, '&quot;');
-                  const color = s.scoresCon[v.id] >= 8.5 ? 'text-emerald-500 font-bold' : s.scoresCon[v.id] < 6.5 ? 'text-rose-500 font-semibold' : '';
-                  return `<td class="p-1.5 text-center font-mono ${color}" title="${tip}">${val}</td>`;
-                }).join('')}
-                <td class="p-2 text-[10px] text-emerald-500">${topVar.v.icon} ${topVar.v.name.split('(')[0].replace(/^\d+\.\s*/, '').trim()} (${topVar.val.toFixed(1)})</td>
-                <td class="p-2 text-[10px] text-rose-400">${lowVar.v.icon} ${lowVar.v.name.split('(')[0].replace(/^\d+\.\s*/, '').trim()} (${lowVar.val.toFixed(1)})</td>
-              </tr>`;
-            }).join('')}
-          </tbody>
-        </table>`;
     }
     document.addEventListener('DOMContentLoaded', initSimulator);
     initSimulator();
