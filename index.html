@@ -85,7 +85,10 @@
             Ver Todo (16 Grids Completos)
           </button>
           <button onclick="filterCategory('g1')" class="px-2.5 py-1.5 rounded-lg text-xs font-medium bg-[var(--secondary)] text-[var(--secondary-foreground)] border border-[var(--border)]">
-            1. 💰 Precios (SGS/Anglo/CAS/Helvetia)
+            1. 💰 Precios Mensuales y Anuales
+          </button>
+          <button onclick="filterCategory('g1b')" class="px-2.5 py-1.5 rounded-lg text-xs font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/50">
+            1B. 💵 ¿Cuánto Dinero se Va en los 14 Años?
           </button>
           <button onclick="filterCategory('g2')" class="px-2.5 py-1.5 rounded-lg text-xs font-medium bg-[var(--secondary)] text-[var(--secondary-foreground)] border border-[var(--border)]">
             2. 📅 Edad Año a Año (2027-2043)
@@ -719,6 +722,452 @@
             </div>
           </div>
         </div>
+      </div>
+    </div>
+
+    <!-- GRID 1B: RADIOGRAFÍA TOTAL DE CUÁNTO DINERO SE VA EN LOS 14–15 AÑOS EN LOS 13 COLEGIOS -->
+    <div class="aspect-section bg-[var(--card)] border-2 border-emerald-500/60 rounded-2xl p-4 sm:p-5 shadow-sm space-y-5" data-cat="g1b">
+      <div>
+        <div class="flex flex-wrap items-center gap-2 mb-1">
+          <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-500 text-slate-950">💵 NUEVO GRID FINANCIERO ACUMULADO</span>
+          <span class="text-xs font-semibold text-emerald-400">13 Colegios · 16 Escenarios Tarifarios · Pesos de Hoy vs. Inflación Real</span>
+        </div>
+        <h3 class="text-lg font-bold mb-1">💵 GRID 1B: ¿Cuánto Dinero se Iría en TODOS los 14 Años? — Desglose Rubro por Rubro y Acumulado Etapa por Etapa (2027–2043)</h3>
+        <p class="text-xs text-[var(--muted-foreground)]">Comparativa integral de principio a fin (de Prekínder a Grado 11°/12°) ordenada del colegio más económico al más costoso, separando cuánto se va en <b>Bono/Anticipo</b>, <b>Matrículas</b>, <b>Pensiones</b>, <b>Alimentación</b>, <b>Ruta Escolar</b> y <b>Extracurriculares</b>, tanto en <b>pesos constantes de hoy</b> como en <b>desembolso real proyectado con inflación educativa (~7% anual compuesto)</b>.</p>
+      </div>
+
+      <!-- Tarjetas Resumen de Impacto Rápido -->
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-3 text-xs">
+        <div class="p-3.5 rounded-xl border border-emerald-500/40 bg-[var(--background)] space-y-1">
+          <div class="text-[11px] font-bold uppercase text-emerald-400">🏆 El Más Económico (14 Años)</div>
+          <div class="text-base font-bold text-emerald-500">🌲 Los Arrayanes: ~$446,6M</div>
+          <div class="text-[11px] text-[var(--muted-foreground)]">Con almuerzo y ruta ($0 bono). En Cal. B el más económico es <b>🏛️ Richmond (~$578,2M)</b> y en top ICFES Cal. A es <b>🇺🇸 Anglo Americano (~$518M)</b>.</div>
+        </div>
+        <div class="p-3.5 rounded-xl border border-amber-500/40 bg-[var(--background)] space-y-1">
+          <div class="text-[11px] font-bold uppercase text-amber-400">📲 Efecto WhatsApp CAS (3-nov-2026)</div>
+          <div class="text-base font-bold text-amber-500">$672,9M vs. ~$742,9M</div>
+          <div class="text-[11px] text-[var(--muted-foreground)]">Llevando lonchera de 2° a 11° suma <b>~$672,9M</b>; contratando almuerzo adicional esos 10 años (+~$70M) sube a <b>~$742,9M</b> (a solo ~$52M del SGS).</div>
+        </div>
+        <div class="p-3.5 rounded-xl border border-sky-500/40 bg-[var(--background)] space-y-1">
+          <div class="text-[11px] font-bold uppercase text-sky-400">🇬🇧 Punto Dulce Todo Incluido Cal. B</div>
+          <div class="text-base font-bold text-sky-400">SGS Con Anticipo: $794,9M</div>
+          <div class="text-[11px] text-[var(--muted-foreground)]">Incluye los $20M de anticipo, 14 matrículas, 140 meses de pensión, almuerzo, ruta, <b>+45 clubes L–V a $0 y 2da ruta a $0</b> (ahorra $99M vs. sin anticipo).</div>
+        </div>
+        <div class="p-3.5 rounded-xl border border-rose-500/40 bg-[var(--background)] space-y-1">
+          <div class="text-[11px] font-bold uppercase text-rose-400">🏰 El Techo del Estudio (14 Años)</div>
+          <div class="text-base font-bold text-rose-500">Anglo Sin Anticipo: $986,5M</div>
+          <div class="text-[11px] text-[var(--muted-foreground)]">Con anticipo ($50,2M) baja a <b>$900,2M</b> (o ~$935M sumando clubes de tarde). La brecha entre el colegio #1 y el #13 supera los <b>$539 millones</b>.</div>
+        </div>
+      </div>
+
+      <!-- TABLA 1: DESGLOSE RUBRO POR RUBRO DE LOS 14 AÑOS (ORDENADO DE MENOR A MAYOR) -->
+      <div class="p-4 rounded-xl border border-[var(--border)] bg-[var(--background)] overflow-x-auto space-y-2">
+        <div class="font-bold text-sm text-emerald-400">📊 Tabla 1: Desglose Rubro por Rubro de los 14–15 Años Escolares (Ordenado de Menor a Mayor Inversión en Pesos de Hoy)</div>
+        <p class="text-[11px] text-[var(--muted-foreground)]">Todos los valores están expresados en millones de pesos colombianos (COP). La columna <b>"Total Base c/Almuerzo y Ruta"</b> compara manzanas con manzanas (matrículas + pensiones + alimentación los 14 años + ruta escolar). La columna <b>"Total + Extras Tarde"</b> añade el costo de 1 taller extracurricular durante la vida escolar. La columna <b>"Desembolso Real c/Inflación (~7% E.A.)"</b> proyecta cuánto dinero nominal saldrá realmente de tu cuenta bancaria entre 2027 y 2042 asumiendo un reajuste anual promedio del MEN del 7%.</p>
+        <table class="w-full text-left border-collapse text-xs">
+          <thead>
+            <tr class="border-b-2 border-[var(--border)] bg-[var(--card)]">
+              <th class="p-2 font-bold">#</th>
+              <th class="p-2 font-bold">Colegio / Escenario (Cal.)</th>
+              <th class="p-2 font-bold">Certeza</th>
+              <th class="p-2 font-bold">1. Bono / Anticipo</th>
+              <th class="p-2 font-bold">2. Matrículas (14a)</th>
+              <th class="p-2 font-bold">3. Pensiones (140m)</th>
+              <th class="p-2 font-bold">4. Alimentación (140m)</th>
+              <th class="p-2 font-bold">5. Ruta Escolar (140m)</th>
+              <th class="p-2 font-bold text-emerald-400">💰 Total 14a Base (c/Alm. y Ruta)</th>
+              <th class="p-2 font-bold text-sky-400">⚽ Total 14a + Extras Tarde</th>
+              <th class="p-2 font-bold text-amber-400">📈 Desembolso Real c/Inflación (~7%/año)</th>
+              <th class="p-2 font-bold">Diferencia vs. SGS ($794,9M)</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-[var(--border)]">
+            <tr class="bg-emerald-500/5">
+              <td class="p-2 font-bold">1</td>
+              <td class="p-2 font-bold text-emerald-400">🌲 Gimnasio Los Arrayanes (Cal. A · 14a)</td>
+              <td class="p-2"><span class="px-1.5 py-0.5 rounded bg-amber-500/15 text-amber-400 font-semibold">⚠️ Estimado</span></td>
+              <td class="p-2 font-semibold text-emerald-400">$0</td>
+              <td class="p-2">~$30,1M</td>
+              <td class="p-2">~$260,4M</td>
+              <td class="p-2">~$81,9M</td>
+              <td class="p-2">~$74,2M</td>
+              <td class="p-2 font-bold text-emerald-400">~$446,6M</td>
+              <td class="p-2 font-semibold">~$477,4M <span class="text-[10px] text-[var(--muted-foreground)]">(+$30,8M)</span></td>
+              <td class="p-2 font-bold text-amber-400">~$719M</td>
+              <td class="p-2 text-emerald-400 font-semibold">Ahorras ~$348,3M</td>
+            </tr>
+            <tr>
+              <td class="p-2 font-bold">2</td>
+              <td class="p-2 font-bold text-blue-400">🇺🇸 Colegio Anglo Americano (Cal. A · 14a)</td>
+              <td class="p-2"><span class="px-1.5 py-0.5 rounded bg-amber-500/15 text-amber-400 font-semibold">⚠️ Estimado</span></td>
+              <td class="p-2 font-semibold text-emerald-400">$0</td>
+              <td class="p-2">~$31,5M</td>
+              <td class="p-2">~$319,2M</td>
+              <td class="p-2">~$86,1M</td>
+              <td class="p-2">~$81,2M</td>
+              <td class="p-2 font-bold text-blue-400">~$518,0M</td>
+              <td class="p-2 font-semibold">~$547,4M <span class="text-[10px] text-[var(--muted-foreground)]">(+$29,4M)</span></td>
+              <td class="p-2 font-bold text-amber-400">~$834M</td>
+              <td class="p-2 text-emerald-400 font-semibold">Ahorras ~$276,9M</td>
+            </tr>
+            <tr>
+              <td class="p-2 font-bold">3</td>
+              <td class="p-2 font-bold text-amber-400">⚜️ Colegio De La Salle Bogotá (Cal. A · 14a)</td>
+              <td class="p-2"><span class="px-1.5 py-0.5 rounded bg-amber-500/15 text-amber-400 font-semibold">⚠️ Estimado</span></td>
+              <td class="p-2 font-semibold text-emerald-400">$0</td>
+              <td class="p-2">~$35,7M</td>
+              <td class="p-2">~$348,3M</td>
+              <td class="p-2">~$84,0M</td>
+              <td class="p-2">~$77,0M</td>
+              <td class="p-2 font-bold text-amber-400">~$545,0M</td>
+              <td class="p-2 font-semibold">~$573,0M <span class="text-[10px] text-[var(--muted-foreground)]">(+$28,0M)</span></td>
+              <td class="p-2 font-bold text-amber-400">~$877M</td>
+              <td class="p-2 text-emerald-400 font-semibold">Ahorras ~$249,9M</td>
+            </tr>
+            <tr class="bg-indigo-500/5">
+              <td class="p-2 font-bold">4</td>
+              <td class="p-2 font-bold text-indigo-400">🏛️ Richmond School (Cal. B · 14a)</td>
+              <td class="p-2"><span class="px-1.5 py-0.5 rounded bg-amber-500/15 text-amber-400 font-semibold">⚠️ Estimado</span></td>
+              <td class="p-2 font-semibold text-emerald-400">$0</td>
+              <td class="p-2">~$39,9M</td>
+              <td class="p-2">~$367,5M</td>
+              <td class="p-2">~$91,0M</td>
+              <td class="p-2">~$79,8M</td>
+              <td class="p-2 font-bold text-indigo-400">~$578,2M</td>
+              <td class="p-2 font-semibold">~$611,8M <span class="text-[10px] text-[var(--muted-foreground)]">(+$33,6M)</span></td>
+              <td class="p-2 font-bold text-amber-400">~$931M</td>
+              <td class="p-2 text-emerald-400 font-semibold">Ahorras ~$216,7M</td>
+            </tr>
+            <tr class="bg-amber-500/10">
+              <td class="p-2 font-bold">5A</td>
+              <td class="p-2 font-bold text-amber-500">🇺🇸 CAS — Llevando Lonchera de 2° a 11° (Cal. A · 14a)</td>
+              <td class="p-2"><span class="px-1.5 py-0.5 rounded bg-emerald-500/15 text-emerald-500 font-semibold">✅ Oficial + WA</span></td>
+              <td class="p-2 font-semibold text-emerald-400">$0</td>
+              <td class="p-2">$60,7M</td>
+              <td class="p-2" colspan="2">$509,7M <span class="text-[10px] text-[var(--muted-foreground)]">(Incluye alm. PK a 1°; sin alm. 2° a 11°)</span></td>
+              <td class="p-2">$102,5M</td>
+              <td class="p-2 font-bold text-amber-500">~$672,9M <span class="text-[10px] block font-normal">(s/alm. 2°–11°)</span></td>
+              <td class="p-2 font-semibold">~$697,9M <span class="text-[10px] text-[var(--muted-foreground)]">(+$25,0M)</span></td>
+              <td class="p-2 font-bold text-amber-400">~$1.083M</td>
+              <td class="p-2 text-emerald-400 font-semibold">Ahorras ~$122,0M <span class="text-[10px] block font-normal">(llevando lonchera 10a)</span></td>
+            </tr>
+            <tr>
+              <td class="p-2 font-bold">6</td>
+              <td class="p-2 font-bold text-cyan-400">🛩️ Gimnasio Colombo Británico — GCB (Cal. B · 14a)</td>
+              <td class="p-2"><span class="px-1.5 py-0.5 rounded bg-amber-500/15 text-amber-400 font-semibold">⚠️ Estimado</span></td>
+              <td class="p-2">Validar (~$0)</td>
+              <td class="p-2">~$54,9M</td>
+              <td class="p-2">~$456,4M</td>
+              <td class="p-2">~$80,5M</td>
+              <td class="p-2">~$97,3M</td>
+              <td class="p-2 font-bold text-cyan-400">~$689,1M</td>
+              <td class="p-2 font-semibold">~$709,0M <span class="text-[10px] text-[var(--muted-foreground)]">(+$19,9M)</span></td>
+              <td class="p-2 font-bold text-amber-400">~$1.141M</td>
+              <td class="p-2 text-emerald-400 font-semibold">Ahorras ~$85,9M a $105,8M</td>
+            </tr>
+            <tr class="bg-amber-500/15">
+              <td class="p-2 font-bold">5B</td>
+              <td class="p-2 font-bold text-amber-500">🇺🇸 CAS — CON Almuerzo Escolar los 14 Años (Cal. A · 14a)</td>
+              <td class="p-2"><span class="px-1.5 py-0.5 rounded bg-emerald-500/15 text-emerald-500 font-semibold">✅ Oficial + WA</span></td>
+              <td class="p-2 font-semibold text-emerald-400">$0</td>
+              <td class="p-2">$60,7M</td>
+              <td class="p-2">$481,7M</td>
+              <td class="p-2">~$98,0M <span class="text-[10px] text-amber-400 block">(+$70M de 2° a 11°)</span></td>
+              <td class="p-2">$102,5M</td>
+              <td class="p-2 font-bold text-amber-500">~$742,9M <span class="text-[10px] block font-normal">(15a c/Nursery: ~$780M)</span></td>
+              <td class="p-2 font-semibold">~$767,9M <span class="text-[10px] text-[var(--muted-foreground)]">(+$25,0M)</span></td>
+              <td class="p-2 font-bold text-amber-400">~$1.196M</td>
+              <td class="p-2 text-amber-400 font-semibold">Ahorras solo ~$52,0M <span class="text-[10px] block font-normal">(~$27M c/lúdicas)</span></td>
+            </tr>
+            <tr>
+              <td class="p-2 font-bold">7</td>
+              <td class="p-2 font-bold text-sky-500">🌎 Gimnasio Vermont (Cal. B · 14a)</td>
+              <td class="p-2"><span class="px-1.5 py-0.5 rounded bg-amber-500/15 text-amber-400 font-semibold">⚠️ Estimado</span></td>
+              <td class="p-2">~$0–Mod.</td>
+              <td class="p-2">~$56,3M</td>
+              <td class="p-2">~$476,0M</td>
+              <td class="p-2">~$105,0M</td>
+              <td class="p-2">~$101,5M</td>
+              <td class="p-2 font-bold text-sky-500">~$738,8M</td>
+              <td class="p-2 font-semibold">~$767,2M <span class="text-[10px] text-[var(--muted-foreground)]">(+$28,4M)</span></td>
+              <td class="p-2 font-bold text-amber-400">~$1.235M</td>
+              <td class="p-2 text-emerald-400 font-semibold">Ahorras ~$27,7M a $56,1M</td>
+            </tr>
+            <tr>
+              <td class="p-2 font-bold">8</td>
+              <td class="p-2 font-bold text-indigo-400">🇫🇷 Liceo Francés Louis Pasteur (Cal. B · <b>15 Años</b> PS a Term.)</td>
+              <td class="p-2"><span class="px-1.5 py-0.5 rounded bg-emerald-500/15 text-emerald-500 font-semibold">✅ Oficial Mat/Pen</span></td>
+              <td class="p-2 font-semibold text-emerald-400">$0</td>
+              <td class="p-2">$51,0M <span class="text-[10px] text-[var(--muted-foreground)]">(15a)</span></td>
+              <td class="p-2">$509,5M <span class="text-[10px] text-[var(--muted-foreground)]">(150m)</span></td>
+              <td class="p-2">~$102,8M <span class="text-[10px] text-[var(--muted-foreground)]">(150m)</span></td>
+              <td class="p-2">~$107,3M <span class="text-[10px] text-[var(--muted-foreground)]">(150m)</span></td>
+              <td class="p-2 font-bold text-indigo-400">~$770,6M <span class="text-[10px] block font-normal">(en 15 años)</span></td>
+              <td class="p-2 font-semibold">~$785,6M <span class="text-[10px] text-[var(--muted-foreground)]">(+$15,0M AES)</span></td>
+              <td class="p-2 font-bold text-amber-400">~$1.295M</td>
+              <td class="p-2 text-emerald-400 font-semibold">Ahorras ~$9,3M a $24,3M</td>
+            </tr>
+            <tr class="bg-emerald-500/15">
+              <td class="p-2 font-bold">9A</td>
+              <td class="p-2 font-bold text-emerald-500">🇬🇧 Saint George’s — Opción A CON Anticipo $20M (Cal. B · 14a)</td>
+              <td class="p-2"><span class="px-1.5 py-0.5 rounded bg-emerald-500/15 text-emerald-500 font-semibold">✅ 100% Oficial</span></td>
+              <td class="p-2 font-bold text-emerald-500">$20,0M</td>
+              <td class="p-2">$87,5M</td>
+              <td class="p-2">$445,5M</td>
+              <td class="p-2">$136,2M</td>
+              <td class="p-2">$105,7M <span class="text-[10px] text-emerald-400 block">(inc. 2da ruta $0)</span></td>
+              <td class="p-2 font-bold text-emerald-500">$794,9M</td>
+              <td class="p-2 font-bold text-emerald-500">$794,9M <span class="text-[10px] text-emerald-400 block">(+45 clubes $0)</span></td>
+              <td class="p-2 font-bold text-amber-400">~$1.268M</td>
+              <td class="p-2 font-bold text-emerald-500">🎯 Línea Base Referencia</td>
+            </tr>
+            <tr>
+              <td class="p-2 font-bold">10</td>
+              <td class="p-2 font-bold text-rose-500">🇨🇭 Colegio Helvetia (Cal. B · <b>15 Años</b> GJ a Grado 12 Matura)</td>
+              <td class="p-2"><span class="px-1.5 py-0.5 rounded bg-emerald-500/15 text-emerald-500 font-semibold">✅ 100% Oficial</span></td>
+              <td class="p-2 font-semibold text-emerald-400">$0</td>
+              <td class="p-2">$61,7M <span class="text-[10px] text-[var(--muted-foreground)]">(15a)</span></td>
+              <td class="p-2">$617,1M <span class="text-[10px] text-[var(--muted-foreground)]">(150m)</span></td>
+              <td class="p-2">$56,0M <span class="text-[10px] text-[var(--muted-foreground)]">(150m)</span></td>
+              <td class="p-2">$104,0M <span class="text-[10px] text-[var(--muted-foreground)]">(150m)</span></td>
+              <td class="p-2 font-bold text-rose-500">$838,8M <span class="text-[10px] block font-normal">(en 15 años)</span></td>
+              <td class="p-2 font-semibold">$879,3M <span class="text-[10px] text-[var(--muted-foreground)]">(+$40,5M miérc.)</span></td>
+              <td class="p-2 font-bold text-amber-400">~$1.468M</td>
+              <td class="p-2 text-rose-500 font-semibold">Pagas +$43,9M a +$84,4M</td>
+            </tr>
+            <tr>
+              <td class="p-2 font-bold">11</td>
+              <td class="p-2 font-bold text-lime-500">🌳 Colegio Los Nogales (Cal. B · 14a)</td>
+              <td class="p-2"><span class="px-1.5 py-0.5 rounded bg-amber-500/15 text-amber-400 font-semibold">⚠️ Estimado</span></td>
+              <td class="p-2 text-rose-400 font-semibold">~$30,0M</td>
+              <td class="p-2">~$67,9M</td>
+              <td class="p-2">~$551,5M</td>
+              <td class="p-2">~$108,5M</td>
+              <td class="p-2">~$107,1M</td>
+              <td class="p-2 font-bold text-lime-500">~$865,0M</td>
+              <td class="p-2 font-semibold">~$885,0M <span class="text-[10px] text-[var(--muted-foreground)]">(UNCOLI $0 / otros)</span></td>
+              <td class="p-2 font-bold text-amber-400">~$1.375M</td>
+              <td class="p-2 text-rose-500 font-semibold">Pagas +$70,1M a +$90,1M</td>
+            </tr>
+            <tr>
+              <td class="p-2 font-bold">9B</td>
+              <td class="p-2 font-bold text-teal-500">🇬🇧 Saint George’s — Opción B SIN Anticipo (Cal. B · 14a)</td>
+              <td class="p-2"><span class="px-1.5 py-0.5 rounded bg-emerald-500/15 text-emerald-500 font-semibold">✅ 100% Oficial</span></td>
+              <td class="p-2 font-semibold">$0</td>
+              <td class="p-2">$99,4M</td>
+              <td class="p-2">$552,6M</td>
+              <td class="p-2">$136,2M</td>
+              <td class="p-2">$105,7M</td>
+              <td class="p-2 font-bold text-teal-500">$893,9M</td>
+              <td class="p-2 font-bold text-teal-500">$893,9M <span class="text-[10px] text-emerald-400 block">(+45 clubes $0)</span></td>
+              <td class="p-2 font-bold text-amber-400">~$1.439M</td>
+              <td class="p-2 text-rose-500 font-bold">Pierdes +$99,0M vs. Opción A</td>
+            </tr>
+            <tr>
+              <td class="p-2 font-bold">12</td>
+              <td class="p-2 font-bold text-sky-400">🇬🇧 The English School — TES (Cal. B · 14a)</td>
+              <td class="p-2"><span class="px-1.5 py-0.5 rounded bg-amber-500/15 text-amber-400 font-semibold">⚠️ Estimado</span></td>
+              <td class="p-2 text-rose-400 font-semibold">~$30,0M</td>
+              <td class="p-2">~$58,8M</td>
+              <td class="p-2">~$590,6M</td>
+              <td class="p-2">~$115,5M</td>
+              <td class="p-2">~$100,1M</td>
+              <td class="p-2 font-bold text-sky-400">~$895,0M</td>
+              <td class="p-2 font-semibold">~$925,0M <span class="text-[10px] text-[var(--muted-foreground)]">(+$30,0M clubes)</span></td>
+              <td class="p-2 font-bold text-amber-400">~$1.441M</td>
+              <td class="p-2 text-rose-500 font-semibold">Pagas +$100,1M a +$130,1M</td>
+            </tr>
+            <tr class="bg-orange-500/10">
+              <td class="p-2 font-bold">13A</td>
+              <td class="p-2 font-bold text-orange-400">🏰 Anglo Colombiano — CON Anticipo Prospecto (Cal. B · 14a)</td>
+              <td class="p-2"><span class="px-1.5 py-0.5 rounded bg-emerald-500/15 text-emerald-500 font-semibold">✅ 100% Oficial</span></td>
+              <td class="p-2 font-bold text-orange-400">$50,2M <span class="text-[10px] block font-normal">($45,4M Com.)</span></td>
+              <td class="p-2">$73,1M <span class="text-[10px] text-emerald-400 block">(Inc. útiles/libros)</span></td>
+              <td class="p-2" colspan="3">$776,9M <span class="text-[10px] text-[var(--muted-foreground)]">(126 pagos Total 2: Pensión + Cafetería + Ruta de PK a G11)</span></td>
+              <td class="p-2 font-bold text-orange-400">$900,2M <span class="text-[10px] block font-normal">($895,4M Com.)</span></td>
+              <td class="p-2 font-semibold">~$935,2M <span class="text-[10px] text-[var(--muted-foreground)]">(+$35,0M clubes)</span></td>
+              <td class="p-2 font-bold text-amber-400">~$1.425M</td>
+              <td class="p-2 text-rose-500 font-semibold">Pagas +$105,3M a +$140,3M</td>
+            </tr>
+            <tr>
+              <td class="p-2 font-bold">13B</td>
+              <td class="p-2 font-bold text-amber-600">🏰 Anglo Colombiano — SIN Anticipo (Cal. B · 14a)</td>
+              <td class="p-2"><span class="px-1.5 py-0.5 rounded bg-emerald-500/15 text-emerald-500 font-semibold">✅ 100% Oficial</span></td>
+              <td class="p-2 font-semibold">$0</td>
+              <td class="p-2">$83,9M <span class="text-[10px] text-emerald-400 block">(Inc. útiles/libros)</span></td>
+              <td class="p-2" colspan="3">$902,6M <span class="text-[10px] text-[var(--muted-foreground)]">(126 pagos Total 2 sin anticipo de PK a G11)</span></td>
+              <td class="p-2 font-bold text-rose-500">$986,5M</td>
+              <td class="p-2 font-semibold">~$1.021,5M <span class="text-[10px] text-[var(--muted-foreground)]">(+$35,0M clubes)</span></td>
+              <td class="p-2 font-bold text-rose-500">~$1.588M</td>
+              <td class="p-2 text-rose-500 font-bold">Pagas +$191,6M a +$226,6M</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- TABLA 2: FLUJO DE CAJA ACUMULADO ETAPA POR ETAPA (DÍA 1, AÑO 1, FIN PREESCOLAR, FIN PRIMARIA, GRADUACIÓN) -->
+      <div class="p-4 rounded-xl border border-sky-500/40 bg-[var(--background)] overflow-x-auto space-y-2">
+        <div class="font-bold text-sm text-sky-400">🗓️ Tabla 2: Mapa de Desembolso Acumulado Etapa por Etapa de la Vida de Sara (¿Cuánto Dinero Habrás Pagado en Cada Hito?)</div>
+        <p class="text-[11px] text-[var(--muted-foreground)]">Esta tabla responde cuánto capital acumulado (en pesos constantes de hoy, incluyendo bono/anticipo + matrícula + pensión + almuerzo + ruta) habrá salido del bolsillo familiar en los 5 momentos clave del camino escolar de Sara:</p>
+        <table class="w-full text-left border-collapse text-xs">
+          <thead>
+            <tr class="border-b-2 border-[var(--border)] bg-[var(--card)]">
+              <th class="p-2 font-bold">Colegio / Modalidad</th>
+              <th class="p-2 font-bold text-rose-400">🔥 Día 1 (Antes de Clases: Bono + 1ra Matrícula)</th>
+              <th class="p-2 font-bold">Fin Año 1 (Prekínder · 4–5 años)</th>
+              <th class="p-2 font-bold">Fin Preescolar (Año 3 · Transición · 6–7 años)</th>
+              <th class="p-2 font-bold">Fin Primaria (Año 8 · Grado 5° · 11–12 años)</th>
+              <th class="p-2 font-bold text-emerald-400">🎓 Graduación (Año 14/15 · Grado 11°/12°)</th>
+              <th class="p-2 font-bold">Costo Promedio por Año / por Mes (140m)</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-[var(--border)]">
+            <tr>
+              <td class="p-2 font-bold text-emerald-400">🌲 1. Los Arrayanes (Cal. A)</td>
+              <td class="p-2 font-semibold text-emerald-400">~$2,15M <span class="text-[10px] font-normal">($0 bono)</span></td>
+              <td class="p-2">~$31,9M</td>
+              <td class="p-2">~$95,7M</td>
+              <td class="p-2">~$255,2M</td>
+              <td class="p-2 font-bold text-emerald-400">~$446,6M</td>
+              <td class="p-2">~$31,9M/año · <b>~$3,19M/mes</b></td>
+            </tr>
+            <tr>
+              <td class="p-2 font-bold text-blue-400">🇺🇸 2. Anglo Americano (Cal. A)</td>
+              <td class="p-2 font-semibold text-emerald-400">~$2,25M <span class="text-[10px] font-normal">($0 bono)</span></td>
+              <td class="p-2">~$37,0M</td>
+              <td class="p-2">~$111,0M</td>
+              <td class="p-2">~$296,0M</td>
+              <td class="p-2 font-bold text-blue-400">~$518,0M</td>
+              <td class="p-2">~$37,0M/año · <b>~$3,70M/mes</b></td>
+            </tr>
+            <tr>
+              <td class="p-2 font-bold text-amber-400">⚜️ 3. Colegio De La Salle (Cal. A)</td>
+              <td class="p-2 font-semibold text-emerald-400">~$2,55M <span class="text-[10px] font-normal">($0 bono)</span></td>
+              <td class="p-2">~$38,9M</td>
+              <td class="p-2">~$116,8M</td>
+              <td class="p-2">~$311,4M</td>
+              <td class="p-2 font-bold text-amber-400">~$545,0M</td>
+              <td class="p-2">~$38,9M/año · <b>~$3,89M/mes</b></td>
+            </tr>
+            <tr>
+              <td class="p-2 font-bold text-indigo-400">🏛️ 4. Richmond School (Cal. B)</td>
+              <td class="p-2 font-semibold text-emerald-400">~$2,85M <span class="text-[10px] font-normal">($0 bono)</span></td>
+              <td class="p-2">~$41,3M</td>
+              <td class="p-2">~$123,9M</td>
+              <td class="p-2">~$330,4M</td>
+              <td class="p-2 font-bold text-indigo-400">~$578,2M</td>
+              <td class="p-2">~$41,3M/año · <b>~$4,13M/mes</b></td>
+            </tr>
+            <tr class="bg-amber-500/10">
+              <td class="p-2 font-bold text-amber-500">🇺🇸 5A. CAS s/Almuerzo 2°–11° (Cal. A)</td>
+              <td class="p-2 font-semibold text-emerald-400">$4,30M <span class="text-[10px] font-normal">($0 bono)</span></td>
+              <td class="p-2">$48,8M</td>
+              <td class="p-2">$147,2M</td>
+              <td class="p-2">~$389,0M</td>
+              <td class="p-2 font-bold text-amber-500">~$672,9M</td>
+              <td class="p-2">~$48,1M/año · <b>~$4,81M/mes</b></td>
+            </tr>
+            <tr>
+              <td class="p-2 font-bold text-cyan-400">🛩️ 6. Colombo Británico GCB (Cal. B)</td>
+              <td class="p-2">~$3,92M</td>
+              <td class="p-2">~$49,2M</td>
+              <td class="p-2">~$147,7M</td>
+              <td class="p-2">~$393,8M</td>
+              <td class="p-2 font-bold text-cyan-400">~$689,1M</td>
+              <td class="p-2">~$49,2M/año · <b>~$4,92M/mes</b></td>
+            </tr>
+            <tr class="bg-amber-500/15">
+              <td class="p-2 font-bold text-amber-500">🇺🇸 5B. CAS c/Almuerzo 14 Años (Cal. A)</td>
+              <td class="p-2 font-semibold text-emerald-400">$4,30M <span class="text-[10px] font-normal">($0 bono)</span></td>
+              <td class="p-2">$48,8M</td>
+              <td class="p-2">$147,2M <span class="text-[10px] text-emerald-400 block">(Alm. incluido PK–1°)</span></td>
+              <td class="p-2">~$417,0M <span class="text-[10px] text-amber-400 block">(+Alm. 2°–5°)</span></td>
+              <td class="p-2 font-bold text-amber-500">~$742,9M <span class="text-[10px] block font-normal">(+$70M alm. 2°–11°)</span></td>
+              <td class="p-2">~$53,1M/año · <b>~$5,31M/mes</b></td>
+            </tr>
+            <tr>
+              <td class="p-2 font-bold text-sky-500">🌎 7. Gimnasio Vermont (Cal. B)</td>
+              <td class="p-2">~$4,02M</td>
+              <td class="p-2">~$54,8M</td>
+              <td class="p-2">~$164,4M</td>
+              <td class="p-2">~$438,4M</td>
+              <td class="p-2 font-bold text-sky-500">~$767,2M</td>
+              <td class="p-2">~$54,8M/año · <b>~$5,48M/mes</b></td>
+            </tr>
+            <tr>
+              <td class="p-2 font-bold text-indigo-400">🇫🇷 8. Liceo Francés (Cal. B · 15 Años)</td>
+              <td class="p-2 font-semibold text-emerald-400">$3,40M <span class="text-[10px] font-normal">($0 bono)</span></td>
+              <td class="p-2">~$51,4M</td>
+              <td class="p-2">~$154,1M</td>
+              <td class="p-2">~$411,0M</td>
+              <td class="p-2 font-bold text-indigo-400">~$770,6M <span class="text-[10px] block font-normal">(15 años)</span></td>
+              <td class="p-2">~$51,4M/año · <b>~$5,14M/mes</b></td>
+            </tr>
+            <tr class="bg-emerald-500/15">
+              <td class="p-2 font-bold text-emerald-500">🇬🇧 9A. SGS Con Anticipo $20M (Cal. B)</td>
+              <td class="p-2 font-bold text-amber-400">$26,25M <span class="text-[10px] block font-normal">($20M + $6,25M mat.)</span></td>
+              <td class="p-2">$75,35M</td>
+              <td class="p-2 font-bold text-emerald-400">$186,05M <span class="text-[10px] block font-normal">(Ya recuperó los $20M)</span></td>
+              <td class="p-2">$462,80M</td>
+              <td class="p-2 font-bold text-emerald-500">$794,90M</td>
+              <td class="p-2">$56,8M/año · <b>$5,68M/mes</b> <span class="text-[10px] text-emerald-400 block">(Todo + clubes $0)</span></td>
+            </tr>
+            <tr>
+              <td class="p-2 font-bold text-rose-500">🇨🇭 10. Colegio Helvetia (Cal. B · 15 Años)</td>
+              <td class="p-2 font-semibold text-emerald-400">$4,11M <span class="text-[10px] font-normal">($0 bono)</span></td>
+              <td class="p-2">$55,92M</td>
+              <td class="p-2">$167,76M</td>
+              <td class="p-2">$447,37M</td>
+              <td class="p-2 font-bold text-rose-500">$838,82M <span class="text-[10px] block font-normal">(15a s/extras)</span></td>
+              <td class="p-2">$55,9M/año · <b>$5,59M/mes</b></td>
+            </tr>
+            <tr>
+              <td class="p-2 font-bold text-lime-500">🌳 11. Colegio Los Nogales (Cal. B)</td>
+              <td class="p-2 font-bold text-rose-400">~$34,85M <span class="text-[10px] block font-normal">(~$30M bono + mat.)</span></td>
+              <td class="p-2">~$89,6M</td>
+              <td class="p-2">~$209,0M</td>
+              <td class="p-2">~$507,2M</td>
+              <td class="p-2 font-bold text-lime-500">~$865,0M</td>
+              <td class="p-2">~$61,8M/año · <b>~$6,18M/mes</b></td>
+            </tr>
+            <tr>
+              <td class="p-2 font-bold text-teal-500">🇬🇧 9B. SGS Sin Anticipo (Cal. B)</td>
+              <td class="p-2 font-semibold">$7,10M <span class="text-[10px] font-normal">($0 bono)</span></td>
+              <td class="p-2">$63,85M</td>
+              <td class="p-2 text-rose-400">$191,55M</td>
+              <td class="p-2 text-rose-400">$510,80M</td>
+              <td class="p-2 font-bold text-rose-500">$893,90M</td>
+              <td class="p-2">$63,85M/año · <b>$6,38M/mes</b></td>
+            </tr>
+            <tr>
+              <td class="p-2 font-bold text-sky-400">🇬🇧 12. The English School TES (Cal. B)</td>
+              <td class="p-2 font-bold text-rose-400">~$34,20M <span class="text-[10px] block font-normal">(~$30M bono + mat.)</span></td>
+              <td class="p-2">~$91,8M</td>
+              <td class="p-2">~$215,4M</td>
+              <td class="p-2">~$524,2M</td>
+              <td class="p-2 font-bold text-sky-400">~$895,0M</td>
+              <td class="p-2">~$63,9M/año · <b>~$6,39M/mes</b></td>
+            </tr>
+            <tr class="bg-orange-500/10">
+              <td class="p-2 font-bold text-orange-400">🏰 13A. Anglo Con Anticipo ($50,2M)</td>
+              <td class="p-2 font-bold text-rose-500">$55,75M <span class="text-[10px] block font-normal">($50,2M + $5,55M T1)</span></td>
+              <td class="p-2 font-bold text-rose-400">$115,42M</td>
+              <td class="p-2">$244,49M</td>
+              <td class="p-2">$554,35M</td>
+              <td class="p-2 font-bold text-orange-400">$900,23M</td>
+              <td class="p-2">$64,3M/año · <b>$6,43M/mes</b></td>
+            </tr>
+            <tr>
+              <td class="p-2 font-bold text-amber-600">🏰 13B. Anglo Sin Anticipo (Cal. B)</td>
+              <td class="p-2 font-semibold">$6,35M <span class="text-[10px] font-normal">($0 anticipo)</span></td>
+              <td class="p-2">$75,65M</td>
+              <td class="p-2">$225,53M</td>
+              <td class="p-2 text-rose-500">$586,25M</td>
+              <td class="p-2 font-bold text-rose-500">$986,49M</td>
+              <td class="p-2">$70,5M/año · <b>$7,05M/mes</b></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
 
@@ -2921,7 +3370,8 @@
     function filterCategory(cat) {
       const sections = document.querySelectorAll('.aspect-section');
       sections.forEach(sec => {
-        if (cat === 'all' || sec.getAttribute('data-cat') === cat) {
+        const secCat = sec.getAttribute('data-cat');
+        if (cat === 'all' || secCat === cat || (cat === 'g1' && secCat === 'g1b')) {
           sec.style.display = 'block';
         } else {
           sec.style.display = 'none';
