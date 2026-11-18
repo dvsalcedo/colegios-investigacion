@@ -35,6 +35,10 @@
       color: var(--foreground);
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     }
+    .descartado { opacity: .38; filter: grayscale(1); transition: opacity .2s; }
+    .descartado:hover { opacity: .75; }
+    body.ocultar-descartados .descartado { display: none !important; }
+    .badge-descartado { display:inline-block; margin:0 0 4px 0; padding:1px 8px; border-radius:6px; font-size:10px; font-weight:800; background:rgba(244,63,94,.18); color:#fb7185; border:1px solid rgba(244,63,94,.45); filter:none; }
     @media print {
       .no-print { display: none !important; }
       .aspect-section { display: block !important; break-inside: avoid; margin-bottom: 16px; }
@@ -57,7 +61,7 @@
               🚌 RUTA SGS CONFIRMADA: 6:15 A.M. – 3:50 P.M.
             </span>
             <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-amber-500/15 text-amber-500 border border-amber-500/30">
-              📚 VERSIÓN ÍNTEGRA: LOS 16 GRIDS · 13 COLEGIOS (INCL. GCB) + AMERICAN GARDEN BY GCB + KIDS TOWN SUBA
+              🚦 FILTRO ACTIVO: TOPE = SAINT GEORGE’S OPCIÓN A ($4,91M/MES · $794,9M) · 9 COLEGIOS ELEGIBLES + 5 JARDINES
             </span>
           </div>
           <div class="flex items-center gap-2 no-print">
@@ -125,6 +129,55 @@
           <button onclick="filterCategory('g14')" class="px-3 py-1.5 rounded-lg text-xs font-bold bg-emerald-500 text-slate-950 shadow-sm hover:opacity-90 transition">14. 🏆 ¿Cuál Escogería la IA según los Datos?</button>
           <button onclick="filterCategory('g15')" class="px-3 py-1.5 rounded-lg text-xs font-bold bg-amber-500 text-slate-950 shadow-sm hover:opacity-90 transition">15. ♟️ Estrategias 2 a 4 Años (JCN / Dreams / American Garden by GCB / Kids Town Suba / CAS)</button>
           <button onclick="filterCategory('g16')" class="px-3 py-1.5 rounded-lg text-xs font-bold bg-sky-500 text-slate-950 shadow-sm hover:opacity-90 transition">16. 🎛️ Simulador Dinámico (Pesos 0 a 10)</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- FILTRO DE PRESUPUESTO: ELEGIBLES VS. DESCARTADOS -->
+    <div id="filtro-presupuesto" class="bg-[var(--card)] border-2 border-rose-500/60 rounded-2xl p-4 sm:p-5 shadow-md space-y-4">
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+        <div>
+          <h3 class="text-lg md:text-xl font-bold text-rose-400">🚦 Filtro de Presupuesto: ¿Qué Colegios Siguen Siendo Elegibles?</h3>
+          <p class="text-xs text-[var(--muted-foreground)]"><b>Regla de corte definida por la familia (18-nov-2026):</b> lo máximo que están dispuestos a pagar es el <b>Saint George’s School — Opción A (con anticipo de $20M)</b>: <b>$4.910.000/mes</b> todo incluido (pensión $3.182.000 + alimentación $973.000 + ruta $755.000) y <b>$794,9M en 14 años</b>. Se descarta todo colegio que <b>supere los ~$5 millones al mes</b> o cuyo <b>total en 14 años (con bono/anticipo) supere al SGS</b>. Los descartados <b>no se borran</b>: quedan atenuados en gris con la etiqueta ⛔ en todos los grids (por si quieren revisarlos) y salen de los rankings del simulador.</p>
+        </div>
+        <div class="flex flex-wrap gap-2 no-print shrink-0">
+          <button onclick="toggleDescartados()" id="btn-descartados" class="px-3 py-1.5 rounded-lg text-xs font-bold bg-rose-500 text-white hover:opacity-90 transition">🙈 Ocultar descartados</button>
+        </div>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 text-xs">
+        <div class="p-4 rounded-xl border-2 border-emerald-500/60 bg-emerald-500/5 overflow-x-auto">
+          <div class="font-bold text-sm text-emerald-400 mb-2">✅ ELEGIBLES (9 colegios + 5 jardines puente) — ordenados de menor a mayor costo en 14 años</div>
+          <table class="w-full text-left border-collapse text-xs">
+            <thead><tr class="border-b border-[var(--border)]"><th class="p-1.5">Colegio</th><th class="p-1.5">Total mes</th><th class="p-1.5">14 años</th><th class="p-1.5">Margen vs. tope SGS</th></tr></thead>
+            <tbody class="divide-y divide-[var(--border)]">
+              <tr><td class="p-1.5 font-semibold">🌲 Gimnasio Los Arrayanes (Cal. A)</td><td class="p-1.5">$2,62M–$3,24M</td><td class="p-1.5">~$446,6M</td><td class="p-1.5 text-emerald-400 font-bold">−$348M</td></tr>
+              <tr><td class="p-1.5 font-semibold">🇺🇸 Colegio Anglo Americano (Cal. A)</td><td class="p-1.5">$3,25M–$3,75M</td><td class="p-1.5">~$518,0M</td><td class="p-1.5 text-emerald-400 font-bold">−$277M</td></tr>
+              <tr><td class="p-1.5 font-semibold">⚜️ Colegio De La Salle (Cal. A)</td><td class="p-1.5">$3,30M–$3,75M</td><td class="p-1.5">~$545,0M</td><td class="p-1.5 text-emerald-400 font-bold">−$250M</td></tr>
+              <tr><td class="p-1.5 font-semibold">🏛️ Richmond School (Cal. B)</td><td class="p-1.5">$3,43M–$4,10M</td><td class="p-1.5">~$578,2M</td><td class="p-1.5 text-emerald-400 font-bold">−$217M</td></tr>
+              <tr><td class="p-1.5 font-semibold">🌱➔🛩️ Ruta GCB Journey (American Garden ➔ GCB)</td><td class="p-1.5">$1,82M jardín · $4,29M–$4,54M colegio</td><td class="p-1.5">~$605,0M</td><td class="p-1.5 text-emerald-400 font-bold">−$190M</td></tr>
+              <tr><td class="p-1.5 font-semibold">🛩️ GCB directo en Guaymaral (Cal. B)</td><td class="p-1.5">$4,29M–$4,54M</td><td class="p-1.5">~$654M–$692M</td><td class="p-1.5 text-emerald-400 font-bold">−$103M a −$141M</td></tr>
+              <tr><td class="p-1.5 font-semibold">🇺🇸 CAS — Colombo Americano (Cal. A)</td><td class="p-1.5">$3,42M (Nursery)–$4,50M (Trans.)</td><td class="p-1.5">~$672,9M–$748M</td><td class="p-1.5 text-emerald-400 font-bold">−$47M a −$122M</td></tr>
+              <tr><td class="p-1.5 font-semibold">🌎 Gimnasio Vermont (Cal. B)</td><td class="p-1.5">$4,50M–$4,85M</td><td class="p-1.5">~$715M–$767M</td><td class="p-1.5 text-emerald-400 font-bold">−$28M a −$80M</td></tr>
+              <tr><td class="p-1.5 font-semibold">🇫🇷 Liceo Francés (Cal. B) <span class="text-amber-400">⚠️ al límite</span></td><td class="p-1.5">$4,83M–$4,96M</td><td class="p-1.5">~$775M (15a)</td><td class="p-1.5 text-amber-400 font-bold">−$20M</td></tr>
+              <tr class="bg-emerald-500/10"><td class="p-1.5 font-bold text-emerald-400">🇬🇧 Saint George’s — Opción A (TOPE)</td><td class="p-1.5 font-bold">$4,91M</td><td class="p-1.5 font-bold">$794,9M</td><td class="p-1.5 font-bold">🎯 Tope</td></tr>
+              <tr><td class="p-1.5 font-semibold" colspan="4">🧸 Jardines puente 2–4 años (todos elegibles): 🎠 Kids Town Suba (~$1,45M–$1,75M) · 🧸 Dreams Mazurén ($1,26M) · 🌱 American Garden by GCB ($1,82M) · 🏡 JCN (~$2,45M) · 🇺🇸 CAS Nursery ($3,42M)</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="p-4 rounded-xl border-2 border-rose-500/60 bg-rose-500/5 overflow-x-auto">
+          <div class="font-bold text-sm text-rose-400 mb-2">⛔ DESCARTADOS POR PRESUPUESTO (superan al SGS Opción A)</div>
+          <table class="w-full text-left border-collapse text-xs">
+            <thead><tr class="border-b border-[var(--border)]"><th class="p-1.5">Colegio</th><th class="p-1.5">Total mes</th><th class="p-1.5">14 años</th><th class="p-1.5">Motivo</th></tr></thead>
+            <tbody class="divide-y divide-[var(--border)]">
+              <tr><td class="p-1.5 font-semibold">🇨🇭 Colegio Helvetia</td><td class="p-1.5">$5,18M–$5,45M</td><td class="p-1.5">~$838M–$915M (15a)</td><td class="p-1.5">Supera $5M/mes y paga 15 años hasta Grado 12</td></tr>
+              <tr><td class="p-1.5 font-semibold">🌳 Colegio Los Nogales</td><td class="p-1.5">$4,96M–$5,33M</td><td class="p-1.5">~$795M–$864M</td><td class="p-1.5">Llega a $5,33M/mes + bono $35M–$48M</td></tr>
+              <tr><td class="p-1.5 font-semibold">🇬🇧 The English School</td><td class="p-1.5">$4,77M–$6,25M</td><td class="p-1.5">~$845M–$895M</td><td class="p-1.5">Bachillerato sobre $6M/mes + bono $25M–$35M</td></tr>
+              <tr><td class="p-1.5 font-semibold">🏰 Anglo Colombiano (con anticipo)</td><td class="p-1.5">$5,97M equiv. (Total 2: $6,63M × 9)</td><td class="p-1.5">$900,2M</td><td class="p-1.5">Supera $5M/mes + anticipo $50,2M</td></tr>
+              <tr><td class="p-1.5 font-semibold">🏰 Anglo Colombiano (sin anticipo)</td><td class="p-1.5">$7,05M equiv.</td><td class="p-1.5">$986,5M</td><td class="p-1.5">El más caro del estudio</td></tr>
+              <tr><td class="p-1.5 font-semibold">🇬🇧 SGS — Opción B (sin anticipo)</td><td class="p-1.5">$5,68M</td><td class="p-1.5">$893,9M</td><td class="p-1.5">Solo se descarta la <b>modalidad</b>: el SGS sigue elegible pagando la Opción A</td></tr>
+            </tbody>
+          </table>
+          <div class="mt-3 p-2.5 rounded-lg bg-amber-500/10 border border-amber-500/30 text-[11px]"><b>⚠️ Consecuencia en las estrategias de 2 a 4 años (Grid 15):</b> los destinos válidos para el salto en agosto de 2028 quedan en <b>Saint George’s (Opción A), Gimnasio Vermont, GCB y Richmond</b> (Calendario B), o <b>CAS, Anglo Americano, De La Salle y Los Arrayanes</b> (Calendario A). Donde los textos digan “Anglo / Nogales / The English School” como destino, esas opciones ya no aplican.</div>
         </div>
       </div>
     </div>
@@ -3141,14 +3194,14 @@
         <!-- #3 VERMONT / ANGLO COLOMBIANO -->
         <div class="p-4 rounded-xl border-2 border-orange-500/70 bg-orange-500/5 space-y-2.5">
           <div class="flex items-center justify-between">
-            <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-orange-400 text-slate-950">🥉 FINALISTAS ALTERNATIVOS SEGÚN EL MODELO</span>
-            <span class="font-bold text-orange-400 text-sm">Vermont <span id="g14-score-vermont">–</span> · Anglo <span id="g14-score-anglo">–</span></span>
+            <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-orange-400 text-slate-950">🥉 FINALISTAS ELEGIBLES BAJO EL TOPE SGS</span>
+            <span class="font-bold text-orange-400 text-sm">Vermont <span id="g14-score-vermont">–</span> · La Salle <span id="g14-score-lasalle">–</span></span>
           </div>
-          <div class="font-bold text-base text-orange-400">🏰 Anglo Colombiano (79,7) · 🌎 Gimnasio Vermont (79,2) · 🌳 Los Nogales (76,6)</div>
-          <div><b>¿Bajo qué condiciones la IA recomendaría al Vermont o al Anglo Colombiano?</b></div>
-          <div>• <b>1. Gimnasio Vermont:</b> En variables operativas y académicas puras es extraordinario: reporta <b>ICFES ~357–361 (dato de terceros, no oficial)</b>, <b>Diploma IB + Mandarín obligatorio (HSK)</b>, campus de 8 ha con Observatorio Astronómico en Cll. 195 y entra a las <b>8:00 a.m.</b> (sitio oficial) frente a las 7:00 a.m. del SGS. <b>¿Qué lo baja?:</b> tampoco tiene piscina propia, sus tarifas son estimadas de portales (falta circular oficial) y pesa en su contra la <b>Sentencia T-227/2020</b> (ajustes dislexia) y el fallecimiento en la salida a Villa de Leyva (mar-2024, aunque sin causalidad judicial de bullying demostrada).</div>
-          <div>• <b>2. Colegio Anglo Colombiano:</b> Tiene el <b>Continuum Completo de los 3 programas del IB (PYP, MYP y Diploma)</b>, acreditación <b>CIS + NEASC</b>, queda sobre el mismo eje de tu <b>Calle 153 (Cra. 19 # 152A-48, 0% obras)</b>, en preescolar entra a las <b>8:34 a.m.</b> y sale 3:35 p.m. (sitio oficial; miércoles 8:35–11:50 a.m.), incluye todos los útiles/libros de PK a 11° y tiene historial limpio en convivencia. <b>¿Qué lo baja?:</b> su costo oficial de <b>$900,2M</b> y exigir en el Año 1 de Prekínder <b>$115.416.000</b> ($50,2M de anticipo cuyo VPN tarda ~7–8 años en recuperarse), además de no tener piscina propia y cobrar clubes aparte.</div>
-          <div>• <b>3. Colegio Los Nogales:</b> Máxima acreditación internacional (<b>AAA+++</b> y +20 cursos AP), pero descendió de <b>D2 a D3</b> en Col-Sapiens 2026–27, exige alta carga académica, cuesta ~$820M–$910M + bono (~$25M–$35M), no tiene piscina propia y tuvo desgaste judicial/mediático en 2023–2026.</div>
+          <div class="font-bold text-base text-orange-400">🌎 Gimnasio Vermont (79,2) · ⚜️ De La Salle (78,9) · 🇺🇸 Anglo Americano (77,3)</div>
+          <div class="p-2 rounded-lg bg-rose-500/10 border border-rose-500/30 text-[11px]"><b>🚦 Actualización 18-nov-2026:</b> el Anglo Colombiano (79,7) y Los Nogales (76,6), que antes ocupaban este lugar, quedaron <b>descartados por superar el tope del SGS Opción A</b> ($4,91M/mes · $794,9M). Su lugar lo toman los siguientes mejor calificados dentro del presupuesto.</div>
+          <div>• <b>1. Gimnasio Vermont (Cal. B · $4,50M–$4,85M/mes · ~$715M–$767M):</b> ICFES ~357–361 (terceros), <b>Diploma IB + Mandarín</b>, campus de 8 ha en Cll. 195 y entrada a las <b>8:00 a.m.</b> <b>¿Qué lo baja?:</b> sin piscina propia, tarifas de portal (falta circular oficial), Sentencia T-227/2020 (ajustes dislexia) y el caso de Villa de Leyva (mar-2024, sin causalidad judicial de bullying).</div>
+          <div>• <b>2. Colegio De La Salle (Cal. A · $3,30M–$3,75M/mes · ~$545M):</b> nuevo campus de 70.000 m² en Cll. 180 con la <b>única piscina semiolímpica propia</b> entre los colegios grandes, <b>Diploma IB</b> (dic-2025) y $0 bono. <b>¿Qué lo baja?:</b> ICFES ~330–338 (por debajo de SGS/CAS/Vermont) y bilingüismo B2/C1 en lugar de C1/C2.</div>
+          <div>• <b>3. Colegio Anglo Americano (Cal. A · $3,25M–$3,75M/mes · ~$518M):</b> <b>ICFES ~363–376 y Categoría D1</b> (el más alto del estudio) por $277M menos que el SGS. <b>¿Qué lo baja?:</b> no tiene diploma internacional (ni IB ni Cambridge) ni tercer idioma obligatorio.</div>
         </div>
       </div>
 
@@ -3450,6 +3503,8 @@
         <h3 class="text-lg md:text-xl font-bold mb-1 text-amber-500">♟️ GRID 15: Las 6 Estrategias de Aquí a que Sara Cumpla 4 Años (Oct 2026 – Ago 2028): CAS Directo vs. Dreams Mazurén vs. Jardín Campestre del Norte (JCN) vs. American Garden by GCB vs. Kids Town Suba</h3>
         <p class="text-xs text-[var(--muted-foreground)]">Simulación completa mes a mes, en pesos y en calidad de vida para Sara (nacida el <b>12 de julio de 2024</b>, hoy de <b>2 años y 3 meses</b>), comparando qué pasa en cada estrategia desde hoy hasta que cumpla los <b>4 años en julio/agosto de 2028</b> y entre a cualquier colegio definitivo.</p>
       </div>
+
+      <div class="p-3 rounded-xl border border-rose-500/40 bg-rose-500/10 text-xs"><b>🚦 Filtro de presupuesto (18-nov-2026):</b> en todas las estrategias, el salto de agosto de 2028 debe hacerse a un colegio <b>elegible</b>: <b>Saint George’s (Opción A), Gimnasio Vermont, GCB o Richmond</b> (Cal. B), o <b>CAS, Anglo Americano, De La Salle o Los Arrayanes</b> (Cal. A). Anglo Colombiano, Los Nogales, The English School y Helvetia quedan descartados por superar el tope del SGS.</div>
 
       <!-- BLOQUE 1: LAS 4 ESTRATEGIAS DETALLADAS PASO A PASO -->
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
@@ -3851,6 +3906,55 @@
     }
     function toggleTheme() {
       document.documentElement.classList.toggle('dark');
+    }
+
+    // ===================== FILTRO DE PRESUPUESTO (tope = SGS Opción A) =====================
+    const DESCARTADOS_SIM = new Set(['anglo', 'nogales', 'helvetia', 'english']);
+    const DESCARTE_REGLAS = [
+      { re: /^(Colegio )?Helvetia/, txt: '⛔ DESCARTADO · Supera tope SGS ($5,18M–$5,45M/mes)' },
+      { re: /^(Colegio )?Los Nogales/, txt: '⛔ DESCARTADO · Supera tope SGS (hasta $5,33M/mes + bono)' },
+      { re: /^The English School/, txt: '⛔ DESCARTADO · Supera tope SGS (hasta $6,25M/mes + bono)' },
+      { re: /^((Colegio )?Anglo Colombiano|Anglo (Con|Sin) Anticipo|Anglo\s*$)/, txt: '⛔ DESCARTADO · Supera tope SGS ($900M–$986M en 14 años)' },
+      { re: /^(SGS|Saint George’s) — Opción B/, txt: '⛔ MODALIDAD DESCARTADA · Pagar Opción A ($4,91M/mes)' }
+    ];
+    function reglaDescarte(texto) {
+      const t = (texto || '').trim().replace(/^[^A-Za-zÁÉÍÓÚÑ0-9]*(\d+[A-Z]?\.\s*)?/, '');
+      return DESCARTE_REGLAS.find(r => r.re.test(t));
+    }
+    function badgeDescarte(txt) {
+      const b = document.createElement('div');
+      b.className = 'badge-descartado';
+      b.textContent = txt;
+      return b;
+    }
+    function marcarDescartados() {
+      document.querySelectorAll('.aspect-section div.font-bold.text-sm').forEach(el => {
+        const r = reglaDescarte(el.textContent);
+        const card = el.parentElement;
+        if (r && card && !card.classList.contains('descartado')) {
+          card.classList.add('descartado');
+          card.insertBefore(badgeDescarte(r.txt), el);
+        }
+      });
+      document.querySelectorAll('.aspect-section table').forEach(tbl => {
+        const headRow = tbl.querySelector('thead tr');
+        const cols = [];
+        if (headRow) Array.from(headRow.children).forEach((th, j) => { if (j > 0 && reglaDescarte(th.textContent)) cols.push(j); });
+        tbl.querySelectorAll('tr').forEach(tr => {
+          const cells = Array.from(tr.children);
+          cols.forEach(j => { if (cells[j]) cells[j].classList.add('descartado'); });
+          if (tr.parentElement && tr.parentElement.tagName === 'THEAD') return;
+          for (let k = 0; k < Math.min(2, cells.length); k++) {
+            const r = reglaDescarte(cells[k].textContent);
+            if (r) { tr.classList.add('descartado'); cells[k].insertBefore(badgeDescarte(r.txt), cells[k].firstChild); break; }
+          }
+        });
+      });
+    }
+    function toggleDescartados() {
+      const hidden = document.body.classList.toggle('ocultar-descartados');
+      const btn = document.getElementById('btn-descartados');
+      if (btn) btn.textContent = hidden ? '👁️ Mostrar descartados (en gris)' : '🙈 Ocultar descartados';
     }
 
     // ============================================================================
@@ -4363,7 +4467,7 @@
       if (zeroState) zeroState.classList.add('hidden');
       if (resultsWrapper) resultsWrapper.classList.remove('hidden');
 
-      const rankedSchools = SIM_SCHOOLS.map(school => {
+      const rankedSchools = SIM_SCHOOLS.filter(s => !DESCARTADOS_SIM.has(s.id)).map(school => {
         const scores = conAnticipo ? school.scoresCon : school.scoresSin;
         let weightedSum = 0;
         const varContributions = [];
@@ -4518,7 +4622,7 @@
     function renderGrid14() {
       const w = SIM_PRESETS.recommended;
       const total = Object.values(w).reduce((a, b) => a + b, 0);
-      const ranked = DEFAULT_SIM_SCHOOLS.map(s => {
+      const ranked = DEFAULT_SIM_SCHOOLS.filter(s => !DESCARTADOS_SIM.has(s.id)).map(s => {
         let sum = 0;
         SIM_VARIABLES.forEach(v => { sum += w[v.id] * s.scoresCon[v.id]; });
         return { ...s, score: (sum / total) * 10 };
@@ -4530,6 +4634,7 @@
     }
     document.addEventListener('DOMContentLoaded', initSimulator);
     initSimulator();
+    marcarDescartados();
   </script>
 </body>
 </html><br/>
