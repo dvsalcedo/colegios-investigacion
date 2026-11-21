@@ -71,8 +71,32 @@
     .badge-descartado { display:inline-block; margin:0 0 4px 0; padding:2px 8px; border-radius:9999px; font-size:10px; font-weight:800; background:rgba(244,63,94,.18); color:#fb7185; border:1px solid rgba(244,63,94,.45); filter:none; }
     .jcn-opt-btn.active {
       border-color: #10b981 !important;
-      background-color: rgba(16, 185, 129, 0.16) !important;
-      box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.35);
+      background-color: rgba(16, 185, 129, 0.18) !important;
+      box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.4);
+    }
+    /* MODO COMPACTO VISUAL: elimina muros de texto dejando solo cifras y titulares */
+    body.modo-compacto .aspect-section p.text-xs,
+    body.modo-compacto .aspect-section p.text-\[11px\],
+    body.modo-compacto #header-long-desc,
+    body.modo-compacto #header-audit-box,
+    body.modo-compacto #filtro-notas-largas {
+      display: none !important;
+    }
+    body.modo-compacto .aspect-section .grid > div > div:not(.font-bold):not(.flex):not(.inline-block) {
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    body.modo-compacto .aspect-section .grid > div:hover > div {
+      -webkit-line-clamp: unset !important;
+      display: block !important;
+    }
+    body.modo-compacto table td {
+      max-width: 260px;
+    }
+    .sec-collapsed > *:not(.sec-header-bar) {
+      display: none !important;
     }
     @media print {
       .no-print { display: none !important; }
@@ -81,7 +105,7 @@
     }
   </style>
 </head>
-<body class="ocultar-descartados bg-[var(--background)] text-[var(--foreground)] antialiased p-3 sm:p-4 md:p-6">
+<body class="ocultar-descartados modo-compacto bg-[var(--background)] text-[var(--foreground)] antialiased p-3 sm:p-4 md:p-6">
   <div class="max-w-7xl mx-auto space-y-6">
     
     <!-- Header -->
@@ -99,12 +123,15 @@
               🚦 FILTROS ACTIVOS: ≤ SGS ($4,91M/MES) + INGLÉS C1 + JARDÍN BILINGÜE · 13 COLEGIOS ELEGIBLES (INCL. RICHMOND, EJE CL 170 Y VECINOS CAS) + 3 JARDINES
             </span>
           </div>
-          <div class="flex items-center gap-2 no-print">
+          <div class="flex flex-wrap items-center gap-2 no-print">
+            <button onclick="toggleModoCompacto()" id="btn-compacto" class="px-3 py-1.5 rounded-lg text-xs font-extrabold bg-emerald-500 text-slate-950 shadow-sm hover:opacity-90 transition">
+              ⚡ Vista Visual Corta (Activa) · 📖 Clic para ver textos largos
+            </button>
             <button onclick="toggleTheme()" id="themeBtn" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-[var(--secondary)] text-[var(--secondary-foreground)] border border-[var(--border)] hover:opacity-80 transition">
-              ☀️ Modo Claro / 🌙 Oscuro
+              ☀️ / 🌙 Tema
             </button>
             <button onclick="window.print()" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-emerald-500/20 text-emerald-500 border border-emerald-500/30 hover:opacity-80 transition">
-              🖨️ Imprimir / Guardar PDF
+              🖨️ PDF
             </button>
           </div>
         </div>
@@ -113,10 +140,10 @@
           <h1 class="text-xl md:text-2xl font-bold text-[var(--foreground)]">
             Master Grid Definitivo para Sara: Los 16 Aspectos, 21 Colegios (incl. Richmond, Eje Calle 170 [Lincoln, Marymount, Anglo Americano] y Vecinos del CAS [Buckingham, San Viator, Clermont, CNI]) + 5 Jardines
           </h1>
-          <p class="text-xs md:text-sm text-[var(--muted-foreground)] mt-1">
+          <p id="header-long-desc" class="text-xs md:text-sm text-[var(--muted-foreground)] mt-1">
             Estudio completo con los 16 Grids: (1) Precios Oficiales + SGS y Anglo Con y Sin Anticipo, (2) Edad Año a Año 2027–2043, (3) Nivel Educativo, (4) Certificaciones + Glosario de 17 Sellos, (5) Idiomas, (6) Felicidad/Estrés/Convivencia Documentada por Colegio, (7) Extracurriculares + 2da Ruta, (8) Universidad y Becas, (9) Ruta 6:15am y Obras Av. Boyacá, (10) Campus/Hectáreas/Ratio Alumnos y Salud, (11) Inclusión/Apoyo, Antigüedad y Hermanos, (12) Diplomas Explicados, (13) Matriz de Confiabilidad y Preguntas, (14) 🏆 ¿Cuál Escogería la IA según los Datos?, (15) ♟️ Estrategias de los 2 a los 4 Años (CAS vs. Dreams Kindergarten vs. Jardín del Norte), y (16) 🎛️ Simulador Dinámico Interactivo de Pesos (0 a 10).
           </p>
-        <div class="text-xs p-3 rounded-lg border border-emerald-500/40 bg-emerald-500/10"><b>✅ Auditoría exhaustiva de fuentes oficiales y portales verificados (Actualización 11-nov-2026):</b> Todas las 15 instituciones tienen ahora cifras trazables de fuentes confiables: (1) <b>100% Documentos Oficiales Directos:</b> <b>SGS (Afiche Junio 2027)</b>, <b>CAS (Afiche 2027 + WhatsApp Admisiones 3-nov-2026)</b>, <b>Anglo Colombiano (PDF Oficial 2026-27 de PK a G11)</b>, <b>Helvetia (Tarifas GJ 2026-27)</b>, <b>Liceo Francés (Maternelle 2026)</b> y <b>Gimnasio Los Arrayanes Bilingüe (Manual de Convivencia Oficial gla.edu.co bajo Resolución MEN No. 019805)</b> y <b>Jardín Infantil Campestre del Norte — JCN Preschool (Diapositivas Oficiales Open Campus 2027 del 21-nov-2026: Matrícula $2.600.000 [$1.900.000 pagando hasta el 1-dic] + Materiales $790.000 y las 9 tarifas oficiales 2027 por jornada [8:00–12:30, 8:00–2:00 y 8:00–4:30 Tardes Campestres] con y sin ruta)</b>; y (2) <b>Cifras Verificadas en GuíaColegio 2026-2027, Los Mejores Colegios, Los Mejores Jardines e ICFES Analytics:</b> desgloses exactos de matrícula, pensión, cafetería y transporte para <b>Gimnasio Vermont, Los Nogales, GCB, Richmond School, The English School (modalidad PAP), Anglo Americano, De La Salle (Circular Rectoría No. 16), American Garden ($1,2M pensión + $244k comida + $380k ruta), Dreams Kindergarten ($1.008.689 pensión + $248.242 comida) y JCN (certificación BPM/GMP SGS + convenios Cafam/Colsubsidio)</b>.</div>
+        <div id="header-audit-box" class="text-xs p-3 rounded-lg border border-emerald-500/40 bg-emerald-500/10"><b>✅ Auditoría exhaustiva de fuentes oficiales y portales verificados (Actualización 11-nov-2026):</b> Todas las 15 instituciones tienen ahora cifras trazables de fuentes confiables: (1) <b>100% Documentos Oficiales Directos:</b> <b>SGS (Afiche Junio 2027)</b>, <b>CAS (Afiche 2027 + WhatsApp Admisiones 3-nov-2026)</b>, <b>Anglo Colombiano (PDF Oficial 2026-27 de PK a G11)</b>, <b>Helvetia (Tarifas GJ 2026-27)</b>, <b>Liceo Francés (Maternelle 2026)</b> y <b>Gimnasio Los Arrayanes Bilingüe (Manual de Convivencia Oficial gla.edu.co bajo Resolución MEN No. 019805)</b> y <b>Jardín Infantil Campestre del Norte — JCN Preschool (Diapositivas Oficiales Open Campus 2027 del 21-nov-2026: Matrícula $2.600.000 [$1.900.000 pagando hasta el 1-dic] + Materiales $790.000 y las 9 tarifas oficiales 2027 por jornada [8:00–12:30, 8:00–2:00 y 8:00–4:30 Tardes Campestres] con y sin ruta)</b>; y (2) <b>Cifras Verificadas en GuíaColegio 2026-2027, Los Mejores Colegios, Los Mejores Jardines e ICFES Analytics:</b> desgloses exactos de matrícula, pensión, cafetería y transporte para <b>Gimnasio Vermont, Los Nogales, GCB, Richmond School, The English School (modalidad PAP), Anglo Americano, De La Salle (Circular Rectoría No. 16), American Garden ($1,2M pensión + $244k comida + $380k ruta), Dreams Kindergarten ($1.008.689 pensión + $248.242 comida) y JCN (certificación BPM/GMP SGS + convenios Cafam/Colsubsidio)</b>.</div>
         </div>
 
         <div class="flex flex-wrap gap-1.5 no-print">
@@ -168,203 +195,166 @@
       </div>
     </div>
 
-    <!-- 🏡 CENTRO DE DECISIÓN JCN 2027 (90% DECIDIDO): SIMULADOR INTERACTIVO DE HORARIOS, RUTA Y EMPALME -->
-    <div id="jcn-decision-center" class="bg-gradient-to-br from-emerald-950/80 via-slate-900 to-teal-950/70 border-2 border-emerald-500 rounded-3xl p-4 sm:p-6 shadow-xl space-y-5">
-      <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-3 border-b border-emerald-500/30 pb-4">
-        <div class="space-y-1">
+    <!-- 🏡 CENTRO DE DECISIÓN JCN 2027 (90% DECIDIDO): SIMULADOR VISUAL COMPACTO (INGRESO ENERO 2027) -->
+    <div id="jcn-decision-center" class="bg-gradient-to-br from-emerald-950/90 via-slate-900 to-teal-950/80 border-2 border-emerald-500 rounded-3xl p-4 sm:p-5 shadow-xl space-y-4">
+      
+      <!-- Encabezado Corto -->
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-2 border-b border-emerald-500/30 pb-3">
+        <div>
           <div class="flex flex-wrap items-center gap-2">
-            <span class="px-3 py-1 rounded-full text-xs font-extrabold bg-emerald-500 text-slate-950 shadow-sm">🏡 PASO 1 (90% DECIDIDO) · INGRESO DE SARA A JCN EN FEB 2027 (2 AÑOS Y 6 MESES)</span>
-            <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-amber-500/20 text-amber-300 border border-amber-500/40">⏰ Descuento Matrícula ($1.900.000) vence el 1 de Diciembre</span>
+            <span class="px-2.5 py-0.5 rounded-full text-[11px] font-extrabold bg-emerald-500 text-slate-950">🏡 90% DECIDIDO · JCN (Cll. 180 # 67-80 · A 10 min · Piscina Propia)</span>
+            <span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-sky-500/20 text-sky-300 border border-sky-500/40">👧 Ingreso: ENERO 2027 (2 años y 6 meses exactos)</span>
+            <span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-amber-500/20 text-amber-300 border border-amber-500/40">🔥 Dto. Matrícula ($1,90M) hasta 1-Dic</span>
           </div>
-          <h2 class="text-lg sm:text-xl md:text-2xl font-extrabold text-white">
-            🎛️ Configurador Interactivo de Horarios y Ruta en el JCN 2027 + Empalme con Colegio Grande
+          <h2 class="text-base sm:text-lg md:text-xl font-extrabold text-white mt-1">
+            🎛️ Calculadora Visual de Horarios JCN (Enero 2027) + Empalme con Colegio Grande
           </h2>
-          <p class="text-xs text-slate-300">
-            Haz clic en cualquiera de los <b>4 planes de horario</b>, las <b>3 opciones de transporte</b> y el <b>colegio grande de destino</b> para comparar en vivo cuánto pagas al mes, cuánto gastas en 2027 y en los 15 meses, cómo es la rutina diaria de sueño/siesta de Sara y cuánto te sobra para el anticipo del colegio definitivo.
-          </p>
-        </div>
-        <div class="flex flex-wrap gap-2 no-print shrink-0">
-          <button onclick="document.getElementById('filtro-presupuesto').scrollIntoView({behavior:'smooth'})" class="px-3 py-2 rounded-xl text-xs font-bold bg-slate-800 text-emerald-300 border border-emerald-500/40 hover:bg-slate-700 transition">
-            🚦 Ver Tabla de 13 Colegios Elegibles
-          </button>
-          <button onclick="document.getElementById('grid16-container').scrollIntoView({behavior:'smooth'})" class="px-3 py-2 rounded-xl text-xs font-bold bg-sky-500 text-slate-950 hover:opacity-90 transition">
-            🎛️ Ir al Simulador de Colegios (Grid 16)
-          </button>
         </div>
       </div>
 
-      <!-- CONTROLES INTERACTIVOS DEL SIMULADOR JCN -->
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 text-xs">
+      <!-- 3 Filas de Botones Visuales (Cero Párrafos Largos) -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-3 text-xs">
         
-        <!-- 1. SELECTOR DE HORARIO JCN -->
-        <div class="p-4 rounded-2xl border border-emerald-500/30 bg-slate-900/80 space-y-2.5">
-          <div class="font-bold text-sm text-emerald-400">1️⃣ Elige el Horario de Sara en JCN (Grado Tots · 2a 6m)</div>
-          <div class="space-y-2" id="jcn-schedule-btns">
-            <button onclick="setJcnConfig('sched','hibrido')" id="jcn-sched-hibrido" class="jcn-opt-btn active w-full text-left p-2.5 rounded-xl border border-slate-700 bg-slate-800/70 hover:border-emerald-500/60 transition">
-              <div class="flex items-center justify-between font-bold text-emerald-300">
-                <span>🌟 Plan Híbrido Adaptación (Recomendado 2,6a)</span>
-                <span class="px-2 py-0.5 rounded bg-emerald-500/20 text-[10px]">IDEAL BEBÉ</span>
-              </div>
-              <div class="text-[11px] text-slate-300 mt-0.5"><b>1er Sem. 2027 (2,6 a 3 años):</b> Media Jornada (8:00–12:30 p.m.) para adaptación suave + siesta en casa ➔ <b>Desde Ago 2027 y Tikes 2028:</b> Jornada Completa (8:00–2:00 p.m. c/almuerzo).</div>
+        <!-- 1. Horario (5 cols) -->
+        <div class="lg:col-span-5 p-3 rounded-2xl border border-emerald-500/30 bg-slate-900/80 space-y-2">
+          <div class="font-bold text-emerald-400">1️⃣ Horario de Sara en JCN (desde Enero 2027):</div>
+          <div class="grid grid-cols-2 gap-2">
+            <button onclick="setJcnConfig('sched','hibrido')" id="jcn-sched-hibrido" class="jcn-opt-btn active p-2.5 rounded-xl border border-slate-700 bg-slate-800/80 text-left transition">
+              <div class="font-extrabold text-emerald-300">🌟 Plan Híbrido (Ideal)</div>
+              <div class="text-[11px] text-slate-300">Ene–Jun: <b>12:30 p.m.</b><br/>Jul 2027+: <b>2:00 p.m.</b></div>
             </button>
-            <button onclick="setJcnConfig('sched','media')" id="jcn-sched-media" class="jcn-opt-btn w-full text-left p-2.5 rounded-xl border border-slate-700 bg-slate-800/70 hover:border-emerald-500/60 transition">
-              <div class="flex items-center justify-between font-bold text-sky-300">
-                <span>☀️ Media Jornada en Tots (8:00 a.m. – 12:30 p.m.)</span>
-                <span class="text-[11px]">$1,60M – $1,89M</span>
-              </div>
-              <div class="text-[11px] text-slate-300 mt-0.5">Todo 2027 hasta las 12:30 p.m. (incluye snack mañana; almuerza y duerme siesta en casa). En 2028 (<i>Tikes</i>) sube a Jornada Completa (obligatoria desde 3a).</div>
+            <button onclick="setJcnConfig('sched','media')" id="jcn-sched-media" class="jcn-opt-btn p-2.5 rounded-xl border border-slate-700 bg-slate-800/80 text-left transition">
+              <div class="font-extrabold text-sky-300">☀️ Media Jornada</div>
+              <div class="text-[11px] text-slate-300"><b>8:00 a 12:30 p.m.</b><br/>1 snack · Siesta en casa</div>
             </button>
-            <button onclick="setJcnConfig('sched','completa')" id="jcn-sched-completa" class="jcn-opt-btn w-full text-left p-2.5 rounded-xl border border-slate-700 bg-slate-800/70 hover:border-emerald-500/60 transition">
-              <div class="flex items-center justify-between font-bold text-emerald-400">
-                <span>🏆 Jornada Completa desde Día 1 (8:00 a.m. – 2:00 p.m.)</span>
-                <span class="text-[11px]">$1,80M – $2,05M</span>
-              </div>
-              <div class="text-[11px] text-slate-300 mt-0.5">Incluye snack de la mañana + almuerzo certificado BPM/GMP SGS + natación en piscina propia. Horario estándar de colegio grande.</div>
+            <button onclick="setJcnConfig('sched','completa')" id="jcn-sched-completa" class="jcn-opt-btn p-2.5 rounded-xl border border-slate-700 bg-slate-800/80 text-left transition">
+              <div class="font-extrabold text-emerald-400">🏆 Jornada Completa</div>
+              <div class="text-[11px] text-slate-300"><b>8:00 a 2:00 p.m.</b><br/>Snack + Almuerzo</div>
             </button>
-            <button onclick="setJcnConfig('sched','adicional')" id="jcn-sched-adicional" class="jcn-opt-btn w-full text-left p-2.5 rounded-xl border border-slate-700 bg-slate-800/70 hover:border-emerald-500/60 transition">
-              <div class="flex items-center justify-between font-bold text-amber-300">
-                <span>🎭 Jornada Adicional "Tardes Campestres" (8:00 – 4:30 p.m.)</span>
-                <span class="text-[11px]">$2,01M – $2,28M</span>
-              </div>
-              <div class="text-[11px] text-slate-300 mt-0.5">Incluye Danzas, Teatro, Música, Fútbol, Porras, manualidades + 3 comidas (snack mañana, almuerzo y onces tarde). Ideal si ambos papás trabajan toda la tarde.</div>
+            <button onclick="setJcnConfig('sched','adicional')" id="jcn-sched-adicional" class="jcn-opt-btn p-2.5 rounded-xl border border-slate-700 bg-slate-800/80 text-left transition">
+              <div class="font-extrabold text-amber-300">🎭 Tardes Campestres</div>
+              <div class="text-[11px] text-slate-300"><b>8:00 a 4:30 p.m.</b><br/>Clubes + 3 comidas</div>
             </button>
           </div>
         </div>
 
-        <!-- 2. SELECTOR DE TRANSPORTE Y MATRÍCULA -->
-        <div class="p-4 rounded-2xl border border-emerald-500/30 bg-slate-900/80 space-y-3">
-          <div class="font-bold text-sm text-emerald-400">2️⃣ Elige Modalidad de Transporte (a 2,8 km / 10 min)</div>
-          <div class="space-y-2" id="jcn-route-btns">
-            <button onclick="setJcnConfig('route','completa')" id="jcn-route-completa" class="jcn-opt-btn active w-full text-left p-2.5 rounded-xl border border-slate-700 bg-slate-800/70 hover:border-emerald-500/60 transition">
-              <div class="flex items-center justify-between font-bold text-emerald-300">
-                <span>🚌 Ruta Completa (Ida y Regreso con GPS en Vivo)</span>
-                <span class="text-[11px]">+$250k–$290k/mes</span>
-              </div>
-              <div class="text-[11px] text-slate-300 mt-0.5">Comodidad total para los papás; rutas sectorizadas cortas con monitora y seguimiento satelital por App.</div>
+        <!-- 2. Ruta y Matrícula (4 cols) -->
+        <div class="lg:col-span-4 p-3 rounded-2xl border border-emerald-500/30 bg-slate-900/80 space-y-2">
+          <div class="font-bold text-emerald-400">2️⃣ Transporte (a 2,8 km) y Matrícula:</div>
+          <div class="grid grid-cols-3 gap-1.5">
+            <button onclick="setJcnConfig('route','completa')" id="jcn-route-completa" class="jcn-opt-btn active p-2 rounded-xl border border-slate-700 bg-slate-800/80 text-center transition">
+              <div class="font-extrabold text-emerald-300">🚌 Ruta</div>
+              <div class="text-[10px] text-slate-300">Ida y vuelta</div>
             </button>
-            <button onclick="setJcnConfig('route','media')" id="jcn-route-media" class="jcn-opt-btn w-full text-left p-2.5 rounded-xl border border-slate-700 bg-slate-800/70 hover:border-emerald-500/60 transition">
-              <div class="flex items-center justify-between font-bold text-sky-300">
-                <span>🚐 Media Ruta (Ej. la llevas a las 8:00 a.m. y vuelve en ruta)</span>
-                <span class="text-[11px]">+$150k–$190k/mes</span>
-              </div>
-              <div class="text-[11px] text-slate-300 mt-0.5">Sara duerme hasta las 7:15 a.m. porque la llevas en carro en 10 min a las 8:00 a.m., y regresa en ruta a casa.</div>
+            <button onclick="setJcnConfig('route','media')" id="jcn-route-media" class="jcn-opt-btn p-2 rounded-xl border border-slate-700 bg-slate-800/80 text-center transition">
+              <div class="font-extrabold text-sky-300">🚐 Media</div>
+              <div class="text-[10px] text-slate-300">1 trayecto</div>
             </button>
-            <button onclick="setJcnConfig('route','sin')" id="jcn-route-sin" class="jcn-opt-btn w-full text-left p-2.5 rounded-xl border border-slate-700 bg-slate-800/70 hover:border-emerald-500/60 transition">
-              <div class="flex items-center justify-between font-bold text-amber-300">
-                <span>🚗 Sin Ruta (La llevan y recogen en carro en 10 min)</span>
-                <span class="text-[11px]">$0 transporte</span>
-              </div>
-              <div class="text-[11px] text-slate-300 mt-0.5">Máximo ahorro ($250k–$290k menos cada mes); queda en Calle 180 # 67-80 antes de las obras de la Cll. 183.</div>
+            <button onclick="setJcnConfig('route','sin')" id="jcn-route-sin" class="jcn-opt-btn p-2 rounded-xl border border-slate-700 bg-slate-800/80 text-center transition">
+              <div class="font-extrabold text-amber-300">🚗 Carro</div>
+              <div class="text-[10px] text-slate-300">$0 (10 min)</div>
             </button>
           </div>
-
-          <div class="pt-2 border-t border-slate-800 space-y-1.5">
-            <div class="font-bold text-xs text-amber-300">📅 Fecha de Pago de Matrícula 2027:</div>
-            <div class="grid grid-cols-2 gap-2">
-              <button onclick="setJcnConfig('early',true)" id="jcn-early-true" class="jcn-opt-btn active p-2 rounded-xl border border-slate-700 bg-slate-800/70 text-left">
-                <div class="font-bold text-emerald-400">🔥 Hasta 1-Dic-2026</div>
-                <div class="text-[11px] text-slate-300">Mat. <b>$1.900.000</b> + Mat. $790k = <b>$2,69M</b></div>
-              </button>
-              <button onclick="setJcnConfig('early',false)" id="jcn-early-false" class="jcn-opt-btn p-2 rounded-xl border border-slate-700 bg-slate-800/70 text-left">
-                <div class="font-bold text-slate-300">Después del 1-Dic</div>
-                <div class="text-[11px] text-slate-400">Mat. <b>$2.600.000</b> + Mat. $790k = <b>$3,39M</b></div>
-              </button>
-            </div>
+          <div class="grid grid-cols-2 gap-1.5 pt-1">
+            <button onclick="setJcnConfig('early',true)" id="jcn-early-true" class="jcn-opt-btn active p-2 rounded-xl border border-slate-700 bg-slate-800/80 text-center">
+              <div class="font-bold text-emerald-400 text-[11px]">🔥 Hasta 1-Dic: $2,69M</div>
+              <div class="text-[10px] text-slate-400">Mat $1,9M + Mat $790k</div>
+            </button>
+            <button onclick="setJcnConfig('early',false)" id="jcn-early-false" class="jcn-opt-btn p-2 rounded-xl border border-slate-700 bg-slate-800/80 text-center">
+              <div class="font-bold text-slate-300 text-[11px]">Después 1-Dic: $3,39M</div>
+              <div class="text-[10px] text-slate-400">Mat $2,6M + Mat $790k</div>
+            </button>
           </div>
         </div>
 
-        <!-- 3. SELECTOR DE COLEGIO GRANDE DE DESTINO DESPUÉS DEL JCN -->
-        <div class="p-4 rounded-2xl border border-emerald-500/30 bg-slate-900/80 space-y-2.5">
-          <div class="font-bold text-sm text-emerald-400">3️⃣ ¿A qué Colegio Grande pasará después del JCN?</div>
-          <p class="text-[11px] text-slate-300">El JCN te prepara tanto para saltar en <b>Agosto 2028 (4 años) a Calendario B</b> como para continuar en <b>Calendario A</b> en los colegios de su propio grupo:</p>
-          <select id="jcn-dest-select" onchange="setJcnConfig('dest',this.value)" class="w-full p-2.5 rounded-xl border border-emerald-500/50 bg-slate-800 text-white font-semibold text-xs focus:outline-none">
-            <option value="sgs">🇬🇧 Salto Ago 2028 (4a) ➔ Saint George’s School (Opción A c/Anticipo $20M · $794,9M)</option>
-            <option value="hontanar">🌿 Continuidad Grupo Nueva Inglaterra (Cal. A) ➔ Gimnasio El Hontanar (ICFES 363,2 + IB · ~$508,5M)</option>
-            <option value="cni">🏴󠁧󠁢󠁥󠁮󠁧󠁿 Continuidad Grupo Nueva Inglaterra (Cal. A) ➔ Colegio Nueva Inglaterra NES (ICFES 353,1 + IB + ICE · ~$535M)</option>
-            <option value="vermont">🌎 Salto Ago 2028 (4a) ➔ Gimnasio Vermont (IB + Mandarín + 8:00 a.m. · ~$741M)</option>
-            <option value="sanviator">⚜️🗽 Salto Ago 2028 (4a) ➔ Colegio San Viator (3 Programas IB + CIS · ~$612,5M)</option>
-            <option value="lincoln">🦅 Salto Ago 2028 (4a) ➔ Colegio Abraham Lincoln (Calle 170 a 6 min · ~$680M)</option>
-            <option value="marymount">🌸 Salto Ago 2028 (4a) ➔ Colegio Marymount (Calle 169B a 5 min s/ruta · ~$695M)</option>
-            <option value="buckingham">👑 Salto Ago 2028 (4a) ➔ Colegio Buckingham (3 Programas IB + Preescolar HEI · ~$690M)</option>
-            <option value="richmond">🏛️ Salto Ago 2028 (4a) ➔ Richmond School (Cognia High School Diploma · ~$578,2M)</option>
-            <option value="gcb">🛩️ Salto Ago 2028 (4a) ➔ GCB — Gimnasio Colombo Británico (IB + IGCSE · ~$673M)</option>
-          </select>
-
-          <div id="jcn-routine-box" class="p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/30 space-y-1.5 text-[11px] text-slate-200">
-            <!-- Rellenado dinámicamente por JS -->
+        <!-- 3. Colegio Destino (3 cols) -->
+        <div class="lg:col-span-3 p-3 rounded-2xl border border-emerald-500/30 bg-slate-900/80 space-y-2 flex flex-col justify-between">
+          <div>
+            <div class="font-bold text-emerald-400 mb-1.5">3️⃣ Colegio después del JCN:</div>
+            <select id="jcn-dest-select" onchange="setJcnConfig('dest',this.value)" class="w-full p-2 rounded-xl border border-emerald-500/50 bg-slate-800 text-white font-bold text-xs focus:outline-none">
+              <option value="sgs">🇬🇧 Saint George’s ($794,9M · Cal. B)</option>
+              <option value="hontanar">🌿 El Hontanar (~$472M · Grupo JCN)</option>
+              <option value="cni">🏴󠁧󠁢󠁥󠁮󠁧󠁿 Nueva Inglaterra (~$498M · Grupo JCN)</option>
+              <option value="vermont">🌎 Gimnasio Vermont (~$741M · Cal. B)</option>
+              <option value="sanviator">⚜️🗽 San Viator IB (~$612,5M · Cal. B)</option>
+              <option value="lincoln">🦅 Abraham Lincoln (~$680M · Cll. 170)</option>
+              <option value="marymount">🌸 Marymount (~$695M · a 5 min)</option>
+              <option value="buckingham">👑 Buckingham IB (~$690M · Cll. 214)</option>
+              <option value="richmond">🏛️ Richmond (~$578,2M · Cal. B)</option>
+              <option value="gcb">🛩️ GCB Guaymaral (~$673M · Cal. B)</option>
+            </select>
+          </div>
+          <div id="jcn-routine-box" class="p-2 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-[11px] text-emerald-200 font-medium">
+            <!-- Dinámico -->
           </div>
         </div>
       </div>
 
-      <!-- 4 TARJETAS KPI EN VIVO DEL CONFIGURADOR JCN -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
-        <div class="p-3.5 rounded-2xl border border-emerald-500/40 bg-slate-900/90">
-          <div class="text-[11px] text-slate-400 font-semibold">💳 MENSUALIDAD JCN 2027 (TODO INCLUIDO)</div>
-          <div id="jcn-kpi-month" class="text-lg sm:text-xl font-extrabold text-emerald-400 mt-0.5">$1.890.000 ➔ $2.050.000</div>
-          <div id="jcn-kpi-month-sub" class="text-[11px] text-slate-300 mt-0.5">1er sem. 12:30 p.m. · 2do sem. 2:00 p.m. (c/ruta)</div>
+      <!-- 4 KPIs Grandes y Visuales -->
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-2.5 text-xs">
+        <div class="p-3 rounded-2xl border border-emerald-500/40 bg-slate-900/90">
+          <div class="text-[10px] text-slate-400 font-bold uppercase">💳 Mensualidad JCN 2027</div>
+          <div id="jcn-kpi-month" class="text-base sm:text-lg font-extrabold text-emerald-400 mt-0.5">$1.890.000 ➔ $2.050.000</div>
+          <div id="jcn-kpi-month-sub" class="text-[10px] text-slate-300">Ene–Jun 12:30pm · Jul+ 2:00pm</div>
         </div>
-        <div class="p-3.5 rounded-2xl border border-sky-500/40 bg-slate-900/90">
-          <div class="text-[11px] text-slate-400 font-semibold">📅 GASTO TOTAL AÑO 2027 EN JCN (10 MESES + MAT.)</div>
-          <div id="jcn-kpi-2027" class="text-lg sm:text-xl font-extrabold text-sky-400 mt-0.5">$22.390.000 COP</div>
-          <div id="jcn-kpi-2027-sub" class="text-[11px] text-slate-300 mt-0.5">Ahorras $14,91M vs. Año 1 en CAS ($37,30M)</div>
+        <div class="p-3 rounded-2xl border border-sky-500/40 bg-slate-900/90">
+          <div class="text-[10px] text-slate-400 font-bold uppercase">📅 Total Año 2027 (Ene–Nov)</div>
+          <div id="jcn-kpi-2027" class="text-base sm:text-lg font-extrabold text-sky-400 mt-0.5">$22.390.000 COP</div>
+          <div id="jcn-kpi-2027-sub" class="text-[10px] text-slate-300">Ahorras $14,91M vs. CAS 2027</div>
         </div>
-        <div class="p-3.5 rounded-2xl border border-amber-500/40 bg-slate-900/90">
-          <div class="text-[11px] text-slate-400 font-semibold">🏆 ACUMULADO 15 MESES (FEB 2027 – JUN 2028)</div>
-          <div id="jcn-kpi-15m" class="text-lg sm:text-xl font-extrabold text-amber-400 mt-0.5">$35.330.000 COP</div>
-          <div id="jcn-kpi-15m-sub" class="text-[11px] text-emerald-300 font-semibold mt-0.5">Ahorras +$28,54M vs. CAS (paga los $20M de SGS y sobran +$8,54M)</div>
+        <div class="p-3 rounded-2xl border border-amber-500/40 bg-slate-900/90">
+          <div class="text-[10px] text-slate-400 font-bold uppercase">🏆 Total Etapa JCN (Ene 27 – Jun 28)</div>
+          <div id="jcn-kpi-15m" class="text-base sm:text-lg font-extrabold text-amber-400 mt-0.5">$35.330.000 COP</div>
+          <div id="jcn-kpi-15m-sub" class="text-[10px] text-emerald-300 font-semibold">Ahorras +$28,54M vs. CAS (paga los $20M de SGS)</div>
         </div>
-        <div class="p-3.5 rounded-2xl border border-purple-500/40 bg-slate-900/90">
-          <div class="text-[11px] text-slate-400 font-semibold">🎓 TOTAL VIDA ESCOLAR (JCN + COLEGIO DESTINO)</div>
-          <div id="jcn-kpi-total14" class="text-lg sm:text-xl font-extrabold text-purple-300 mt-0.5">~$830,2M COP</div>
-          <div id="jcn-kpi-total14-sub" class="text-[11px] text-slate-300 mt-0.5">15m en JCN c/piscina propia + 14 años en Saint George’s</div>
+        <div class="p-3 rounded-2xl border border-purple-500/40 bg-slate-900/90">
+          <div class="text-[10px] text-slate-400 font-bold uppercase">🎓 Total JCN + Colegio Grande</div>
+          <div id="jcn-kpi-total14" class="text-base sm:text-lg font-extrabold text-purple-300 mt-0.5">~$830,2M COP</div>
+          <div id="jcn-kpi-total14-sub" class="text-[10px] text-slate-300">JCN + 14 años en Saint George’s</div>
         </div>
       </div>
 
-      <!-- TABLA COMPARATIVA DE LOS 3 HORARIOS OFICIALES JCN 2027 PARA DECIDIR EN FAMILIA -->
-      <details class="group rounded-2xl border border-emerald-500/30 bg-slate-900/80 p-3.5 text-xs" open>
-        <summary class="font-bold text-sm text-emerald-300 cursor-pointer flex items-center justify-between">
-          <span>🕐 Guía Pedagógica para Decidir el Horario de Sara en JCN (2 años y 6 meses en Feb 2027): ¿12:30 p.m., 2:00 p.m. o 4:30 p.m.?</span>
-          <span class="text-[11px] text-slate-400 group-open:rotate-180 transition">▼</span>
-        </summary>
-        <div class="mt-3 overflow-x-auto">
-          <table class="w-full text-left border-collapse text-xs">
-            <thead>
-              <tr class="border-b border-slate-700 text-slate-200">
-                <th class="p-2 font-bold">Criterio para Sara (2a 6m en Feb 2027)</th>
-                <th class="p-2 font-bold text-sky-300">☀️ Media Jornada (8:00 a.m. – 12:30 p.m.)</th>
-                <th class="p-2 font-bold text-emerald-400">🏆 Jornada Completa (8:00 a.m. – 2:00 p.m.)</th>
-                <th class="p-2 font-bold text-amber-300">🎭 Jornada Adicional Tardes Campestres (8:00 a.m. – 4:30 p.m.)</th>
-              </tr>
-            </thead>
-            <tbody class="divide-y divide-slate-800 text-slate-200">
-              <tr>
-                <td class="p-2 font-semibold">Tarifa Oficial 2027 (Sin ruta / Media ruta / Ruta completa)</td>
-                <td class="p-2"><b>$1.600.000</b> (s/r) · <b>$1.790.000</b> (1/2 r) · <b>$1.890.000</b> (c/r)</td>
-                <td class="p-2 font-bold text-emerald-300"><b>$1.800.000</b> (s/r) · <b>$1.950.000</b> (1/2 r) · <b>$2.050.000</b> (c/r)</td>
-                <td class="p-2"><b>$2.010.000</b> (s/r) · <b>$2.180.000</b> (1/2 r) · <b>$2.280.000</b> (c/r)</td>
-              </tr>
-              <tr>
-                <td class="p-2 font-semibold">Alimentación Incluida (Cocina BPM/GMP SGS)</td>
-                <td class="p-2">1 comida: <b>Medias nueves (snack de la mañana)</b>. Almuerza en casa a la 1:00 p.m.</td>
-                <td class="p-2 font-semibold text-emerald-300">2 comidas: <b>Medias nueves (snack mañana) + Almuerzo completo</b> en el jardín.</td>
-                <td class="p-2">3 comidas: <b>Medias nueves + Almuerzo + Onces (snack de la tarde)</b>.</td>
-              </tr>
-              <tr>
-                <td class="p-2 font-semibold">Siesta, Energía y Adaptación a los 2 años y 6 meses</td>
-                <td class="p-2 font-semibold text-sky-300">🟢 <b>La más suave para despegar:</b> 4,5 horas de inmersión, piscina y juego; llega a casa a almorzar y hacer su siesta de la tarde sin sobrecarga.</td>
-                <td class="p-2 font-semibold text-emerald-300">🏆 <b>El estándar ideal (6 horas):</b> Socializa en el almuerzo con sus compañeros (hábito clave de autonomía) y llega a casa a las ~2:20 p.m. para descansar. <b>Obligatoria desde Tikes (3–4 años)</b>.</td>
-                <td class="p-2 text-amber-300">🟡 <b>Jornada larga (8,5 horas):</b> Excelente por los clubes (Danzas, Teatro, Música, Fútbol, Porras), pero a los 2,6 años puede ser agotadora todos los días si aún hace siesta larga.</td>
-              </tr>
-              <tr>
-                <td class="p-2 font-semibold">💡 Recomendación Práctica según la Edad de Sara</td>
-                <td class="p-2" colspan="3">
-                  <b>🎯 Estrategia Gradual Sugerida en el JCN:</b> Puedes preguntar en el JCN si te permiten iniciar a Sara en <b>Febrero de 2027 (con 2 años y 6 meses) en Media Jornada (8:00 a 12:30 p.m.) o Jornada Completa (8:00 a 2:00 p.m.)</b> durante los primeros meses de adaptación; como el JCN es flexible mes a mes en la mensualidad, cuando Sara ya esté 100% adaptada (o al pasar a <i>Tikes</i> en 2028, donde 8:00 a 2:00 p.m. es obligatorio) subes a <b>Jornada Completa ($2.050.000 c/ruta)</b> o a <b>Tardes Campestres ($2.280.000 c/ruta)</b> los meses que quieras que tome Danzas, Teatro y Música en la tarde.
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </details>
+      <!-- Mini-Tabla Visual de las 9 Tarifas Oficiales JCN 2027 (1 vistazo) -->
+      <div class="overflow-x-auto rounded-2xl border border-slate-700 bg-slate-900/90 p-2.5">
+        <table class="w-full text-left border-collapse text-xs text-slate-200">
+          <thead>
+            <tr class="border-b border-slate-700">
+              <th class="p-1.5 font-bold">Horario Oficial JCN 2027 (Enero–Noviembre)</th>
+              <th class="p-1.5 font-bold text-amber-300">🚗 Sin Ruta (a 10 min)</th>
+              <th class="p-1.5 font-bold text-sky-300">🚐 Media Ruta</th>
+              <th class="p-1.5 font-bold text-emerald-300">🚌 Ruta Completa</th>
+              <th class="p-1.5 font-bold">🍽️ Comidas Incluidas</th>
+              <th class="p-1.5 font-bold">👧 ¿Para quién es ideal?</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-800">
+            <tr>
+              <td class="p-1.5 font-bold text-sky-300">☀️ Media Jornada (8:00 a 12:30 p.m.)</td>
+              <td class="p-1.5 font-semibold">$1.600.000</td>
+              <td class="p-1.5 font-semibold">$1.790.000</td>
+              <td class="p-1.5 font-bold text-sky-300">$1.890.000</td>
+              <td class="p-1.5">1 (Medias nueves)</td>
+              <td class="p-1.5">Adaptación suave en <i>Tots</i> (2,6 años); almuerza y duerme siesta en casa.</td>
+            </tr>
+            <tr class="bg-emerald-500/10">
+              <td class="p-1.5 font-bold text-emerald-400">🏆 Jornada Completa (8:00 a 2:00 p.m.)</td>
+              <td class="p-1.5 font-semibold">$1.800.000</td>
+              <td class="p-1.5 font-semibold">$1.950.000</td>
+              <td class="p-1.5 font-bold text-emerald-400">$2.050.000</td>
+              <td class="p-1.5">2 (Snack + Almuerzo)</td>
+              <td class="p-1.5"><b>Estándar ideal</b> (obligatoria desde <i>Tikes</i> 3–4a); almuerza con sus amigos.</td>
+            </tr>
+            <tr>
+              <td class="p-1.5 font-bold text-amber-300">🎭 Tardes Campestres (8:00 a 4:30 p.m.)</td>
+              <td class="p-1.5 font-semibold">$2.010.000</td>
+              <td class="p-1.5 font-semibold">$2.180.000</td>
+              <td class="p-1.5 font-bold text-amber-300">$2.280.000</td>
+              <td class="p-1.5">3 (Snack + Alm. + Onces)</td>
+              <td class="p-1.5">Incluye Danzas, Teatro, Música, Fútbol y Porras en la tarde.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
 
     <!-- FILTRO DE PRESUPUESTO: ELEGIBLES VS. DESCARTADOS -->
@@ -378,7 +368,7 @@
           <button onclick="toggleDescartados()" id="btn-descartados" class="px-3.5 py-2 rounded-xl text-xs font-extrabold bg-emerald-500 text-slate-950 shadow-sm hover:opacity-90 transition">✨ Vista Limpia Activa (Solo Elegibles) · 👁️ Clic para mostrar los 10 descartados</button>
         </div>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
+      <div id="filtro-notas-largas" class="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
         <div class="p-3 rounded-xl border border-amber-500/50 bg-amber-500/10"><b>💰 Filtro 1 — Presupuesto (18-nov-2026):</b> máximo lo que cuesta el <b>Saint George’s Opción A</b>: <b>$4.910.000/mes</b> todo incluido y <b>$794,9M en 14 años</b>. Se descarta lo que supere ~$5M/mes o al SGS en el total de 14 años (con bono/anticipo).</div>
         <div class="p-3 rounded-xl border border-sky-500/50 bg-sky-500/10"><b>🗣️ Filtro 2 — Inglés C1 garantizado al graduarse:</b> el colegio debe sacar a sus bachilleres con <b>C1 (MCE) como nivel de egreso</b>. Se descartan los que reportan <b>B2, B2+ o “B2+/C1”</b> (C1 solo para parte de la promoción).</div>
         <div class="p-3 rounded-xl border border-emerald-500/50 bg-emerald-500/10"><b>🧸 Filtro 3 — Jardín bilingüe:</b> el jardín de 2 a 4 años debe ser <b>bilingüe de verdad</b> (inmersión o bilingüismo progresivo). Se descartan los que trabajan en español con inglés solo por clases, canciones o música.</div>
@@ -5288,28 +5278,28 @@
         m2028_5m     = JCN_TARIFFS_2027.completa[rKey];
         monthText = `${fmtCopM(m2027_first5)} ➔ ${fmtCopM(m2027_last5)}`;
         monthSub = `5m Media Jornada (12:30pm) + 10m Jornada Completa (2:00pm)`;
-        routineHtml = `<b>🌟 Rutina Plan Híbrido:</b> De feb a jun 2027 (2a 6m a 2a 11m) Sara sale a las <b>12:30 p.m.</b> tras nadar en la piscina propia, jugar en los 6.400 m² y tomar su snack; almuerza y duerme siesta en casa. Desde ago 2027 (3 años cumplidos) y en <i>Tikes</i> 2028 se queda hasta las <b>2:00 p.m.</b> almorzando con sus amigos.`;
+        routineHtml = `🌟 <b>Ene–Jun 2027:</b> 8:00 a 12:30 p.m. (siesta en casa) ➔ <b>Jul 2027+:</b> 8:00 a 2:00 p.m. c/almuerzo.`;
       } else if (jcnState.sched === 'media') {
         m2027_first5 = JCN_TARIFFS_2027.media[rKey];
         m2027_last5  = JCN_TARIFFS_2027.media[rKey];
-        m2028_5m     = JCN_TARIFFS_2027.completa[rKey]; // En Tikes 2028 es obligatoria 8am-2pm
+        m2028_5m     = JCN_TARIFFS_2027.completa[rKey];
         monthText = `${fmtCopM(m2027_first5)}/mes (2027)`;
-        monthSub = `En 2028 (Tikes) pasa a ${fmtCopM(m2028_5m)}/mes (8am–2pm obligatorio)`;
-        routineHtml = `<b>☀️ Rutina Media Jornada (8:00 a.m. – 12:30 p.m.):</b> Todo el 2027 (grado <i>Tots</i>) Sara asiste 4,5 horas diarias con snack de la mañana incluido y regresa a las 12:30 p.m. para almorzar y dormir siesta en casa. En feb 2028 (grado <i>Tikes</i>) pasa al horario obligatorio de 8:00 a.m. a 2:00 p.m.`;
+        monthSub = `En 2028 (Tikes) pasa a ${fmtCopM(m2028_5m)}/mes (8am–2pm)`;
+        routineHtml = `☀️ <b>Ene–Nov 2027:</b> 8:00 a 12:30 p.m. (almuerza y duerme en casa). En 2028 pasa a 8:00–2:00 p.m.`;
       } else if (jcnState.sched === 'completa') {
         m2027_first5 = JCN_TARIFFS_2027.completa[rKey];
         m2027_last5  = JCN_TARIFFS_2027.completa[rKey];
         m2028_5m     = JCN_TARIFFS_2027.completa[rKey];
         monthText = `${fmtCopM(m2027_first5)} / mes`;
-        monthSub = `8:00 a.m. a 2:00 p.m. · Pensión + Snack mañana + Almuerzo`;
-        routineHtml = `<b>🏆 Rutina Jornada Completa (8:00 a.m. – 2:00 p.m.):</b> Sara se despierta ~6:55 a.m., disfruta de bilingüismo, natación en piscina propia y STEAM Lab, toma medias nueves y almuerzo certificado BPM/GMP en el jardín, y está en casa a las ~2:20 p.m.`;
+        monthSub = `8:00 a.m. a 2:00 p.m. · Snack + Almuerzo`;
+        routineHtml = `🏆 <b>Desde Ene 2027:</b> 8:00 a 2:00 p.m. (piscina propia, snack y almuerzo en JCN; en casa ~2:20 p.m.).`;
       } else {
         m2027_first5 = JCN_TARIFFS_2027.adicional[rKey];
         m2027_last5  = JCN_TARIFFS_2027.adicional[rKey];
         m2028_5m     = JCN_TARIFFS_2027.adicional[rKey];
         monthText = `${fmtCopM(m2027_first5)} / mes`;
         monthSub = `8:00 a.m. a 4:30 p.m. · Tardes Campestres + 3 Comidas`;
-        routineHtml = `<b>🎭 Rutina Tardes Campestres (8:00 a.m. – 4:30 p.m.):</b> Además de la jornada bilingüe de la mañana y el almuerzo, en la tarde rota por <b>Danzas, Teatro, Música, Fútbol, Porras y manualidades</b> con onces de la tarde incluidas.`;
+        routineHtml = `🎭 <b>Desde Ene 2027:</b> 8:00 a 4:30 p.m. (Danzas, Teatro, Música, Fútbol, Porras + 3 comidas).`;
       }
 
       const total2027 = mat1 + (5 * m2027_first5) + (5 * m2027_last5);
@@ -6185,9 +6175,36 @@
       });
     }
     document.addEventListener('DOMContentLoaded', initSimulator);
+    function toggleModoCompacto() {
+      const compact = document.body.classList.toggle('modo-compacto');
+      const btn = document.getElementById('btn-compacto');
+      if (btn) {
+        btn.textContent = compact
+          ? '⚡ Vista Visual Corta (Activa) · 📖 Clic para ver textos largos'
+          : '📖 Mostrando Textos Completos · ⚡ Clic para volver a Vista Corta';
+        btn.className = compact
+          ? 'px-3 py-1.5 rounded-lg text-xs font-extrabold bg-emerald-500 text-slate-950 shadow-sm hover:opacity-90 transition'
+          : 'px-3 py-1.5 rounded-lg text-xs font-extrabold bg-amber-500 text-slate-950 shadow-sm hover:opacity-90 transition';
+      }
+      // En vista corta, mostramos por defecto las 3 secciones clave (1B Dinero 14 años, 14 Tabla Resumen y 16 Simulador) y dejamos el resto a 1 clic en la barra de pestañas
+      if (compact) {
+        document.querySelectorAll('.aspect-section').forEach(sec => {
+          const cat = sec.getAttribute('data-cat');
+          sec.style.display = (cat === 'g1b' || cat === 'g14' || cat === 'g16') ? 'block' : 'none';
+        });
+      } else {
+        document.querySelectorAll('.aspect-section').forEach(sec => { sec.style.display = 'block'; });
+      }
+    }
+
     initSimulator();
     marcarDescartados();
     renderJcnSimulator();
+    // Al iniciar en Vista Visual Corta, mostrar solo los 3 grids ejecutivos (1B, 14 y 16) para evitar exceso de texto; cualquier otro grid se abre al hacer clic en su botón superior
+    document.querySelectorAll('.aspect-section').forEach(sec => {
+      const cat = sec.getAttribute('data-cat');
+      sec.style.display = (cat === 'g1b' || cat === 'g14' || cat === 'g16') ? 'block' : 'none';
+    });
   </script>
 </body>
 </html><br/>
