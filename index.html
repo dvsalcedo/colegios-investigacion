@@ -272,16 +272,28 @@
           <div>
             <div class="font-bold text-emerald-400 mb-1.5">3️⃣ Colegio después del JCN:</div>
             <select id="jcn-dest-select" onchange="setJcnConfig('dest',this.value)" class="w-full p-2 rounded-xl border border-emerald-500/50 bg-slate-800 text-white font-bold text-xs focus:outline-none">
-              <option value="sgs">🇬🇧 Saint George’s ($794,9M · Cal. B)</option>
-              <option value="hontanar">🌿 El Hontanar (~$472M · Grupo JCN)</option>
-              <option value="cni">🏴󠁧󠁢󠁥󠁮󠁧󠁿 Nueva Inglaterra (~$498M · Grupo JCN)</option>
-              <option value="vermont">🌎 Gimnasio Vermont (~$741M · Cal. B)</option>
-              <option value="sanviator">⚜️🗽 San Viator IB (~$612,5M · Cal. B)</option>
-              <option value="lincoln">🦅 Abraham Lincoln (~$680M · Cll. 170)</option>
-              <option value="marymount">🌸 Marymount (~$695M · a 5 min)</option>
-              <option value="buckingham">👑 Buckingham IB (~$690M · Cll. 214)</option>
-              <option value="richmond">🏛️ Richmond (~$578,2M · Cal. B)</option>
-              <option value="gcb">🛩️ GCB Guaymaral (~$673M · Cal. B)</option>
+              <optgroup label="⭐ Top Finalistas (Cal. B y Cal. A)">
+                <option value="sgs">🇬🇧 Saint George’s Opción A ($794,9M · Cal. B)</option>
+                <option value="cas_alm">🇺🇸 CAS — Colombo Americano c/almuerzo (~$694M tras JCN · Cal. A)</option>
+                <option value="cas_lon">🇺🇸 CAS — Colombo Americano c/lonchera 2°–11° (~$624M tras JCN · Cal. A)</option>
+              </optgroup>
+              <optgroup label="🏛️ Continuidad Grupo Nueva Inglaterra (Mismo Cal. A del JCN)">
+                <option value="hontanar">🌿 Gimnasio El Hontanar (~$472M · ICFES 363,2 + IB · Cal. A)</option>
+                <option value="cni">🏴󠁧󠁢󠁥󠁮󠁧󠁿 Colegio Nueva Inglaterra NES (~$498M · IB + ICE + C1 · Cal. A)</option>
+              </optgroup>
+              <optgroup label="📍 Eje Calle 170 (A 5–8 min de tu edificio)">
+                <option value="lincoln">🦅 Abraham Lincoln (~$680M c/r o ~$580M s/r · Cll. 170 · Cal. B)</option>
+                <option value="marymount">🌸 Marymount Bogotá (~$695M s/ruta a 5 min · Cll. 169B · Cal. B)</option>
+                <option value="angloamericano">🇺🇸 Colegio Anglo Americano (~$482M tras JCN · Cll. 170 · Cal. A)</option>
+              </optgroup>
+              <optgroup label="📍 Vecinos del CAS y Norte (Cal. B)">
+                <option value="sanviator">⚜️🗽 San Viator (3 Programas IB + CIS · ~$612,5M · Cal. B)</option>
+                <option value="clermont">🦁 Clermont (A 1 cuadra del CAS · Cambridge+Francés · ~$615M · Cal. B)</option>
+                <option value="buckingham">👑 Buckingham (Misma Cll. 214 CAS · 3 Prog. IB + HEI · ~$690M · Cal. B)</option>
+                <option value="richmond">🏛️ Richmond School (Cognia High School Diploma · ~$578,2M · Cal. B)</option>
+                <option value="vermont">🌎 Gimnasio Vermont (IB + Mandarín + 8:00 a.m. · ~$741M · Cal. B)</option>
+                <option value="gcb">🛩️ GCB — Gimnasio Colombo Británico (IB + IGCSE · ~$673M · Cal. B)</option>
+              </optgroup>
             </select>
           </div>
           <div id="jcn-routine-box" class="p-2 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-[11px] text-emerald-200 font-medium">
@@ -5230,16 +5242,20 @@
       adicional: { sin: 2.01, media: 2.18, completa: 2.28, label: 'Tardes Campestres (8:00 a.m. – 4:30 p.m.)', meals: '3 comidas + Danzas, Teatro, Música, Fútbol, Porras' }
     };
     const JCN_DEST_SCHOOLS = {
-      sgs:        { name: '🇬🇧 Saint George’s School (Opción A c/Anticipo $20M)', cal: 'Cal. B (salto Ago 2028)', cost14: 794.9, ant: 20.0, yearsAfter15m: 14 },
-      hontanar:   { name: '🌿 Gimnasio El Hontanar (Grupo Nueva Inglaterra · IB + C1)', cal: 'Cal. A (empalme directo)', cost14: 472.4, ant: 0, yearsAfter15m: 12.5 },
-      cni:        { name: '🏴󠁧󠁢󠁥󠁮󠁧󠁿 Colegio Nueva Inglaterra — NES (IB + ICE + IELTS C1)', cal: 'Cal. A (empalme directo)', cost14: 498.5, ant: 0, yearsAfter15m: 12.5 },
-      vermont:    { name: '🌎 Gimnasio Vermont (IB + Mandarín + 8:00 a.m.)', cal: 'Cal. B (salto Ago 2028)', cost14: 741.0, ant: 0, yearsAfter15m: 14 },
-      sanviator:  { name: '⚜️🗽 Colegio San Viator (3 Programas IB + CIS)', cal: 'Cal. B (salto Ago 2028)', cost14: 612.5, ant: 0, yearsAfter15m: 14 },
-      lincoln:    { name: '🦅 Colegio Abraham Lincoln (Calle 170 a 6 min)', cal: 'Cal. B (salto Ago 2028)', cost14: 680.0, ant: 0, yearsAfter15m: 14 },
-      marymount:  { name: '🌸 Colegio Marymount Bogotá (Cll. 169B a 5 min s/ruta)', cal: 'Cal. B (salto Ago 2028)', cost14: 695.0, ant: 0, yearsAfter15m: 14 },
-      buckingham: { name: '👑 Colegio Bilingüe Buckingham (3 Programas IB + HEI)', cal: 'Cal. B (salto Ago 2028)', cost14: 690.0, ant: 0, yearsAfter15m: 14 },
-      richmond:   { name: '🏛️ Richmond School (Cognia High School Diploma)', cal: 'Cal. B (salto Ago 2028)', cost14: 578.2, ant: 0, yearsAfter15m: 14 },
-      gcb:        { name: '🛩️ GCB — Gimnasio Colombo Británico (IB + IGCSE)', cal: 'Cal. B (salto Ago 2028)', cost14: 673.0, ant: 0, yearsAfter15m: 14 }
+      sgs:            { name: '🇬🇧 Saint George’s School (Opción A c/Anticipo $20M)', cal: 'Cal. B (salto Ago 2028)', cost14: 794.9, ant: 20.0, yearsAfter15m: 14 },
+      cas_alm:        { name: '🇺🇸 CAS — Colombo Americano (c/almuerzo 2°–11° · IB + Cambridge)', cal: 'Cal. A (empalme sin perder semestre en Feb 2028/2029)', cost14: 694.0, ant: 0, yearsAfter15m: 13 },
+      cas_lon:        { name: '🇺🇸 CAS — Colombo Americano (c/lonchera 2°–11° · IB + Cambridge)', cal: 'Cal. A (empalme sin perder semestre en Feb 2028/2029)', cost14: 624.0, ant: 0, yearsAfter15m: 13 },
+      hontanar:       { name: '🌿 Gimnasio El Hontanar (Grupo Nueva Inglaterra · IB + C1)', cal: 'Cal. A (empalme directo mismo grupo)', cost14: 472.4, ant: 0, yearsAfter15m: 12.5 },
+      cni:            { name: '🏴󠁧󠁢󠁥󠁮󠁧󠁿 Colegio Nueva Inglaterra — NES (IB + ICE + IELTS C1)', cal: 'Cal. A (empalme directo mismo grupo)', cost14: 498.5, ant: 0, yearsAfter15m: 12.5 },
+      angloamericano: { name: '🇺🇸 Colegio Anglo Americano (Cll. 170 # 8-80 · ICFES D1)', cal: 'Cal. A (empalme sin perder semestre)', cost14: 482.0, ant: 0, yearsAfter15m: 13 },
+      vermont:        { name: '🌎 Gimnasio Vermont (IB + Mandarín + 8:00 a.m.)', cal: 'Cal. B (salto Ago 2028)', cost14: 741.0, ant: 0, yearsAfter15m: 14 },
+      sanviator:      { name: '⚜️🗽 Colegio San Viator (3 Programas IB + CIS)', cal: 'Cal. B (salto Ago 2028)', cost14: 612.5, ant: 0, yearsAfter15m: 14 },
+      clermont:       { name: '🦁 Colegio Bilingüe Clermont (A 1 cuadra del CAS · Cambridge + Francés)', cal: 'Cal. B (salto Ago 2028)', cost14: 615.0, ant: 0, yearsAfter15m: 14 },
+      lincoln:        { name: '🦅 Colegio Abraham Lincoln (Calle 170 a 6 min)', cal: 'Cal. B (salto Ago 2028)', cost14: 680.0, ant: 0, yearsAfter15m: 14 },
+      marymount:      { name: '🌸 Colegio Marymount Bogotá (Cll. 169B a 5 min s/ruta)', cal: 'Cal. B (salto Ago 2028)', cost14: 695.0, ant: 0, yearsAfter15m: 14 },
+      buckingham:     { name: '👑 Colegio Bilingüe Buckingham (3 Programas IB + HEI)', cal: 'Cal. B (salto Ago 2028)', cost14: 690.0, ant: 0, yearsAfter15m: 14 },
+      richmond:       { name: '🏛️ Richmond School (Cognia High School Diploma)', cal: 'Cal. B (salto Ago 2028)', cost14: 578.2, ant: 0, yearsAfter15m: 14 },
+      gcb:            { name: '🛩️ GCB — Gimnasio Colombo Británico (IB + IGCSE)', cal: 'Cal. B (salto Ago 2028)', cost14: 673.0, ant: 0, yearsAfter15m: 14 }
     };
     const jcnState = { sched: 'hibrido', route: 'completa', early: true, dest: 'sgs' };
 
