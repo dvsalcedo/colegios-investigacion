@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Estudio Comparativo de Colegios y Jardines para Sara (2027–2043) — 16 Grids · 21 Colegios (incl. Richmond, Eje Calle 170 y Vecinos del CAS) + 5 Jardines</title>
+  <title>Plan Escolar Sara (2027–2043) — ✅ Etapa 1 Confirmada: JCN (Ene 2027) ➔ Etapa 2: 13 Colegios Elegibles</title>
   <!-- Tailwind CSS oficial para que funcione en cualquier navegador, celular, GitHub Pages o Netlify -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
@@ -202,13 +202,17 @@
       <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-2 border-b border-emerald-500/30 pb-3">
         <div>
           <div class="flex flex-wrap items-center gap-2">
-            <span class="px-2.5 py-0.5 rounded-full text-[11px] font-extrabold bg-emerald-500 text-slate-950">🏡 90% DECIDIDO · JCN (Cll. 180 # 67-80 · A 10 min · Piscina Propia)</span>
+            <span class="px-2.5 py-0.5 rounded-full text-[11px] font-extrabold bg-emerald-400 text-slate-950">✅ 100% CONFIRMADO · JARDÍN ELEGIDO: JCN (Cll. 180 # 67-80 · Piscina Propia)</span>
             <span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-sky-500/20 text-sky-300 border border-sky-500/40">👧 Ingreso: ENERO 2027 (2 años y 6 meses exactos)</span>
             <span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-amber-500/20 text-amber-300 border border-amber-500/40">🔥 Dto. Matrícula ($1,90M) hasta 1-Dic</span>
           </div>
           <h2 class="text-base sm:text-lg md:text-xl font-extrabold text-white mt-1">
-            🎛️ Calculadora Visual de Horarios JCN (Enero 2027) + Empalme con Colegio Grande
+            ✅ Etapa 1 Confirmada: JCN (Enero 2027) ➔ Etapa 2: Empalme con Colegio Grande
           </h2>
+          <div class="mt-2 p-2 rounded-xl bg-amber-500/10 border border-amber-500/35 text-[11px] text-amber-200 flex flex-wrap gap-x-4 gap-y-1">
+            <span>📌 <b>Antes del 1-Dic:</b> Matrícula con descuento <b>$1.900.000</b> (ahorras $700k) + Materiales <b>$790.000</b> = <b>$2.690.000</b></span>
+            <span>❓ <b>Confirmar al matricular:</b> Convenio CAFAM · Lista oficial de colegios con convenio · Cambio de horario Media ➔ Completa en el año</span>
+          </div>
         </div>
       </div>
 
@@ -5419,7 +5423,7 @@
               : `<span class="text-emerald-400 font-semibold">Ahorras $${diffSgs.toFixed(1).replace('.', ',')}M vs. SGS</span>`);
 
         return `
-          <div onclick="document.getElementById('jcn-dest-select').value='${it.key}'; setJcnConfig('dest','${it.key}'); document.getElementById('jcn-visual-calc').scrollIntoView({behavior:'smooth', block:'start'});"
+          <div onclick="document.getElementById('jcn-dest-select').value='${it.key}'; setJcnConfig('dest','${it.key}'); document.getElementById('jcn-decision-center').scrollIntoView({behavior:'smooth', block:'start'});"
                class="cursor-pointer p-2.5 rounded-xl border ${isSelected ? 'border-emerald-400 bg-emerald-950/35' : 'border-slate-800 bg-slate-900/80 hover:border-slate-600'} transition-all">
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 mb-1.5">
               <div class="flex items-center gap-2 flex-wrap">
