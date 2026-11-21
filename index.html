@@ -337,8 +337,13 @@
         </div>
       </div>
 
-      <!-- Desglose Dinámico: ¿Cómo cambia el valor del CAS / Colegio Grande después de terminar el JCN? -->
+      <!-- Desglose Dinámico: ¿Cómo cambia el valor del colegio seleccionado después de terminar el JCN? -->
       <div id="jcn-after-breakdown" class="p-3 rounded-2xl border border-sky-500/40 bg-slate-900/90 text-xs text-slate-200">
+        <!-- Rellenado dinámicamente por JS -->
+      </div>
+
+      <!-- Tabla Maestra Dinámica: Todos los 13 Colegios Elegibles (Saint George's, CAS y demás) según cuándo salga Sara del JCN -->
+      <div id="jcn-all-schools-matrix" class="p-3 rounded-2xl border border-emerald-500/40 bg-slate-900/95 text-xs text-slate-200">
         <!-- Rellenado dinámicamente por JS -->
       </div>
 
@@ -5467,14 +5472,111 @@
             <div class="mt-1.5 text-[11px] text-amber-300">💡 <b>Afiche Oficial CAS Preschool 2027 (Res. MEN 020309 / 021581):</b> En Preescolar y 1° la tarifa <b>Pensión + Alimentación YA incluye onces mañana, almuerzo y onces tarde + natación en horario escolar + Playful Learning + IB/Cambridge ICE sin costo extra</b>: <b>Nursery (2.6a): $37,30M/año</b> (Matrícula $3.147.000 + [$2.683.300 + Ruta $731.837]×10) · <b>Prekínder (3.6a): $48,85M/año</b> (Matrícula $4.302.510 + [$3.722.859 + Ruta $731.837]×10) · <b>Kínder (4.6a): $48,94M/año</b> (Matrícula $4.311.788 + [$3.731.209 + Ruta $731.837]×10) · <b>Transición (5.6a): $49,37M/año</b> (Matrícula $4.354.553 + [$3.769.698 + Ruta $731.837]×10). De <b>2° a 11° (10 años)</b> incluye siempre el almuerzo escolar contratado (~$7,0M/año = +$70M en los 10 años).</div>
           `;
         } else {
-          const savedPre = replacedPreYears * destObj.annualPre;
+          const isCalB = destObj.calType === 'B';
+          const steps = [0, 1, 2, 3].map(repY => {
+            const jcnYrsStep = isCalB ? (1.5 + repY) : (1 + repY);
+            const jCostStep = isCalB
+              ? (total2027 + mat2 + (5 * m2028_5m) + (repY * year2PlusJcn))
+              : (total2027 + (repY * year2PlusJcn));
+            const remY = 14 - repY;
+            const cCost = destObj.full14 - (repY * destObj.annualPre);
+            const tot = jCostStep + cCost;
+            const baseTot = (isCalB ? (total2027 + mat2 + (5 * m2028_5m)) : total2027) + destObj.full14;
+            const saveVsPK = baseTot - tot;
+            const gName = entryGradeNames[repY];
+            const entryStr = isCalB ? `Ago ${2028 + repY}` : `Feb ${2028 + repY}`;
+            const isActive = replacedPreYears === repY;
+            return `<tr class="${isActive ? 'bg-emerald-500/20 font-bold text-emerald-300' : ''}">
+              <td class="p-1.5">${jcnYrsStep.toString().replace('.', ',')} años en JCN</td>
+              <td class="p-1.5">Entra a <b>${gName}</b> (${entryStr})</td>
+              <td class="p-1.5">$${jCostStep.toFixed(1).replace('.', ',')}M</td>
+              <td class="p-1.5 font-semibold text-sky-300">${remY} años = <b>$${cCost.toFixed(1).replace('.', ',')}M</b></td>
+              <td class="p-1.5 font-bold text-emerald-400">$${tot.toFixed(1).replace('.', ',')}M</td>
+              <td class="p-1.5 text-emerald-400">${repY === 0 ? 'Base (14 años en colegio)' : `Ahorras <b>$${saveVsPK.toFixed(1).replace('.', ',')}M</b> vs. entrar en Prekínder`}</td>
+            </tr>`;
+          }).join('');
           elAfter.innerHTML = `
-            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
-              <div><b>📊 Nuevo valor de ${destObj.name.split('(')[0].trim()} después de ${yrs} año(s) en JCN:</b> Como Sara entra a <b>${entryGrade} en ${entryYearNum}</b>, en el colegio grande ya no pagas 14 años ($${destObj.full14.toFixed(1).replace('.', ',')}M) sino <b>${remainingSchoolYears} años = $${schoolCostAfterJcn.toFixed(1).replace('.', ',')}M</b>${savedPre > 0 ? ` (descontando $${savedPre.toFixed(1).replace('.', ',')}M de ${replacedPreYears} año(s) de preescolar que ya hizo más baratos en el JCN)` : ''}.</div>
-              <div class="font-bold text-emerald-400 shrink-0">Total JCN + Colegio: ~$${totalLife.toFixed(1).replace('.', ',')}M</div>
+            <div class="font-bold text-sky-300 mb-1.5">📊 ¿Cómo cambia el valor de ${destObj.name} según cuántos años haga Sara en el JCN?</div>
+            <div class="overflow-x-auto">
+              <table class="w-full text-left border-collapse text-[11px]">
+                <thead><tr class="border-b border-slate-700 text-slate-300">
+                  <th class="p-1.5">Tiempo en JCN</th>
+                  <th class="p-1.5">Ingreso al Colegio (${isCalB ? 'Cal. B' : 'Cal. A'})</th>
+                  <th class="p-1.5">Pagado en JCN</th>
+                  <th class="p-1.5 text-sky-300">Valor Restante del Colegio</th>
+                  <th class="p-1.5 text-emerald-400">Total Combinado (JCN + Colegio)</th>
+                  <th class="p-1.5">Ahorro por quedarse más en JCN</th>
+                </tr></thead>
+                <tbody class="divide-y divide-slate-800">${steps}</tbody>
+              </table>
             </div>
+            <div class="mt-1.5 text-[11px] text-amber-300">💡 <b>Costo anual Preescolar en este colegio (~$${destObj.annualPre.toFixed(1).replace('.', ',')}M/año) vs. JCN ($${year2PlusJcn.toFixed(1).replace('.', ',')}M/año):</b> Por cada año adicional que Sara haga en el JCN, te ahorras <b>~$${(destObj.annualPre - year2PlusJcn).toFixed(1).replace('.', ',')}M netos</b>.${destObj.ant > 0 ? ` <i>(Nota: incluye anticipo/bono de entrada de $${destObj.ant.toFixed(0)}M).</i>` : ''}</div>
           `;
         }
+      }
+
+      // Renderizar Tabla Maestra de TODOS los 13 Colegios Elegibles (Saint George's, CAS y demás)
+      const elAllMatrix = document.getElementById('jcn-all-schools-matrix');
+      if (elAllMatrix) {
+        const orderKeys = ['sgs', 'cas_alm', 'vermont', 'marymount', 'buckingham', 'lincoln', 'gcb', 'clermont', 'sanviator', 'richmond', 'cni', 'hontanar', 'angloamericano'];
+        const allRows = orderKeys.map(k => {
+          const s = JCN_DEST_SCHOOLS[k];
+          if (!s) return '';
+          const isB = s.calType === 'B';
+          const j1 = isB ? (total2027 + mat2 + (5 * m2028_5m)) : total2027;
+          const j2 = j1 + year2PlusJcn;
+          const j3 = j2 + year2PlusJcn;
+          const j4 = j3 + year2PlusJcn;
+
+          const sub1 = s.exactPreYears ? s.exactPreYears[0] : s.annualPre;
+          const sub2 = s.exactPreYears ? (s.exactPreYears[0] + s.exactPreYears[1]) : (2 * s.annualPre);
+          const sub3 = s.exactPreYears ? (s.exactPreYears[0] + s.exactPreYears[1] + s.exactPreYears[2]) : (3 * s.annualPre);
+
+          const c14 = s.full14;
+          const c13 = s.full14 - sub1;
+          const c12 = s.full14 - sub2;
+          const c11 = s.full14 - sub3;
+
+          const t14 = j1 + c14;
+          const t13 = j2 + c13;
+          const t12 = j3 + c12;
+          const t11 = j4 + c11;
+          const saveYr = s.annualPre - year2PlusJcn;
+          const isSelected = jcnState.dest === k;
+          const rowCls = isSelected ? 'bg-emerald-500/20 border-l-2 border-emerald-400' : 'hover:bg-slate-800/60';
+          const shortName = s.name.split('(')[0].trim();
+
+          return `<tr class="${rowCls} cursor-pointer transition-colors" onclick="document.getElementById('jcn-dest-select').value='${k}'; setJcnConfig('dest','${k}')">
+            <td class="p-1.5 font-semibold ${isSelected ? 'text-emerald-300' : 'text-white'}">${isSelected ? '👉 ' : ''}${shortName}<span class="block text-[10px] font-normal text-slate-400">${isB ? 'Cal. B · Entra Ago' : 'Cal. A · Entra Feb'} · ~$${s.annualPre.toFixed(1).replace('.', ',')}M/año${s.ant > 0 ? ' · Bono $'+s.ant+'M' : ''}</span></td>
+            <td class="p-1.5 text-center"><span class="text-sky-300 font-bold">$${c14.toFixed(1).replace('.', ',')}M</span><span class="block text-[10px] text-slate-400">Tot: $${t14.toFixed(1).replace('.', ',')}M</span></td>
+            <td class="p-1.5 text-center"><span class="text-sky-300 font-bold">$${c13.toFixed(1).replace('.', ',')}M</span><span class="block text-[10px] text-emerald-400 font-semibold">Tot: $${t13.toFixed(1).replace('.', ',')}M</span></td>
+            <td class="p-1.5 text-center"><span class="text-sky-300 font-bold">$${c12.toFixed(1).replace('.', ',')}M</span><span class="block text-[10px] text-emerald-400 font-semibold">Tot: $${t12.toFixed(1).replace('.', ',')}M</span></td>
+            <td class="p-1.5 text-center"><span class="text-sky-300 font-bold">$${c11.toFixed(1).replace('.', ',')}M</span><span class="block text-[10px] text-emerald-400 font-semibold">Tot: $${t11.toFixed(1).replace('.', ',')}M</span></td>
+            <td class="p-1.5 text-center font-bold text-emerald-400">+$${saveYr.toFixed(1).replace('.', ',')}M/año<span class="block text-[10px] font-normal text-slate-400">ahorro neto</span></td>
+          </tr>`;
+        }).join('');
+
+        elAllMatrix.innerHTML = `
+          <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 mb-2">
+            <div class="font-bold text-emerald-300">🏫 Comparativa de los 13 Colegios Elegibles: ¿Cómo cambia el valor según cuándo salga Sara del 🏡 JCN?</div>
+            <div class="text-[10px] text-slate-400">💡 Haz clic en cualquier fila para ver su desglose arriba · En <span class="text-sky-300 font-bold">azul</span> = Solo Colegio · Abajo = <b>Total JCN + Colegio</b></div>
+          </div>
+          <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse text-[11px]">
+              <thead>
+                <tr class="border-b border-slate-700 text-slate-300 bg-slate-800/70">
+                  <th class="p-1.5">Colegio Destino Elegible</th>
+                  <th class="p-1.5 text-center">Entra a Prekínder (14a)<span class="block text-[9.5px] font-normal text-slate-400">Cal. A: 1a JCN · Cal. B: 1,5a JCN</span></th>
+                  <th class="p-1.5 text-center">Entra a Kínder (13a)<span class="block text-[9.5px] font-normal text-slate-400">Cal. A: 2a JCN · Cal. B: 2,5a JCN</span></th>
+                  <th class="p-1.5 text-center">Entra a Transición (12a)<span class="block text-[9.5px] font-normal text-slate-400">Cal. A: 3a JCN · Cal. B: 3,5a JCN</span></th>
+                  <th class="p-1.5 text-center">Entra a 1° Primaria (11a)<span class="block text-[9.5px] font-normal text-slate-400">Cal. A: 4a JCN · Cal. B: 4,5a JCN</span></th>
+                  <th class="p-1.5 text-center text-emerald-400">Ahorro por año extra en JCN</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-800">${allRows}</tbody>
+            </table>
+          </div>
+        `;
       }
     }
 
