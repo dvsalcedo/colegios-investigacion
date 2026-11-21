@@ -208,6 +208,44 @@
     .aspect-section[data-cat]:not([data-cat="g1"]) table tbody tr:hover td:first-child {
       background: #132238 !important;
     }
+    /* Tablas cuya col 1 es '#' o 'Posición' y col 2 es el Nombre del Colegio: fijar la col 2 */
+    .aspect-section[data-cat]:not([data-cat="g1"]) table.sticky-col-2 th:first-child,
+    .aspect-section[data-cat]:not([data-cat="g1"]) table.sticky-col-2 td:first-child {
+      position: static !important;
+      left: auto !important;
+      z-index: auto !important;
+      min-width: 44px !important;
+      max-width: 68px !important;
+      border-right: none !important;
+      background: transparent !important;
+      text-align: center;
+    }
+    .aspect-section[data-cat]:not([data-cat="g1"]) table.sticky-col-2 thead th:first-child {
+      position: sticky !important;
+      top: 0 !important;
+      left: auto !important;
+      z-index: 2 !important;
+      background: rgba(30, 41, 59, 0.96) !important;
+    }
+    .aspect-section[data-cat]:not([data-cat="g1"]) table.sticky-col-2 th:nth-child(2),
+    .aspect-section[data-cat]:not([data-cat="g1"]) table.sticky-col-2 td:nth-child(2) {
+      position: sticky !important;
+      left: 0 !important;
+      z-index: 3 !important;
+      background: #0f172a !important;
+      border-right: 1px solid rgba(148, 163, 184, 0.22) !important;
+      min-width: 195px !important;
+      max-width: 250px !important;
+      font-weight: 700;
+      color: #f8fafc !important;
+    }
+    .aspect-section[data-cat]:not([data-cat="g1"]) table.sticky-col-2 thead th:nth-child(2) {
+      z-index: 4 !important;
+      background: #1e293b !important;
+    }
+    .aspect-section[data-cat]:not([data-cat="g1"]) table.sticky-col-2 tbody tr:hover td:nth-child(2) {
+      background: #132238 !important;
+    }
 
     /* Tarjetas internas más suaves y uniformes */
     .aspect-section[data-cat]:not([data-cat="g1"]) .grid > div {
@@ -1480,7 +1518,7 @@
       <div class="p-4 rounded-xl border border-[var(--border)] bg-[var(--background)] overflow-x-auto space-y-2">
         <div class="font-bold text-sm text-emerald-400">📊 Tabla 1: Desglose Rubro por Rubro de los 14–15 Años Escolares (Ordenado de Menor a Mayor Inversión en Pesos de Hoy)</div>
         <p class="text-[11px] text-[var(--muted-foreground)]">Todos los valores están expresados en millones de pesos colombianos (COP). La columna <b>"Total Base c/Almuerzo y Ruta"</b> compara manzanas con manzanas (matrículas + pensiones + alimentación los 14 años + ruta escolar). La columna <b>"Total + Extras Tarde"</b> añade el costo de 1 taller extracurricular durante la vida escolar. La columna <b>"Desembolso Real c/Inflación (~7% E.A.)"</b> proyecta cuánto dinero nominal saldrá realmente de tu cuenta bancaria entre 2027 y 2042 asumiendo un reajuste anual promedio del MEN del 7%.</p>
-        <table class="w-full text-left border-collapse text-xs">
+        <table class="sticky-col-2 w-full text-left border-collapse text-xs">
           <thead>
             <tr class="border-b-2 border-[var(--border)] bg-[var(--card)]">
               <th class="p-2 font-bold">#</th>
@@ -5430,7 +5468,7 @@
             <div class="font-bold text-sm text-sky-400">📊 Tabla de Posiciones en Vivo (#1 al #8) — Se Reordena Automáticamente al Mover las Barras</div>
             <div class="text-[11px] text-[var(--muted-foreground)]" id="sim-formula-summary">Fórmula: Suma(Peso × Nota Realista) / Suma(Pesos) × 10</div>
           </div>
-          <table class="w-full text-left border-collapse text-xs">
+          <table class="sticky-col-2 w-full text-left border-collapse text-xs">
             <thead>
               <tr class="border-b border-[var(--border)]">
                 <th class="p-2 font-bold">Posición</th>
