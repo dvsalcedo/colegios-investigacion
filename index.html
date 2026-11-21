@@ -284,9 +284,8 @@
               <div class="font-bold text-emerald-400 mb-1">4️⃣ Colegio después de terminar JCN:</div>
               <select id="jcn-dest-select" onchange="setJcnConfig('dest',this.value)" class="w-full p-1.5 rounded-xl border border-emerald-500/50 bg-slate-800 text-white font-bold text-xs focus:outline-none">
               <optgroup label="⭐ Top Finalistas (Cal. B y Cal. A)">
+                <option value="cas_alm" selected>🇺🇸 CAS — Colombo Americano (Con almuerzo en todos los grados · Ver valor tras 1 a 4a en JCN · Cal. A)</option>
                 <option value="sgs">🇬🇧 Saint George’s Opción A ($794,9M · Cal. B)</option>
-                <option value="cas_alm" selected>🇺🇸 CAS — Colombo Americano c/almuerzo (Ver desglose tras 1 a 4a en JCN · Cal. A)</option>
-                <option value="cas_lon">🇺🇸 CAS — Colombo Americano c/lonchera 2°–11° (~$624M tras JCN · Cal. A)</option>
               </optgroup>
               <optgroup label="🏛️ Continuidad Grupo Nueva Inglaterra (Mismo Cal. A del JCN)">
                 <option value="hontanar">🌿 Gimnasio El Hontanar (~$472M · ICFES 363,2 + IB · Cal. A)</option>
@@ -5261,8 +5260,7 @@
     // Costo anual de cada colegio grande (PK a 11° = 14 años) para descontar exactamente los años de preescolar que Sara haga en el JCN
     const JCN_DEST_SCHOOLS = {
       sgs:            { name: '🇬🇧 Saint George’s School (Opción A c/Anticipo $20M)', calType: 'B', full14: 794.9, ant: 20.0, annualPre: 55.35, annualPri: 55.35 },
-      cas_alm:        { name: '🇺🇸 CAS — Colombo Americano (c/almuerzo 2°–11°)', calType: 'A', full14: 742.9, ant: 0, annualPre: 49.05, annualPri: 56.37, isCas: true, withLunch: true },
-      cas_lon:        { name: '🇺🇸 CAS — Colombo Americano (c/lonchera 2°–11°)', calType: 'A', full14: 672.9, ant: 0, annualPre: 49.05, annualPri: 49.37, isCas: true, withLunch: false },
+      cas_alm:        { name: '🇺🇸 CAS — Colombo Americano (con almuerzo en todos los grados)', calType: 'A', full14: 742.90, ant: 0, annualPre: 49.05, annualPri: 56.37, isCas: true, withLunch: true, exactPreYears: [48.84947, 48.942248, 49.369903] },
       hontanar:       { name: '🌿 Gimnasio El Hontanar (Grupo JCN · IB + C1)', calType: 'A', full14: 542.5, ant: 0, annualPre: 38.75, annualPri: 38.75 },
       cni:            { name: '🏴󠁧󠁢󠁥󠁮󠁧󠁿 Colegio Nueva Inglaterra — NES (Grupo JCN · IB + ICE + C1)', calType: 'A', full14: 571.0, ant: 0, annualPre: 40.78, annualPri: 40.78 },
       angloamericano: { name: '🇺🇸 Colegio Anglo Americano (Cll. 170 · ICFES D1)', calType: 'A', full14: 518.0, ant: 0, annualPre: 37.00, annualPri: 37.00 },
@@ -5385,7 +5383,14 @@
       const entryYearNum = destObj.calType === 'A' ? (2027 + Math.round(yrs)) : (2027 + Math.ceil(yrs));
 
       // Nuevo valor del Colegio Grande después de descontar los años de Preescolar que ya hizo en el JCN:
-      const schoolCostAfterJcn = destObj.full14 - (replacedPreYears * destObj.annualPre);
+      let savedPreExact = replacedPreYears * destObj.annualPre;
+      if (destObj.exactPreYears) {
+        savedPreExact = 0;
+        for (let i = 0; i < replacedPreYears; i++) {
+          savedPreExact += (destObj.exactPreYears[i] || destObj.annualPre);
+        }
+      }
+      const schoolCostAfterJcn = destObj.full14 - savedPreExact;
       const totalLife = totalJcnStage + schoolCostAfterJcn;
 
       const elMonth = document.getElementById('jcn-kpi-month');
@@ -5415,41 +5420,49 @@
 
       if (elAfter) {
         if (destObj.isCas) {
-          // Mostrar tabla comparativa de cómo cambia el valor del CAS según cuántos años haga en el JCN (1, 2, 3 o 4 años)
-          const rows = [1, 2, 3, 4].map(y => {
+          const casPreSteps = [
+            { y: 1, savedPre: 0, replacedLabel: 'Reemplaza Nursery CAS ($37,30M)' },
+            { y: 2, savedPre: 48.84947, replacedLabel: 'Ahorra Prekínder CAS (-$48,85M)' },
+            { y: 3, savedPre: 48.84947 + 48.942248, replacedLabel: 'Ahorra PK + Kínder CAS (-$97,79M)' },
+            { y: 4, savedPre: 48.84947 + 48.942248 + 49.369903, replacedLabel: 'Ahorra PK + K + Transición (-$147,16M)' }
+          ];
+          const rows = casPreSteps.map(st => {
+            const y = st.y;
             const jCost = total2027 + ((y - 1) * year2PlusJcn);
             const repY = y - 1;
             const remY = 14 - repY;
-            const cCost = destObj.full14 - (repY * destObj.annualPre);
+            const cCost = destObj.full14 - st.savedPre;
             const tot = jCost + cCost;
             const gName = entryGradeNames[repY];
-            const vsDirectNursery = (37.30 + destObj.full14) - tot;
+            const vsDirectNursery = (37.29837 + destObj.full14) - tot;
             const activeRow = Math.round(yrs) === y ? 'bg-emerald-500/20 font-bold text-emerald-300' : '';
             return `<tr class="${activeRow}">
               <td class="p-1.5">${y} año${y>1?'s':''} en JCN (2027${y>1?'–'+(2026+y):''})</td>
               <td class="p-1.5">Entra a <b>${gName}</b> en Feb ${2027+y}</td>
-              <td class="p-1.5">$${jCost.toFixed(1).replace('.', ',')}M</td>
-              <td class="p-1.5 font-semibold text-sky-300">${remY} años = <b>$${cCost.toFixed(1).replace('.', ',')}M</b></td>
-              <td class="p-1.5 font-bold text-emerald-400">$${tot.toFixed(1).replace('.', ',')}M</td>
-              <td class="p-1.5 text-emerald-400">Ahorras <b>$${vsDirectNursery.toFixed(1).replace('.', ',')}M</b> vs. entrar a CAS desde 2027</td>
+              <td class="p-1.5 text-slate-300">${st.replacedLabel}</td>
+              <td class="p-1.5">$${jCost.toFixed(2).replace('.', ',')}M</td>
+              <td class="p-1.5 font-semibold text-sky-300">${remY} años = <b>$${cCost.toFixed(2).replace('.', ',')}M</b></td>
+              <td class="p-1.5 font-bold text-emerald-400">$${tot.toFixed(2).replace('.', ',')}M</td>
+              <td class="p-1.5 text-emerald-400">Ahorras <b>$${vsDirectNursery.toFixed(1).replace('.', ',')}M</b> vs. entrar a CAS en 2027</td>
             </tr>`;
           }).join('');
           elAfter.innerHTML = `
-            <div class="font-bold text-sky-300 mb-1.5">📊 ¿Cómo cambia el valor del 🇺🇸 CAS (${destObj.withLunch ? 'con almuerzo escolar 2°–11°' : 'con lonchera 2°–11°'}) según cuántos años haga Sara en el JCN?</div>
+            <div class="font-bold text-sky-300 mb-1.5">📊 Valor del 🇺🇸 CAS (Con Almuerzo en TODOS los grados + Ruta Bogotá $731.837/mes) según años en JCN:</div>
             <div class="overflow-x-auto">
               <table class="w-full text-left border-collapse text-[11px]">
                 <thead><tr class="border-b border-slate-700 text-slate-300">
                   <th class="p-1.5">Tiempo en JCN</th>
                   <th class="p-1.5">Grado al que entra en el CAS</th>
+                  <th class="p-1.5">Grados CAS reemplazados</th>
                   <th class="p-1.5">Pagado en JCN</th>
-                  <th class="p-1.5 text-sky-300">Nuevo Valor Restante del CAS</th>
+                  <th class="p-1.5 text-sky-300">Valor Restante del CAS (c/almuerzo)</th>
                   <th class="p-1.5 text-emerald-400">Total Combinado (JCN + CAS)</th>
-                  <th class="p-1.5">Ahorro Real</th>
+                  <th class="p-1.5">Ahorro vs. CAS desde Nursery ($780,2M)</th>
                 </tr></thead>
                 <tbody class="divide-y divide-slate-800">${rows}</tbody>
               </table>
             </div>
-            <div class="mt-1.5 text-[11px] text-amber-300">💡 <b>Por qué baja tanto el CAS al quedarte más años en el JCN:</b> Porque cada año de Prekínder, Kínder o Transición en el CAS cuesta <b>~$49,0M/año</b> ($4,46M–$4,50M/mes + matrícula $4,3M), mientras que en el JCN cuesta solo <b>~$20,7M–$23,2M/año</b> (ahorras <b>~$25,8M por cada año adicional</b> que Sara haga en el JCN antes de pasar al CAS). <i>(⚠️ Nota: verificar con Admisiones CAS si la tarifa de ingreso en Kínder/Transición/1° tiene algún recargo de "estudiante nuevo" frente a quien entró en Nursery).</i></div>
+            <div class="mt-1.5 text-[11px] text-amber-300">💡 <b>Afiche Oficial CAS Preschool 2027 (Res. MEN 020309 / 021581):</b> En Preescolar y 1° la tarifa <b>Pensión + Alimentación YA incluye onces mañana, almuerzo y onces tarde + natación en horario escolar + Playful Learning + IB/Cambridge ICE sin costo extra</b>: <b>Nursery (2.6a): $37,30M/año</b> (Matrícula $3.147.000 + [$2.683.300 + Ruta $731.837]×10) · <b>Prekínder (3.6a): $48,85M/año</b> (Matrícula $4.302.510 + [$3.722.859 + Ruta $731.837]×10) · <b>Kínder (4.6a): $48,94M/año</b> (Matrícula $4.311.788 + [$3.731.209 + Ruta $731.837]×10) · <b>Transición (5.6a): $49,37M/año</b> (Matrícula $4.354.553 + [$3.769.698 + Ruta $731.837]×10). De <b>2° a 11° (10 años)</b> incluye siempre el almuerzo escolar contratado (~$7,0M/año = +$70M en los 10 años).</div>
           `;
         } else {
           const savedPre = replacedPreYears * destObj.annualPre;
