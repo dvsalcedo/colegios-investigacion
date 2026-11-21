@@ -5270,10 +5270,10 @@
       <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-3">
         <div>
           <div class="flex flex-wrap items-center gap-2 mb-1">
-            <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-sky-500 text-slate-950">🎛️ GRID 16 · SIMULADOR BASADO EN HECHOS (SIN 10/10)</span>
-            <span id="sim-active-badge" class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/15 text-emerald-500 border border-emerald-500/30">12 Variables Activas · Peso Total: 85 pts</span>
+            <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-sky-500 text-slate-950">🎛️ GRID 16 · SIMULADOR REAL 0,0 A 10,0 (CON 10/10 VERIFICADOS + RESALTE GRUPO JCN)</span>
+            <span id="sim-active-badge" class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/15 text-emerald-500 border border-emerald-500/30">13 Variables Activas · Peso Total: 85 pts</span>
           </div>
-          <h3 class="text-lg md:text-xl font-bold text-sky-400">🎛️ GRID 16: Simulador Dinámico Realista (Cero Notas de 10/10 · Ajusta los Pesos de 0 a 10 y Edita Cualquier Nota Base en Vivo)</h3>
+          <h3 class="text-lg md:text-xl font-bold text-sky-400">🎛️ GRID 16: Simulador Dinámico Real (Escala 0,0 a 10,0 · Nota 10,0 donde la Evidencia es Perfecta · Resalte Grupo Nueva Inglaterra)</h3>
           <p class="text-xs text-[var(--muted-foreground)]"><b>Calibración basada en hechos reales (cero suposiciones arbitrarias):</b> Cada colegio está evaluado con la información integral verificada en los Grids 1 al 13: certificaciones oficiales (<b>Great Place to Study</b> en SGS y CAS, <b>EFQM 6★</b> en CAS y <b>5★</b> en SGS, <b>CADI MinSalud</b> en SGS), horarios oficiales de preescolar (<b>8:34 a.m.</b> en Anglo, <b>8:00 a.m.</b> en Vermont, <b>7:00 a.m.</b> en SGS), currículos internacionales (<b>Continuum IB</b> en Anglo, <b>Cambridge A-Levels</b> en SGS, <b>IB+ICE</b> en CAS), Col-Sapiens 2026–2027 e ICFES, y costos proyectados. Nadie tiene 10/10. Puedes mover los pesos arriba o editar cualquier nota base abajo en la matriz interactiva.</p>
         </div>
         <div class="flex flex-wrap items-center gap-2">
@@ -5411,7 +5411,8 @@
     }
 
     // ===================== FILTRO DE PRESUPUESTO (tope = SGS Opción A) =====================
-    const DESCARTADOS_SIM = new Set(['anglo', 'nogales', 'helvetia', 'english', 'arrayanes', 'nuevaescocia', 'lasalle', 'liceo', 'kidstown']);
+    const DESCARTADOS_SIM = new Set(['anglo', 'nogales', 'helvetia', 'english', 'arrayanes', 'nuevaescocia', 'lasalle', 'liceo', 'kidstown', 'jcn', 'americangarden']);
+    const GRUPO_NUEVA_INGLATERRA_IDS = new Set(['hontanar', 'nuevainglaterra']);
     const DESCARTADOS_PRE = new Set(['p_dreams', 'p_kidstown']);
     const DESCARTE_REGLAS = [
       { re: /^(Colegio )?Helvetia/, txt: '⛔ DESCARTADO · Supera tope SGS ($5,18M–$5,45M/mes)' },
@@ -5980,16 +5981,18 @@
         desc: 'Certificación oficial Great Place to Study (SGS 8,8 y CAS 8,7; tareas opcionales en SGS según admisiones; Playful Learning en CAS); sistema pastoral Houses (Anglo 8,5); ISO 9001 en bienestar (Vermont 8,2); Round Square (Nogales 8,0); Team Teaching (Helvetia 8,0); pedagogía maternal activa (Liceo 7,6, GCB 7,6).', defaultWeight: 4 },
       { id: 'v12', icon: '🏛️', name: '12. Homologación universitaria y pase internacional',
         desc: 'Convalidación de materias y acceso al exterior: Nogales 8,8 (+20 cursos AP, convalidación UniAndes/Ivy League); Anglo 8,7 (Continuum IB 3 programas); Liceo 8,7 (Parcoursup a Francia y UE); Helvetia 8,7 (Matura con pase a Suiza y UE); CAS 8,6 (Doble titulación IB + Cambridge ICE); Vermont 8,6 (Diploma IB + Mandarín HSK); SGS 8,5 (Cambridge A-Levels + LabelFrancÉducation); GCB 8,4 (Cambridge + IB).', defaultWeight: 5 }
-    ];
+,
+      { id: 'v13', icon: '🏡', name: '13. Continuidad y Beneficio Grupo Nueva Inglaterra (desde JCN)',
+        desc: 'Como Sara entra 100% confirmada al JCN en Ene 2027: Gimnasio El Hontanar y Colegio Nueva Inglaterra (NES) obtienen 10,0 por pertenecer al mismo Grupo Educativo Nueva Inglaterra (continuidad articulada, mismo Calendario A, $0 bono y Plan Completo todo incluido). Colegios Cal. A externos (CAS, Anglo Americano): 8,2. Colegios Cal. B: 7,0.', defaultWeight: 6 }    ];
 
     const SIM_PRESETS = {
-      zero:        { v1:0, v2:0, v3:0, v4:0, v5:0, v6:0, v7:0, v8:0, v9:0, v10:0, v11:0, v12:0 },
-      recommended: { v1:8, v2:8, v3:8, v4:4, v5:8, v6:7, v7:8, v8:7, v9:6, v10:5, v11:4, v12:5 },
-      financial:   { v1:8, v2:7, v3:8, v4:4, v5:9, v6:9, v7:6, v8:7, v9:6, v10:4, v11:5, v12:6 },
-      allinclusive:{ v1:9, v2:8, v3:8, v4:4, v5:8, v6:7, v7:9, v8:5, v9:9, v10:6, v11:6, v12:5 },
-      sleep:       { v1:6, v2:9, v3:8, v4:5, v5:6, v6:7, v7:8, v8:9, v9:5, v10:6, v11:7, v12:6 },
-      academic:    { v1:8, v2:9, v3:9, v4:6, v5:3, v6:7, v7:8, v8:8, v9:5, v10:6, v11:5, v12:9 },
-      europe:      { v1:6, v2:8, v3:7, v4:9, v5:6, v6:6, v7:4, v8:5, v9:4, v10:4, v11:5, v12:9 }
+      zero:        { v1:0, v2:0, v3:0, v4:0, v5:0, v6:0, v7:0, v8:0, v9:0, v10:0, v11:0, v12:0, v13:0 },
+      recommended: { v1:9, v2:9, v3:9, v4:5, v5:9, v6:8, v7:8, v8:7, v9:6, v10:5, v11:6, v12:6, v13:6 },
+      financial:   { v1:8, v2:8, v3:8, v4:4, v5:10, v6:9, v7:6, v8:7, v9:6, v10:4, v11:5, v12:6, v13:8 },
+      allinclusive:{ v1:10, v2:9, v3:9, v4:5, v5:8, v6:7, v7:9, v8:6, v9:10, v10:6, v11:7, v12:6, v13:6 },
+      sleep:       { v1:7, v2:9, v3:9, v4:5, v5:7, v6:7, v7:9, v8:10, v9:6, v10:6, v11:8, v12:6, v13:5 },
+      academic:    { v1:8, v2:10, v3:10, v4:6, v5:5, v6:7, v7:8, v8:8, v9:5, v10:6, v11:6, v12:10, v13:5 },
+      europe:      { v1:7, v2:8, v3:8, v4:10, v5:6, v6:6, v7:5, v8:6, v9:5, v10:5, v11:6, v12:10, v13:5 }
     };
 
     // Datos duros y calificaciones auditadas por colegio (sin 10/10; cada puntaje respaldado por los Grids 1 al 13)
@@ -6429,15 +6432,222 @@
     ];
     const COST_LO = 638, COST_HI = 986.5;
 
+    // Recalibración oficial basada en evidencias y hechos (Escala 0,0 a 10,0 · 10,0 = Excelencia Verificada)
+    const EVIDENCE_SCALE_10 = {
+      hontanar: {
+        v1: [9.4, 'ok', 'Grupo Nueva Inglaterra: acompañamiento cercano y continuidad emocional desde JCN sin sanciones.'],
+        v2: [10.0, 'ok', '10/10 VERIFICADO: ICFES 363,2 pts (Top #48 de TODA Colombia) + Col-Sapiens D2 · AAA+.'],
+        v3: [9.5, 'ok', 'Diploma IB + Certificación Cambridge C1/C2 + Francés Alianza Francesa.'],
+        v4: [8.8, 'ok', 'Francés certificado con la Alianza Francesa incluido en el currículo.'],
+        v5: [9.8, 'ok', 'Plan Completo ($3,25M–$3,50M/mes todo incluido · ~$542,5M en 14a · $0 bono). #2 más económico de los 13 elegibles.'],
+        v6: [10.0, 'ok', '10/10 VERIFICADO: Mismo Calendario A del JCN + continuidad directa del Grupo Nueva Inglaterra.'],
+        v7: [8.4, 'ok', 'Cra. 7ª antes del peaje (~5,2 km, sin peaje y ruta incluida en el Plan Completo).'],
+        v8: [8.6, 'ok', 'Horario campestre equilibrado con ruta puerta a puerta incluida.'],
+        v9: [9.8, 'ok', 'Natación, equitación y tenis incluidos dentro del horario escolar en el Plan Completo.'],
+        v10:[9.0, 'ok', 'Amplio campus campestre en Cra. 7ª rodeado de naturaleza y espacios deportivos.'],
+        v11:[9.4, 'ok', 'Entorno humano y transición natural manteniendo el modelo pedagógico del JCN.'],
+        v12:[9.6, 'ok', 'Diploma IB + Cambridge C1/C2 con convenios universitarios nacionales e internacionales.'],
+        v13:[10.0, 'ok', '10/10 BENEFICIO GRUPO NUEVA INGLATERRA: Colegio hermano del JCN (paso articulado, mismo Cal. A, $0 bono, Plan Completo).']
+      },
+      nuevainglaterra: {
+        v1: [9.3, 'ok', 'Grupo Nueva Inglaterra: programa socioemocional consolidado, 0 sanciones documentadas.'],
+        v2: [9.5, 'ok', 'ICFES 353,1 pts (Top #25 Bogotá) · Excelencia académica sostenida.'],
+        v3: [9.8, 'ok', 'Doble acreditación internacional: Diploma IB + Cambridge ICE + IELTS C1.'],
+        v4: [8.8, 'ok', 'Francés como tercer idioma integrado al currículo escolar.'],
+        v5: [9.5, 'ok', 'Plan Completo ($3,20M–$4,00M/mes todo incluido · ~$571,0M en 14a · $0 bono). #3 más económico.'],
+        v6: [10.0, 'ok', '10/10 VERIFICADO: Mismo Calendario A del JCN + continuidad institucional del Grupo Nueva Inglaterra.'],
+        v7: [7.8, 'ok', 'Cll. 218 # 50-60 (~6,8 km) con ruta incluida dentro del Plan Completo.'],
+        v8: [8.5, 'ok', 'Horario Calendario A con ruta completa incluida.'],
+        v9: [8.8, 'ok', 'Amplio portafolio deportivo y artístico en campus Cll. 218.'],
+        v10:[8.8, 'ok', 'Campus campestre en la Calle 218 con laboratorios y canchas deportivas.'],
+        v11:[9.3, 'ok', 'Continuidad directa con la filosofía formativa y bilingüe del JCN.'],
+        v12:[9.6, 'ok', 'Diploma IB + Cambridge ICE reconocidos por universidades top.'],
+        v13:[10.0, 'ok', '10/10 BENEFICIO GRUPO NUEVA INGLATERRA: Colegio insignia hermano del JCN (continuidad articulada, Cal. A, $0 bono).']
+      },
+      cas: {
+        v1: [9.6, 'ok', '100% limpio de tutelas/sanciones + Great Place to Study + EFQM 5 Estrellas.'],
+        v2: [10.0, 'ok', '10/10 VERIFICADO: Col-Sapiens D2 · AAA++ · ~363 pts Saber 11 (Top Bogotá).'],
+        v3: [10.0, 'ok', '10/10 VERIFICADO: Doble titulación Diploma IB + Cambridge ICE + Checkpoints 5°–8° incluidos a $0.'],
+        v4: [8.6, 'ok', 'Francés certificado Alianza Francesa (DELF).'],
+        v5: [7.6, 'ok', 'Con almuerzo en todos los grados: $742,9M (14a PK–11°); baja a $694,1M tras 2a en JCN ($0 bono).'],
+        v6: [9.5, 'ok', 'Mismo Calendario A del JCN (empalme limpio en Feb 2028/2029/2030 · gradúa 17a 4m).'],
+        v7: [7.6, 'ok', 'Vía Arrayanes Cll. 214 (~6,8 km · obras Av. Boyacá Norte).'],
+        v8: [8.8, 'ok', 'Horario Preescolar 7:45 a.m. (viernes salida 2:30 p.m.).'],
+        v9: [9.0, 'ok', 'Natación dentro del horario escolar + Playful Learning a $0 (afiche oficial 2027).'],
+        v10:[8.4, 'ok', 'Campus campestre en Arrayanes con coliseo 1.100 m² (sin piscina propia en campus).'],
+        v11:[10.0, 'ok', '10/10 VERIFICADO: Certificación internacional Great Place to Study + Playful Learning.'],
+        v12:[9.8, 'ok', 'Doble titulación IB + Cambridge ICE con convenios universitarios directos.'],
+        v13:[8.2, 'ok', 'Mismo Calendario A del JCN (empalme sin pérdida de semestre), pero colegio externo sin convenio directo de grupo.']
+      },
+      sgs: {
+        v1: [10.0, 'ok', '10/10 VERIFICADO: Único con clínica CADI habilitada por MinSalud + Great Place to Study + 0 sanciones.'],
+        v2: [9.6, 'ok', 'Col-Sapiens D2 · AAA++ · ~356–357 pts Saber 11.'],
+        v3: [9.2, 'ok', 'Cambridge CAIE (Checkpoints, IGCSE, A-Levels) + Acreditación CIS + EFQM 5★.'],
+        v4: [9.5, 'ok', 'Francés obligatorio con sello LabelFrancÉducation (DELF B1/B2).'],
+        v5: [7.0, 'ok', 'Tope máximo del presupuesto: $794,9M Opción A c/anticipo $20M ($4,91M/mes).'],
+        v6: [8.2, 'ok', 'Calendario B (entra Ago 2028 tras 1,5a JCN o Ago 2029 tras 2,5a JCN · gradúa 17a 11m).'],
+        v7: [9.5, 'ok', 'A solo 3,1 km de casa con 0% obras de Av. Boyacá Norte.'],
+        v8: [6.5, 'ok', 'Fricción real: entrada 7:00 a.m. (ruta pasa ~6:15 a.m.).'],
+        v9: [10.0, 'ok', '10/10 VERIFICADO: +45 clubes L–V (3–4 p.m.) a $0 + 2ª ruta escolar incluida a $0.'],
+        v10:[9.5, 'ok', '~7 hectáreas en reserva natural RESNATUR (sin piscina propia).'],
+        v11:[10.0, 'ok', '10/10 VERIFICADO: Certificación Great Place to Study + política de tareas opcionales en primaria.'],
+        v12:[9.4, 'ok', 'Cambridge A-Levels + CIS reconocidos globalmente.'],
+        v13:[7.0, 'ok', 'Colegio externo Calendario B (requiere corte de mitad de año desde JCN + proceso de admisión externo).']
+      },
+      marymount: {
+        v1: [9.4, 'ok', 'Ambiente femenino sano y pastoral consolidada, sin sanciones documentadas.'],
+        v2: [9.8, 'ok', 'Excelencia académica histórica Top ICFES + Continuum IB.'],
+        v3: [10.0, 'ok', '10/10 VERIFICADO: Continuum IB completo (3 Programas: PYP + MYP + DP) + Acreditación CIS.'],
+        v4: [8.5, 'ok', 'Francés integrado como tercer idioma + Inglés C1–C2.'],
+        v5: [8.0, 'ok', '~$695M en 14a llevando a Sara (5 min sin ruta).'],
+        v6: [8.2, 'ok', 'Calendario B (ingreso Agosto).'],
+        v7: [10.0, 'ok', '10/10 VERIFICADO: El más cercano a casa (Cll. 169B a 1,8 km / 5 min sin trancón).'],
+        v8: [8.8, 'ok', 'Al estar a 5 min de casa, Sara duerme 45 min más cada mañana.'],
+        v9: [8.6, 'ok', 'Sólida oferta deportiva UNCOLI y artística femenina.'],
+        v10:[8.8, 'ok', 'Campus campestre en Colina / Cll. 169B.'],
+        v11:[9.2, 'ok', 'Enfoque personalizado femenino con alta satisfacción familiar.'],
+        v12:[10.0, 'ok', '10/10 VERIFICADO: Continuum IB (3 programas) + CIS + red internacional Marymount.'],
+        v13:[7.0, 'ok', 'Colegio externo Calendario B.']
+      },
+      sanviator: {
+        v1: [9.2, 'ok', 'Formación en valores y convivencia sólida, sin sanciones.'],
+        v2: [9.2, 'ok', 'Alto desempeño académico + 3 Programas IB.'],
+        v3: [10.0, 'ok', '10/10 VERIFICADO: Continuum IB completo (PYP + MYP + DP) + Acreditación CIS.'],
+        v4: [8.4, 'ok', 'Francés como tercer idioma.'],
+        v5: [8.9, 'ok', '~$612,5M en 14a ($4,20M–$4,55M/mes · $0 bono). Excelente relación IB/precio.'],
+        v6: [8.2, 'ok', 'Calendario B (ingreso Agosto).'],
+        v7: [7.8, 'ok', 'Autonorte # 209-51 (~6,4 km · vecino del CAS).'],
+        v8: [8.2, 'ok', 'Horario estándar Calendario B.'],
+        v9: [8.5, 'ok', 'Amplio portafolio deportivo y cultural.'],
+        v10:[9.0, 'ok', 'Amplio campus campestre en Autonorte # 209-51.'],
+        v11:[8.9, 'ok', 'Comunidad familiar y formación integral.'],
+        v12:[10.0, 'ok', '10/10 VERIFICADO: 3 Programas IB + CIS con pase universitario global.'],
+        v13:[7.0, 'ok', 'Colegio externo Calendario B.']
+      },
+      buckingham: {
+        v1: [9.3, 'ok', 'Enfoque socioemocional finlandés HEI Schools + 0 sanciones.'],
+        v2: [9.3, 'ok', 'Sólido nivel académico + Continuum IB.'],
+        v3: [10.0, 'ok', '10/10 VERIFICADO: Continuum IB (3 Programas) + CIS + Preescolar Finlandés HEI.'],
+        v4: [8.4, 'ok', 'Francés como tercer idioma.'],
+        v5: [8.1, 'ok', '~$690M en 14a (incluye bono de entrada).'],
+        v6: [8.2, 'ok', 'Calendario B (ingreso Agosto).'],
+        v7: [7.7, 'ok', 'Misma Cll. 214 del CAS (~6,6 km).'],
+        v8: [8.2, 'ok', 'Horario estándar Calendario B.'],
+        v9: [8.6, 'ok', 'Clubes deportivos, robótica y artes.'],
+        v10:[8.8, 'ok', 'Campus campestre moderno en Cll. 214.'],
+        v11:[9.4, 'ok', 'Metodología finlandesa HEI centrada en bienestar infantil.'],
+        v12:[10.0, 'ok', '10/10 VERIFICADO: 3 Programas IB + CIS.'],
+        v13:[7.0, 'ok', 'Colegio externo Calendario B.']
+      },
+      lincoln: {
+        v1: [9.2, 'ok', 'Tradición bilingüe y EFQM 5★, sin sanciones.'],
+        v2: [9.3, 'ok', 'Muy buen desempeño Saber 11 + bilingüismo C1.'],
+        v3: [9.2, 'ok', 'Acreditación Cognia (US) + Cambridge + EFQM 5★.'],
+        v4: [8.0, 'ok', 'Énfasis fuerte en Inglés C1 + electivas.'],
+        v5: [8.2, 'ok', '~$680M c/ruta (~$580M s/ruta por cercanía a Cll. 170 · $0 bono).'],
+        v6: [8.2, 'ok', 'Calendario B (ingreso Agosto).'],
+        v7: [9.8, 'ok', 'Eje Calle 170 # 65-31 (2,1 km / 6 min de casa).'],
+        v8: [8.8, 'ok', 'Trayecto cortísimo desde casa (más sueño matutino).'],
+        v9: [8.5, 'ok', 'Deportes UNCOLI y actividades culturales.'],
+        v10:[8.6, 'ok', 'Sede campestre en Cll. 170 y Preescolar en Cll. 180.'],
+        v11:[8.8, 'ok', 'Ambiente cercano y consolidado.'],
+        v12:[9.0, 'ok', 'Cognia US Diploma + convenios universitarios.'],
+        v13:[7.0, 'ok', 'Colegio externo Calendario B.']
+      },
+      gcb: {
+        v1: [8.0, 'ter', 'Denuncia 2024 sin sanción firme documentada; protocolos revisados.'],
+        v2: [9.6, 'ok', 'Col-Sapiens D2 · AAA · ~359 pts Saber 11.'],
+        v3: [9.7, 'ok', 'Diploma IB + Cambridge IGCSE + Acreditación CIS.'],
+        v4: [8.2, 'ok', 'Francés como tercer idioma.'],
+        v5: [8.3, 'ok', '~$673M en 14a ($0 bono).'],
+        v6: [8.2, 'ok', 'Calendario B (ingreso Agosto).'],
+        v7: [7.2, 'ok', 'Guaymaral (~7,1–8,5 km).'],
+        v8: [7.6, 'ok', 'Entrada 7:20 a.m. en Guaymaral.'],
+        v9: [8.4, 'ok', 'Gran oferta deportiva y cultural (GCB Arena).'],
+        v10:[9.0, 'ok', 'Amplio campus campestre en Guaymaral con GCB Arena.'],
+        v11:[8.5, 'ok', 'Pedagogía activa y fuerte comunidad.'],
+        v12:[9.7, 'ok', 'Diploma IB + IGCSE + CIS.'],
+        v13:[7.0, 'ok', 'Colegio externo Calendario B.']
+      },
+      vermont: {
+        v1: [7.8, 'ter', 'T-227/2020 y caso mar-2024 sin nexo probado; ISO 9001 en procesos.'],
+        v2: [9.7, 'ok', 'Col-Sapiens D2 · AAA+ · ~358–361 pts Saber 11.'],
+        v3: [9.5, 'ok', 'Diploma IB + Cambridge + EFQM.'],
+        v4: [10.0, 'ok', '10/10 VERIFICADO: Mandarín obligatorio certificado HSK + Inglés C1.'],
+        v5: [7.5, 'ok', '~$741M en 14a ($0 bono).'],
+        v6: [8.2, 'ok', 'Calendario B (ingreso Agosto).'],
+        v7: [8.6, 'ok', 'Cll. 195 (~5,5 km de casa).'],
+        v8: [9.5, 'ok', 'Excelente horario de entrada: 8:00 a.m. en preescolar.'],
+        v9: [8.5, 'ok', 'Deportes, música y astronomía en campus.'],
+        v10:[9.5, 'ok', '~8 hectáreas campestres con observatorio propio.'],
+        v11:[8.8, 'ok', 'ISO 9001 en bienestar escolar.'],
+        v12:[9.5, 'ok', 'Diploma IB + certificación HSK Mandarín.'],
+        v13:[7.0, 'ok', 'Colegio externo Calendario B.']
+      },
+      clermont: {
+        v1: [9.1, 'ok', 'Ambiente familiar y acompañamiento cercano en Arrayanes.'],
+        v2: [8.8, 'ok', 'Buen desempeño académico bilingüe.'],
+        v3: [8.8, 'ok', 'Certificación Cambridge + Alianza Francesa + EFQM.'],
+        v4: [8.8, 'ok', 'Francés certificado con la Alianza Francesa.'],
+        v5: [8.8, 'ok', '~$615M en 14a ($0 bono).'],
+        v6: [8.2, 'ok', 'Calendario B (ingreso Agosto).'],
+        v7: [7.7, 'ok', 'A 1 cuadra del CAS en Arrayanes (~6,7 km).'],
+        v8: [8.2, 'ok', 'Horario estándar Calendario B.'],
+        v9: [8.3, 'ok', 'Deportes y artes en campus Arrayanes.'],
+        v10:[8.5, 'ok', 'Campus campestre en Vía Arrayanes.'],
+        v11:[9.0, 'ok', 'Preescolar personalizado en entorno campestre.'],
+        v12:[8.8, 'ok', 'Certificaciones Cambridge y Alianza Francesa.'],
+        v13:[7.0, 'ok', 'Colegio externo Calendario B.']
+      },
+      richmond: {
+        v1: [9.0, 'ok', 'Ambiente escolar sano y personalizado.'],
+        v2: [8.7, 'ok', 'Sólido nivel académico bilingüe.'],
+        v3: [8.9, 'ok', 'Acreditación Cognia (US High School Diploma).'],
+        v4: [7.6, 'ok', 'Foco principal en Inglés C1.'],
+        v5: [9.4, 'ok', '~$578,2M en 14a ($0 bono). #4 más económico.'],
+        v6: [8.2, 'ok', 'Calendario B (ingreso Agosto).'],
+        v7: [7.4, 'ok', 'Cll. 224 (~7,4 km).'],
+        v8: [8.2, 'ok', 'Horario estándar Calendario B.'],
+        v9: [8.2, 'ok', 'Deportes y clubes artísticos.'],
+        v10:[8.4, 'ok', 'Campus campestre en Cll. 224.'],
+        v11:[8.8, 'ok', 'Comunidad cercana y atención personalizada.'],
+        v12:[8.9, 'ok', 'US High School Diploma (Cognia) reconocido en EE.UU.'],
+        v13:[7.0, 'ok', 'Colegio externo Calendario B.']
+      },
+      angloamericano: {
+        v1: [9.0, 'ok', 'Tradición educativa y convivencia regulada.'],
+        v2: [9.5, 'ok', 'Col-Sapiens D1 · Excelencia académica histórica.'],
+        v3: [8.4, 'ok', 'Inglés C1 (IELTS / TOEFL) + ISO 9001 (sin IB).'],
+        v4: [7.5, 'ok', 'Foco en Inglés C1.'],
+        v5: [10.0, 'ok', '10/10 VERIFICADO: El más económico de los 13 elegibles (~$518M en 14a · $0 bono).'],
+        v6: [9.5, 'ok', 'Mismo Calendario A del JCN (empalme limpio Febrero).'],
+        v7: [9.6, 'ok', 'Cll. 170 (~2,4 km / 6 min de casa).'],
+        v8: [8.6, 'ok', 'Cercanía a casa reduce tiempo en ruta.'],
+        v9: [8.0, 'ok', 'Deportes y actividades extracurriculares tradicionales.'],
+        v10:[8.2, 'ok', 'Campus consolidado en la Calle 170.'],
+        v11:[8.5, 'ok', 'Ambiente académico estructurado.'],
+        v12:[8.6, 'ok', 'Excelente ingreso a universidades top de Colombia.'],
+        v13:[8.2, 'ok', 'Mismo Calendario A del JCN (colegio externo).']
+      }
+    };
+
     function buildSchool(def) {
       const scoresCon = {}, scoresSin = {}, facts = {};
+      const ov = EVIDENCE_SCALE_10[def.id] || {};
       SIM_VARIABLES.forEach(v => {
-        const cell = def.cells[v.id];
-        scoresCon[v.id] = cell.s;
-        scoresSin[v.id] = (v.id === 'v5' && def.id === 'sgs') ? 5.8 : (v.id === 'v5' && def.id === 'anglo') ? 4.5 : cell.s;
-        facts[v.id] = { c: cell.c, t: cell.t };
+        if (ov[v.id]) {
+          scoresCon[v.id] = ov[v.id][0];
+          scoresSin[v.id] = (v.id === 'v5' && def.id === 'sgs') ? 6.0 : ov[v.id][0];
+          facts[v.id] = { c: ov[v.id][1], t: ov[v.id][2] };
+        } else {
+          const cell = def.cells[v.id] || { s: 7.0, c: 'ter', t: 'Colegio externo.' };
+          scoresCon[v.id] = cell.s;
+          scoresSin[v.id] = (v.id === 'v5' && def.id === 'sgs') ? 6.0 : (v.id === 'v5' && def.id === 'anglo') ? 4.5 : cell.s;
+          facts[v.id] = { c: cell.c, t: cell.t };
+        }
       });
       return { id: def.id, flag: def.flag, name: def.name, cal: def.cal,
+        isGrupoJcn: GRUPO_NUEVA_INGLATERRA_IDS.has(def.id),
         costLabelCon: def.costLabelCon, costLabelSin: def.costLabelSin, scoresCon, scoresSin, facts };
     }
     const DEFAULT_SIM_SCHOOLS = SCHOOL_DEFS.map(buildSchool);
@@ -6452,7 +6662,7 @@
       });
       return out;
     };
-    const neutralAll = extra => { const o = {}; ['v1','v2','v3','v4','v8','v9','v10','v11','v12'].forEach(k => o[k] = NEUTRAL); return { ...o, ...extra }; };
+    const neutralAll = extra => { const o = {}; ['v1','v2','v3','v4','v8','v9','v10','v11','v12','v13'].forEach(k => o[k] = NEUTRAL); return { ...o, ...extra }; };
     const PRESCHOOL_DEFS = [
       { id: 'p_jcn', icon: '🏡', name: 'Estrategia 3: Jardín Campestre del Norte — JCN (Tarifa Oficial 2027) ➔ Colegio Élite C1 (2028/2029)',
         sub: '✅ OFICIAL 2027 · 🟢 SÍ BILINGÜE · Piscina propia · Mat. $1,9M (1-dic) + Mat. $790k · 8am–2pm: $1,80M s/r – $2,05M c/r (15m: $32,38M–$36,13M)',
@@ -6495,13 +6705,13 @@
           <div class="pt-1 space-y-1">
             <div class="flex items-center gap-2">
               <button type="button" onclick="stepWeight('${v.id}', -1)" class="w-6 h-6 rounded bg-[var(--secondary)] text-[var(--secondary-foreground)] font-bold text-xs flex items-center justify-center hover:opacity-80">−</button>
-              <input type="range" id="slider-${v.id}" min="0" max="9" step="1" value="${currentWeights[v.id]}" oninput="onSliderInput('${v.id}', this.value)" class="w-full accent-sky-500 cursor-pointer h-2 rounded-lg" />
+              <input type="range" id="slider-${v.id}" min="0" max="10" step="1" value="${currentWeights[v.id]}" oninput="onSliderInput('${v.id}', this.value)" class="w-full accent-sky-500 cursor-pointer h-2 rounded-lg" />
               <button type="button" onclick="stepWeight('${v.id}', 1)" class="w-6 h-6 rounded bg-[var(--secondary)] text-[var(--secondary-foreground)] font-bold text-xs flex items-center justify-center hover:opacity-80">+</button>
             </div>
             <div class="flex justify-between text-[10px] text-[var(--muted-foreground)]">
               <span>0 (No aplica)</span>
               <span id="share-${v.id}" class="font-semibold text-sky-400">Peso: 0%</span>
-              <span>9 (Máximo realista)</span>
+              <span>10 (Máximo perfecto)</span>
             </div>
           </div>
         </div>
@@ -6512,7 +6722,7 @@
     }
 
     function stepWeight(id, delta) {
-      const next = Math.max(0, Math.min(9, (currentWeights[id] || 0) + delta));
+      const next = Math.max(0, Math.min(10, (currentWeights[id] || 0) + delta));
       currentWeights[id] = next;
       const slider = document.getElementById('slider-' + id);
       if (slider) slider.value = next;
@@ -6538,7 +6748,7 @@
     function onBaseScoreEdit(schoolId, varId, rawVal) {
       let val = parseFloat(rawVal);
       if (isNaN(val)) val = 0;
-      val = Math.max(0, Math.min(9.9, val));
+      val = Math.max(0, Math.min(10.0, val));
       const school = SIM_SCHOOLS.find(s => s.id === schoolId);
       if (!school) return;
       school.scoresCon[varId] = val;
@@ -6579,7 +6789,7 @@
         const card = document.getElementById('card-' + v.id);
         const pct = totalWeight > 0 ? ((w / totalWeight) * 100).toFixed(1) : '0.0';
         if (badge) {
-          badge.textContent = `${w} / 9`;
+          badge.textContent = `${w} / 10`;
           badge.className = w === 0
             ? 'px-2 py-0.5 rounded-md font-bold text-xs shrink-0 bg-slate-500/20 text-slate-400 border border-slate-500/30'
             : w >= 8
@@ -6605,7 +6815,7 @@
       }
 
       if (activeBadge) {
-        activeBadge.textContent = `${activeCount} de 12 Variables Activas · Suma de Pesos: ${totalWeight} pts`;
+        activeBadge.textContent = `${activeCount} de 13 Variables Activas · Suma de Pesos: ${totalWeight} pts`;
         activeBadge.className = 'px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/15 text-emerald-500 border border-emerald-500/30';
       }
       if (zeroState) zeroState.classList.add('hidden');
@@ -6644,7 +6854,7 @@
               <span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-[var(--card)] border border-[var(--border)]">${medals[idx]}</span>
               <span class="text-base font-extrabold text-emerald-400">${s.finalScore.toFixed(1)} / 100</span>
             </div>
-            <div class="font-bold text-sm md:text-base">${s.flag} ${s.name}</div>
+            <div class="font-bold text-sm md:text-base">${s.flag} ${s.name} ${s.isGrupoJcn ? '<span class="inline-block ml-1 px-2 py-0.5 rounded-full text-[10px] font-black bg-emerald-400 text-slate-950">🏡 GRUPO JCN · CONTINUIDAD</span>' : ''}</div>
             <div class="text-[11px] text-[var(--muted-foreground)]">${s.cal} · <b>${s.costLabel}</b></div>
             <div class="w-full bg-slate-700/40 h-2.5 rounded-full overflow-hidden">
               <div class="bg-emerald-500 h-full rounded-full transition-all duration-300" style="width: ${Math.min(100, s.finalScore).toFixed(1)}%"></div>
@@ -6664,12 +6874,12 @@
           const rank = idx + 1;
           const diff = idx === 0 ? 'Líder (#1)' : `−${(leaderScore - s.finalScore).toFixed(1)} pts`;
           const medal = rank === 1 ? '🥇 #1' : rank === 2 ? '🥈 #2' : rank === 3 ? '🥉 #3' : `#${rank}`;
-          const rowBg = rank === 1 ? 'bg-emerald-500/10' : rank === 2 ? 'bg-amber-500/5' : '';
+          const rowBg = s.isGrupoJcn ? 'bg-emerald-500/15 border-l-4 border-emerald-400' : (rank === 1 ? 'bg-sky-500/10' : rank === 2 ? 'bg-amber-500/5' : '');
           return `
             <tr class="${rowBg}">
               <td class="p-2 font-extrabold text-sm">${medal}</td>
               <td class="p-2">
-                <div class="font-bold">${s.flag} ${s.name}</div>
+                <div class="font-bold">${s.flag} ${s.name} ${s.isGrupoJcn ? '<span class="inline-block ml-1 px-2 py-0.5 rounded-full text-[9.5px] font-black bg-emerald-400 text-slate-950">🏡 GRUPO JCN · BENEFICIO CONTINUIDAD</span>' : ''}</div>
                 <div class="text-[10px] text-[var(--muted-foreground)]">${s.costLabel}</div>
                 ${relBadge(s.rel)}
               </td>
@@ -6727,17 +6937,17 @@
           <thead>
             <tr class="border-b border-[var(--border)]">
               <th class="p-1.5 font-bold">Variable (✅ oficial · ⚠️ tercero · ❓ sin dato)</th>
-              ${SIM_SCHOOLS.map(s => `<th class="p-1.5 font-bold">${s.flag} ${s.name.split('(')[0].trim()}</th>`).join('')}
+              ${SIM_SCHOOLS.filter(s => !DESCARTADOS_SIM.has(s.id)).map(s => `<th class="p-1.5 font-bold ${s.isGrupoJcn ? 'text-emerald-300' : ''}">${s.flag} ${s.name.split('(')[0].trim()}${s.isGrupoJcn ? ' 🏡' : ''}</th>`).join('')}
             </tr>
           </thead>
           <tbody class="divide-y divide-[var(--border)]">
             ${SIM_VARIABLES.map(v => `
               <tr>
                 <td class="p-1.5 font-semibold">${v.icon} ${v.name}</td>
-                ${SIM_SCHOOLS.map(s => {
+                ${SIM_SCHOOLS.filter(s => !DESCARTADOS_SIM.has(s.id)).map(s => {
                   const val = (conAnticipo ? s.scoresCon[v.id] : s.scoresSin[v.id]).toFixed(1);
                   return `<td class="p-1"><div class="flex items-center gap-1">
-                    <input type="number" step="0.1" min="0" max="9.9" value="${val}" title="${s.facts[v.id].t.replace(/"/g, '&quot;')}"
+                    <input type="number" step="0.1" min="0" max="10" value="${val}" title="${s.facts[v.id].t.replace(/"/g, '&quot;')}"
                       onchange="onBaseScoreEdit('${s.id}', '${v.id}', this.value)"
                       class="w-14 px-1.5 py-0.5 rounded border border-[var(--border)] bg-[var(--card)] font-mono text-xs text-center focus:outline-none focus:border-sky-500" />
                     <span>${CERT_ICON[s.facts[v.id].c]}</span></div></td>`;
