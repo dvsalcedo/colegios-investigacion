@@ -390,6 +390,33 @@
       </div>
     </div>
 
+    <!-- RANKING INTERACTIVO: DEL MÁS BARATO AL MÁS CARO (13 COLEGIOS ELEGIBLES) -->
+    <div id="ranking-costo-elegibles" class="bg-[var(--card)] border-2 border-emerald-500/50 rounded-2xl p-4 sm:p-5 shadow-md space-y-3">
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
+        <div>
+          <h3 class="text-lg md:text-xl font-bold text-emerald-400">💰 Ranking de Costo: Del Más Barato al Más Caro (13 Colegios Elegibles)</h3>
+          <p class="text-xs text-[var(--muted-foreground)]">Solo los colegios que cumplen <b>Inglés C1 + Presupuesto ≤ Saint George’s</b>, ordenados automáticamente de menor a mayor inversión. Se actualiza en vivo con tu horario del JCN.</p>
+        </div>
+        <button id="rank-dir-btn" onclick="toggleCostRankDir()" class="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 border border-emerald-500/40 text-xs font-bold text-emerald-300 shrink-0 transition-colors">
+          ⬆️ Orden: Más Barato ➔ Más Caro
+        </button>
+      </div>
+
+      <!-- Selector de Criterio de Ordenamiento -->
+      <div class="flex flex-wrap gap-1.5 text-[11px]">
+        <button id="rank-mode-combo" onclick="setCostRankMode('combo')" class="jcn-pill active px-3 py-1.5 rounded-xl font-semibold border border-slate-700 bg-slate-800 text-white">🏆 Total JCN + Colegio (Tu selección)</button>
+        <button id="rank-mode-full14" onclick="setCostRankMode('full14')" class="jcn-pill px-3 py-1.5 rounded-xl font-semibold border border-slate-700 bg-slate-800 text-slate-300">🏫 Solo Colegio (14a PK–11°)</button>
+        <button id="rank-mode-kinder" onclick="setCostRankMode('kinder')" class="jcn-pill px-3 py-1.5 rounded-xl font-semibold border border-slate-700 bg-slate-800 text-slate-300">🎒 JCN + Colegio entrando a Kínder (13a)</button>
+        <button id="rank-mode-trans" onclick="setCostRankMode('trans')" class="jcn-pill px-3 py-1.5 rounded-xl font-semibold border border-slate-700 bg-slate-800 text-slate-300">🎓 JCN + Colegio entrando a Transición (12a)</button>
+        <button id="rank-mode-monthly" onclick="setCostRankMode('monthly')" class="jcn-pill px-3 py-1.5 rounded-xl font-semibold border border-slate-700 bg-slate-800 text-slate-300">📅 Mensualidad Promedio (Todo Incluido)</button>
+      </div>
+
+      <!-- Lista Visual de Barras Ordenadas -->
+      <div id="cost-ranking-list" class="space-y-1.5">
+        <!-- Generado dinámicamente por JS -->
+      </div>
+    </div>
+
     <!-- FILTRO DE PRESUPUESTO: ELEGIBLES VS. DESCARTADOS -->
     <div id="filtro-presupuesto" class="bg-[var(--card)] border-2 border-rose-500/60 rounded-2xl p-4 sm:p-5 shadow-md space-y-4">
       <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
@@ -5281,6 +5308,142 @@
       gcb:            { name: '🛩️ GCB — Gimnasio Colombo Británico (IB + IGCSE)', calType: 'B', full14: 673.0, ant: 0, annualPre: 48.07, annualPri: 48.07 }
     };
     const jcnState = { sched: 'hibrido', route: 'completa', early: true, dest: 'cas_alm', jcnYears: '2' };
+    const costRankState = { mode: 'combo', asc: true };
+    const COST_RANK_META = {
+      angloamericano: { monthly: 3.35, km: '2,4 km (Cll. 170)', tag: 'ICFES D1 · Cal. A · $0 bono' },
+      hontanar:       { monthly: 3.40, km: '5,2 km (Cra. 7ª)',  tag: 'Grupo JCN · IB + C1/C2 · $0 bono' },
+      cni:            { monthly: 3.60, km: '6,8 km (Cll. 218)', tag: 'Grupo JCN · IB + ICE + C1 · $0 bono' },
+      richmond:       { monthly: 3.75, km: '7,4 km (Cll. 224)', tag: 'Cognia US Diploma · C1 · $0 bono' },
+      sanviator:      { monthly: 4.35, km: '6,4 km (Aut. 209)', tag: 'Vecino CAS · 3 IB + CIS · $0 bono' },
+      clermont:       { monthly: 4.40, km: '6,7 km (Cll. 213)', tag: 'A 1 cuadra CAS · Cambridge + FR · $0 bono' },
+      gcb:            { monthly: 4.45, km: '7,1 km (Cll. 215)', tag: 'IB + IGCSE · Cal. B · $0 bono' },
+      lincoln:        { monthly: 4.55, km: '2,1 km (Cll. 170)', tag: 'Cll. 170 a 6 min · C1 · $0 bono' },
+      buckingham:     { monthly: 4.65, km: '6,6 km (Cll. 214)', tag: 'Misma Cll. 214 CAS · 3 IB + HEI' },
+      marymount:      { monthly: 4.70, km: '1,8 km (Cll. 169B)',tag: 'A 5 min (s/ruta) · Femenino · 3 IB' },
+      cas_alm:        { monthly: 4.46, km: '6,8 km (Cll. 214)', tag: 'Con Almuerzo Siempre · IB + ICE · $0 bono' },
+      vermont:        { monthly: 4.80, km: '5,5 km (Cll. 195)', tag: 'IB + Mandarín · 8:00 a.m. · $0 bono' },
+      sgs:            { monthly: 4.91, km: '7,0 km (Cll. 215)', tag: 'Tope Presupuesto · Opción A (Bono $20M)' }
+    };
+
+    function setCostRankMode(m) {
+      costRankState.mode = m;
+      ['combo','full14','kinder','trans','monthly'].forEach(k => {
+        const btn = document.getElementById('rank-mode-' + k);
+        if (btn) {
+          btn.classList.toggle('active', k === m);
+          btn.classList.toggle('text-white', k === m);
+          btn.classList.toggle('text-slate-300', k !== m);
+        }
+      });
+      renderJcnSimulator();
+    }
+
+    function toggleCostRankDir() {
+      costRankState.asc = !costRankState.asc;
+      const btn = document.getElementById('rank-dir-btn');
+      if (btn) btn.textContent = costRankState.asc ? '⬆️ Orden: Más Barato ➔ Más Caro' : '⬇️ Orden: Más Caro ➔ Más Barato';
+      renderJcnSimulator();
+    }
+
+    function renderCostRanking(total2027, mat2, m2028_5m, year2PlusJcn, yrs) {
+      const container = document.getElementById('cost-ranking-list');
+      if (!container) return;
+
+      const keys = Object.keys(JCN_DEST_SCHOOLS);
+      const items = keys.map(k => {
+        const s = JCN_DEST_SCHOOLS[k];
+        const meta = COST_RANK_META[k] || { monthly: 4.0, km: '', tag: '' };
+        const isB = s.calType === 'B';
+        const j1 = isB ? (total2027 + mat2 + (5 * m2028_5m)) : total2027;
+        const j2 = j1 + year2PlusJcn;
+        const j3 = j2 + year2PlusJcn;
+
+        // Para modo 'combo' (tu selección actual de años en JCN):
+        const repCur = isB ? Math.max(0, Math.round(yrs - 1.5)) : Math.max(0, Math.round(yrs - 1));
+        let savedCur = repCur * s.annualPre;
+        if (s.exactPreYears) {
+          savedCur = 0;
+          for (let i = 0; i < repCur; i++) savedCur += (s.exactPreYears[i] || s.annualPre);
+        }
+        const jCur = isB
+          ? (total2027 + mat2 + (5 * m2028_5m) + (repCur * year2PlusJcn))
+          : (total2027 + (repCur * year2PlusJcn));
+        const cCur = s.full14 - savedCur;
+        const comboCur = jCur + cCur;
+
+        const sub1 = s.exactPreYears ? s.exactPreYears[0] : s.annualPre;
+        const sub2 = s.exactPreYears ? (s.exactPreYears[0] + s.exactPreYears[1]) : (2 * s.annualPre);
+        const comboKinder = j2 + (s.full14 - sub1);
+        const comboTrans  = j3 + (s.full14 - sub2);
+
+        let val = comboCur;
+        let subLabel = `JCN ($${jCur.toFixed(1).replace('.', ',')}M) + ${14 - repCur}a Colegio ($${cCur.toFixed(1).replace('.', ',')}M)`;
+        if (costRankState.mode === 'full14') {
+          val = s.full14;
+          subLabel = `14 años PK–11° (sin contar JCN) · ~$${s.annualPre.toFixed(1).replace('.', ',')}M/año`;
+        } else if (costRankState.mode === 'kinder') {
+          val = comboKinder;
+          subLabel = `JCN (${isB ? '2,5a' : '2a'}: $${j2.toFixed(1).replace('.', ',')}M) + 13a Colegio ($${(s.full14 - sub1).toFixed(1).replace('.', ',')}M)`;
+        } else if (costRankState.mode === 'trans') {
+          val = comboTrans;
+          subLabel = `JCN (${isB ? '3,5a' : '3a'}: $${j3.toFixed(1).replace('.', ',')}M) + 12a Colegio ($${(s.full14 - sub2).toFixed(1).replace('.', ',')}M)`;
+        } else if (costRankState.mode === 'monthly') {
+          val = meta.monthly;
+          subLabel = `Todo incluido aprox./mes (Pensión + Almuerzo + Ruta)`;
+        }
+
+        return { key: k, name: s.name.split('(')[0].trim(), val, subLabel, meta, cal: s.calType, isCas: !!s.isCas };
+      });
+
+      // Referencia Saint George's para calcular ahorro
+      const sgsItem = items.find(i => i.key === 'sgs');
+      const sgsVal = sgsItem ? sgsItem.val : Math.max(...items.map(i => i.val));
+      const maxVal = Math.max(...items.map(i => i.val));
+
+      items.sort((a, b) => costRankState.asc ? (a.val - b.val) : (b.val - a.val));
+
+      container.innerHTML = items.map((it, idx) => {
+        const rankNum = costRankState.asc ? (idx + 1) : (items.length - idx);
+        const pct = Math.max(18, Math.round((it.val / maxVal) * 100));
+        const diffSgs = sgsVal - it.val;
+        const isSelected = jcnState.dest === it.key;
+        const barColor = rankNum <= 3 ? 'bg-emerald-500' : (rankNum <= 7 ? 'bg-teal-500' : (rankNum <= 10 ? 'bg-sky-500' : 'bg-amber-500'));
+        const badgeColor = rankNum <= 3 ? 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40' : (rankNum <= 7 ? 'bg-teal-500/20 text-teal-300 border-teal-500/40' : (rankNum <= 10 ? 'bg-sky-500/20 text-sky-300 border-sky-500/40' : 'bg-amber-500/20 text-amber-300 border-amber-500/40'));
+        const valText = costRankState.mode === 'monthly'
+          ? `$${it.val.toFixed(2).replace('.', ',')}M/mes`
+          : `$${it.val.toFixed(1).replace('.', ',')}M`;
+        const saveText = it.key === 'sgs'
+          ? '<span class="text-amber-400 font-semibold">Tope presupuesto</span>'
+          : (costRankState.mode === 'monthly'
+              ? `<span class="text-emerald-400 font-semibold">-$${Math.round(diffSgs * 1000)}k/mes vs. SGS</span>`
+              : `<span class="text-emerald-400 font-semibold">Ahorras $${diffSgs.toFixed(1).replace('.', ',')}M vs. SGS</span>`);
+
+        return `
+          <div onclick="document.getElementById('jcn-dest-select').value='${it.key}'; setJcnConfig('dest','${it.key}'); document.getElementById('jcn-visual-calc').scrollIntoView({behavior:'smooth', block:'start'});"
+               class="cursor-pointer p-2.5 rounded-xl border ${isSelected ? 'border-emerald-400 bg-emerald-950/35' : 'border-slate-800 bg-slate-900/80 hover:border-slate-600'} transition-all">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 mb-1.5">
+              <div class="flex items-center gap-2 flex-wrap">
+                <span class="px-2 py-0.5 rounded-lg border text-[11px] font-black ${badgeColor}">#${rankNum}</span>
+                <span class="font-bold text-xs sm:text-sm text-white">${it.name}</span>
+                <span class="px-1.5 py-0.5 rounded bg-slate-800 text-[10px] text-slate-300">${it.meta.tag}</span>
+                <span class="text-[10px] text-slate-400">📍 ${it.meta.km}</span>
+              </div>
+              <div class="flex items-center gap-2.5 shrink-0">
+                <span class="text-[11px]">${saveText}</span>
+                <span class="text-sm font-black text-white">${valText}</span>
+              </div>
+            </div>
+            <div class="w-full h-2 rounded-full bg-slate-800 overflow-hidden">
+              <div class="h-full rounded-full ${barColor} transition-all duration-300" style="width:${pct}%"></div>
+            </div>
+            <div class="mt-1 text-[10.5px] text-slate-400 flex justify-between">
+              <span>${it.subLabel}</span>
+              <span class="text-slate-500">Clic para simular arriba ↑</span>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
 
     function fmtCopM(valM) {
       const pesos = Math.round(valM * 1000000);
@@ -5517,6 +5680,8 @@
 
       // Renderizar Tabla Maestra de TODOS los 13 Colegios Elegibles (Saint George's, CAS y demás)
       const elAllMatrix = document.getElementById('jcn-all-schools-matrix');
+      renderCostRanking(total2027, mat2, m2028_5m, year2PlusJcn, yrs);
+
       if (elAllMatrix) {
         const orderKeys = ['sgs', 'cas_alm', 'vermont', 'marymount', 'buckingham', 'lincoln', 'gcb', 'clermont', 'sanviator', 'richmond', 'cni', 'hontanar', 'angloamericano'];
         const allRows = orderKeys.map(k => {
