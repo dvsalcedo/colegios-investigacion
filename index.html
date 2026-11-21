@@ -5429,6 +5429,7 @@
           <button onclick="applySimPreset('sleep')" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-sky-500/20 text-sky-400 border border-sky-500/40 hover:bg-sky-500/30 transition">
             😴😊 Prioridad Sueño Matutino (8:00 a.m.) + ICFES
           </button>
+        <button onclick="applySimPreset('happy')" class="px-2.5 py-1.5 rounded-lg text-[11px] font-bold bg-pink-500/20 hover:bg-pink-500/35 border border-pink-400/50 text-pink-200 transition-colors">😊 Infancia Feliz (Sin Tortura de Tareas)</button>
           <button onclick="applySimPreset('academic')" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-lime-500/20 text-lime-400 border border-lime-500/40 hover:bg-lime-500/30 transition">
             🎓🏛️ Élite IB / AP + Cercanía Calle 153 (Sin importar costo)
           </button>
@@ -6115,7 +6116,8 @@
       allinclusive:{ v1:10, v2:9, v3:9, v4:5, v5:8, v6:7, v7:9, v8:6, v9:10, v10:6, v11:7, v12:6, v13:0 },
       sleep:       { v1:7, v2:9, v3:9, v4:5, v5:7, v6:7, v7:9, v8:10, v9:6, v10:6, v11:8, v12:6, v13:0 },
       academic:    { v1:8, v2:10, v3:10, v4:6, v5:5, v6:7, v7:8, v8:8, v9:5, v10:6, v11:6, v12:10, v13:0 },
-      europe:      { v1:7, v2:8, v3:8, v4:10, v5:6, v6:6, v7:5, v8:6, v9:5, v10:5, v11:6, v12:10, v13:0 }
+      europe:      { v1:7, v2:8, v3:8, v4:10, v5:6, v6:6, v7:5, v8:6, v9:5, v10:5, v11:6, v12:10, v13:0 },
+      happy:       { v1:9, v2:8, v3:8, v4:4, v5:8, v6:7, v7:7, v8:9, v9:7, v10:6, v11:10, v12:5, v13:0 }
     };
 
     // Datos duros y calificaciones auditadas por colegio (sin 10/10; cada puntaje respaldado por los Grids 1 al 13)
@@ -6583,7 +6585,7 @@
         v8: [8.5, 'ok', 'Horario Calendario A con ruta completa incluida.'],
         v9: [8.8, 'ok', 'Amplio portafolio deportivo y artístico en campus Cll. 218.'],
         v10:[8.8, 'ok', 'Campus campestre en la Calle 218 con laboratorios y canchas deportivas.'],
-        v11:[9.3, 'ok', 'Continuidad directa con la filosofía formativa y bilingüe del JCN.'],
+        v11:[9.3, 'ok', 'VERIFICADO (colegionuevainglaterra.edu.co): Aprendizaje Basado en Proyectos (sin memorización pesada) + cátedra socioemocional.'],
         v12:[9.6, 'ok', 'Diploma IB + Cambridge ICE reconocidos por universidades top.'],
         v13:[10.0, 'ok', '10/10 BENEFICIO GRUPO NUEVA INGLATERRA: Colegio insignia hermano del JCN (continuidad articulada, Cal. A, $0 bono).']
       },
@@ -6703,7 +6705,7 @@
         v8: [9.5, 'ok', 'Excelente horario de entrada: 8:00 a.m. en preescolar.'],
         v9: [8.5, 'ok', 'Deportes, música y astronomía en campus.'],
         v10:[9.5, 'ok', '~8 hectáreas campestres con observatorio propio.'],
-        v11:[8.8, 'ok', 'ISO 9001 en bienestar escolar.'],
+        v11:[9.0, 'ok', 'VERIFICADO (gimnasiovermont.edu.co): Manual de Convivencia suspende tareas en casa durante semanas de evaluaciones (CPA) + entrada 8:00 a.m.'],
         v12:[9.5, 'ok', 'Diploma IB + certificación HSK Mandarín.'],
         v13:[7.0, 'ok', 'Colegio externo Calendario B.']
       },
@@ -6718,7 +6720,7 @@
         v8: [8.2, 'ok', 'Horario estándar Calendario B.'],
         v9: [8.3, 'ok', 'Deportes y artes en campus Arrayanes.'],
         v10:[8.5, 'ok', 'Campus campestre en Vía Arrayanes.'],
-        v11:[9.0, 'ok', 'Preescolar personalizado en entorno campestre.'],
+        v11:[9.6, 'ok', 'VERIFICADO (greatplacetostudy.com / clermont.edu.co): Certificación Great Place to Study · lema "Aprendiendo felices" + proyectos en aula sin sobrecarga de tareas.'],
         v12:[8.8, 'ok', 'Certificaciones Cambridge y Alianza Francesa.'],
         v13:[7.0, 'ok', 'Colegio externo Calendario B.']
       },
@@ -6733,7 +6735,7 @@
         v8: [8.2, 'ok', 'Horario estándar Calendario B.'],
         v9: [8.2, 'ok', 'Deportes y clubes artísticos.'],
         v10:[8.4, 'ok', 'Campus campestre en Cll. 224.'],
-        v11:[8.8, 'ok', 'Comunidad cercana y atención personalizada.'],
+        v11:[9.5, 'ok', 'VERIFICADO (greatplacetostudy.com / richmondschool.edu.co): Certificación Great Place to Study · tareas dosificadas y atención personalizada.'],
         v12:[8.9, 'ok', 'US High School Diploma (Cognia) reconocido en EE.UU.'],
         v13:[7.0, 'ok', 'Colegio externo Calendario B.']
       },
@@ -6748,7 +6750,7 @@
         v8: [8.0, 'ok', 'Trayecto de ~6,5 km hacia Usaquén (Cll. 170 # 8-80).'],
         v9: [8.0, 'ok', 'Deportes y actividades extracurriculares tradicionales.'],
         v10:[8.2, 'ok', 'Campus consolidado en la Calle 170.'],
-        v11:[8.5, 'ok', 'Ambiente académico estructurado.'],
+        v11:[7.2, 'ter', '⚠️ Carga académica tradicionalmente exigente (tareas frecuentes y evaluaciones semanales constantes; equilibra con "Disciplina con Amor").'],
         v12:[8.6, 'ok', 'Excelente ingreso a universidades top de Colombia.'],
         v13:[8.2, 'ok', 'Mismo Calendario A del JCN (colegio externo).']
       }
