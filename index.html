@@ -267,14 +267,25 @@
           </div>
         </div>
 
-        <!-- 3. Colegio Destino (3 cols) -->
+        <!-- 3. Duración en JCN y Colegio Destino (3 cols) -->
         <div class="lg:col-span-3 p-3 rounded-2xl border border-emerald-500/30 bg-slate-900/80 space-y-2 flex flex-col justify-between">
-          <div>
-            <div class="font-bold text-emerald-400 mb-1.5">3️⃣ Colegio después del JCN:</div>
-            <select id="jcn-dest-select" onchange="setJcnConfig('dest',this.value)" class="w-full p-2 rounded-xl border border-emerald-500/50 bg-slate-800 text-white font-bold text-xs focus:outline-none">
+          <div class="space-y-2">
+            <div>
+              <div class="font-bold text-emerald-400 mb-1">3️⃣ ¿Cuánto tiempo hará en JCN?:</div>
+              <select id="jcn-years-select" onchange="setJcnConfig('jcnYears',this.value)" class="w-full p-1.5 rounded-xl border border-sky-500/50 bg-slate-800 text-sky-300 font-bold text-xs focus:outline-none">
+                <option value="1.5">1,5 años (Ene 27–Jun 28) ➔ Salta a PK Cal. B (4a)</option>
+                <option value="1">1 año (2027 Tots) ➔ Entra a PK Cal. A en 2028 (3,6a)</option>
+                <option value="2" selected>2 años (2027–28 Tots+Tikes) ➔ Entra a Kínder en 2029 (4,6a)</option>
+                <option value="3">3 años (2027–29 hasta Scholars) ➔ Entra a Transición en 2030 (5,6a)</option>
+                <option value="4">4 años (Todo JCN hasta Kinder Adv.) ➔ Entra a 1° Primaria en 2031 (6,6a)</option>
+              </select>
+            </div>
+            <div>
+              <div class="font-bold text-emerald-400 mb-1">4️⃣ Colegio después de terminar JCN:</div>
+              <select id="jcn-dest-select" onchange="setJcnConfig('dest',this.value)" class="w-full p-1.5 rounded-xl border border-emerald-500/50 bg-slate-800 text-white font-bold text-xs focus:outline-none">
               <optgroup label="⭐ Top Finalistas (Cal. B y Cal. A)">
                 <option value="sgs">🇬🇧 Saint George’s Opción A ($794,9M · Cal. B)</option>
-                <option value="cas_alm">🇺🇸 CAS — Colombo Americano c/almuerzo (~$694M tras JCN · Cal. A)</option>
+                <option value="cas_alm" selected>🇺🇸 CAS — Colombo Americano c/almuerzo (Ver desglose tras 1 a 4a en JCN · Cal. A)</option>
                 <option value="cas_lon">🇺🇸 CAS — Colombo Americano c/lonchera 2°–11° (~$624M tras JCN · Cal. A)</option>
               </optgroup>
               <optgroup label="🏛️ Continuidad Grupo Nueva Inglaterra (Mismo Cal. A del JCN)">
@@ -295,6 +306,7 @@
                 <option value="gcb">🛩️ GCB — Gimnasio Colombo Británico (IB + IGCSE · ~$673M · Cal. B)</option>
               </optgroup>
             </select>
+            </div>
           </div>
           <div id="jcn-routine-box" class="p-2 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-[11px] text-emerald-200 font-medium">
             <!-- Dinámico -->
@@ -315,15 +327,20 @@
           <div id="jcn-kpi-2027-sub" class="text-[10px] text-slate-300">Ahorras $14,91M vs. CAS 2027</div>
         </div>
         <div class="p-3 rounded-2xl border border-amber-500/40 bg-slate-900/90">
-          <div class="text-[10px] text-slate-400 font-bold uppercase">🏆 Total Etapa JCN (Ene 27 – Jun 28)</div>
+          <div id="jcn-kpi-15m-title" class="text-[10px] text-slate-400 font-bold uppercase">🏆 Total Etapa JCN (1,5 Años)</div>
           <div id="jcn-kpi-15m" class="text-base sm:text-lg font-extrabold text-amber-400 mt-0.5">$35.330.000 COP</div>
-          <div id="jcn-kpi-15m-sub" class="text-[10px] text-emerald-300 font-semibold">Ahorras +$28,54M vs. CAS (paga los $20M de SGS)</div>
+          <div id="jcn-kpi-15m-sub" class="text-[10px] text-emerald-300 font-semibold">Ahorras +$28,54M vs. esos mismos meses en CAS</div>
         </div>
         <div class="p-3 rounded-2xl border border-purple-500/40 bg-slate-900/90">
-          <div class="text-[10px] text-slate-400 font-bold uppercase">🎓 Total JCN + Colegio Grande</div>
+          <div id="jcn-kpi-total14-title" class="text-[10px] text-slate-400 font-bold uppercase">🎓 Valor Restante en Colegio + JCN</div>
           <div id="jcn-kpi-total14" class="text-base sm:text-lg font-extrabold text-purple-300 mt-0.5">~$830,2M COP</div>
-          <div id="jcn-kpi-total14-sub" class="text-[10px] text-slate-300">JCN + 14 años en Saint George’s</div>
+          <div id="jcn-kpi-total14-sub" class="text-[10px] text-slate-300">JCN ($35,3M) + Colegio ($794,9M)</div>
         </div>
+      </div>
+
+      <!-- Desglose Dinámico: ¿Cómo cambia el valor del CAS / Colegio Grande después de terminar el JCN? -->
+      <div id="jcn-after-breakdown" class="p-3 rounded-2xl border border-sky-500/40 bg-slate-900/90 text-xs text-slate-200">
+        <!-- Rellenado dinámicamente por JS -->
       </div>
 
       <!-- Mini-Tabla Visual de las 9 Tarifas Oficiales JCN 2027 (1 vistazo) -->
@@ -5241,23 +5258,24 @@
       completa:  { sin: 1.80, media: 1.95, completa: 2.05, label: 'Jornada Completa (8:00 a.m. – 2:00 p.m.)', meals: '2 comidas (medias nueves + almuerzo)' },
       adicional: { sin: 2.01, media: 2.18, completa: 2.28, label: 'Tardes Campestres (8:00 a.m. – 4:30 p.m.)', meals: '3 comidas + Danzas, Teatro, Música, Fútbol, Porras' }
     };
+    // Costo anual de cada colegio grande (PK a 11° = 14 años) para descontar exactamente los años de preescolar que Sara haga en el JCN
     const JCN_DEST_SCHOOLS = {
-      sgs:            { name: '🇬🇧 Saint George’s School (Opción A c/Anticipo $20M)', cal: 'Cal. B (salto Ago 2028)', cost14: 794.9, ant: 20.0, yearsAfter15m: 14 },
-      cas_alm:        { name: '🇺🇸 CAS — Colombo Americano (c/almuerzo 2°–11° · IB + Cambridge)', cal: 'Cal. A (empalme sin perder semestre en Feb 2028/2029)', cost14: 694.0, ant: 0, yearsAfter15m: 13 },
-      cas_lon:        { name: '🇺🇸 CAS — Colombo Americano (c/lonchera 2°–11° · IB + Cambridge)', cal: 'Cal. A (empalme sin perder semestre en Feb 2028/2029)', cost14: 624.0, ant: 0, yearsAfter15m: 13 },
-      hontanar:       { name: '🌿 Gimnasio El Hontanar (Grupo Nueva Inglaterra · IB + C1)', cal: 'Cal. A (empalme directo mismo grupo)', cost14: 472.4, ant: 0, yearsAfter15m: 12.5 },
-      cni:            { name: '🏴󠁧󠁢󠁥󠁮󠁧󠁿 Colegio Nueva Inglaterra — NES (IB + ICE + IELTS C1)', cal: 'Cal. A (empalme directo mismo grupo)', cost14: 498.5, ant: 0, yearsAfter15m: 12.5 },
-      angloamericano: { name: '🇺🇸 Colegio Anglo Americano (Cll. 170 # 8-80 · ICFES D1)', cal: 'Cal. A (empalme sin perder semestre)', cost14: 482.0, ant: 0, yearsAfter15m: 13 },
-      vermont:        { name: '🌎 Gimnasio Vermont (IB + Mandarín + 8:00 a.m.)', cal: 'Cal. B (salto Ago 2028)', cost14: 741.0, ant: 0, yearsAfter15m: 14 },
-      sanviator:      { name: '⚜️🗽 Colegio San Viator (3 Programas IB + CIS)', cal: 'Cal. B (salto Ago 2028)', cost14: 612.5, ant: 0, yearsAfter15m: 14 },
-      clermont:       { name: '🦁 Colegio Bilingüe Clermont (A 1 cuadra del CAS · Cambridge + Francés)', cal: 'Cal. B (salto Ago 2028)', cost14: 615.0, ant: 0, yearsAfter15m: 14 },
-      lincoln:        { name: '🦅 Colegio Abraham Lincoln (Calle 170 a 6 min)', cal: 'Cal. B (salto Ago 2028)', cost14: 680.0, ant: 0, yearsAfter15m: 14 },
-      marymount:      { name: '🌸 Colegio Marymount Bogotá (Cll. 169B a 5 min s/ruta)', cal: 'Cal. B (salto Ago 2028)', cost14: 695.0, ant: 0, yearsAfter15m: 14 },
-      buckingham:     { name: '👑 Colegio Bilingüe Buckingham (3 Programas IB + HEI)', cal: 'Cal. B (salto Ago 2028)', cost14: 690.0, ant: 0, yearsAfter15m: 14 },
-      richmond:       { name: '🏛️ Richmond School (Cognia High School Diploma)', cal: 'Cal. B (salto Ago 2028)', cost14: 578.2, ant: 0, yearsAfter15m: 14 },
-      gcb:            { name: '🛩️ GCB — Gimnasio Colombo Británico (IB + IGCSE)', cal: 'Cal. B (salto Ago 2028)', cost14: 673.0, ant: 0, yearsAfter15m: 14 }
+      sgs:            { name: '🇬🇧 Saint George’s School (Opción A c/Anticipo $20M)', calType: 'B', full14: 794.9, ant: 20.0, annualPre: 55.35, annualPri: 55.35 },
+      cas_alm:        { name: '🇺🇸 CAS — Colombo Americano (c/almuerzo 2°–11°)', calType: 'A', full14: 742.9, ant: 0, annualPre: 49.05, annualPri: 56.37, isCas: true, withLunch: true },
+      cas_lon:        { name: '🇺🇸 CAS — Colombo Americano (c/lonchera 2°–11°)', calType: 'A', full14: 672.9, ant: 0, annualPre: 49.05, annualPri: 49.37, isCas: true, withLunch: false },
+      hontanar:       { name: '🌿 Gimnasio El Hontanar (Grupo JCN · IB + C1)', calType: 'A', full14: 542.5, ant: 0, annualPre: 38.75, annualPri: 38.75 },
+      cni:            { name: '🏴󠁧󠁢󠁥󠁮󠁧󠁿 Colegio Nueva Inglaterra — NES (Grupo JCN · IB + ICE + C1)', calType: 'A', full14: 571.0, ant: 0, annualPre: 40.78, annualPri: 40.78 },
+      angloamericano: { name: '🇺🇸 Colegio Anglo Americano (Cll. 170 · ICFES D1)', calType: 'A', full14: 518.0, ant: 0, annualPre: 37.00, annualPri: 37.00 },
+      vermont:        { name: '🌎 Gimnasio Vermont (IB + Mandarín + 8:00 a.m.)', calType: 'B', full14: 741.0, ant: 0, annualPre: 52.93, annualPri: 52.93 },
+      sanviator:      { name: '⚜️🗽 Colegio San Viator (3 Programas IB + CIS)', calType: 'B', full14: 612.5, ant: 0, annualPre: 43.75, annualPri: 43.75 },
+      clermont:       { name: '🦁 Colegio Bilingüe Clermont (A 1 cuadra del CAS)', calType: 'B', full14: 615.0, ant: 0, annualPre: 43.93, annualPri: 43.93 },
+      lincoln:        { name: '🦅 Colegio Abraham Lincoln (Calle 170 a 6 min)', calType: 'B', full14: 680.0, ant: 0, annualPre: 48.57, annualPri: 48.57 },
+      marymount:      { name: '🌸 Colegio Marymount Bogotá (Cll. 169B a 5 min s/ruta)', calType: 'B', full14: 695.0, ant: 0, annualPre: 49.64, annualPri: 49.64 },
+      buckingham:     { name: '👑 Colegio Bilingüe Buckingham (3 Programas IB + HEI)', calType: 'B', full14: 690.0, ant: 0, annualPre: 49.28, annualPri: 49.28 },
+      richmond:       { name: '🏛️ Richmond School (Cognia High School Diploma)', calType: 'B', full14: 578.2, ant: 0, annualPre: 41.30, annualPri: 41.30 },
+      gcb:            { name: '🛩️ GCB — Gimnasio Colombo Británico (IB + IGCSE)', calType: 'B', full14: 673.0, ant: 0, annualPre: 48.07, annualPri: 48.07 }
     };
-    const jcnState = { sched: 'hibrido', route: 'completa', early: true, dest: 'sgs' };
+    const jcnState = { sched: 'hibrido', route: 'completa', early: true, dest: 'cas_alm', jcnYears: '2' };
 
     function fmtCopM(valM) {
       const pesos = Math.round(valM * 1000000);
@@ -5266,6 +5284,14 @@
 
     function setJcnConfig(key, val) {
       jcnState[key] = val;
+      const destObj = JCN_DEST_SCHOOLS[jcnState.dest] || JCN_DEST_SCHOOLS.sgs;
+      // Si elige un colegio de Cal. A y tenía 1.5 años (que es corte de Cal. B), sugerir 2 años en JCN (Tots + Tikes); si elige Cal. B y tenía 1 año, pasar a 1.5 años
+      if (key === 'dest') {
+        if (destObj.calType === 'A' && jcnState.jcnYears === '1.5') jcnState.jcnYears = '2';
+        if (destObj.calType === 'B' && jcnState.jcnYears === '1') jcnState.jcnYears = '1.5';
+        const ySel = document.getElementById('jcn-years-select');
+        if (ySel) ySel.value = jcnState.jcnYears;
+      }
       ['hibrido','media','completa','adicional'].forEach(k => {
         const el = document.getElementById('jcn-sched-' + k);
         if (el) el.classList.toggle('active', jcnState.sched === k);
@@ -5319,38 +5345,122 @@
       }
 
       const total2027 = mat1 + (5 * m2027_first5) + (5 * m2027_last5);
-      const total15m  = total2027 + mat2 + (5 * m2028_5m);
-      const cas2027   = 37.29837;
-      const cas15m    = 63.87436;
-      const save2027  = cas2027 - total2027;
-      const save15m   = cas15m - total15m;
-      const destObj   = JCN_DEST_SCHOOLS[jcnState.dest] || JCN_DEST_SCHOOLS.sgs;
-      const totalLife = total15m + destObj.cost14;
+      const year2PlusJcn = mat2 + (10 * m2028_5m); // 1 año completo en Tikes/Scholars/Kinder Adv.
+      const yrs = parseFloat(jcnState.jcnYears || '2');
+      let totalJcnStage = 0, casEquivStage = 0, jcnStageTitle = '';
+      if (yrs === 1) {
+        totalJcnStage = total2027;
+        casEquivStage = 37.29837; // 1 año Nursery CAS
+        jcnStageTitle = '🏆 Total Etapa JCN (1 Año: 2027 Tots)';
+      } else if (yrs === 1.5) {
+        totalJcnStage = total2027 + mat2 + (5 * m2028_5m);
+        casEquivStage = 63.87436; // 15 meses CAS (Nursery + Mat PK + 5m PK)
+        jcnStageTitle = '🏆 Total Etapa JCN (1,5 Años: Ene 27–Jun 28)';
+      } else if (yrs === 2) {
+        totalJcnStage = total2027 + year2PlusJcn;
+        casEquivStage = 37.29837 + 48.84947; // Nursery + PK CAS = $86,15M
+        jcnStageTitle = '🏆 Total Etapa JCN (2 Años: Tots + Tikes)';
+      } else if (yrs === 3) {
+        totalJcnStage = total2027 + (2 * year2PlusJcn);
+        casEquivStage = 37.29837 + 48.84947 + 48.94225; // Nursery + PK + Kínder CAS = $135,09M
+        jcnStageTitle = '🏆 Total Etapa JCN (3 Años: hasta Kínder)';
+      } else {
+        totalJcnStage = total2027 + (3 * year2PlusJcn);
+        casEquivStage = 37.29837 + 48.84947 + 48.94225 + 49.36990; // 4 años preescolar CAS = $184,46M
+        jcnStageTitle = '🏆 Total Etapa JCN (4 Años: Todo Preescolar)';
+      }
+
+      const cas2027  = 37.29837;
+      const save2027 = cas2027 - total2027;
+      const saveStage = casEquivStage - totalJcnStage;
+      const destObj  = JCN_DEST_SCHOOLS[jcnState.dest] || JCN_DEST_SCHOOLS.cas_alm;
+
+      // ¿Cuántos años de los 14 estándar (PK a 11°) ya cursó en el JCN y cuántos le quedan en el Colegio Grande?
+      // El año 1 en JCN (2027, 2a 6m) equivale a Nursery (año 0 antes de los 14 años de PK a 11°).
+      // Cada año adicional en JCN después del año 1 (en Cal. A: yrs - 1; en Cal. B si hace >1.5a: Math.max(0, Math.floor(yrs - 1))) reemplaza un año de Preescolar (PK, K o Transición) del Colegio Grande!
+      const replacedPreYears = destObj.calType === 'A' ? Math.max(0, Math.round(yrs - 1)) : Math.max(0, Math.round(yrs - 1.5));
+      const remainingSchoolYears = 14 - replacedPreYears;
+      const entryGradeNames = ['Prekínder (3,6–4a)', 'Kínder (4,6–5a)', 'Transición (5,6–6a)', '1° de Primaria (6,6a)'];
+      const entryGrade = entryGradeNames[Math.min(3, replacedPreYears)];
+      const entryYearNum = destObj.calType === 'A' ? (2027 + Math.round(yrs)) : (2027 + Math.ceil(yrs));
+
+      // Nuevo valor del Colegio Grande después de descontar los años de Preescolar que ya hizo en el JCN:
+      const schoolCostAfterJcn = destObj.full14 - (replacedPreYears * destObj.annualPre);
+      const totalLife = totalJcnStage + schoolCostAfterJcn;
 
       const elMonth = document.getElementById('jcn-kpi-month');
       const elMonthSub = document.getElementById('jcn-kpi-month-sub');
       const el2027 = document.getElementById('jcn-kpi-2027');
       const el2027Sub = document.getElementById('jcn-kpi-2027-sub');
+      const el15mTitle = document.getElementById('jcn-kpi-15m-title');
       const el15m = document.getElementById('jcn-kpi-15m');
       const el15mSub = document.getElementById('jcn-kpi-15m-sub');
+      const elTot14Title = document.getElementById('jcn-kpi-total14-title');
       const elTot14 = document.getElementById('jcn-kpi-total14');
       const elTot14Sub = document.getElementById('jcn-kpi-total14-sub');
       const elRoutine = document.getElementById('jcn-routine-box');
+      const elAfter = document.getElementById('jcn-after-breakdown');
 
       if (elMonth) elMonth.textContent = monthText;
       if (elMonthSub) elMonthSub.textContent = monthSub;
       if (el2027) el2027.textContent = fmtCopM(total2027) + ' COP';
       if (el2027Sub) el2027Sub.textContent = `Inc. Mat.+Material (${fmtCopM(mat1)}) · Ahorras ${fmtCopM(save2027)} vs. CAS 2027`;
-      if (el15m) el15m.textContent = fmtCopM(total15m) + ' COP';
-      if (el15mSub) {
-        const leftoverSgs = save15m - 20.0;
-        el15mSub.textContent = leftoverSgs >= 0
-          ? `Ahorras ${fmtCopM(save15m)} vs. CAS (paga los $20M de SGS y sobran +${fmtCopM(leftoverSgs)})`
-          : `Ahorras ${fmtCopM(save15m)} vs. CAS ($63,87M)`;
-      }
+      if (el15mTitle) el15mTitle.textContent = jcnStageTitle;
+      if (el15m) el15m.textContent = fmtCopM(totalJcnStage) + ' COP';
+      if (el15mSub) el15mSub.textContent = `Ahorras ${fmtCopM(saveStage)} vs. hacer esa misma etapa en el CAS ($${casEquivStage.toFixed(1).replace('.', ',')}M)`;
+      if (elTot14Title) elTot14Title.textContent = `🎓 JCN (${yrs}a) + ${remainingSchoolYears} Años en Colegio`;
       if (elTot14) elTot14.textContent = `~$${totalLife.toFixed(1).replace('.', ',')}M COP`;
-      if (elTot14Sub) elTot14Sub.textContent = `JCN ($${total15m.toFixed(1).replace('.', ',')}M) + ${destObj.name.split('(')[0].trim()} ($${destObj.cost14.toFixed(1).replace('.', ',')}M)`;
-      if (elRoutine) elRoutine.innerHTML = `${routineHtml}<div class="pt-1 border-t border-emerald-500/30 text-emerald-300 font-semibold">🎓 Empalme seleccionado: ${destObj.name} (${destObj.cal})</div>`;
+      if (elTot14Sub) elTot14Sub.textContent = `JCN: $${totalJcnStage.toFixed(1).replace('.', ',')}M + Colegio (${remainingSchoolYears}a desde ${entryGrade.split(' ')[0]}): $${schoolCostAfterJcn.toFixed(1).replace('.', ',')}M`;
+      if (elRoutine) elRoutine.innerHTML = `${routineHtml}<div class="pt-1 border-t border-emerald-500/30 text-emerald-300 font-semibold">🎓 Entra a ${entryGrade} en ${entryYearNum} (${remainingSchoolYears} años en el colegio)</div>`;
+
+      if (elAfter) {
+        if (destObj.isCas) {
+          // Mostrar tabla comparativa de cómo cambia el valor del CAS según cuántos años haga en el JCN (1, 2, 3 o 4 años)
+          const rows = [1, 2, 3, 4].map(y => {
+            const jCost = total2027 + ((y - 1) * year2PlusJcn);
+            const repY = y - 1;
+            const remY = 14 - repY;
+            const cCost = destObj.full14 - (repY * destObj.annualPre);
+            const tot = jCost + cCost;
+            const gName = entryGradeNames[repY];
+            const vsDirectNursery = (37.30 + destObj.full14) - tot;
+            const activeRow = Math.round(yrs) === y ? 'bg-emerald-500/20 font-bold text-emerald-300' : '';
+            return `<tr class="${activeRow}">
+              <td class="p-1.5">${y} año${y>1?'s':''} en JCN (2027${y>1?'–'+(2026+y):''})</td>
+              <td class="p-1.5">Entra a <b>${gName}</b> en Feb ${2027+y}</td>
+              <td class="p-1.5">$${jCost.toFixed(1).replace('.', ',')}M</td>
+              <td class="p-1.5 font-semibold text-sky-300">${remY} años = <b>$${cCost.toFixed(1).replace('.', ',')}M</b></td>
+              <td class="p-1.5 font-bold text-emerald-400">$${tot.toFixed(1).replace('.', ',')}M</td>
+              <td class="p-1.5 text-emerald-400">Ahorras <b>$${vsDirectNursery.toFixed(1).replace('.', ',')}M</b> vs. entrar a CAS desde 2027</td>
+            </tr>`;
+          }).join('');
+          elAfter.innerHTML = `
+            <div class="font-bold text-sky-300 mb-1.5">📊 ¿Cómo cambia el valor del 🇺🇸 CAS (${destObj.withLunch ? 'con almuerzo escolar 2°–11°' : 'con lonchera 2°–11°'}) según cuántos años haga Sara en el JCN?</div>
+            <div class="overflow-x-auto">
+              <table class="w-full text-left border-collapse text-[11px]">
+                <thead><tr class="border-b border-slate-700 text-slate-300">
+                  <th class="p-1.5">Tiempo en JCN</th>
+                  <th class="p-1.5">Grado al que entra en el CAS</th>
+                  <th class="p-1.5">Pagado en JCN</th>
+                  <th class="p-1.5 text-sky-300">Nuevo Valor Restante del CAS</th>
+                  <th class="p-1.5 text-emerald-400">Total Combinado (JCN + CAS)</th>
+                  <th class="p-1.5">Ahorro Real</th>
+                </tr></thead>
+                <tbody class="divide-y divide-slate-800">${rows}</tbody>
+              </table>
+            </div>
+            <div class="mt-1.5 text-[11px] text-amber-300">💡 <b>Por qué baja tanto el CAS al quedarte más años en el JCN:</b> Porque cada año de Prekínder, Kínder o Transición en el CAS cuesta <b>~$49,0M/año</b> ($4,46M–$4,50M/mes + matrícula $4,3M), mientras que en el JCN cuesta solo <b>~$20,7M–$23,2M/año</b> (ahorras <b>~$25,8M por cada año adicional</b> que Sara haga en el JCN antes de pasar al CAS). <i>(⚠️ Nota: verificar con Admisiones CAS si la tarifa de ingreso en Kínder/Transición/1° tiene algún recargo de "estudiante nuevo" frente a quien entró en Nursery).</i></div>
+          `;
+        } else {
+          const savedPre = replacedPreYears * destObj.annualPre;
+          elAfter.innerHTML = `
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+              <div><b>📊 Nuevo valor de ${destObj.name.split('(')[0].trim()} después de ${yrs} año(s) en JCN:</b> Como Sara entra a <b>${entryGrade} en ${entryYearNum}</b>, en el colegio grande ya no pagas 14 años ($${destObj.full14.toFixed(1).replace('.', ',')}M) sino <b>${remainingSchoolYears} años = $${schoolCostAfterJcn.toFixed(1).replace('.', ',')}M</b>${savedPre > 0 ? ` (descontando $${savedPre.toFixed(1).replace('.', ',')}M de ${replacedPreYears} año(s) de preescolar que ya hizo más baratos en el JCN)` : ''}.</div>
+              <div class="font-bold text-emerald-400 shrink-0">Total JCN + Colegio: ~$${totalLife.toFixed(1).replace('.', ',')}M</div>
+            </div>
+          `;
+        }
+      }
     }
 
     // ============================================================================
