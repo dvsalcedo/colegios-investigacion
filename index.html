@@ -211,7 +211,7 @@
           </h2>
           <div class="mt-2 p-2 rounded-xl bg-amber-500/10 border border-amber-500/35 text-[11px] text-amber-200 flex flex-wrap gap-x-4 gap-y-1">
             <span>📌 <b>Antes del 1-Dic:</b> Matrícula con descuento <b>$1.900.000</b> (ahorras $700k) + Materiales <b>$790.000</b> = <b>$2.690.000</b></span>
-            <span>❓ <b>Confirmar al matricular:</b> Convenio CAFAM · Lista oficial de colegios con convenio · Cambio de horario Media ➔ Completa en el año</span>
+            <span>❓ <b>Confirmar al matricular:</b> Convenio <b>Compensar / Colsubsidio</b> · Lista oficial de colegios con convenio · Cambio de horario Media ➔ Completa en el año</span>
           </div>
         </div>
       </div>
@@ -415,8 +415,15 @@
         <button id="rank-mode-monthly" onclick="setCostRankMode('monthly')" class="jcn-pill px-3 py-1.5 rounded-xl font-semibold border border-slate-700 bg-slate-800 text-slate-300">📅 Mensualidad Promedio (Todo Incluido)</button>
       </div>
 
+      <!-- Leyenda visual rápida -->
+      <div class="flex flex-wrap items-center gap-2 text-[10.5px] text-slate-400 pt-0.5">
+        <span class="inline-flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-sky-400"></span><b>Inglés al graduarse</b></span>
+        <span class="inline-flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-violet-400"></span><b>Certificaciones Internacionales e Idiomas</b></span>
+        <span class="inline-flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-slate-500"></span><b>Calendario · Distancia · Bono</b></span>
+      </div>
+
       <!-- Lista Visual de Barras Ordenadas -->
-      <div id="cost-ranking-list" class="space-y-1.5">
+      <div id="cost-ranking-list" class="space-y-2">
         <!-- Generado dinámicamente por JS -->
       </div>
     </div>
@@ -5314,19 +5321,19 @@
     const jcnState = { sched: 'hibrido', route: 'completa', early: true, dest: 'cas_alm', jcnYears: '2' };
     const costRankState = { mode: 'combo', asc: true };
     const COST_RANK_META = {
-      angloamericano: { monthly: 3.35, km: '2,4 km (Cll. 170)', tag: 'ICFES D1 · Cal. A · $0 bono' },
-      hontanar:       { monthly: 3.40, km: '5,2 km (Cra. 7ª)',  tag: 'Grupo JCN · IB + C1/C2 · $0 bono' },
-      cni:            { monthly: 3.60, km: '6,8 km (Cll. 218)', tag: 'Grupo JCN · IB + ICE + C1 · $0 bono' },
-      richmond:       { monthly: 3.75, km: '7,4 km (Cll. 224)', tag: 'Cognia US Diploma · C1 · $0 bono' },
-      sanviator:      { monthly: 4.35, km: '6,4 km (Aut. 209)', tag: 'Vecino CAS · 3 IB + CIS · $0 bono' },
-      clermont:       { monthly: 4.40, km: '6,7 km (Cll. 213)', tag: 'A 1 cuadra CAS · Cambridge + FR · $0 bono' },
-      gcb:            { monthly: 4.45, km: '7,1 km (Cll. 215)', tag: 'IB + IGCSE · Cal. B · $0 bono' },
-      lincoln:        { monthly: 4.55, km: '2,1 km (Cll. 170)', tag: 'Cll. 170 a 6 min · C1 · $0 bono' },
-      buckingham:     { monthly: 4.65, km: '6,6 km (Cll. 214)', tag: 'Misma Cll. 214 CAS · 3 IB + HEI' },
-      marymount:      { monthly: 4.70, km: '1,8 km (Cll. 169B)',tag: 'A 5 min (s/ruta) · Femenino · 3 IB' },
-      cas_alm:        { monthly: 4.46, km: '6,8 km (Cll. 214)', tag: 'Con Almuerzo Siempre · IB + ICE · $0 bono' },
-      vermont:        { monthly: 4.80, km: '5,5 km (Cll. 195)', tag: 'IB + Mandarín · 8:00 a.m. · $0 bono' },
-      sgs:            { monthly: 4.91, km: '7,0 km (Cll. 215)', tag: 'Tope Presupuesto · Opción A (Bono $20M)' }
+      angloamericano: { monthly: 3.35, eng: 'C1 · IELTS / TOEFL',      certs: '🏆 ICFES D1 · ISO 9001',                       log: 'Cal. A · 2,4 km (Cll. 170) · $0 bono' },
+      hontanar:       { monthly: 3.40, eng: 'C1–C2 · Cambridge',       certs: '🌐 Diploma IB · 🇫🇷 Francés',                   log: 'Cal. A (Grupo JCN) · 5,2 km · $0 bono' },
+      cni:            { monthly: 3.60, eng: 'C1 · IELTS + Cambridge',  certs: '🌐 Diploma IB · 🏅 Cambridge ICE · 🇫🇷 Francés', log: 'Cal. A (Grupo JCN) · 6,8 km · $0 bono' },
+      richmond:       { monthly: 3.75, eng: 'C1 · US Diploma',         certs: '🇺🇸 Cognia (US High School Diploma)',          log: 'Cal. B · 7,4 km · $0 bono' },
+      sanviator:      { monthly: 4.35, eng: 'C1 · Cambridge / IB',     certs: '🌐 3 Programas IB · 🌍 CIS',                   log: 'Cal. B (Vecino CAS) · 6,4 km · $0 bono' },
+      clermont:       { monthly: 4.40, eng: 'C1 · Cambridge',          certs: '🏅 Cambridge · 🇫🇷 Francés · EFQM',            log: 'Cal. B (1 cuadra CAS) · 6,7 km · $0 bono' },
+      gcb:            { monthly: 4.45, eng: 'C1–C2 · Cambridge',       certs: '🌐 Diploma IB · 🏅 IGCSE · 🌍 CIS',            log: 'Cal. B · 7,1 km · $0 bono' },
+      lincoln:        { monthly: 4.55, eng: 'C1 · TOEFL / IELTS',      certs: '🇺🇸 Cognia · 🏅 Cambridge · EFQM 5★',          log: 'Cal. B · 2,1 km (Cll. 170) · $0 bono' },
+      buckingham:     { monthly: 4.65, eng: 'C1 · IB / Cambridge',     certs: '🌐 3 Programas IB · 🌍 CIS · 🇫🇮 HEI',         log: 'Cal. B (Cll. 214 CAS) · 6,6 km' },
+      marymount:      { monthly: 4.70, eng: 'C1–C2 · IB / TOEFL',      certs: '🌐 3 Programas IB · 🌍 CIS · Femenino',        log: 'Cal. B · 1,8 km (5 min s/ruta)' },
+      cas_alm:        { monthly: 4.46, eng: 'C1 · Cambridge / IB',     certs: '🌐 Diploma IB · 🏅 Cambridge ICE · EFQM 5★',   log: 'Cal. A · 6,8 km · Con Almuerzo · $0 bono' },
+      vermont:        { monthly: 4.80, eng: 'C1 · IB / Cambridge',     certs: '🌐 Diploma IB · 🇨🇳 Mandarín · EFQM',          log: 'Cal. B · 5,5 km · 8:00 a.m. · $0 bono' },
+      sgs:            { monthly: 4.91, eng: 'C1–C2 · Cambridge',       certs: '🏅 Cambridge IGCSE · 🌍 CIS · EFQM 5★',        log: 'Cal. B · 7,0 km · Bono $20M (Tope)' }
     };
 
     function setCostRankMode(m) {
@@ -5424,25 +5431,31 @@
 
         return `
           <div onclick="document.getElementById('jcn-dest-select').value='${it.key}'; setJcnConfig('dest','${it.key}'); document.getElementById('jcn-decision-center').scrollIntoView({behavior:'smooth', block:'start'});"
-               class="cursor-pointer p-2.5 rounded-xl border ${isSelected ? 'border-emerald-400 bg-emerald-950/35' : 'border-slate-800 bg-slate-900/80 hover:border-slate-600'} transition-all">
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 mb-1.5">
-              <div class="flex items-center gap-2 flex-wrap">
-                <span class="px-2 py-0.5 rounded-lg border text-[11px] font-black ${badgeColor}">#${rankNum}</span>
+               class="cursor-pointer p-3 rounded-xl border ${isSelected ? 'border-emerald-400 bg-emerald-950/35 shadow-sm shadow-emerald-500/10' : 'border-slate-800/90 bg-slate-900/85 hover:border-slate-600'} transition-all">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1.5">
+              <div class="flex items-center gap-2">
+                <span class="px-2 py-0.5 rounded-lg border text-[11px] font-black shrink-0 ${badgeColor}">#${rankNum}</span>
                 <span class="font-bold text-xs sm:text-sm text-white">${it.name}</span>
-                <span class="px-1.5 py-0.5 rounded bg-slate-800 text-[10px] text-slate-300">${it.meta.tag}</span>
-                <span class="text-[10px] text-slate-400">📍 ${it.meta.km}</span>
               </div>
               <div class="flex items-center gap-2.5 shrink-0">
                 <span class="text-[11px]">${saveText}</span>
-                <span class="text-sm font-black text-white">${valText}</span>
+                <span class="text-sm sm:text-base font-black text-white">${valText}</span>
               </div>
             </div>
-            <div class="w-full h-2 rounded-full bg-slate-800 overflow-hidden">
+
+            <!-- 3 Chips Armoniosos: Inglés + Certificaciones + Logística -->
+            <div class="flex flex-wrap items-center gap-1.5 mt-2 mb-2">
+              <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-sky-500/15 border border-sky-500/30 text-[10.5px] font-semibold text-sky-300">🗣️ ${it.meta.eng}</span>
+              <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-violet-500/15 border border-violet-500/30 text-[10.5px] font-semibold text-violet-300">${it.meta.certs}</span>
+              <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-slate-800/90 border border-slate-700/80 text-[10px] text-slate-300">📍 ${it.meta.log}</span>
+            </div>
+
+            <div class="w-full h-1.5 rounded-full bg-slate-800 overflow-hidden">
               <div class="h-full rounded-full ${barColor} transition-all duration-300" style="width:${pct}%"></div>
             </div>
-            <div class="mt-1 text-[10.5px] text-slate-400 flex justify-between">
+            <div class="mt-1 text-[10.5px] text-slate-400 flex justify-between gap-2">
               <span>${it.subLabel}</span>
-              <span class="text-slate-500">Clic para simular arriba ↑</span>
+              <span class="text-slate-500 shrink-0 hidden sm:inline">Clic para simular ↑</span>
             </div>
           </div>
         `;
