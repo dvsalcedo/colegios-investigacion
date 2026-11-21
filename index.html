@@ -246,6 +246,10 @@
     .aspect-section[data-cat]:not([data-cat="g1"]) table.sticky-col-2 tbody tr:hover td:nth-child(2) {
       background: #132238 !important;
     }
+    .aspect-section[data-cat]:not([data-cat="g1"]) table.hide-col-1 th:first-child,
+    .aspect-section[data-cat]:not([data-cat="g1"]) table.hide-col-1 td:first-child {
+      display: none !important;
+    }
 
     /* Tarjetas internas más suaves y uniformes */
     .aspect-section[data-cat]:not([data-cat="g1"]) .grid > div {
@@ -298,9 +302,6 @@
           <div class="flex flex-wrap gap-2">
             <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/15 text-emerald-500 border border-emerald-500/30">
               👧 SARA · NACIDA EL 12 DE JULIO DE 2024
-            </span>
-            <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-sky-500/15 text-sky-500 border border-sky-500/30">
-              🚌 RUTA SGS CONFIRMADA: 6:15 A.M. – 3:50 P.M.
             </span>
             <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-amber-500/15 text-amber-500 border border-amber-500/30">
               🚦 FILTROS ACTIVOS: ≤ SGS ($4,91M/MES) + INGLÉS C1 + JARDÍN BILINGÜE · 10 COLEGIOS ELEGIBLES (MIXTOS) (INCL. RICHMOND, EJE CL 170 Y VECINOS CAS) + 3 JARDINES
@@ -1518,7 +1519,7 @@
       <div class="p-4 rounded-xl border border-[var(--border)] bg-[var(--background)] overflow-x-auto space-y-2">
         <div class="font-bold text-sm text-emerald-400">📊 Tabla 1: Desglose Rubro por Rubro de los 14–15 Años Escolares (Ordenado de Menor a Mayor Inversión en Pesos de Hoy)</div>
         <p class="text-[11px] text-[var(--muted-foreground)]">Todos los valores están expresados en millones de pesos colombianos (COP). La columna <b>"Total Base c/Almuerzo y Ruta"</b> compara manzanas con manzanas (matrículas + pensiones + alimentación los 14 años + ruta escolar). La columna <b>"Total + Extras Tarde"</b> añade el costo de 1 taller extracurricular durante la vida escolar. La columna <b>"Desembolso Real c/Inflación (~7% E.A.)"</b> proyecta cuánto dinero nominal saldrá realmente de tu cuenta bancaria entre 2027 y 2042 asumiendo un reajuste anual promedio del MEN del 7%.</p>
-        <table class="sticky-col-2 w-full text-left border-collapse text-xs">
+        <table class="sticky-col-2 hide-col-1 w-full text-left border-collapse text-xs">
           <thead>
             <tr class="border-b-2 border-[var(--border)] bg-[var(--card)]">
               <th class="p-2 font-bold">#</th>
