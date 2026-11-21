@@ -103,6 +103,151 @@
       .aspect-section { display: block !important; break-inside: avoid; margin-bottom: 16px; }
       body { background: #ffffff !important; color: #000000 !important; }
     }
+
+    /* =====================================================================
+       DISEÑO ARMONIOSO Y LIMPIO PARA GRIDS 1B AL 16 (ESTILO DASHBOARD MODERNO)
+       ===================================================================== */
+    .aspect-section[data-cat]:not([data-cat="g1"]) {
+      border: 1px solid rgba(148, 163, 184, 0.16) !important;
+      border-radius: 20px !important;
+      background: linear-gradient(180deg, rgba(15, 23, 42, 0.92) 0%, rgba(15, 23, 42, 0.98) 100%) !important;
+      box-shadow: 0 10px 30px -12px rgba(2, 6, 23, 0.55) !important;
+      padding: 20px 22px !important;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .aspect-section[data-cat]:not([data-cat="g1"]):hover {
+      border-color: rgba(56, 189, 248, 0.28) !important;
+    }
+    /* Encabezado limpio con botón plegable */
+    .grid-acc-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      cursor: pointer;
+      user-select: none;
+    }
+    .grid-acc-btn {
+      flex-shrink: 0;
+      padding: 4px 11px;
+      border-radius: 9999px;
+      font-size: 11px;
+      font-weight: 700;
+      color: #cbd5e1;
+      background: rgba(30, 41, 59, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.22);
+      transition: all 0.15s ease;
+    }
+    .grid-acc-btn:hover {
+      color: #ffffff;
+      border-color: rgba(56, 189, 248, 0.55);
+      background: rgba(56, 189, 248, 0.15);
+    }
+    .aspect-section.grid-folded > *:not(.grid-acc-header-wrap) {
+      display: none !important;
+    }
+
+    /* Tablas armoniosas, aireadas y con columna fija a la izquierda */
+    .aspect-section[data-cat]:not([data-cat="g1"]) .overflow-x-auto {
+      border-radius: 14px;
+      border: 1px solid rgba(148, 163, 184, 0.16);
+      background: rgba(2, 6, 23, 0.42);
+      scrollbar-width: thin;
+      scrollbar-color: rgba(100, 116, 139, 0.5) transparent;
+    }
+    .aspect-section[data-cat]:not([data-cat="g1"]) table {
+      border-collapse: separate !important;
+      border-spacing: 0 !important;
+      width: 100%;
+      font-size: 12px;
+      line-height: 1.5;
+    }
+    .aspect-section[data-cat]:not([data-cat="g1"]) table thead th {
+      position: sticky;
+      top: 0;
+      z-index: 2;
+      background: rgba(30, 41, 59, 0.96) !important;
+      color: #cbd5e1 !important;
+      font-size: 10.5px !important;
+      font-weight: 700 !important;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      padding: 11px 13px !important;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.22) !important;
+      white-space: nowrap;
+    }
+    .aspect-section[data-cat]:not([data-cat="g1"]) table tbody td {
+      padding: 11px 13px !important;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.1) !important;
+      vertical-align: top;
+      color: #e2e8f0;
+    }
+    .aspect-section[data-cat]:not([data-cat="g1"]) table tbody tr:nth-child(even) td {
+      background: rgba(255, 255, 255, 0.018);
+    }
+    .aspect-section[data-cat]:not([data-cat="g1"]) table tbody tr:hover td {
+      background: rgba(56, 189, 248, 0.08) !important;
+    }
+    /* Primera columna fija (Nombre del Colegio) para nunca perder el hilo al scrollear */
+    .aspect-section[data-cat]:not([data-cat="g1"]) table th:first-child,
+    .aspect-section[data-cat]:not([data-cat="g1"]) table td:first-child {
+      position: sticky;
+      left: 0;
+      z-index: 3;
+      background: #0f172a !important;
+      border-right: 1px solid rgba(148, 163, 184, 0.18) !important;
+      min-width: 175px;
+      max-width: 230px;
+      font-weight: 700;
+      color: #f8fafc !important;
+    }
+    .aspect-section[data-cat]:not([data-cat="g1"]) table thead th:first-child {
+      z-index: 4;
+      background: #1e293b !important;
+    }
+    .aspect-section[data-cat]:not([data-cat="g1"]) table tbody tr:hover td:first-child {
+      background: #132238 !important;
+    }
+
+    /* Tarjetas internas más suaves y uniformes */
+    .aspect-section[data-cat]:not([data-cat="g1"]) .grid > div {
+      border: 1px solid rgba(148, 163, 184, 0.16) !important;
+      border-radius: 16px !important;
+      background: rgba(15, 23, 42, 0.65) !important;
+      padding: 15px 16px !important;
+      transition: transform 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+    }
+    .aspect-section[data-cat]:not([data-cat="g1"]) .grid > div:hover {
+      transform: translateY(-2px);
+      border-color: rgba(56, 189, 248, 0.35) !important;
+      background: rgba(30, 41, 59, 0.72) !important;
+    }
+
+    /* Modo compacto aún más limpio en celdas largas de tablas (clic o hover expande) */
+    body.modo-compacto .aspect-section[data-cat]:not([data-cat="g1"]) table tbody td:not(:first-child) {
+      max-width: 270px;
+    }
+    body.modo-compacto .aspect-section[data-cat]:not([data-cat="g1"]) table tbody tr:not(.row-expanded) td:not(:first-child) {
+      max-height: 74px;
+    }
+    .grid-pill-nav {
+      padding: 5px 10px;
+      border-radius: 9999px;
+      font-size: 11px;
+      font-weight: 600;
+      color: #cbd5e1;
+      background: rgba(30, 41, 59, 0.85);
+      border: 1px solid rgba(148, 163, 184, 0.2);
+      transition: all 0.15s ease;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .grid-pill-nav:hover {
+      color: #ffffff;
+      border-color: rgba(16, 185, 129, 0.55);
+      background: rgba(16, 185, 129, 0.18);
+    }
+
   </style>
 </head>
 <body class="ocultar-descartados modo-compacto bg-[var(--background)] text-[var(--foreground)] antialiased p-3 sm:p-4 md:p-6">
@@ -1264,6 +1409,38 @@
             </div>
           </div>
         </div>
+      </div>
+    </div>
+
+    <!-- 🧭 ÍNDICE RÁPIDO Y CONTROL ARMONIOSO DE GRIDS (1B AL 16) -->
+    <div id="grids-nav-bar" class="bg-slate-900/95 border border-sky-500/30 rounded-2xl p-4 shadow-lg space-y-3">
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+        <div>
+          <h3 class="text-sm sm:text-base font-extrabold text-sky-300">🧭 Explorador Armonioso de Grids (Del Grid 1B al 16)</h3>
+          <p class="text-[11px] text-slate-400">Todas las tablas tienen <b>columna izquierda fija</b> y secciones plegables. Haz clic en cualquier tema para abrirlo e ir directo a él.</p>
+        </div>
+        <div class="flex items-center gap-1.5 shrink-0">
+          <button onclick="setAllGridsFolded(false)" class="px-2.5 py-1 rounded-lg bg-emerald-500/15 hover:bg-emerald-500/25 border border-emerald-500/35 text-emerald-300 text-[11px] font-bold transition-colors">📂 Abrir Todos</button>
+          <button onclick="setAllGridsFolded(true)" class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-300 text-[11px] font-bold transition-colors">📁 Plegar Todos</button>
+        </div>
+      </div>
+      <div class="flex flex-wrap gap-1.5">
+        <button onclick="jumpToGrid('g1b')" class="grid-pill-nav">💵 1B · Costo 14 Años</button>
+        <button onclick="jumpToGrid('g2')" class="grid-pill-nav">📅 2 · Edades Sara</button>
+        <button onclick="jumpToGrid('g3')" class="grid-pill-nav">🎓 3 · ICFES y Nivel</button>
+        <button onclick="jumpToGrid('g4')" class="grid-pill-nav">🏅 4 · Certificaciones</button>
+        <button onclick="jumpToGrid('g5')" class="grid-pill-nav">🗣️ 5 · Idiomas (C1)</button>
+        <button onclick="jumpToGrid('g6')" class="grid-pill-nav">😊 6 · Bienestar</button>
+        <button onclick="jumpToGrid('g7')" class="grid-pill-nav">⚽ 7 · Extracurriculares</button>
+        <button onclick="jumpToGrid('g8')" class="grid-pill-nav">🏛️ 8 · Universidades</button>
+        <button onclick="jumpToGrid('g9')" class="grid-pill-nav">🚌 9 · Rutas y Sueño</button>
+        <button onclick="jumpToGrid('g10')" class="grid-pill-nav">🏫 10 · Campus</button>
+        <button onclick="jumpToGrid('g11')" class="grid-pill-nav">🛡️ 11 · Inclusión</button>
+        <button onclick="jumpToGrid('g12')" class="grid-pill-nav">📜 12 · Diplomas</button>
+        <button onclick="jumpToGrid('g13')" class="grid-pill-nav">🧾 13 · Confiabilidad</button>
+        <button onclick="jumpToGrid('g14')" class="grid-pill-nav">🏆 14 · Veredicto IA</button>
+        <button onclick="jumpToGrid('g15')" class="grid-pill-nav">♟️ 15 · Estrategias</button>
+        <button onclick="jumpToGrid('g16')" class="grid-pill-nav">🎛️ 16 · Simulador</button>
       </div>
     </div>
 
@@ -6631,6 +6808,46 @@
       sec.style.display = (cat === 'g1b' || cat === 'g14' || cat === 'g16') ? 'block' : 'none';
     });
   </script>
+
+  <script>
+    function jumpToGrid(cat) {
+      const sec = document.querySelector('.aspect-section[data-cat="' + cat + '"]');
+      if (!sec) return;
+      sec.classList.remove('grid-folded');
+      const btn = sec.querySelector('.grid-acc-btn');
+      if (btn) btn.textContent = '▾ Ocultar';
+      sec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    function setAllGridsFolded(folded) {
+      document.querySelectorAll('.aspect-section[data-cat]:not([data-cat="g1"])').forEach(sec => {
+        sec.classList.toggle('grid-folded', folded);
+        const btn = sec.querySelector('.grid-acc-btn');
+        if (btn) btn.textContent = folded ? '▸ Ver Grid' : '▾ Ocultar';
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      const secs = document.querySelectorAll('.aspect-section[data-cat]:not([data-cat="g1"])');
+      secs.forEach(sec => {
+        const firstChild = sec.firstElementChild;
+        if (!firstChild || firstChild.classList.contains('grid-acc-header-wrap')) return;
+        firstChild.classList.add('grid-acc-header-wrap', 'grid-acc-header');
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'grid-acc-btn';
+        btn.textContent = '▾ Ocultar';
+        firstChild.appendChild(btn);
+
+        firstChild.addEventListener('click', function(e) {
+          if (e.target.closest('a, input, select')) return;
+          const isFolded = sec.classList.toggle('grid-folded');
+          btn.textContent = isFolded ? '▸ Ver Grid' : '▾ Ocultar';
+        });
+      });
+    });
+  </script>
+
 </body>
 </html><br/>
           • <b>9. Jardín Infantil American Garden (by GCB) + Ruta GCB Journey (La Forma Más Inteligente de Entrar al GCB o Hacer Puente de 2 a 4 Años):</b> Como el <b>Gimnasio Colombo Británico (GCB)</b> queda en Guaymaral (~8,5 km cruzando las obras de la Av. Boyacá Norte y entrando a las 7:15 a.m.), el propio GCB creó su jardín oficial <b>American Garden by GCB en La Calleja (Calle 127B Bis # 19-94)</b>. Esto te abre dos jugadas maestras para Sara: <b>(Jugada A — GCB Journey completo):</b> Sara cursa de los 2 a los 5 años en La Calleja (a 4,2 km al suroriente con <b>0% obras de Boyacá Norte</b>, entrando a las <b>8:00 a.m.</b> y pagando solo <b>~$1,82M–$2,15M/mes todo incluido</b>) y solo viaja a Guaymaral cuando ya tiene 6 años para entrar a Primaria en el GCB, <b>ahorrando ~$84,1 millones de pesos</b> en el acumulado de 14 años (~$605M vs. ~$689,1M); o <b>(Jugada B — Jardín Puente 2 a 4 años):</b> Sara cursa Caminadores y Párvulos en American Garden y en agosto de 2028 (a los 4 años) salta a Prekínder en <b>Saint George’s School, Anglo Colombiano o Gimnasio Vermont</b> habiendo ahorrado ~$30M frente al CAS.<br/>
