@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Plan Escolar Sara (2027–2043) — ✅ Etapa 1 Confirmada: JCN (Ene 2027) ➔ Etapa 2: 10 Colegios Elegibles (Mixtos)</title>
+  <title>Plan Escolar Sara (2027–2043) — ✅ Etapa 1 Confirmada: JCN (Ene 2027) ➔ Etapa 2: 9 Colegios Elegibles (Mixtos)</title>
   <!-- Tailwind CSS oficial para que funcione en cualquier navegador, celular, GitHub Pages o Netlify -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
@@ -304,7 +304,7 @@
               👧 SARA · NACIDA EL 12 DE JULIO DE 2024
             </span>
             <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-amber-500/15 text-amber-500 border border-amber-500/30">
-              🚦 FILTROS ACTIVOS: ≤ SGS ($4,91M/MES) + INGLÉS C1 + JARDÍN BILINGÜE · 10 COLEGIOS ELEGIBLES (MIXTOS) (INCL. RICHMOND, EJE CL 170 Y VECINOS CAS) + 3 JARDINES
+              🚦 FILTROS ACTIVOS: ≤ SGS ($4,91M/MES) + INGLÉS C1 + JARDÍN BILINGÜE · 9 COLEGIOS ELEGIBLES (MIXTOS) (INCL. RICHMOND, EJE CL 170 Y VECINOS CAS) + 3 JARDINES
             </span>
           </div>
           <div class="flex flex-wrap items-center gap-2 no-print">
@@ -479,7 +479,6 @@
                 <option value="cni">🏴󠁧󠁢󠁥󠁮󠁧󠁿 Colegio Nueva Inglaterra NES (~$498M · IB + ICE + C1 · Cal. A)</option>
               </optgroup>
               <optgroup label="📍 Eje Calle 170 (A 5–8 min de tu edificio)">
-                <option value="angloamericano">🇺🇸 Colegio Anglo Americano (~$482M tras JCN · Cll. 170 · Cal. A)</option>
               </optgroup>
               <optgroup label="📍 Vecinos del CAS y Norte (Cal. B)">
                 <option value="sanviator">⚜️🗽 San Viator (3 Programas IB + CIS · ~$612,5M · Cal. B)</option>
@@ -527,7 +526,7 @@
         <!-- Rellenado dinámicamente por JS -->
       </div>
 
-      <!-- Tabla Maestra Dinámica: Todos los 10 Colegios Elegibles (Mixtos) (Saint George's, CAS y demás) según cuándo salga Sara del JCN -->
+      <!-- Tabla Maestra Dinámica: Todos los 9 Colegios Elegibles (Mixtos) (Saint George's, CAS y demás) según cuándo salga Sara del JCN -->
       <div id="jcn-all-schools-matrix" class="p-3 rounded-2xl border border-emerald-500/40 bg-slate-900/95 text-xs text-slate-200">
         <!-- Rellenado dinámicamente por JS -->
       </div>
@@ -575,11 +574,11 @@
       </div>
     </div>
 
-    <!-- RANKING INTERACTIVO: DEL MÁS BARATO AL MÁS CARO (10 COLEGIOS ELEGIBLES (MIXTOS)) -->
+    <!-- RANKING INTERACTIVO: DEL MÁS BARATO AL MÁS CARO (9 COLEGIOS ELEGIBLES (MIXTOS)) -->
     <div id="ranking-costo-elegibles" class="bg-[var(--card)] border-2 border-emerald-500/50 rounded-2xl p-4 sm:p-5 shadow-md space-y-3">
       <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
         <div>
-          <h3 class="text-lg md:text-xl font-bold text-emerald-400">💰 Ranking de Costo: Del Más Barato al Más Caro (10 Colegios Elegibles (Mixtos))</h3>
+          <h3 class="text-lg md:text-xl font-bold text-emerald-400">💰 Ranking de Costo: Del Más Barato al Más Caro (9 Colegios Elegibles (Mixtos))</h3>
           <p class="text-xs text-[var(--muted-foreground)]">Solo los colegios que cumplen <b>Inglés C1 + Presupuesto ≤ Saint George’s</b>, ordenados automáticamente de menor a mayor inversión. Se actualiza en vivo con tu horario del JCN.</p>
         </div>
         <button id="rank-dir-btn" onclick="toggleCostRankDir()" class="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 border border-emerald-500/40 text-xs font-bold text-emerald-300 shrink-0 transition-colors">
@@ -631,7 +630,6 @@
           <table class="w-full text-left border-collapse text-xs">
             <thead><tr class="border-b border-[var(--border)]"><th class="p-1.5">Colegio</th><th class="p-1.5">Inglés al egreso</th><th class="p-1.5">Al mes</th><th class="p-1.5">14 años</th></tr></thead>
             <tbody class="divide-y divide-[var(--border)]">
-              <tr><td class="p-1.5 font-semibold">🇺🇸 Colegio Anglo Americano (Cal. A · <b>Eje Cll. 170 # 8-80</b>)</td><td class="p-1.5">C1 Bilingüe Avanzado (Saber 11 inglés &gt;88/100)</td><td class="p-1.5">$3,25M–$3,75M</td><td class="p-1.5">~$518M</td></tr>
               <tr class="bg-indigo-500/10"><td class="p-1.5 font-semibold text-indigo-300">🏛️ Richmond School (Cal. B · <b>Vecino CAS en Cra. 53 # 222-76</b>)</td><td class="p-1.5"><b>C1 Bilingüe (American High School Diploma acreditado por Cognia)</b> + EFQM + GPTS</td><td class="p-1.5"><b>$3,43M–$4,10M</b> (c/comida $580k y ruta $699k)</td><td class="p-1.5 font-bold text-indigo-300">~$578,2M</td></tr>
               <tr class="bg-sky-500/10"><td class="p-1.5 font-semibold text-sky-300">⚜️🗽 Colegio San Viator Bilingüe Int. (Cal. B · <b>Vecino CAS en Autonorte # 209-51</b>)</td><td class="p-1.5"><b>C1 Certificado (Continuum 3 programas IB: PEP + PAI + PD)</b> + EFQM 5★ + Great Place to Study + Francés</td><td class="p-1.5"><b>$4,20M–$4,55M</b> (c/comida y ruta BusesCool)</td><td class="p-1.5 font-bold text-sky-300">~$612,5M</td></tr>
               <tr class="bg-amber-500/10"><td class="p-1.5 font-semibold text-amber-300">🦁 Colegio Bilingüe Clermont (Cal. B · <b>A 1 cuadra del CAS en Tv. 80 # 213A-17</b>)</td><td class="p-1.5"><b>C1 Certificado (Cambridge International)</b> + Sello Francófono Alianza Francesa (desde <i>Nursery</i>)</td><td class="p-1.5"><b>$3,87M–$4,85M</b> (c/comida y ruta)</td><td class="p-1.5 font-bold text-amber-300">~$615,0M</td></tr>
@@ -666,12 +664,13 @@
               <tr class="bg-rose-500/10"><td class="p-1.5 font-semibold text-rose-300">🌿 Gimnasio El Hontanar</td><td class="p-1.5">📍 Decisión familiar (Distancia)</td><td class="p-1.5">Demasiado lejos (<b>Cra. 7ª</b> antes del peaje)</td></tr>
               <tr class="bg-rose-500/10"><td class="p-1.5 font-semibold text-rose-300">🦅 Colegio Abraham Lincoln</td><td class="p-1.5">🧠 Decisión familiar (Ambiente)</td><td class="p-1.5">Referencias de ambiente / carga académica muy pesada</td></tr>
               <tr class="bg-rose-500/10"><td class="p-1.5 font-semibold text-rose-300">🌸 Colegio Marymount Bogotá</td><td class="p-1.5">👧👦 Decisión familiar (Mixto)</td><td class="p-1.5">Solo femenino (la familia busca <b>colegio mixto</b>)</td></tr>
+              <tr class="bg-rose-500/10"><td class="p-1.5 font-semibold text-rose-300">🇺🇸 Colegio Anglo Americano</td><td class="p-1.5">📚 Decisión familiar (Carga)</td><td class="p-1.5">Carga tradicional muy pesada (exámenes todos los martes / alto volumen de tareas)</td></tr>
             </tbody>
           </table>
           <div class="mt-3 p-2.5 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-[11px]"><b>🏛️ Ecosistema Completo "Grupo Educativo Nueva Inglaterra" (Continuidad Directa desde el Jardín JCN en Cll. 180):</b> El <b>🏡 Jardín Infantil Campestre del Norte — JCN (Calle 180 # 67-80, único con piscina climatizada propia)</b> es la puerta de entrada del <b>Grupo Educativo Nueva Inglaterra</b>, el cual agrupa en Calendario A (con modalidad de <b>"Plan Completo" que incluye pensión + alimentación + ruta escolar y $0 bono</b>): (1) <b>🏴󠁧󠁢󠁥󠁮󠁧󠁿 Colegio Nueva Inglaterra — NES</b> (Cll. 218 # 50-60 · <b>✅ ELEGIBLE: C1 IELTS + Cambridge ICE + Diploma IB · ICFES 353,1 A+ · $3,2M–$4,0M/mes todo incluido</b>), (2) <b>🌿 Gimnasio El Hontanar</b> (Cra. 7ª antes del peaje · <b>⛔ DESCARTADO por distancia</b>), (3) <b>🌲 Gimnasio Los Arrayanes</b> (Cll. 219 # 50-10 · ⛔ Inglés B2 · $2,62M–$3,24M/mes) y (4) <b>🏴󠁧󠁢󠁳󠁣󠁴󠁿 Gimnasio Nueva Escocia</b> (Km 19 Autonorte / Cra. 7ª · ⛔ Inglés B2 · $1,75M–$2,0M/mes). <i>(También hacen parte del conglomerado el Liceo La Sabana, el Colegio Santa Cristina de Toscana y el Jardín Crayola y Lápiz).</i></div>
           <div class="mt-2 p-2.5 rounded-lg bg-sky-500/10 border border-sky-500/30 text-[11px] space-y-1">
             <div class="font-bold text-sky-400">🗺️ Mapa por Zonas Geográficas desde tu Edificio (Av. Boyacá con Calle 153):</div>
-            <div>• <b>1. 📍 EJE CALLE 170 / CALLE 180 (A 5–12 min de tu casa · 0% obras de la Av. Boyacá Norte Cll. 183–235):</b> <b>🌸 Colegio Marymount</b> (Cll. 169B · <b>⛔ DESCARTADO por ser solo femenino</b>), <b>🦅 Colegio Abraham Lincoln</b> (Cll. 170 · <b>⛔ DESCARTADO por carga/ambiente pesado</b>), <b>🏡 Jardín Campestre del Norte — JCN</b> (Cll. 180 # 67-80 a <b>2,8 km / 8 min</b> con piscina propia ✅), <b>🇺🇸 Colegio Anglo Americano</b> (Cll. 170 # 8-80 a <b>6,5 km</b> · Cal. A ✅), <b>⚜️ Colegio De La Salle</b> (Cll. 180 # 11-11 a 7,2 km con piscina propia · ⛔ B2+/C1) y <b>🇬🇧 The English School</b> (Cll. 170 # 15-68 · ⛔ Presupuesto).</div>
+            <div>• <b>1. 📍 EJE CALLE 170 / CALLE 180 (A 5–12 min de tu casa · 0% obras de la Av. Boyacá Norte Cll. 183–235):</b> <b>🌸 Colegio Marymount</b> (Cll. 169B · <b>⛔ DESCARTADO por ser solo femenino</b>), <b>🦅 Colegio Abraham Lincoln</b> (Cll. 170 · <b>⛔ DESCARTADO por carga/ambiente pesado</b>), <b>🏡 Jardín Campestre del Norte — JCN</b> (Cll. 180 # 67-80 a <b>2,8 km / 8 min</b> con piscina propia ✅), <b>🇺🇸 Colegio Anglo Americano</b> (Cll. 170 # 8-80 · <b>⛔ DESCARTADO por carga tradicional pesada</b>), <b>⚜️ Colegio De La Salle</b> (Cll. 180 # 11-11 a 7,2 km con piscina propia · ⛔ B2+/C1) y <b>🇬🇧 The English School</b> (Cll. 170 # 15-68 · ⛔ Presupuesto).</div>
             <div>• <b>2. 📍 VECINOS DEL CAS (Sector Calle 209 a Calle 222 / Vía Arrayanes / Casablanca Suba · A 6,5–7,8 km al norte):</b> <b>🇺🇸 CAS — Colombo Americano</b> (Cra. 73 # 214-53 · Cal. A ✅), <b>🦁 Colegio Bilingüe Clermont</b> (Tv. 80 # 213A-17, <b>a 1 cuadra del CAS</b> · Cal. B ✅), <b>👑 Colegio Bilingüe Buckingham</b> (Cra. 52 # 214-55, <b>sobre la misma Calle 214 del CAS</b> · Cal. B ✅), <b>⚜️🗽 Colegio San Viator Bilingüe Int.</b> (Autonorte # 209-51, <b>a 5 cuadras de la Cll. 214</b> · Cal. B ✅), <b>🏴󠁧󠁢󠁥󠁮󠁧󠁿 Colegio Nueva Inglaterra — NES</b> (Cll. 218 # 50-60 · Cal. A ✅), <b>🏛️ Richmond School</b> (Cra. 53 # 222-76 · Cal. B ✅) y <b>🌲 Gimnasio Los Arrayanes</b> (Cll. 219 # 50-10 · ⛔ B2).</div>
           </div>
           <div class="mt-2 p-2.5 rounded-lg bg-amber-500/10 border border-amber-500/30 text-[11px]"><b>⚠️ Qué cambia en las estrategias de 2 a 4 años (Grid 15):</b> quedan <b>JCN, American Garden by GCB o CAS Nursery</b> como jardín, y el salto de agosto de 2028 sería a <b>Saint George’s (Opción A), Vermont o GCB</b> (Cal. B), o seguir en <b>CAS / pasar al Anglo Americano</b> (Cal. A). Si a algún descartado por inglés le piden una certificación escrita de que toda la promoción sale en C1, se puede reactivar.</div>
@@ -4581,7 +4580,7 @@
       <div class="space-y-2.5">
         <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
           <h4 class="text-sm sm:text-base font-extrabold text-sky-300">🧠 8 Puntos de Vista de la IA: ¿Cuál elegiría según lo que más valoras?</h4>
-          <span class="text-[11px] text-emerald-400 font-semibold">✅ Filtrado solo con los 10 Colegios Elegibles (Mixtos) (C1 + ≤ $5M/mes) tras JCN</span>
+          <span class="text-[11px] text-emerald-400 font-semibold">✅ Filtrado solo con los 9 Colegios Elegibles (Mixtos) (C1 + ≤ $5M/mes) tras JCN</span>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-3 text-xs">
@@ -4595,14 +4594,14 @@
             <p class="text-[11px] text-slate-300 leading-relaxed"><b>Diploma IB + Cambridge ICE + IELTS C1 + Francés</b> + <b>ICFES 353,1 pts (#25 Bogotá)</b> en Plan Completo todo incluido ($0 bono): <b>ahorras $224M vs. SGS</b> en el mismo Calendario A del JCN.</p>
           </div>
 
-          <!-- 2. Más Barato con Excelente Calidad -->
+          <!-- 2. Más Barato con Excelente Calidad y Bienestar -->
           <div class="p-3.5 rounded-2xl border border-teal-500/40 bg-teal-950/20 space-y-1.5">
             <div class="flex items-center justify-between gap-1">
-              <span class="px-2 py-0.5 rounded-full text-[10px] font-black bg-teal-400 text-slate-950">💵 MÁS BARATO + ALTA CALIDAD</span>
-              <span class="text-[10.5px] font-bold text-teal-300">$518,0M</span>
+              <span class="px-2 py-0.5 rounded-full text-[10px] font-black bg-teal-400 text-slate-950">💵 MÁS BARATO + BIENESTAR</span>
+              <span class="text-[10.5px] font-bold text-teal-300">$571M – $578M</span>
             </div>
-            <div class="font-extrabold text-sm text-white">🇺🇸 Anglo Americano <span class="text-[10px] text-slate-400">(IB: NES $571M)</span></div>
-            <p class="text-[11px] text-slate-300 leading-relaxed">El más económico de los 10 elegibles (<b>ahorras $277M vs. SGS</b>, $0 bono), en <b>Cll. 170 # 8-80 (~6,5 km)</b>, <b>Col-Sapiens D1</b> y bilingüismo <b>PEPT (B2–C1)</b> en el mismo Cal. A del JCN. <i>Si quieres IB + ICE económico: <b>🏴󠁧󠁢󠁥󠁮󠁧󠁿 NES</b> ($571M).</i></p>
+            <div class="font-extrabold text-sm text-white">🏴󠁧󠁢󠁥󠁮󠁧󠁿 NES / 🏛️ Richmond School</div>
+            <p class="text-[11px] text-slate-300 leading-relaxed">Los más económicos entre los <b>9 finalistas</b> ($0 bono · <b>ahorras ~$217M–$224M vs. SGS</b>): <b>NES</b> ($571M, IB + Cambridge ICE en Cal. A) y <b>Richmond</b> ($578,2M, Cognia US Diploma + <i>Great Place to Study</i> en Cal. B).</p>
           </div>
 
           <!-- 3. Mejor Continuum IB al Mejor Precio -->
@@ -5538,12 +5537,13 @@
     }
 
     // ===================== FILTRO DE PRESUPUESTO (tope = SGS Opción A) =====================
-    const DESCARTADOS_SIM = new Set(['anglo', 'nogales', 'helvetia', 'english', 'arrayanes', 'nuevaescocia', 'lasalle', 'liceo', 'kidstown', 'jcn', 'americangarden', 'hontanar', 'lincoln', 'marymount']);
+    const DESCARTADOS_SIM = new Set(['anglo', 'nogales', 'helvetia', 'english', 'arrayanes', 'nuevaescocia', 'lasalle', 'liceo', 'kidstown', 'jcn', 'americangarden', 'hontanar', 'lincoln', 'marymount', 'angloamericano']);
     const GRUPO_NUEVA_INGLATERRA_IDS = new Set(['nuevainglaterra']);
     const DESCARTADOS_PRE = new Set(['p_dreams', 'p_kidstown']);
     const DESCARTE_REGLAS = [
       { re: /^(Gimnasio\s+)?(El\s+)?Hontanar\b/i, txt: '⛔ DESCARTADO (Decisión familiar) · Demasiado lejos (Cra. 7ª)' },
       { re: /^(Colegio\s+)?Marymount\b/i, txt: '⛔ DESCARTADO (Decisión familiar) · Solo femenino (se busca colegio mixto)' },
+      { re: /^(Colegio\s+)?Anglo\s+Americano\b/i, txt: '⛔ DESCARTADO (Decisión familiar) · Carga tradicional muy pesada (tareas y exámenes semanales)' },
       { re: /^(Colegio\s+)?(Bilingüe\s+)?Abraham Lincoln\b/i, txt: '⛔ DESCARTADO (Decisión familiar) · Referencias de ambiente/carga pesada' },
       { re: /^(Colegio )?Helvetia/, txt: '⛔ DESCARTADO · Supera tope SGS ($5,18M–$5,45M/mes)' },
       { re: /^(Colegio )?Los Nogales/, txt: '⛔ DESCARTADO · Supera tope SGS (hasta $5,33M/mes + bono)' },
@@ -5615,7 +5615,6 @@
       sgs:            { name: '🇬🇧 Saint George’s School (Opción A c/Anticipo $20M)', calType: 'B', full14: 794.9, ant: 20.0, annualPre: 55.35, annualPri: 55.35 },
       cas_alm:        { name: '🇺🇸 CAS — Colombo Americano (con almuerzo en todos los grados)', calType: 'A', full14: 742.90, ant: 0, annualPre: 49.05, annualPri: 56.37, isCas: true, withLunch: true, exactPreYears: [48.84947, 48.942248, 49.369903] },
       cni:            { name: '🏴󠁧󠁢󠁥󠁮󠁧󠁿 Colegio Nueva Inglaterra — NES (Grupo JCN · IB + ICE + C1)', calType: 'A', full14: 571.0, ant: 0, annualPre: 40.78, annualPri: 40.78 },
-      angloamericano: { name: '🇺🇸 Colegio Anglo Americano (Cll. 170 · ICFES D1)', calType: 'A', full14: 518.0, ant: 0, annualPre: 37.00, annualPri: 37.00 },
       vermont:        { name: '🌎 Gimnasio Vermont (IB + Mandarín + 8:00 a.m.)', calType: 'B', full14: 741.0, ant: 0, annualPre: 52.93, annualPri: 52.93 },
       sanviator:      { name: '⚜️🗽 Colegio San Viator (3 Programas IB + CIS)', calType: 'B', full14: 612.5, ant: 0, annualPre: 43.75, annualPri: 43.75 },
       clermont:       { name: '🦁 Colegio Bilingüe Clermont (A 1 cuadra del CAS)', calType: 'B', full14: 615.0, ant: 0, annualPre: 43.93, annualPri: 43.93 },
@@ -5626,7 +5625,6 @@
     const jcnState = { sched: 'hibrido', route: 'completa', early: true, dest: 'cas_alm', jcnYears: '2' };
     const costRankState = { mode: 'combo', asc: true };
     const COST_RANK_META = {
-      angloamericano: { monthly: 3.35, eng: 'B2–C1 · PEPT (Verificar C1)', certs: '🏆 Col-Sapiens D1 · Bilingüe',             log: 'Cal. A · 6,5 km (Cll. 170 #8-80) · $0 bono' },
       cni:            { monthly: 3.60, eng: 'C1 · IELTS + Cambridge',  certs: '🌐 Diploma IB · 🏅 Cambridge ICE · 🇫🇷 Francés', log: 'Cal. A (Grupo JCN) · 6,8 km · $0 bono' },
       richmond:       { monthly: 3.75, eng: 'C1 · US Diploma',         certs: '🇺🇸 Cognia (US High School Diploma)',          log: 'Cal. B · 7,4 km · $0 bono' },
       sanviator:      { monthly: 4.35, eng: 'C1 · IB · Francés',       certs: '🌐 3 Programas IB · EFQM 5★ · GPTS',           log: 'Cal. B (Vecino CAS) · 6,4 km · $0 bono' },
@@ -5997,12 +5995,12 @@
         }
       }
 
-      // Renderizar Tabla Maestra de TODOS los 10 Colegios Elegibles (Mixtos) (Saint George's, CAS y demás)
+      // Renderizar Tabla Maestra de TODOS los 9 Colegios Elegibles (Mixtos) (Saint George's, CAS y demás)
       const elAllMatrix = document.getElementById('jcn-all-schools-matrix');
       renderCostRanking(total2027, mat2, m2028_5m, year2PlusJcn, yrs);
 
       if (elAllMatrix) {
-        const orderKeys = ['sgs', 'cas_alm', 'vermont', 'buckingham', 'gcb', 'clermont', 'sanviator', 'richmond', 'cni', 'angloamericano'];
+        const orderKeys = ['sgs', 'cas_alm', 'vermont', 'buckingham', 'gcb', 'clermont', 'sanviator', 'richmond', 'cni'];
         const allRows = orderKeys.map(k => {
           const s = JCN_DEST_SCHOOLS[k];
           if (!s) return '';
@@ -6042,7 +6040,7 @@
 
         elAllMatrix.innerHTML = `
           <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 mb-2">
-            <div class="font-bold text-emerald-300">🏫 Comparativa de los 10 Colegios Elegibles (Mixtos): ¿Cómo cambia el valor según cuándo salga Sara del 🏡 JCN?</div>
+            <div class="font-bold text-emerald-300">🏫 Comparativa de los 9 Colegios Elegibles (Mixtos): ¿Cómo cambia el valor según cuándo salga Sara del 🏡 JCN?</div>
             <div class="text-[10px] text-slate-400">💡 Haz clic en cualquier fila para ver su desglose arriba · En <span class="text-sky-300 font-bold">azul</span> = Solo Colegio · Abajo = <b>Total JCN + Colegio</b></div>
           </div>
           <div class="overflow-x-auto">
@@ -6564,7 +6562,7 @@
         v2: [10.0, 'ok', '10/10 VERIFICADO: ICFES 363,2 pts (Top #48 de TODA Colombia) + Col-Sapiens D2 · AAA+.'],
         v3: [9.5, 'ok', 'Diploma IB + Certificación Cambridge C1/C2 + Francés Alianza Francesa.'],
         v4: [8.8, 'ok', 'Francés certificado con la Alianza Francesa incluido en el currículo.'],
-        v5: [9.8, 'ok', 'Plan Completo ($3,25M–$3,50M/mes todo incluido · ~$542,5M en 14a · $0 bono). #2 más económico de los 10 elegibles.'],
+        v5: [9.8, 'ok', 'Plan Completo ($3,25M–$3,50M/mes todo incluido · ~$542,5M en 14a · $0 bono). #2 más económico de los 9 elegibles.'],
         v6: [9.5, 'ok', 'Mismo Calendario A del JCN (empalme limpio en Feb 2028/2029/2030 · gradúa 17a 4m).'],
         v7: [8.4, 'ok', 'Cra. 7ª antes del peaje (~5,2 km, sin peaje y ruta incluida en el Plan Completo).'],
         v8: [8.6, 'ok', 'Horario campestre equilibrado con ruta puerta a puerta incluida.'],
@@ -6744,7 +6742,7 @@
         v2: [9.5, 'ok', 'Col-Sapiens D1 · Excelencia académica histórica.'],
         v3: [8.0, 'ok', 'VERIFICADO (colegioangloamericano.edu.co): Bilingüe evaluado con PEPT (Pearson MCER B2–C1); sin IB ni Cambridge ICE.'],
         v4: [7.5, 'ok', 'Foco en Inglés C1.'],
-        v5: [10.0, 'ok', '10/10 VERIFICADO: El más económico de los 10 elegibles (~$518M en 14a · $0 bono).'],
+        v5: [10.0, 'ok', '10/10 VERIFICADO: El más económico de los 9 elegibles (~$518M en 14a · $0 bono).'],
         v6: [9.5, 'ok', 'Mismo Calendario A del JCN (empalme limpio Febrero).'],
         v7: [7.7, 'ok', 'VERIFICADO (caa.edu.co): Calle 170 # 8-80 Usaquén (~6,5 km de Av. Boyacá Cll. 153).'],
         v8: [8.0, 'ok', 'Trayecto de ~6,5 km hacia Usaquén (Cll. 170 # 8-80).'],
