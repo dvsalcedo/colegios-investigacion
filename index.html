@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Plan Escolar Sara (2027–2043) — ✅ Etapa 1 Confirmada: JCN (Ene 2027) ➔ Etapa 2: 9 Colegios Elegibles (Mixtos)</title>
+  <title>Plan Escolar Sara (2027–2043) — ✅ Etapa 1 Confirmada: JCN (Ene 2027) ➔ Etapa 2: 10 Colegios Elegibles (Mixtos)</title>
   <!-- Tailwind CSS oficial para que funcione en cualquier navegador, celular, GitHub Pages o Netlify -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
@@ -304,7 +304,7 @@
               👧 SARA · NACIDA EL 12 DE JULIO DE 2024
             </span>
             <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-amber-500/15 text-amber-500 border border-amber-500/30">
-              🚦 FILTROS ACTIVOS: ≤ SGS ($4,91M/MES) + INGLÉS C1 + JARDÍN BILINGÜE · 9 COLEGIOS ELEGIBLES (MIXTOS) (INCL. RICHMOND, EJE CL 170 Y VECINOS CAS) + 3 JARDINES
+              🚦 FILTROS ACTIVOS: ≤ SGS ($4,91M/MES) + INGLÉS C1 + JARDÍN BILINGÜE · 10 COLEGIOS ELEGIBLES (MIXTOS) (INCL. RICHMOND, EJE CL 170 Y VECINOS CAS) + 3 JARDINES
             </span>
           </div>
           <div class="flex flex-wrap items-center gap-2 no-print">
@@ -477,6 +477,7 @@
               </optgroup>
               <optgroup label="🏛️ Continuidad Grupo Nueva Inglaterra (Mismo Cal. A del JCN)">
                 <option value="cni">🏴󠁧󠁢󠁥󠁮󠁧󠁿 Colegio Nueva Inglaterra NES (~$498M · IB + ICE + C1 · Cal. A)</option>
+                <option value="condeansurez">🏰⚔️ Conde Ansúrez (~$448M · 6 min · Cambridge + EFQM + Francés · Cal. A)</option>
               </optgroup>
               <optgroup label="📍 Vecinos del CAS y Norte (Cal. B)">
                 <option value="sanviator">⚜️🗽 San Viator (3 Programas IB + CIS · ~$612,5M · Cal. B)</option>
@@ -524,7 +525,7 @@
         <!-- Rellenado dinámicamente por JS -->
       </div>
 
-      <!-- Tabla Maestra Dinámica: Todos los 9 Colegios Elegibles (Mixtos) (Saint George's, CAS y demás) según cuándo salga Sara del JCN -->
+      <!-- Tabla Maestra Dinámica: Todos los 10 Colegios Elegibles (Mixtos) (Saint George's, CAS y demás) según cuándo salga Sara del JCN -->
       <div id="jcn-all-schools-matrix" class="p-3 rounded-2xl border border-emerald-500/40 bg-slate-900/95 text-xs text-slate-200">
         <!-- Rellenado dinámicamente por JS -->
       </div>
@@ -572,11 +573,11 @@
       </div>
     </div>
 
-    <!-- RANKING INTERACTIVO: DEL MÁS BARATO AL MÁS CARO (9 COLEGIOS ELEGIBLES (MIXTOS)) -->
+    <!-- RANKING INTERACTIVO: DEL MÁS BARATO AL MÁS CARO (10 COLEGIOS ELEGIBLES (MIXTOS)) -->
     <div id="ranking-costo-elegibles" class="bg-[var(--card)] border-2 border-emerald-500/50 rounded-2xl p-4 sm:p-5 shadow-md space-y-3">
       <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
         <div>
-          <h3 class="text-lg md:text-xl font-bold text-emerald-400">💰 Ranking de Costo: Del Más Barato al Más Caro (9 Colegios Elegibles (Mixtos))</h3>
+          <h3 class="text-lg md:text-xl font-bold text-emerald-400">💰 Ranking de Costo: Del Más Barato al Más Caro (10 Colegios Elegibles (Mixtos))</h3>
           <p class="text-xs text-[var(--muted-foreground)]">Solo los colegios que cumplen <b>Inglés C1 + Presupuesto ≤ Saint George’s</b>, ordenados automáticamente de menor a mayor inversión. Se actualiza en vivo con tu horario del JCN.</p>
         </div>
         <button id="rank-dir-btn" onclick="toggleCostRankDir()" class="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 border border-emerald-500/40 text-xs font-bold text-emerald-300 shrink-0 transition-colors">
@@ -628,6 +629,7 @@
           <table class="w-full text-left border-collapse text-xs">
             <thead><tr class="border-b border-[var(--border)]"><th class="p-1.5">Colegio</th><th class="p-1.5">Inglés al egreso</th><th class="p-1.5">Al mes</th><th class="p-1.5">14 años</th></tr></thead>
             <tbody class="divide-y divide-[var(--border)]">
+              <tr class="bg-cyan-500/10"><td class="p-1.5 font-semibold text-cyan-300">🏰⚔️ Hispanoamericano Conde Ansúrez (Cal. A · <b>San José de Bavaria: Cra. 67 # 173A-80 a 2,2 km / 6 min</b>)</td><td class="p-1.5"><b>Cambridge International School &amp; Early Years (B2–C1 · Verificar % C1 en 11°)</b> + EFQM + Francés · ICFES 341–344 A+</td><td class="p-1.5"><b>~$2,85M–$3,25M</b> (c/comida y ruta · ~$2,4M s/ruta)</td><td class="p-1.5 font-bold text-cyan-300">~$448,0M</td></tr>
               <tr class="bg-indigo-500/10"><td class="p-1.5 font-semibold text-indigo-300">🏛️ Richmond School (Cal. B · <b>Vecino CAS en Cra. 53 # 222-76</b>)</td><td class="p-1.5"><b>C1 Bilingüe (American High School Diploma acreditado por Cognia)</b> + EFQM + GPTS</td><td class="p-1.5"><b>$3,43M–$4,10M</b> (c/comida $580k y ruta $699k)</td><td class="p-1.5 font-bold text-indigo-300">~$578,2M</td></tr>
               <tr class="bg-sky-500/10"><td class="p-1.5 font-semibold text-sky-300">⚜️🗽 Colegio San Viator Bilingüe Int. (Cal. B · <b>Vecino CAS en Autonorte # 209-51</b>)</td><td class="p-1.5"><b>C1 Certificado (Continuum 3 programas IB: PEP + PAI + PD)</b> + EFQM 5★ + Great Place to Study + Francés</td><td class="p-1.5"><b>$4,20M–$4,55M</b> (c/comida y ruta BusesCool)</td><td class="p-1.5 font-bold text-sky-300">~$612,5M</td></tr>
               <tr class="bg-amber-500/10"><td class="p-1.5 font-semibold text-amber-300">🦁 Colegio Bilingüe Clermont (Cal. B · <b>A 1 cuadra del CAS en Tv. 80 # 213A-17</b>)</td><td class="p-1.5"><b>C1 Certificado (Cambridge International)</b> + Sello Francófono Alianza Francesa (desde <i>Nursery</i>)</td><td class="p-1.5"><b>$3,87M–$4,85M</b> (c/comida y ruta)</td><td class="p-1.5 font-bold text-amber-300">~$615,0M</td></tr>
@@ -668,7 +670,7 @@
           <div class="mt-3 p-2.5 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-[11px]"><b>🏛️ Ecosistema Completo "Grupo Educativo Nueva Inglaterra" (Continuidad Directa desde el Jardín JCN en Cll. 180):</b> El <b>🏡 Jardín Infantil Campestre del Norte — JCN (Calle 180 # 67-80, único con piscina climatizada propia)</b> es la puerta de entrada del <b>Grupo Educativo Nueva Inglaterra</b>, el cual agrupa en Calendario A (con modalidad de <b>"Plan Completo" que incluye pensión + alimentación + ruta escolar y $0 bono</b>): (1) <b>🏴󠁧󠁢󠁥󠁮󠁧󠁿 Colegio Nueva Inglaterra — NES</b> (Cll. 218 # 50-60 · <b>✅ ELEGIBLE: C1 IELTS + Cambridge ICE + Diploma IB · ICFES 353,1 A+ · $3,2M–$4,0M/mes todo incluido</b>), (2) <b>🌿 Gimnasio El Hontanar</b> (Cra. 7ª antes del peaje · <b>⛔ DESCARTADO por distancia</b>), (3) <b>🌲 Gimnasio Los Arrayanes</b> (Cll. 219 # 50-10 · ⛔ Inglés B2 · $2,62M–$3,24M/mes) y (4) <b>🏴󠁧󠁢󠁳󠁣󠁴󠁿 Gimnasio Nueva Escocia</b> (Km 19 Autonorte / Cra. 7ª · ⛔ Inglés B2 · $1,75M–$2,0M/mes). <i>(También hacen parte del conglomerado el Liceo La Sabana, el Colegio Santa Cristina de Toscana y el Jardín Crayola y Lápiz).</i></div>
           <div class="mt-2 p-2.5 rounded-lg bg-sky-500/10 border border-sky-500/30 text-[11px] space-y-1">
             <div class="font-bold text-sky-400">🗺️ Mapa por Zonas Geográficas desde tu Edificio (Av. Boyacá con Calle 153):</div>
-            <div>• <b>1. 📍 EJE CALLE 170 / CALLE 180 (A 5–12 min de tu casa · 0% obras de la Av. Boyacá Norte Cll. 183–235):</b> <b>🌸 Colegio Marymount</b> (Cll. 169B · <b>⛔ DESCARTADO por ser solo femenino</b>), <b>🦅 Colegio Abraham Lincoln</b> (Cll. 170 · <b>⛔ DESCARTADO por carga/ambiente pesado</b>), <b>🏡 Jardín Campestre del Norte — JCN</b> (Cll. 180 # 67-80 a <b>2,8 km / 8 min</b> con piscina propia ✅), <b>🇺🇸 Colegio Anglo Americano</b> (Cll. 170 # 8-80 · <b>⛔ DESCARTADO por carga tradicional pesada</b>), <b>⚜️ Colegio De La Salle</b> (Cll. 180 # 11-11 a 7,2 km con piscina propia · ⛔ B2+/C1) y <b>🇬🇧 The English School</b> (Cll. 170 # 15-68 · ⛔ Presupuesto).</div>
+            <div>• <b>1. 📍 EJE CALLE 170 / CALLE 180 (A 5–12 min de tu casa · 0% obras de la Av. Boyacá Norte Cll. 183–235):</b> <b>🌸 Colegio Marymount</b> (Cll. 169B · <b>⛔ DESCARTADO por ser solo femenino</b>), <b>🦅 Colegio Abraham Lincoln</b> (Cll. 170 · <b>⛔ DESCARTADO por carga/ambiente pesado</b>), <b>🏰⚔️ Hispanoamericano Conde Ansúrez</b> (Cra. 67 # 173A-80 a <b>2,2 km / 6 min · a 6 cuadras del JCN · 0% obras</b> · Cal. A ✅), <b>🏡 Jardín Campestre del Norte — JCN</b> (Cll. 180 # 67-80 a <b>2,8 km / 8 min</b> con piscina propia ✅), <b>🇺🇸 Colegio Anglo Americano</b> (Cll. 170 # 8-80 · <b>⛔ DESCARTADO por carga tradicional pesada</b>), <b>⚜️ Colegio De La Salle</b> (Cll. 180 # 11-11 a 7,2 km con piscina propia · ⛔ B2+/C1) y <b>🇬🇧 The English School</b> (Cll. 170 # 15-68 · ⛔ Presupuesto).</div>
             <div>• <b>2. 📍 VECINOS DEL CAS (Sector Calle 209 a Calle 222 / Vía Arrayanes / Casablanca Suba · A 6,5–7,8 km al norte):</b> <b>🇺🇸 CAS — Colombo Americano</b> (Cra. 73 # 214-53 · Cal. A ✅), <b>🦁 Colegio Bilingüe Clermont</b> (Tv. 80 # 213A-17, <b>a 1 cuadra del CAS</b> · Cal. B ✅), <b>👑 Colegio Bilingüe Buckingham</b> (Cra. 52 # 214-55, <b>sobre la misma Calle 214 del CAS</b> · Cal. B ✅), <b>⚜️🗽 Colegio San Viator Bilingüe Int.</b> (Autonorte # 209-51, <b>a 5 cuadras de la Cll. 214</b> · Cal. B ✅), <b>🏴󠁧󠁢󠁥󠁮󠁧󠁿 Colegio Nueva Inglaterra — NES</b> (Cll. 218 # 50-60 · Cal. A ✅), <b>🏛️ Richmond School</b> (Cra. 53 # 222-76 · Cal. B ✅) y <b>🌲 Gimnasio Los Arrayanes</b> (Cll. 219 # 50-10 · ⛔ B2).</div>
           </div>
           <div class="mt-2 p-2.5 rounded-lg bg-amber-500/10 border border-amber-500/30 text-[11px]"><b>⚠️ Qué cambia en las estrategias de 2 a 4 años (Grid 15):</b> quedan <b>JCN, American Garden by GCB o CAS Nursery</b> como jardín, y el salto de agosto de 2028 sería a <b>Saint George’s (Opción A), Vermont o GCB</b> (Cal. B), o seguir en <b>CAS / pasar al Anglo Americano</b> (Cal. A). Si a algún descartado por inglés le piden una certificación escrita de que toda la promoción sale en C1, se puede reactivar.</div>
@@ -1113,6 +1115,18 @@
           <div class="pt-2 border-t border-[var(--border)] font-bold text-sm flex justify-between"><span>Total Mes:</span><span class="text-amber-400">~$3.870.000 – $4.850.000</span></div>
           <div>• <b>Total 14 Años (Preescolar a 11°):</b> <b>~$615.000.000 COP</b> (Ahorras <b>~$179,9M vs. SGS</b> a 1 cuadra del CAS).</div>
         </div>
+
+        <!-- 27. COLEGIO BILINGÜE HISPANOAMERICANO CONDE ANSÚREZ (SAN JOSÉ DE BAVARIA: CRA. 67 # 173A-80) -->
+        <div class="p-3.5 rounded-xl border-2 border-cyan-500/70 bg-[var(--background)] space-y-1.5">
+          <div class="font-bold text-sm text-cyan-400">🏰⚔️ 27. Colegio Bilingüe Hispanoamericano Conde Ansúrez (Cra. 67 # 173A-80)</div>
+          <div class="px-2 py-0.5 rounded bg-cyan-500/15 text-cyan-300 font-semibold inline-block">✅ ELEGIBLE · hispanoamericano.edu.co / GuíaColegio / Edtools · Cal. A · Mixto · Laico</div>
+          <div>• <b>Ubicación Privilegiada (0% Obras Boyacá Norte):</b> <b>Carrera 67 # 173A-80 (San José de Bavaria)</b> — a solo <b>2,2 km / 6 minutos de tu edificio</b> y a <b>6 cuadras del JCN (Cll. 180 # 67-80)</b> sobre la misma Cra. 67 (✅).</div>
+          <div>• <b>Bono / Acciones de ingreso:</b> <b>$0</b> (no cobra bono ni acciones) (✅).</div>
+          <div>• <b>Matrícula Anual:</b> <b>$2.000.000 a $3.000.000</b> según grado (<i>guiacolegio.com / buscando-colegio.com</i>) (⚠️).</div>
+          <div>• <b>Pensión Mensual (10m feb–nov):</b> <b>$1.500.000 a $2.250.000/mes</b> + <b>Alimentación y Ruta opcionales (~$900k–$1,0M/mes en conjunto)</b> (⚠️).</div>
+          <div class="pt-2 border-t border-[var(--border)] font-bold text-sm flex justify-between"><span>Total Mes c/Comida y Ruta:</span><span class="text-cyan-400">~$2.850.000 – $3.250.000</span></div>
+          <div>• <b>Total 14 Años (PK a 11° c/comida y ruta):</b> <b>~$448.000.000 COP</b> (o <b>~$378M sin ruta</b> llevándola en 6 min) — <b>Ahorras ~$346,9M vs. SGS y ~$294,9M vs. CAS</b>. <i>(Solicitar circular oficial vigente en admisiones@hispanoamericano.edu.co).</i></div>
+        </div>
       </div>
 
       <!-- Sub-tabla: Radiografía Año a Año Opción A vs Opción B en Saint George's -->
@@ -1488,12 +1502,12 @@
         <p class="text-xs text-[var(--muted-foreground)]">Comparativa integral de principio a fin (de Prekínder a Grado 11°/12°) ordenada del colegio más económico al más costoso, separando cuánto se va en <b>Bono/Anticipo</b>, <b>Matrículas</b>, <b>Pensiones</b>, <b>Alimentación</b>, <b>Ruta Escolar</b> y <b>Extracurriculares</b>, tanto en <b>pesos constantes de hoy</b> como en <b>desembolso real proyectado con inflación educativa (~7% anual compuesto)</b>.</p>
       </div>
 
-      <!-- Tarjetas Resumen de Impacto Rápido (Solo los 9 Colegios Finalistas) -->
+      <!-- Tarjetas Resumen de Impacto Rápido (Solo los 10 Colegios Finalistas) -->
       <div class="grid grid-cols-1 md:grid-cols-4 gap-3 text-xs">
         <div class="p-3.5 rounded-xl border border-emerald-500/40 bg-[var(--background)] space-y-1">
           <div class="text-[11px] font-bold uppercase text-emerald-400">🏆 Más Económicos Elegibles (14a)</div>
-          <div class="text-base font-bold text-emerald-500">🏴󠁧󠁢󠁥󠁮󠁧󠁿 NES: ~$571M · 🏛️ Richmond: ~$578M</div>
-          <div class="text-[11px] text-[var(--muted-foreground)]">Ambos con $0 bono e Inglés C1: <b>NES</b> (IB + Cambridge ICE en Cal. A) y <b>Richmond</b> (Cognia US Diploma + GPTS en Cal. B).</div>
+          <div class="text-base font-bold text-emerald-500">🏰⚔️ Conde Ansúrez: ~$448M · 🏴󠁧󠁢󠁥󠁮󠁧󠁿 NES: ~$571M</div>
+          <div class="text-[11px] text-[var(--muted-foreground)]">$0 bono · <b>Conde Ansúrez</b> (2,2 km · Cambridge + EFQM en Cal. A · ~$378M s/ruta) y <b>NES</b> (IB + Cambridge ICE).</div>
         </div>
         <div class="p-3.5 rounded-xl border border-violet-500/40 bg-[var(--background)] space-y-1">
           <div class="text-[11px] font-bold uppercase text-violet-400">🌐 Mejor Continuum 3 IB (14a)</div>
@@ -1862,6 +1876,20 @@
               <td class="p-2 font-bold text-amber-400">~$989M</td>
               <td class="p-2 text-emerald-400 font-bold">✅ ELEGIBLE · Ahorras ~$179,9M vs. SGS</td>
             </tr>
+            <tr class="bg-cyan-500/10 border-t border-cyan-500/40">
+              <td class="p-2 font-bold">27</td>
+              <td class="p-2 font-bold text-cyan-300">🏰⚔️ 27. Hispanoamericano Conde Ansúrez (<b>Cra. 67 # 173A-80 · 2,2 km</b> · Cal. A · 14a)<br/><span class="text-[10px] font-normal text-cyan-300">✅ ELEGIBLE · 6 min de casa · Cambridge Int. &amp; Early Years + EFQM + Francés · ~$378M s/ruta</span></td>
+              <td class="p-2"><span class="px-1.5 py-0.5 rounded bg-cyan-500/15 text-cyan-300 font-semibold">⚠️ GuíaColegio / Edtools</span></td>
+              <td class="p-2 font-bold text-emerald-400">$0</td>
+              <td class="p-2">~$35,0M <span class="text-[10px] text-[var(--muted-foreground)] block">(14 x $2,50M)</span></td>
+              <td class="p-2">~$280,0M <span class="text-[10px] text-[var(--muted-foreground)] block">(140m x $2,00M)</span></td>
+              <td class="p-2">~$63,0M</td>
+              <td class="p-2">~$70,0M <span class="text-[10px] text-emerald-400 block">(Opcional a 6 min)</span></td>
+              <td class="p-2 font-bold text-cyan-300">~$448,0M</td>
+              <td class="p-2 font-semibold">~$472,0M</td>
+              <td class="p-2 font-bold text-amber-400">~$721M</td>
+              <td class="p-2 text-emerald-400 font-bold">✅ ELEGIBLE · Ahorras ~$346,9M vs. SGS</td>
+            </tr>
             <tr class="bg-emerald-500/10 border-t border-emerald-500/40">
               <td class="p-2 font-bold text-emerald-300">🦅 22. Colegio Bilingüe Abraham Lincoln (<b>Eje Cll. 170 # 65-31 / Preescolar Cll. 180</b> · Cal. B · 14a)<br/><span class="text-[10px] font-normal text-emerald-300">✅ ELEGIBLE · A 2,1 km (6 min, 0% obras) · C1 Cambridge/IELTS + Francés · ~$585M s/ruta o ~$680M c/ruta</span></td>
               <td class="p-2"><span class="px-1.5 py-0.5 rounded bg-emerald-500/15 text-emerald-300 font-semibold">✅ GuíaColegio / Lincoln</span></td>
@@ -2145,6 +2173,15 @@
               <td class="p-2">~$351,44M</td>
               <td class="p-2 font-bold text-amber-300">~$615,00M</td>
               <td class="p-2">~$43,9M/año · <b>$4,39M/mes</b></td>
+            </tr>
+            <tr class="bg-cyan-500/10 border-t border-cyan-500/40">
+              <td class="p-2 font-bold text-cyan-300">🏰⚔️ 27. Hispanoamericano Conde Ansúrez (Cra. 67 # 173A-80 · Cal. A) ✅</td>
+              <td class="p-2 font-semibold text-emerald-400">~$2,50M <span class="text-[10px] font-normal">($0 bono)</span></td>
+              <td class="p-2">~$32,00M</td>
+              <td class="p-2">~$96,00M</td>
+              <td class="p-2">~$256,00M</td>
+              <td class="p-2 font-bold text-cyan-300">~$448,00M</td>
+              <td class="p-2">~$32,0M/año · <b>$2,95M/mes</b></td>
             </tr>
             <tr class="bg-emerald-500/10 border-t border-emerald-500/40">
               <td class="p-2 font-bold text-emerald-300">🦅 22. Colegio Abraham Lincoln (Eje Cll. 170 # 65-31 · Cal. B) ✅</td>
@@ -2883,6 +2920,12 @@
           <div>• <b>Puntaje ICFES Saber 11 y Ranking:</b> <b>[✅ clermont.edu.co / icfes-analytics.com] Categoría A+ (~328–350 pts)</b> · <b>Col-Sapiens AAA+</b>.</div>
           <div>• <b>Currículo Internacional Cambridge + Sello Francófono:</b> Programas de <b>Cambridge Assessment International Education</b> desde preescolar (*Nursery*) y convenio oficial con la <b>Alianza Francesa</b>.</div>
         </div>
+        <!-- 27. HISPANOAMERICANO CONDE ANSÚREZ -->
+        <div class="p-4 rounded-xl border-2 border-cyan-500/60 bg-[var(--background)] space-y-2">
+          <div class="font-bold text-sm text-cyan-400">🏰⚔️ 27. Colegio Bilingüe Hispanoamericano Conde Ansúrez (San José de Bavaria)</div>
+          <div>• <b>Puntaje ICFES Saber 11 y Ranking:</b> <b>[✅ icfes-analytics.com / guiacolegio.com] Categoría A+ · Promedio ~341–344 pts</b> (<b>Top 2% nacional / Top 50 Bogotá</b>), destacando especialmente en Inglés y Matemáticas.</div>
+          <div>• <b>Currículo Cambridge:</b> <b>[✅ hispanoamericano.edu.co] Cambridge International School + Cambridge Early Years Centre</b> (desde Preescolar) + enfoque constructivista y STEAM. <i>(No imparte Diploma IB).</i></div>
+        </div>
       </div>
     </div>
 
@@ -3079,6 +3122,10 @@
           <div class="font-bold text-sm text-amber-400">🦁 26. Colegio Bilingüe Clermont (Tv. 80 # 213A-17)</div>
           <div>• <b>Acreditaciones:</b> <b>[✅ clermont.edu.co] Cambridge Assessment International Education + Sello Francófono (Alianza Francesa) + EFQM + Col-Sapiens AAA+</b>.</div>
         </div>
+        <div class="p-4 rounded-xl border-2 border-cyan-500/60 bg-[var(--background)] space-y-2">
+          <div class="font-bold text-sm text-cyan-400">🏰⚔️ 27. Colegio Bilingüe Hispanoamericano Conde Ansúrez (Cra. 67 # 173A-80)</div>
+          <div>• <b>Acreditaciones Verificadas:</b> <b>[✅ hispanoamericano.edu.co] Cambridge International School + Cambridge Early Years Centre + Cambridge English School + EFQM (Excelencia Europea)</b>.</div>
+        </div>
       </div>
 
       <!-- GLOSARIO COMPLETO DE LAS 13 CERTIFICACIONES Y ASOCIACIONES -->
@@ -3266,6 +3313,11 @@
           <div class="font-bold text-sm text-amber-400">🦁 26. Colegio Bilingüe Clermont (Tv. 80 # 213A-17) — 🟢 SÍ CUMPLE C1</div>
           <div>• <b>1. Inglés:</b> <b>🟢 C1 Certificado (Cambridge Assessment International Education)</b>.</div>
           <div>• <b>2. Tercer Idioma:</b> <b>🟢 Francés con Sello Francófono (convenio Alianza Francesa)</b>.</div>
+        </div>
+        <div class="p-4 rounded-xl border-2 border-cyan-500/60 bg-[var(--background)] space-y-2">
+          <div class="font-bold text-sm text-cyan-400">🏰⚔️ 27. Hispanoamericano Conde Ansúrez — 🟡 CAMBRIDGE B2–C1 (VERIFICAR % C1 EN 11°)</div>
+          <div>• <b>1. Inglés:</b> <b>[✅ hispanoamericano.edu.co] Cambridge International &amp; English School</b> (metas MCER <b>B2 a C1</b> desde <i>Cambridge Early Years</i>). <i>Confirmar en visita qué % de la promoción 11° certifica C1 oficial.</i></div>
+          <div>• <b>2. Tercer Idioma:</b> <b>🟢 Francés</b> integrado al currículo bilingüe (<i>guiacolegio.com</i>).</div>
         </div>
       </div>
     </div>
@@ -3480,6 +3532,11 @@
       <div class="font-bold text-sm text-amber-400">🦁 26. Colegio Bilingüe Clermont (Tv. 80 # 213A-17)</div>
       <div class="px-2 py-0.5 rounded bg-emerald-500/15 text-emerald-500 font-semibold inline-block">🟢 100% Limpio en Bullying en Corte Constitucional · Educación Personalizada</div>
       <div><b>😊 Clima Escolar:</b> Entorno campestre en Vía Arrayanes (al lado del CAS) enfocado en el desarrollo del ser y la convivencia cercana.</div>
+    </div>
+    <div class="p-4 rounded-xl border-2 border-cyan-500/60 bg-[var(--background)] space-y-2">
+      <div class="font-bold text-sm text-cyan-400">🏰⚔️ 27. Hispanoamericano Conde Ansúrez (Cra. 67 # 173A-80)</div>
+      <div class="px-2 py-0.5 rounded bg-emerald-500/15 text-emerald-500 font-semibold inline-block">🟢 0 Tutelas/Sanciones Bullying · Clima Docente &gt;4,5/5 (Computrabajo/Indeed)</div>
+      <div><b>😊 Bienestar y Tareas:</b> Modelo de <b>disciplina positiva</b> y formación socioemocional constructivista. Destaca en reseñas de profesores (<b>&gt;4,5/5</b>) por buen ambiente laboral y respaldo directivo, señal muy positiva para el trato cálido hacia los niños.</div>
     </div>
 
   </div>
@@ -3698,6 +3755,10 @@
           <div class="font-bold text-sm text-amber-400">🦁 26. Colegio Bilingüe Clermont (A 1 cuadra del CAS: Tv. 80 # 213A-17)</div>
           <div><b>⚽🎵 Escuelas en Vía Arrayanes:</b> <b>[✅ clermont.edu.co]</b> Deportes, artes escénicas, música y talleres culturales en su campus campestre al lado del CAS.</div>
         </div>
+        <div class="p-4 rounded-xl border-2 border-cyan-500/60 bg-[var(--background)] space-y-2">
+          <div class="font-bold text-sm text-cyan-400">🏰⚔️ 27. Hispanoamericano Conde Ansúrez (San José de Bavaria)</div>
+          <div><b>⚽🎵 Deportes, Arte y STEAM:</b> <b>[✅ hispanoamericano.edu.co]</b> Actividades deportivas, artísticas y tecnología (STEAM) en sede propia de San José de Bavaria. <i>Confirmar listado de clubes y costos extraescolares 2027 en visita.</i></div>
+        </div>
       </div>
     </div>
 
@@ -3908,6 +3969,10 @@
         <div class="p-4 rounded-xl border-2 border-amber-500/60 bg-[var(--background)] space-y-2">
           <div class="font-bold text-sm text-amber-400">🦁 26. Colegio Bilingüe Clermont (Tv. 80 # 213A-17 · Cambridge + Alianza Francesa)</div>
           <div>• <b>Proyección Internacional:</b> <b>[✅ clermont.edu.co]</b> Certificaciones de Cambridge y Alianza Francesa que facilitan la admisión universitaria en Colombia, Francia, Canadá y EE. UU.</div>
+        </div>
+        <div class="p-4 rounded-xl border-2 border-cyan-500/60 bg-[var(--background)] space-y-2">
+          <div class="font-bold text-sm text-cyan-400">🏰⚔️ 27. Hispanoamericano Conde Ansúrez (Cambridge International + Top 2% ICFES)</div>
+          <div>• <b>Proyección Universitaria:</b> <b>[✅ icfes-analytics.com / hispanoamericano.edu.co]</b> Sólido puntaje Saber 11 (341–344 A+, Top 2% nacional) y certificaciones de Cambridge para universidades colombianas e internacionales. <i>(Sin homologación de créditos IB).</i></div>
         </div>
       </div>
     </div>
@@ -4129,6 +4194,10 @@
           <div class="font-bold text-sm text-amber-400">🦁 26. Colegio Bilingüe Clermont (A 1 cuadra del CAS: Tv. 80 # 213A-17)</div>
           <div>• <b>Distancia:</b> <b>~6,7 km al norte</b> en Vía Arrayanes (literalmente a 1 cuadra del CAS en Cra. 73 # 214-53).</div>
         </div>
+        <div class="p-4 rounded-xl border-2 border-cyan-500/60 bg-[var(--background)] space-y-2">
+          <div class="font-bold text-sm text-cyan-400">🏰⚔️ 27. Hispanoamericano Conde Ansúrez (Cra. 67 # 173A-80 · A 6 MIN DE CASA)</div>
+          <div>• <b>Distancia Imbatible:</b> <b>~2,2 km de Av. Boyacá con Cll. 153 (6 minutos en carro · 0% obras de la Av. Boyacá Norte)</b> — literalmente a <b>6 cuadras del JCN (Cll. 180 # 67-80)</b> sobre la misma Cra. 67! Permite que Sara duerma más y ahorres hasta $70M si decides llevarla sin ruta.</div>
+        </div>
       </div>
     </div>
 
@@ -4319,6 +4388,10 @@
           <div class="font-bold text-sm text-amber-400">🦁 26. Colegio Bilingüe Clermont (Tv. 80 # 213A-17)</div>
           <div>• <b>Campus en Vía Arrayanes:</b> <b>[✅ clermont.edu.co]</b> Sede campestre a 1 cuadra del CAS con zonas verdes, canchas deportivas y edificio de preescolar (*Nursery*). Sin piscina propia.</div>
         </div>
+        <div class="p-4 rounded-xl border-2 border-cyan-500/60 bg-[var(--background)] space-y-2">
+          <div class="font-bold text-sm text-cyan-400">🏰⚔️ 27. Hispanoamericano Conde Ansúrez (Sede San José de Bavaria)</div>
+          <div>• <b>Campus Urbano-Campestre:</b> <b>[✅ hispanoamericano.edu.co]</b> Sede en San José de Bavaria (Cra. 67 # 173A-80) con espacios modernos de <i>Cambridge Early Years</i>, laboratorios STEAM, comedor propio y zonas deportivas. Sin piscina propia confirmada.</div>
+        </div>
       </div>
     </div>
 
@@ -4500,6 +4573,10 @@
           <div class="font-bold text-sm text-amber-400">🦁 26. Colegio Bilingüe Clermont (A 1 cuadra del CAS: Tv. 80 # 213A-17)</div>
           <div>• <b>Trayectoria y Contacto:</b> <b>[✅ clermont.edu.co]</b> Transversal 80 # 213A-17 (Vía Arrayanes, al lado del CAS) · Web: <b>clermont.edu.co</b>.</div>
         </div>
+        <div class="p-4 rounded-xl border-2 border-cyan-500/60 bg-[var(--background)] space-y-2">
+          <div class="font-bold text-sm text-cyan-400">🏰⚔️ 27. Hispanoamericano Conde Ansúrez (Fundado en 1959 — 67 años)</div>
+          <div>• <b>Trayectoria y Contacto:</b> <b>[✅ hispanoamericano.edu.co]</b> Fundado en <b>1959</b>, mixto y laico · Cra. 67 # 173A-80 (San José de Bavaria) · Correo: <b>admisiones@hispanoamericano.edu.co</b>.</div>
+        </div>
       </div>
     </div>
 
@@ -4551,6 +4628,7 @@
       <tr><td class="p-2 font-semibold text-purple-400">Colegio Bilingüe Buckingham (Vecino CAS Cll. 214)</td><td class="p-2">Sede Cra. 52 # 214-55 (<b>misma Calle 214 del CAS</b>), Cal. B, <b>Continuum 3 Programas del IB (PYP + MYP + DP) + Preescolar Finlandés HEI Schools (Universidad de Helsinki) + CIS + Great Place to Study + Col-Sapiens AAA++</b> (cbk.edu.co); <b>tarifas GuíaColegio / BuscandoColegio: Matrícula $4,05M–$4,75M, Pensión $2,75M–$4,04M</b>.</td><td class="p-2">Diferencial exacto con y sin pago anticipado.</td><td class="p-2">Circular oficial 2027–28 para preescolar HEI Schools.</td></tr>
       <tr><td class="p-2 font-semibold text-sky-400">Colegio San Viator Bilingüe Int. (Vecino CAS Autonorte # 209-51)</td><td class="p-2">Sede Autopista Norte # 209-51 (<b>a 5 cuadras de la Cll. 214 del CAS</b>), Cal. B, <b>Continuum 3 Programas del IB (PEP + PAI + PD) + CIS + EFQM 5★ + Great Place to Study + Col-Sapiens AAA++ + Francés desde primaria</b> (sanviator.edu.co); <b>tarifas GuíaColegio: Matrícula $3,0M–$3,25M, Pensión $3,0M–$3,25M, Comida $600k–$650k, Ruta App BusesCool $600k–$650k = $4,20M–$4,55M/mes (~$612,5M en 14a)</b>.</td><td class="p-2">Reajuste IPC para 2027–28.</td><td class="p-2">Circular oficial de costos 2027–28.</td></tr>
       <tr><td class="p-2 font-semibold text-amber-400">Colegio Bilingüe Clermont (A 1 cuadra del CAS)</td><td class="p-2">Sede Tv. 80 # 213A-17 / Cra. 73 # 213A-51 (<b>a 1 cuadra del CAS en Vía Arrayanes</b>), Cal. B (recibe desde <i>Nursery</i>), <b>Cambridge International + Sello Francófono Alianza Francesa + EFQM + Col-Sapiens AAA+</b> (clermont.edu.co); <b>tarifas BuscandoColegio / GuíaColegio: Matrícula $3,75M–$4,12M, Pensión $2,71M–$3,75M</b>.</td><td class="p-2">Valor exacto de cafetería y ruta hacia Colina Campestre.</td><td class="p-2">Circular oficial de costos 2027–28 para Nursery y Prekínder.</td></tr>
+      <tr><td class="p-2 font-semibold text-cyan-400">Hispanoamericano Conde Ansúrez (San José de Bavaria)</td><td class="p-2">Sede <b>Cra. 67 # 173A-80 (2,2 km / 6 min de casa · a 6 cuadras del JCN)</b>, Cal. A, Mixto, Laico (desde 1959), <b>Cambridge International School &amp; Early Years + EFQM + Francés</b> (hispanoamericano.edu.co), <b>ICFES 341–344 A+ Top 2%</b> (icfes-analytics.com), 0 tutelas bullying y clima docente &gt;4,5/5; <b>tarifas GuíaColegio/Edtools: Matrícula $2,0M–$3,0M, Pensión $1,5M–$2,25M, Comida+Ruta ~$950k ($0 bono)</b>.</td><td class="p-2">% exacto de alumnos que certifican C1 (vs. B2) en 11° + circular oficial de tarifas 2027–28.</td><td class="p-2">Pedir PDF de costos 2027–28 y resultados oficiales de exámenes Cambridge 11° en admisiones@hispanoamericano.edu.co.</td></tr>
     </tbody></table></div>
   <div class="mt-4 p-4 rounded-xl border border-[var(--border)] bg-[var(--background)] text-xs space-y-1.5">
     <div class="font-bold text-sm">Preguntas para copiar y enviar a admisiones</div>
@@ -4578,7 +4656,7 @@
       <div class="space-y-2.5">
         <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
           <h4 class="text-sm sm:text-base font-extrabold text-sky-300">🧠 8 Puntos de Vista de la IA: ¿Cuál elegiría según lo que más valoras?</h4>
-          <span class="text-[11px] text-emerald-400 font-semibold">✅ Filtrado solo con los 9 Colegios Elegibles (Mixtos) (C1 + ≤ $5M/mes) tras JCN</span>
+          <span class="text-[11px] text-emerald-400 font-semibold">✅ Filtrado solo con los 10 Colegios Elegibles (Mixtos) (C1 + ≤ $5M/mes) tras JCN</span>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-3 text-xs">
@@ -4596,10 +4674,10 @@
           <div class="p-3.5 rounded-2xl border border-teal-500/40 bg-teal-950/20 space-y-1.5">
             <div class="flex items-center justify-between gap-1">
               <span class="px-2 py-0.5 rounded-full text-[10px] font-black bg-teal-400 text-slate-950">💵 MÁS BARATO + BIENESTAR</span>
-              <span class="text-[10.5px] font-bold text-teal-300">$571M – $578M</span>
+              <span class="text-[10.5px] font-bold text-teal-300">$448,0M ($378M s/ruta)</span>
             </div>
-            <div class="font-extrabold text-sm text-white">🏴󠁧󠁢󠁥󠁮󠁧󠁿 NES / 🏛️ Richmond School</div>
-            <p class="text-[11px] text-slate-300 leading-relaxed">Los más económicos entre los <b>9 finalistas</b> ($0 bono · <b>ahorras ~$217M–$224M vs. SGS</b>): <b>NES</b> ($571M, IB + Cambridge ICE en Cal. A) y <b>Richmond</b> ($578,2M, Cognia US Diploma + <i>Great Place to Study</i> en Cal. B).</p>
+            <div class="font-extrabold text-sm text-white">🏰⚔️ Conde Ansúrez <span class="text-[10px] text-slate-400">(IB: NES $571M)</span></div>
+            <p class="text-[11px] text-slate-300 leading-relaxed">El más económico de los <b>10 finalistas</b> ($0 bono · <b>ahorras $347M vs. SGS</b>): <b>Cambridge Int. + EFQM + Francés</b>, clima docente &gt;4,5/5 y mismo Cal. A del JCN. <i>Verificar % C1 en 11°. (Con IB económico: <b>NES</b> $571M).</i></p>
           </div>
 
           <!-- 3. Mejor Continuum IB al Mejor Precio -->
@@ -4615,11 +4693,11 @@
           <!-- 4. Más Cercano y Sin Obras (100% Mixto) -->
           <div class="p-3.5 rounded-2xl border border-pink-500/40 bg-pink-950/20 space-y-1.5">
             <div class="flex items-center justify-between gap-1">
-              <span class="px-2 py-0.5 rounded-full text-[10px] font-black bg-pink-400 text-slate-950">🏠 MÁS CERCANO MIXTO</span>
-              <span class="text-[10.5px] font-bold text-pink-300">3,1 km · 0% obras</span>
+              <span class="px-2 py-0.5 rounded-full text-[10px] font-black bg-pink-400 text-slate-950">🏠 MÁS CERCANO (6 MIN)</span>
+              <span class="text-[10.5px] font-bold text-pink-300">2,2 km · 0% obras</span>
             </div>
-            <div class="font-extrabold text-sm text-white">🇬🇧 Saint George’s <span class="text-[10px] text-slate-400">(2°: Vermont 5,5 km)</span></div>
-            <p class="text-[11px] text-slate-300 leading-relaxed">El colegio <b>mixto elegible</b> más cercano a Av. Boyacá Cll. 153: <b>Saint George’s</b> en Cerros de Suba (<b>3,1 km · 0% obras</b>). Le sigue <b>Gimnasio Vermont</b> en Cll. 195 (~5,5 km).</p>
+            <div class="font-extrabold text-sm text-white">🏰⚔️ Conde Ansúrez <span class="text-[10px] text-slate-400">(2°: SGS 3,1 km)</span></div>
+            <p class="text-[11px] text-slate-300 leading-relaxed">A solo <b>2,2 km (6 min)</b> en Cra. 67 # 173A-80 — <b>a 6 cuadras del JCN y 0% obras de la Boyacá Norte</b> (sin ruta obligatoria). 2° más cercano mixto: <b>Saint George’s</b> (3,1 km · 0% obras).</p>
           </div>
 
           <!-- 5. Mejor Doble Titulación + Bienestar Cal. A -->
@@ -4712,7 +4790,7 @@
             <span class="font-bold text-orange-400 text-sm">NES <span id="g14-score-nuevainglaterra">–</span> · San Viator <span id="g14-score-sanviator">–</span></span>
           </div>
           <div class="font-bold text-base text-orange-400">🏴󠁧󠁢󠁥󠁮󠁧󠁿 NES · ⚜️🗽 San Viator · 👑 Buckingham · 🌎 Vermont</div>
-          <div class="p-2 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-[11px]"><b>✅ Filtros activos:</b> Quedaron <b>9 colegios 100% mixtos, Inglés C1, ≤ $5M/mes y sin fama de carga punitiva</b> (descartados por familia: Hontanar por lejos, Abraham Lincoln y Anglo Americano por carga pesada, y Marymount por ser solo femenino).</div>
+          <div class="p-2 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-[11px]"><b>✅ Filtros activos:</b> Quedaron <b>10 colegios 100% mixtos, Inglés C1, ≤ $5M/mes y sin fama de carga punitiva</b> (descartados por familia: Hontanar por lejos, Abraham Lincoln y Anglo Americano por carga pesada, y Marymount por ser solo femenino).</div>
           <div>• <b>1. 🏴󠁧󠁢󠁥󠁮󠁧󠁿 Colegio Nueva Inglaterra — NES (Cal. A · ~$571M · $0 bono):</b> Diploma IB + Cambridge ICE + Francés en Plan Completo ($224M menos que SGS) y mismo calendario del JCN. <i>Verificar ambiente docente/administrativo en visita.</i></div>
           <div>• <b>2. ⚜️🗽 San Viator (~$612,5M) y 👑 Buckingham (~$690M):</b> Ambos ofrecen <b>Continuum IB completo (3 programas)</b>; San Viator suma <b>EFQM 5★ + Great Place to Study</b> ($0 bono) y Buckingham suma <b>CIS + Preescolar Finlandés HEI</b>.</div>
           <div>• <b>3. 🌎 Gimnasio Vermont (~$741M · $0 bono):</b> Diploma IB + <b>Mandarín obligatorio HSK</b> + entrada a las <b>8:00 a.m.</b> + norma de cero tareas en semana de exámenes (CPA).</div>
@@ -5012,6 +5090,17 @@
               <td class="p-2.5"><b>7,1 / 15</b> (Campus campestre en Vía Arrayanes con zonas verdes y deportes; sin piscina propia)</td>
               <td class="p-2.5"><b>4,1 / 5</b> (Certificaciones Cambridge + Alianza Francesa y convenios universitarios)</td>
               <td class="p-2.5 font-bold text-amber-300">77,3 / 100 · 🟢 ELEGIBLE A 1 CUADRA DEL CAS (CAL. B DESDE NURSERY + CAMBRIDGE + FRANCÉS)</td>
+            </tr>
+            <tr class="bg-cyan-500/10">
+              <td class="p-2.5 font-bold text-cyan-300">27. 🏰⚔️ Hispanoamericano Conde Ansúrez (<b>Cra. 67 # 173A-80 · 2,2 km / 6 min</b> · Cal. A)</td>
+              <td class="p-2.5 font-semibold text-emerald-400"><b>18,0 / 20</b> (🟢 0 tutelas bullying + <b>clima docente &gt;4,5/5</b> + disciplina positiva)</td>
+              <td class="p-2.5"><b>16,8 / 20</b> (<b>Cambridge International &amp; Early Years + EFQM</b> + ICFES ~341–344 A+ Top 2%; sin IB)</td>
+              <td class="p-2.5 font-semibold text-cyan-300"><b>12,2 / 15</b> (<b>Cambridge B2–C1 [verificar % C1 en 11°] + Francés</b>)</td>
+              <td class="p-2.5 font-semibold text-emerald-400"><b>14,8 / 15</b> (<b>~$2,85M–$3,25M/mes c/comida y ruta · $0 bono · ~$448M en 14a: el más económico, ahorras ~$347M vs. SGS</b>)</td>
+              <td class="p-2.5 font-semibold text-emerald-400"><b>9,8 / 10</b> (<b>A solo 2,2 km / 6 min de casa · 0% obras · a 6 cuadras del JCN · mismo Cal. A</b>)</td>
+              <td class="p-2.5"><b>7,4 / 15</b> (Campus propio en San José de Bavaria con STEAM y deportes; sin piscina confirmada)</td>
+              <td class="p-2.5"><b>3,9 / 5</b> (Top 2% ICFES + Cambridge; sin homologación IB)</td>
+              <td class="p-2.5 font-bold text-cyan-300">82,9 / 100 · 🟢 ELEGIBLE #1 EN PRECIO Y CERCANÍA (6 MIN DE CASA · CAL. A · CAMBRIDGE)</td>
             </tr>
           </tbody>
         </table>
@@ -5618,11 +5707,13 @@
       clermont:       { name: '🦁 Colegio Bilingüe Clermont (A 1 cuadra del CAS)', calType: 'B', full14: 615.0, ant: 0, annualPre: 43.93, annualPri: 43.93 },
       buckingham:     { name: '👑 Colegio Bilingüe Buckingham (3 Programas IB + HEI)', calType: 'B', full14: 690.0, ant: 0, annualPre: 49.28, annualPri: 49.28 },
       richmond:       { name: '🏛️ Richmond School (Cognia High School Diploma)', calType: 'B', full14: 578.2, ant: 0, annualPre: 41.30, annualPri: 41.30 },
-      gcb:            { name: '🛩️ GCB — Gimnasio Colombo Británico (IB + IGCSE)', calType: 'B', full14: 673.0, ant: 0, annualPre: 48.07, annualPri: 48.07 }
+      gcb:            { name: '🛩️ GCB — Gimnasio Colombo Británico (IB + IGCSE)', calType: 'B', full14: 673.0, ant: 0, annualPre: 48.07, annualPri: 48.07 },
+      condeansurez:   { name: '🏰⚔️ Hispanoamericano Conde Ansúrez (6 min · Cambridge + EFQM)', calType: 'A', full14: 448.0, ant: 0, annualPre: 32.00, annualPri: 32.00 }
     };
     const jcnState = { sched: 'hibrido', route: 'completa', early: true, dest: 'cas_alm', jcnYears: '2' };
     const costRankState = { mode: 'combo', asc: true };
     const COST_RANK_META = {
+      condeansurez:   { monthly: 2.95, eng: 'B2–C1 · Cambridge (Verif. C1)', certs: '🏅 Cambridge Int. & Early Years · EFQM · 🇫🇷 Francés', log: 'Cal. A · 2,2 km (6 min · 0% obras) · $0 bono' },
       cni:            { monthly: 3.60, eng: 'C1 · IELTS + Cambridge',  certs: '🌐 Diploma IB · 🏅 Cambridge ICE · 🇫🇷 Francés', log: 'Cal. A (Grupo JCN) · 6,8 km · $0 bono' },
       richmond:       { monthly: 3.75, eng: 'C1 · US Diploma',         certs: '🇺🇸 Cognia (US High School Diploma)',          log: 'Cal. B · 7,4 km · $0 bono' },
       sanviator:      { monthly: 4.35, eng: 'C1 · IB · Francés',       certs: '🌐 3 Programas IB · EFQM 5★ · GPTS',           log: 'Cal. B (Vecino CAS) · 6,4 km · $0 bono' },
@@ -5993,12 +6084,12 @@
         }
       }
 
-      // Renderizar Tabla Maestra de TODOS los 9 Colegios Elegibles (Mixtos) (Saint George's, CAS y demás)
+      // Renderizar Tabla Maestra de TODOS los 10 Colegios Elegibles (Mixtos) (Saint George's, CAS y demás)
       const elAllMatrix = document.getElementById('jcn-all-schools-matrix');
       renderCostRanking(total2027, mat2, m2028_5m, year2PlusJcn, yrs);
 
       if (elAllMatrix) {
-        const orderKeys = ['sgs', 'cas_alm', 'vermont', 'buckingham', 'gcb', 'clermont', 'sanviator', 'richmond', 'cni'];
+        const orderKeys = ['sgs', 'cas_alm', 'vermont', 'buckingham', 'gcb', 'clermont', 'sanviator', 'richmond', 'cni', 'condeansurez'];
         const allRows = orderKeys.map(k => {
           const s = JCN_DEST_SCHOOLS[k];
           if (!s) return '';
@@ -6038,7 +6129,7 @@
 
         elAllMatrix.innerHTML = `
           <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 mb-2">
-            <div class="font-bold text-emerald-300">🏫 Comparativa de los 9 Colegios Elegibles (Mixtos): ¿Cómo cambia el valor según cuándo salga Sara del 🏡 JCN?</div>
+            <div class="font-bold text-emerald-300">🏫 Comparativa de los 10 Colegios Elegibles (Mixtos): ¿Cómo cambia el valor según cuándo salga Sara del 🏡 JCN?</div>
             <div class="text-[10px] text-slate-400">💡 Haz clic en cualquier fila para ver su desglose arriba · En <span class="text-sky-300 font-bold">azul</span> = Solo Colegio · Abajo = <b>Total JCN + Colegio</b></div>
           </div>
           <div class="overflow-x-auto">
@@ -6549,6 +6640,25 @@
           v10: C(7.6, 'ok', 'Campus campestre en Vía Arrayanes con zonas verdes y canchas deportivas. Sin piscina propia.'),
           v11: C(8.3, 'ok', 'Sección de Nursery y Preescolar personalizada en entorno campestre al lado del CAS.'),
           v12: C(8.0, 'ok', 'Certificaciones internacionales de Cambridge y Alianza Francesa con convenios universitarios.')
+        } },
+      { id: 'condeansurez', flag: '🏰⚔️', name: 'Colegio Bilingüe Hispanoamericano Conde Ansúrez (Cra. 67 # 173A-80)', cal: 'Calendario A · San José de Bavaria (~2,2 km / 6 min · a 6 cuadras del JCN · 0% obras)',
+        costCon: 448.0, costSin: 448.0, costCert: 'ter', costNote: 'GuíaColegio / Edtools: Matrícula $2,0M–$3,0M, Pensión $1,5M–$2,25M, Comida+Ruta ~$950k/mes (~$448M c/ruta o ~$378M s/ruta a 6 min · $0 bono).',
+        km: 2.2, obras: false, kmCert: 'ok', grad: 17.33, gradCert: 'ok',
+        costLabelCon: '~$2,85M–$3,25M/mes c/ruta (~$448M · $0 bono)', costLabelSin: '~$2,85M–$3,25M/mes (~$378M s/ruta a 6 min)',
+        cells: {
+          v1: C(9.4, 'ok', '0 tutelas/sanciones bullying + clima docente >4,5/5 (Computrabajo/Indeed) + disciplina positiva.'),
+          v2: C(8.8, 'ok', 'ICFES Saber 11: ~341–344 pts (Categoría A+, Top 2% nacional / Top 50 Bogotá).'),
+          v3: C(8.6, 'ok', 'Cambridge International School & Early Years + EFQM (sin Diploma IB; confirmar % C1 en 11°).'),
+          v4: C(8.6, 'ok', 'Francés integrado como tercera lengua en el currículo.'),
+          v5: C(10.0, 'ter', '10/10 EN COSTO: El más económico de los 10 elegibles (~$448M c/ruta o ~$378M s/ruta · $0 bono).'),
+          v6: C(9.5, 'ok', 'Mismo Calendario A del JCN (empalme directo Feb 2028/2029/2030 · gradúa 17a 4m).'),
+          v7: C(10.0, 'ok', '10/10 EN CERCANÍA: Cra. 67 # 173A-80 a solo 2,2 km (6 min, 0% obras, a 6 cuadras del JCN).'),
+          v8: C(9.0, 'ok', 'Trayecto de 6 minutos permite dormir más cada mañana.'),
+          v9: C(8.3, 'ok', 'Deportes, arte y espacios STEAM en sede San José de Bavaria.'),
+          v10: C(8.5, 'ok', 'Sede propia moderna en San José de Bavaria (sin piscina propia confirmada).'),
+          v11: C(9.3, 'ok', 'Disciplina positiva + clima docente sobresaliente (>4,5/5) + enfoque socioemocional.'),
+          v12: C(8.6, 'ok', 'Top 2% ICFES + certificaciones Cambridge (sin homologación de créditos IB).'),
+          v13: C(8.2, 'ok', 'Mismo Calendario A y vecino a 6 cuadras del JCN (colegio externo independiente).')
         } }
     ];
     const COST_LO = 638, COST_HI = 986.5;
@@ -6560,7 +6670,7 @@
         v2: [10.0, 'ok', '10/10 VERIFICADO: ICFES 363,2 pts (Top #48 de TODA Colombia) + Col-Sapiens D2 · AAA+.'],
         v3: [9.5, 'ok', 'Diploma IB + Certificación Cambridge C1/C2 + Francés Alianza Francesa.'],
         v4: [8.8, 'ok', 'Francés certificado con la Alianza Francesa incluido en el currículo.'],
-        v5: [9.8, 'ok', 'Plan Completo ($3,25M–$3,50M/mes todo incluido · ~$542,5M en 14a · $0 bono). #2 más económico de los 9 elegibles.'],
+        v5: [9.8, 'ok', 'Plan Completo ($3,25M–$3,50M/mes todo incluido · ~$542,5M en 14a · $0 bono). #2 más económico de los 10 elegibles.'],
         v6: [9.5, 'ok', 'Mismo Calendario A del JCN (empalme limpio en Feb 2028/2029/2030 · gradúa 17a 4m).'],
         v7: [8.4, 'ok', 'Cra. 7ª antes del peaje (~5,2 km, sin peaje y ruta incluida en el Plan Completo).'],
         v8: [8.6, 'ok', 'Horario campestre equilibrado con ruta puerta a puerta incluida.'],
@@ -6720,6 +6830,21 @@
         v12:[8.8, 'ok', 'Certificaciones Cambridge y Alianza Francesa.'],
         v13:[7.0, 'ok', 'Colegio externo Calendario B.']
       },
+      condeansurez: {
+        v1: [9.4, 'ok', '0 tutelas/sanciones bullying + clima laboral docente >4,5/5 (Computrabajo/Indeed) + disciplina positiva.'],
+        v2: [8.8, 'ok', 'VERIFICADO (icfes-analytics.com): ICFES ~341–344 pts (Categoría A+, Top 2% nacional / Top 50 Bogotá).'],
+        v3: [8.6, 'ok', 'VERIFICADO (hispanoamericano.edu.co): Cambridge International School & Early Years + EFQM (sin IB; verificar % C1 en 11°).'],
+        v4: [8.6, 'ok', 'Francés integrado como tercera lengua.'],
+        v5: [10.0, 'ter', '10/10 EN COSTO: El más económico de los 10 elegibles (~$448M c/ruta o ~$378M s/ruta · $0 bono).'],
+        v6: [9.5, 'ok', 'Mismo Calendario A del JCN (empalme directo en Feb 2028/2029/2030 · gradúa 17a 4m).'],
+        v7: [10.0, 'ok', '10/10 VERIFICADO: Cra. 67 # 173A-80 a solo 2,2 km (6 min, 0% obras, a 6 cuadras del JCN).'],
+        v8: [9.0, 'ok', 'Al quedar a 6 minutos de casa, Sara duerme mucho más cada mañana.'],
+        v9: [8.3, 'ok', 'Deportes, artes y tecnología STEAM en sede propia.'],
+        v10:[8.5, 'ok', 'Sede moderna en San José de Bavaria (sin piscina propia confirmada).'],
+        v11:[9.3, 'ok', 'Disciplina positiva + profesores con satisfacción >4,5/5 + formación socioemocional.'],
+        v12:[8.6, 'ok', 'Top 2% ICFES + Cambridge (sin homologación directa de créditos IB).'],
+        v13:[8.2, 'ok', 'Mismo Calendario A y a 6 cuadras del JCN (colegio externo independiente).']
+      },
       richmond: {
         v1: [9.0, 'ok', 'Ambiente escolar sano y personalizado.'],
         v2: [8.7, 'ok', 'Sólido nivel académico bilingüe.'],
@@ -6740,7 +6865,7 @@
         v2: [9.5, 'ok', 'Col-Sapiens D1 · Excelencia académica histórica.'],
         v3: [8.0, 'ok', 'VERIFICADO (colegioangloamericano.edu.co): Bilingüe evaluado con PEPT (Pearson MCER B2–C1); sin IB ni Cambridge ICE.'],
         v4: [7.5, 'ok', 'Foco en Inglés C1.'],
-        v5: [10.0, 'ok', '10/10 VERIFICADO: El más económico de los 9 elegibles (~$518M en 14a · $0 bono).'],
+        v5: [10.0, 'ok', '10/10 VERIFICADO: El más económico de los 10 elegibles (~$518M en 14a · $0 bono).'],
         v6: [9.5, 'ok', 'Mismo Calendario A del JCN (empalme limpio Febrero).'],
         v7: [7.7, 'ok', 'VERIFICADO (caa.edu.co): Calle 170 # 8-80 Usaquén (~6,5 km de Av. Boyacá Cll. 153).'],
         v8: [8.0, 'ok', 'Trayecto de ~6,5 km hacia Usaquén (Cll. 170 # 8-80).'],
